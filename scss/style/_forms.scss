@@ -1,0 +1,57 @@
+// Forms
+
+form {
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+legend {
+  border: 0;
+  *margin-left: -7px;
+}
+
+button, input, select, textarea {
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+
+button {
+  cursor: pointer;
+  @include appearance('button');
+}
+
+input {
+  &[type="button"], &[type="reset"], &[type="submit"] {
+    cursor: pointer;
+    @include appearance('button');
+  }
+  &[type="checkbox"], &[type="radio"] {
+    @include box-sizing(border-box);
+  }
+  &[type="search"] {
+    @include appearance('textfield');
+    @include box-sizing(content-box);
+    &::-webkit-search-decoration {
+      @include appearance('none');
+    }
+  }
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}

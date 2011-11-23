@@ -1,0 +1,261 @@
+
+/*!
+ * Mesh v1.0.6
+ *
+ * Copyright 2011 Maxwell Barvian
+ * Licensed under the GNU General Public License
+ * http://www.gnu.org/licenses/gpl.html
+ */
+
+// Configuration
+$desktop-columns: 32 !default; // the number of columns in your grid
+$tablet-columns: 24 !default; // the number of columns in your grid
+$handheld-columns: 12 !default; // the number of columns in your grid
+$gutter-width: 10px !default; // The width of the gutters of your grid, in percentages
+$gutter-width-percent: percentage($gutter-width / $max-desktop-width);
+$max-desktop-width: 1140px !default;
+$max-tablet-landscape-width: 940px !default;
+$max-tablet-width: 748px !default;
+$max-handheld-landscape-width: 476px !default;
+$max-handheld-width: 320px !default;
+$col-desktop-width: ($max-desktop-width - $gutter-width * ($desktop-columns - 1)) / $desktop-columns;
+$col-tablet-landscape-width: ($max-tablet-landscape-width - $gutter-width * ($tablet-columns - 1)) / $tablet-columns;
+$col-tablet-width: ($max-tablet-width - $gutter-width * ($tablet-columns - 1)) / $tablet-columns;
+$col-handheld-landscape-width: ($max-handheld-landscape-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
+$col-handheld-width: ($max-handheld-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
+
+.row {
+	margin: 0 auto;
+}
+
+.row {
+	zoom: 1;
+	
+	&:before, &:after {
+		display: table;
+		content: "";
+		zoom: 1;
+		*display: inline;
+	}
+		
+	&:after {
+		clear: both;
+	}
+}
+
+
+// Create the Handheld columns
+$_allColumns-h: "";
+@for $col from 1 to ($handheld-columns + 1) {
+	@if $_allColumns-h == "" {
+		$_allColumns-h: ".g-h-#{$col}";
+	} @else {
+		$_allColumns-h: $_allColumns-h + ", .g-h-#{$col}";
+	}
+	@if $_allColumns-h == "" {
+		$_allColumns-h: ".g-hl-#{$col}";
+	} @else {
+		$_allColumns-h: $_allColumns-h + ", .g-hl-#{$col}";
+	}
+}
+
+// Create the Desktop columns
+$_allColumns-t: "";
+@for $col from 1 to ($tablet-columns + 1) {
+	@if $_allColumns-t == "" {
+		$_allColumns-t: ".g-t-#{$col}";
+	} @else {
+		$_allColumns-t: $_allColumns-t + ", .g-t-#{$col}";
+	}
+	@if $_allColumns-t == "" {
+		$_allColumns-t: ".g-tl-#{$col}";
+	} @else {
+		$_allColumns-t: $_allColumns-t + ", .g-tl-#{$col}";
+	}
+}
+
+// Create the Desktop columns
+$_allColumns-d: "";
+@for $col from 1 to ($desktop-columns + 1) {
+	@if $_allColumns-d == "" {
+		$_allColumns-d: ".g-d-#{$col}";
+	} @else {
+		$_allColumns-d: $_allColumns-d + ", .g-d-#{$col}";
+	}
+}
+	
+#{$_allColumns-d}, #{$_allColumns-t}, #{$_allColumns-h} {
+	@include box-sizing(border-box);
+}
+
+@for $col from 1 to ($handheld-columns + 1) {
+	.g-h-#{$col} {
+		width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
+	}
+}
+
+#{$_allColumns-d}, #{$_allColumns-t}, #{$_allColumns-h} {
+	display: inline;
+	float: left;  // enforces implicit display: block
+	margin-left: $gutter-width-percent;
+	
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+
+@for $col from 1 to $handheld-columns {
+	.offset#{$col} {
+		margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
+		
+		&:first-child {
+			margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
+		}
+	}
+}
+
+
+// Handheld Portrait
+@media only screen and (max-width: 479px) { 
+	body{}
+	
+	.row {
+	max-width: $max-handheld-width;
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $handheld-columns,
+	  $column: $col-handheld-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
+	}
+
+}
+
+
+// Handheld Landscape
+@media only screen and (min-width: 480px) {
+
+.row {
+	max-width: $max-handheld-landscape-width;
+}
+
+  // Disables iphone font size increase when viewing in landscape mode.
+  html { -webkit-text-size-adjust: none; }
+
+	.row {
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $handheld-columns,
+	  $column: $col-handheld-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
+	}
+
+@for $col from 1 to ($handheld-columns + 1) {
+	.g-hl-#{$col} {
+		width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
+	}
+}
+
+}
+
+// Tablet Portrait
+@media only screen and (min-width: 759px) {
+	body{}
+
+	.row {
+	max-width: $max-tablet-width;
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $tablet-columns,
+	  $column: $col-tablet-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
+	}
+
+	@for $col from 1 to ($tablet-columns + 1) {
+		.g-t-#{$col} {
+			width: ($col * ((100.0 - (($tablet-columns - 1) * $gutter-width-percent)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent);
+		}
+	}
+
+
+
+	@for $col from 1 to $tablet-columns {
+		.offset#{$col} {
+			margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
+			
+			&:first-child {
+				margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
+			}
+		}
+	}
+}
+
+
+// Tablet Landscape
+@media only screen and (min-width: 960px) {
+	body{}
+
+	.row {
+	max-width: $max-tablet-landscape-width;
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $tablet-columns,
+	  $column: $col-tablet-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
+	}
+
+	@for $col from 1 to ($tablet-columns + 1) {
+		.g-tl-#{$col} {
+			width: ($col * ((100.0 - (($tablet-columns - 1) * $gutter-width-percent)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent);
+		}
+	}
+
+}
+
+// Desktop
+@media only screen and (min-width: 1140px) {
+	body{}
+
+	.row {
+	max-width: $max-desktop-width;
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $desktop-columns,
+	  $column: $col-desktop-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
+	}
+
+	@for $col from 1 to ($desktop-columns + 1) {
+		.g-d-#{$col} {
+			width: ($col * ((100.0 - (($desktop-columns - 1) * $gutter-width-percent)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent);
+		}
+	}
+
+
+
+	@for $col from 1 to $desktop-columns {
+		.offset#{$col} {
+			margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
+			
+			&:first-child {
+				margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
+			}
+		}
+	}
+}
+

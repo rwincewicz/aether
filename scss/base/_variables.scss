@@ -1,0 +1,52 @@
+// Grid overlay
+$show-grid-background:         true;
+$grid-background-column-color: rgba(153, 0, 0, 0.1);
+
+// Base grid system
+$desktop-columns:              32;
+$tablet-columns:               24;
+$handheld-columns:             12;
+$max-desktop-width:            1140px;
+$max-tablet-landscape-width:   940px;
+$max-tablet-width:             748px;
+$max-handheld-landscape-width: 476px;
+$max-handheld-width:           320px;
+$gutter-width:                 10px; // The width of the gutters of your grid. 
+
+// Vertical Rhythm
+$base-line-height:             18px;
+$base-font-size:               13px;
+$relative-font-sizing:         true; // output px instead of em's. cuz em's are annoying.
+$base-em-ratio:                1em / $base-font-size;
+
+// Font size constants
+$font-size-xxs:                10px;
+$font-size-xs:                 11px;
+$font-size-sm:                 12px;
+$font-size-normal:             $base-font-size;
+$font-size-md:                 14px;
+$font-size-lg:                 18px;
+$font-size-xl:                 20px;
+$font-size-xxl:                24px;
+$font-size-xxxl:               30px;
+
+// Vertical Rhythm borders
+$typographic-indent:           1.625em;
+
+// Font Stacks
+$header-font-family:           "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$text-font-family:             "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$mono-font-family:             Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+
+// Main Link Colors
+$link-color:                   #06c;
+$link-color-hover:             adjust-color($link-color, $lightness: 12, $saturation: 25);
+$link-color-visited:           $link-color;
+$link-color-active:            adjust-color($link-color-hover, $lightness: -15);
+
+// Text Colors
+$text-color:                   #222;
+$text-color-light:             adjust-color($text-color, $lightness: 54);
+$text-border:                  #ddd;
+$text-marked:                  #ff0;
+$text-inserted:                adjust-color($text-marked, $lightness: 30);

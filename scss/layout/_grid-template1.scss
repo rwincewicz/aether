@@ -1,0 +1,76 @@
+#header {
+	@extend .row;
+
+}
+
+#navigation {
+	@extend .row;
+	#primary {
+		@extend .g-d-32;
+		@extend .g-tl-24;
+		@extend .g-t-24;
+		@extend .g-hl-12;
+		@extend .g-h-12;
+	}
+}
+
+.one-sidebar #main {
+	@extend .row;
+	.region-sidebar-first {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+	#content {
+		@extend .g-d-24;
+		@extend .g-tl-18;
+		@extend .g-t-18;
+		@extend .g-hl-9;
+		@extend .g-h-12;
+	}
+	.region-sidebar-second {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+}
+
+.two-sidebars #main {
+	@extend .row;
+	.region-sidebar-first {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+	#content {
+		@extend .g-d-16;
+		@extend .g-tl-12;
+		@extend .g-t-12;
+		@extend .g-hl-9;
+		@extend .g-h-12;
+	}
+	.region-sidebar-second {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+}
+
+#footer {
+	@extend .row;
+	.region-footer {
+		@extend .g-d-32;
+		@extend .g-tl-24;
+		@extend .g-t-24;
+		@extend .g-hl-12;
+		@extend .g-h-12;
+	}
+}

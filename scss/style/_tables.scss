@@ -1,0 +1,28 @@
+// Tables
+
+// BASELINE STYLES
+
+table {
+  width: 100%;
+  padding: 0;
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 10px 10px 9px;
+    text-align: left;
+  }
+  th {
+    padding-top: 9px;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  td {
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+  }
+  // When scoped to row, fix th in tbody
+  tbody th {
+    border-top: 1px solid #ddd;
+    vertical-align: top;
+  }
+}

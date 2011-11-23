@@ -1,0 +1,165 @@
+// HTML5 display definitions
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {
+  display: block;
+}
+
+// Corrects inline-block not defined in IE6/7/8 and FF3 
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+// Ensures content is hidden from all presentations, including screenreaders 
+
+[hidden] {
+  display: none;
+  visibility: hidden;
+  }
+
+// Base structure
+
+html {
+  height: 100%;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  // Prevent iOS text size adjust on orientation change without disabling user zoom 
+  -ms-text-size-adjust: 100%;
+}
+
+
+body {
+  margin: 0 auto;
+  font-family: $text-font-family;
+  color: $text-color;
+}
+
+// Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ 
+
+button, input, select, textarea {
+  font-family: $text-font-family;
+  color: $text-color;
+}
+
+// Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 
+
+sub {
+  @include adjust-font-size-to($font-size-xxs,0);
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  @include adjust-font-size-to($font-size-xxs,0);
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid $text-border;
+}
+
+// Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test 
+
+// Figures
+
+figure {
+  margin: 0;
+}
+
+// Embedded content
+
+img, object, video {
+  max-width: 100%;
+//   Automatically scales images larger than the container. Consider this first: http://unstoppablerobotninja.com/entry/fluid-images/ 
+//   _width: 100%; // IE6 doesn't support max-width, so we just use width. If the image is larger than the container, just uncomment this. If it is smaller than the container, uncomment and change the 100% value to an absolute one  
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  // Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images  
+}
+
+// Corrects overflow displayed oddly in IE9 
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// Abbreviations
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+// Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7 
+
+table {
+  button, input {
+    *overflow: auto;
+  }
+}
+
+// Print styles inlined to avoid extra HTTP connection 
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    // Black prints faster: sanbeiji.com/archives/953 
+    @include text-shadow(none);
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+    &:visited {
+      text-decoration: underline;
+    }
+    &[href]:after {
+      content: " (" attr(href) ")";
+    }
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  // Do not show javascript and internal links 
+  a {
+    &[href^="javascript:"]:after, &[href^="#"]:after {
+      content: "";
+    }
+  }
+  // Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables 
+  thead {
+    display: table-header-group;
+  }
+  tr, img {
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 0.5cm;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,49 @@
+name = aether
+description = aether starter theme for Drupal 7
+screenshot = images/screenshot.gif
+core = "7.x"
+project = "aether"
+engine = phptemplate
+
+regions[page_top] = Page top
+regions[header] = Header
+regions[highlight] = Highlight
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer] = Footer
+regions[page_bottom] = Page bottom
+
+zones[header] = Header
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+; First we remove the system's menu styling since Zen has its own.
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = css/grid-layout.css
+stylesheets[all][] = css/screen.css
+
+; Optionally add some JavaScripts to your theme.
+
+scripts[] = js/ios-viewport-scaling-bug-fix.js
+
+
+settings[aether_tabs] = 1
+settings[aether_breadcrumb_separator] = »
+settings[wireframe_mode] = 0
+settings[clear_registry] = 0
+; Information added by drupal.org packaging script on 2011-02-16
+version = "7.x-2.0-rc3"
+core = "7.x"
+project = "aether"
+datestamp = "1297878443"
+

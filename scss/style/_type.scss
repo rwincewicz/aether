@@ -1,0 +1,224 @@
+// Vertical Rhythm
+$base-font-size: 13px !default;
+$base-line-height: 18px !default;
+$relative-font-sizing: true !default; // output px instead of em's. cuz em's are annoying.
+$base-em-ratio: 1em / $base-font-size !default; // used by the px-to-em function below
+
+$show-grid-backgrounds: false !default;
+
+// Font size constants
+$font-size-xxs: 10px !default;
+$font-size-xs: 11px !default;
+$font-size-sm: 12px !default;
+$font-size-normal: $base-font-size !default;
+$font-size-md: 14px !default;
+$font-size-lg: 18px !default;
+$font-size-xl: 20px !default;
+$font-size-xxl: 24px !default;
+$font-size-xxxl: 30px !default;
+
+// Converts px to em in case you do need relative units in your output.
+@function px-to-em($value, $em-ratio: $base-em-ratio) {
+  @return $value * $em-ratio;
+}
+
+// Vertical Rhythm borders
+$typographic-indent: 1.625em !default;
+
+// Font Stacks
+$header-font-family: Palatino, "Helvetica Neue",Helvetica,Arial,sans-serif !default;
+$text-font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$mono-font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+
+@include establish-baseline($base-font-size);
+
+// Add and/or remove tags as your baseline grid needs 
+
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr {
+  @include margin-leader(0, $font-size-normal);
+  @include margin-trailer(1, $font-size-normal);
+}
+
+// Headings/small
+//
+// Font sizes are based on the golden ratio of 16
+// See this for the modular scale: ow.ly/5jGl6
+// Line-heights and margins are adjusted to keep a 26px (1.625em) vertical rhythm across elements
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-size: px-to-em($base-font-size);
+  font-weight: bold;
+}
+
+h1 {
+  @include adjust-font-size-to($font-size-xxxl,2);
+  @include margin-leader(0, $font-size-xxxl);
+  @include margin-trailer(1, $font-size-xxxl);
+}
+
+h2 {
+  @include adjust-font-size-to($font-size-xxl,2);
+  @include margin-leader(0, $font-size-xxl);
+  @include margin-trailer(1, $font-size-xxl);
+}
+
+h3 {
+  @include adjust-font-size-to($font-size-md,1);
+  @include margin-leader(0, $font-size-lg);
+  @include margin-trailer(1, $font-size-lg);
+}
+
+small {
+  font-size: px-to-em($font-size-xxs);
+  @include margin-leader(0, $font-size-xxs);
+  @include margin-trailer(1, $font-size-xxs);
+}
+
+// Preformatted text and code
+
+// Allows line wrapping of 'pre' 
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  @include adjust-font-size-to($font-size-normal,1);
+  font-family: $mono-font-family;
+}
+
+code, kbd, samp {
+  @include adjust-font-size-to($font-size-normal,1);
+  font-family: $mono-font-family;
+}
+
+// Quotes
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote {
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+}
+
+q {
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+}
+
+blockquote, q, cite {
+  font-style: italic;
+}
+
+blockquote {
+  padding-left: $typographic-indent;
+  border-left: 1px solid $text-border;
+  > p {
+    padding: 0;
+  }
+}
+
+// Unordered and Ordered lists
+ul, ol {
+  margin: 0 0 px-to-em($base-line-height) ($typographic-indent);
+  padding: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+li {
+  line-height: px-to-em($base-line-height);
+}
+ul.unstyled {
+  list-style: none;
+  margin-left: 0;
+}
+
+// Description Lists
+dl {
+    @include margin-trailer(1, $font-size-normal);
+  dt, dd {
+    line-height: px-to-em($base-line-height);
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-left: $typographic-indent / 2;
+  }
+}
+
+// Links
+
+a {
+  @include hover-link;
+  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
+  &:focus {
+    outline: thin dotted;
+  }
+  &:hover, &:active {
+    outline: none;
+  }
+}
+
+#primary {
+  @include menu-links-inline(2em, 1px, solid, transparentize(#FFFFFF, 0.6));
+}
+ 
+#secondary {
+  @include menu-links-inline(1.5em, 2px, dashed, white);
+}
+
+// Marked/inserted/deleted text
+
+mark {
+  background: $text-marked;
+}
+
+ins {
+  text-decoration: none;
+  background: $text-inserted;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+// Others
+
+strong, b, dt {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+var, address {
+  font-style: normal;
+}
+
+table {
+  font-size: $base-font-size;
+  @include margin-trailer(1, $font-size-normal);
+  th,
+  td {
+    line-height: px-to-em($base-line-height);
+  }
+}
