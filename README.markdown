@@ -19,7 +19,7 @@ Installation
     * sites/example.com/themes 
 
 - Log in as an administrator on your Drupal site and go to 
-  Administer > Site building > Themes (admin/build/themes) and make Aether the default theme.
+  /Appearance (admin/appearance) and make Aether the default theme.
 
 
 What are the files for ?
