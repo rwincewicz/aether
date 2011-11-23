@@ -34,6 +34,7 @@ Environment requirement: Mac or Linux
 - Edit scss/ files and watch the magic happen
 
 Download & run helper software for debugging Sass: 
+
 - https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
 - https://github.com/mockko/livereload
 
