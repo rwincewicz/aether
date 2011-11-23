@@ -1,14 +1,14 @@
 
 Introduction to Aether
+------------------------
 
 Aether is geared towards a themer that utilizes sass/compass, it also aims to provide theme settings
 for tasks better handled on the theme layer. 
 
 This theme is a starter theme, with all the components you should need to build a fixed-width responsive site using re-usable CSS patterns, it supports (out of the box) Handheld Portrait (320px), Handheld Landscape, Tablet Landscape, Tablet Portrait, & Desktop (1140px).
 
-__________________________________________________________________________________________
-
 Installation
+------------------------
 
 - Download Aether from https://github.com/krisbulman/Aether
 - Unpack the downloaded file and place the Aether folder in your Drupal installation under 
@@ -114,8 +114,8 @@ An example SASS grid template for the #main content are when 2 sidebars are enab
 		@extend .g-h-12;
 	}
 }
-```
 
+```
 If these classes were added to the markup, it would look like: 
 
 ```
