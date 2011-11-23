@@ -66,26 +66,26 @@ The layout used in Aether is grid based, either use layout/_grid-template1.scss 
 
 *Number of columns per media:* 
 
-Handheld: 12 columns
-Tablet: 24 columns
-Desktop: 32 columns
+_Handheld:_ 12 columns
+_Tablet:_ 24 columns
+_Desktop:_ 32 columns
 
-*Widths per media: *
+**Widths per media:**
 
-Handheld: < 479px
-Handheld Landscape: >= 480px
-Tablet: > 759px
-Tablet Landscape: >= 960px
-Desktop: >= 1140px
+_Handheld:_ < 479px
+_Handheld Landscape:_ >= 480px
+_Tablet:_ > 759px
+_Tablet Landscape:_ >= 960px
+_Desktop:_ >= 1140px
 
-*CSS Classes per media:*
+**CSS Classes per media:**
 .g-<media>-<columns>
 
-Handheld: .g-h-12
-Handheld Landscape: .g-hl-12
-Tablet: .g-t-24
-Tablet Landscape: .g-tl-24
-Desktop: .g-d-32
+_Handheld:_ .g-h-12
+_Handheld Landscape:_ .g-hl-12
+_Tablet:_ .g-t-24
+_Tablet Landscape:_ .g-tl-24
+_Desktop:_ .g-d-32
 
 An example SASS grid template for the #main content are when 2 sidebars are enabled would be: 
 
@@ -114,9 +114,10 @@ An example SASS grid template for the #main content are when 2 sidebars are enab
 		@extend .g-h-12;
 	}
 }
-
 ```
+
 If these classes were added to the markup, it would look like: 
+
 
 ```
 <body class="two-sidebars">
@@ -128,7 +129,7 @@ If these classes were added to the markup, it would look like:
 </body>
 ```
 
-*How rows are defined:* 
+**How rows are defined:**
 .row
 
 This is how the page template is buit in Aether, and it is responsive up from mobile 320px up to desktop 1140px
