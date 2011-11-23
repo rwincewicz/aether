@@ -7,7 +7,7 @@ for tasks better handled on the Drupal theme layer, such as grid column sizes pe
 
 This theme is a starter theme, with all the components you should need to build a fixed-width responsive site using re-usable CSS patterns, it supports (out of the box) Handheld Portrait (320px), Handheld Landscape, Tablet Landscape, Tablet Portrait, & Desktop (1140px).
 
-Installation
+Installation of theme on Drupal 7
 ------------------------
 
 - Download Aether from https://github.com/krisbulman/Aether
@@ -21,6 +21,17 @@ Installation
 - Log in as an administrator on your Drupal site and go to 
   /Appearance (admin/appearance) and make Aether the default theme.
 
+Installation of Sass/Compass in your local development environment
+------------------------
+
+Environment requirement: Mac or Linux
+
+- Open bash prompt
+- $ gem update --system
+- $ gem install compass
+- Navigate to the directory: $ cd drupal/sites/all/themes/Aether
+- Watch for changes: $ compass watch
+- Edit scss/ files and watch the magic happen
 
 What are the files for ?
 ------------------------
