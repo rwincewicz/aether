@@ -96,11 +96,6 @@ function aether_preprocess_node(&$variables) {
 function aether_preprocess_block(&$variables, $hook) {
   // Add a striping class.
   $variables['classes_array'][] = 'block-' . $variables['zebra'];
-  // Add grid classes.
-  $variables['classes_array'][] = 'g-hl-12';
-  $variables['classes_array'][] = 'g-h-12';
-  $variables['classes_array'][] = 'g-all-f';
-  $variables['classes_array'][] = 'g-all-l';
 }
 
 
