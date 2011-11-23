@@ -21,7 +21,6 @@ Installation
 - Log in as an administrator on your Drupal site and go to 
   Administer > Site building > Themes (admin/build/themes) and make Aether the default theme.
 
-__________________________________________________________________________________________
 
 What are the files for ?
 ------------------------
@@ -60,19 +59,18 @@ In scss/
 - grid-layout.scss => compiles everything in layout/ and adds any needed compass add-ons
 - screen.scss => compiles everything in style/ and adds any needed compass add-ons
 
-__________________________________________________________________________________________
-
 Changing the Layout
+------------------------
 
 The layout used in Aether is grid based, either use layout/_grid-template1.scss or theme-settings (not yet implimented) to define column widths. 
 
-Number of columns per media: 
+*Number of columns per media:* 
 
 Handheld: 12 columns
 Tablet: 24 columns
 Desktop: 32 columns
 
-Widths per media: 
+*Widths per media: *
 
 Handheld: < 479px
 Handheld Landscape: >= 480px
@@ -80,7 +78,7 @@ Tablet: > 759px
 Tablet Landscape: >= 960px
 Desktop: >= 1140px
 
-CSS Classes per media: 
+*CSS Classes per media:*
 .g-<media>-<columns>
 
 Handheld: .g-h-12
@@ -130,7 +128,7 @@ If these classes were added to the markup, it would look like:
 </body>
 ```
 
-How rows are defined: 
+*How rows are defined:* 
 .row
 
 This is how the page template is buit in Aether, and it is responsive up from mobile 320px up to desktop 1140px
