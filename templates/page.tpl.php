@@ -2,6 +2,12 @@
 
   <header id="header">
 
+    <?php if ($secondary_menu): ?>
+      <nav class="menu">
+        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
+      </nav>
+    <?php endif; ?>
+
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
@@ -28,12 +34,6 @@
         <?php endif; ?>
 
       </div>
-    <?php endif; ?>
-
-    <?php if ($secondary_menu): ?>
-      <nav class="menu">
-        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
-      </nav>
     <?php endif; ?>
 
     <?php if ($page['header']): ?>

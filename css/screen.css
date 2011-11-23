@@ -3,6 +3,10 @@
   padding: 0 10px;
 }
 
+#secondary {
+  float: right;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {
   display: block;
 }
@@ -346,6 +350,13 @@ table {
 table th,
 table td {
   line-height: 1.385em;
+}
+
+#site-name {
+  font-size: 2.308em;
+  line-height: 1.8em;
+  margin-top: 0em;
+  margin-bottom: 0.6em;
 }
 
 div.messages {
