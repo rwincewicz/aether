@@ -63,15 +63,27 @@ ________________________________________________________________________________
 
 Changing the Layout
 
-The layout used in Aether is grid based, either use layout/_grid-template1.scss or theme-settings (not yet implimented) to define column widths
+The layout used in Aether is grid based, either use layout/_grid-template1.scss or theme-settings (not yet implimented) to define column widths. 
+
+Number of columns per media: 
+
+Handheld: 12 columns
+Tablet: 24 columns
+Desktop: 32 columns
+
+Classes per media: 
+g-<media>-<columns>
+
+How rows are defined: 
+.row
+
+This is how the page template is buit in Aether, and it is responsive up from mobile 320px up to desktop 1140px
 
 	1. header
 	2. navigation
 	3. content
 	4. sidebars
 	5. footer
-
-This is how the page template is buit in Aether, and it is responsive up from mobile 320px up to desktop 1140px
 
 __________________________________________________________________________________________
 
