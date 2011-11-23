@@ -83,7 +83,10 @@ The layout used in Aether is grid based, either use layout/_grid-template1.scss 
 ```
 
 **CSS Classes per media:**
+
+```
 .g-<media>-<columns>
+```
 
 ```
  * Handheld:           .g-h-12
