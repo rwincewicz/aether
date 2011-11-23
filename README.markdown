@@ -33,9 +33,14 @@ Environment requirement: Mac or Linux
 - Watch for changes: $ compass watch
 - Edit scss/ files and watch the magic happen
 
+Download & run helper software for debugging Sass: 
+- https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
+- https://github.com/mockko/livereload
+
 What are the files for ?
 ------------------------
 
+- config.rb => By default, you are in debugging mode, switch to production by adjusting commenting
 - aether.info => provide informations about the theme, like regions, css, settings, js ...
 - block.tpl.php => template to edit the blocks
 - comment.tpl.php => template to edit the comments
