@@ -67,25 +67,25 @@ The layout used in Aether is grid based, either use layout/_grid-template1.scss 
 *Number of columns per media:* 
 
  * Handheld: 12 columns
- * Tablet: 24 columns
- * Desktop: 32 columns
+ * Tablet:   24 columns
+ * Desktop:  32 columns
 
 **Widths per media:**
 
- * Handheld: < 479px
+ * Handheld:            < 479px
  * Handheld Landscape: >= 480px
- * Tablet: > 759px
- * Tablet Landscape: >= 960px
- * Desktop: >= 1140px
+ * Tablet:              > 759px
+ * Tablet Landscape:   >= 960px
+ * Desktop:            >= 1140px
 
 **CSS Classes per media:**
 .g-<media>-<columns>
 
- * Handheld:_ .g-h-12
+ * Handheld:           .g-h-12
  * Handheld Landscape: .g-hl-12
- * Tablet: .g-t-24
- * Tablet Landscape: .g-tl-24
- * Desktop: .g-d-32
+ * Tablet:             .g-t-24
+ * Tablet Landscape:   .g-tl-24
+ * Desktop:            .g-d-32
 
 An example SASS grid template for the #main content are when 2 sidebars are enabled would be: 
 
