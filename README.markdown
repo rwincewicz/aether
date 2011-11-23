@@ -50,7 +50,8 @@ In scss/
 - base/_variables.scss => should control any set variable in the theme
 - layout/_grid-template1.scss => this is a template to build grids using sass @extends (causes css bloat)
 - layout/_grid.scss => this is the main code to build responsive grids
-- style/_reset.scss => this is a modified normalize.scss, which contains mostly elements
+- layout/_layout.scss => this is for page element layout, such as logo, etc
+- style/_reset.scss => this is a modified normalize.scss, which contains mostly defaults for elements
 - style/_type.scss => this sets vertical rhythm and font specifications
 - style/_patterns.scss => this is a set of re-usable patterns
 - style/_forms.scss => for all form elements
@@ -71,8 +72,63 @@ Handheld: 12 columns
 Tablet: 24 columns
 Desktop: 32 columns
 
-Classes per media: 
-g-<media>-<columns>
+Widths per media: 
+
+Handheld: < 479px
+Handheld Landscape: >= 480px
+Tablet: > 759px
+Tablet Landscape: >= 960px
+Desktop: >= 1140px
+
+CSS Classes per media: 
+.g-<media>-<columns>
+
+Handheld: .g-h-12
+Handheld Landscape: .g-hl-12
+Tablet: .g-t-24
+Tablet Landscape: .g-tl-24
+Desktop: .g-d-32
+
+An example SASS grid template for the #main content are when 2 sidebars are enabled would be: 
+
+```
+.two-sidebars #main {
+	@extend .row;
+	.region-sidebar-first {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+	#content {
+		@extend .g-d-16;
+		@extend .g-tl-12;
+		@extend .g-t-12;
+		@extend .g-hl-9;
+		@extend .g-h-12;
+	}
+	.region-sidebar-second {
+		@extend .g-d-8;
+		@extend .g-tl-6;
+		@extend .g-t-6;
+		@extend .g-hl-3;
+		@extend .g-h-12;
+	}
+}
+```
+
+If these classes were added to the markup, it would look like: 
+
+```
+<body class="two-sidebars">
+	<div id="main" class="row">
+		<div class="region-sidebar-first g-d-8 g-tl-6 g-t-6 g-hl-3 g-h-12">...</div>
+		<div id="content" class=" class="g-d-16 g-tl-12 g-t-2 g-hl-9 g-h-12">...</div>
+		<div class="region-sidebar-second g-d-8 g-tl-6 g-t-6 g-hl-3 g-h-12">...</div>
+	</div>
+</body>
+```
 
 How rows are defined: 
 .row
