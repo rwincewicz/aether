@@ -38,6 +38,7 @@ Download & run helper software for debugging Sass:
 - https://github.com/mockko/livereload
 
 Documentation
+
 - Compass Reference: http://compass-style.org/reference/compass/
 - Sass Reference: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
