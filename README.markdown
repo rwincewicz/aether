@@ -180,6 +180,31 @@ This is how the page template is buit in Aether, and it is responsive up from mo
 	4. sidebars
 	5. footer
 
+Debugging
+------------------------
+
+To turn on css debugging for FireSass, modify the following lines in config.rb
+
+```
+# Change this to :production when ready to deploy the CSS to the live server.
+environment = :development
+#environment = :production
+```
+
+To turn on grid overlay, modify base/_variables.scss
+
+```
+// Grid overlay
+$show-grid-background:         true;
+```
+
+The horizontal lines that appaear show the vertical rhythm of the site, they change based on font and line-height
+
+```
+$base-line-height:             18px;
+$base-font-size:               13px;
+```
+
 __________________________________________________________________________________________
 
 

@@ -6,12 +6,12 @@
 @import "compass/typography/links/hover-link";
 @import "compass/utilities/general/clearfix";
 
-// Base
+// Base files, these should not generate any css, they should contain variables and functions/mixins
 @import "base/variables";
 @import "base/utilities";
 
-// Layout
-@import "layout/layout";
+// Layout for items that don't concern the grid
+@import "layout/page-layout";
 
 // Style
 @import "style/reset";
@@ -20,5 +20,4 @@
 @import "style/forms";
 @import "style/tables";
 @import "style/tabs";
-//@import "style/forms";
 
