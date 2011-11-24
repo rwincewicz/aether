@@ -94,6 +94,7 @@ The layout used in Aether is grid based, either use layout/_grid-template1.scss 
 ```
 
 **Fixed widths per media:**
+
 ```
 $max-desktop-width:            1140px;
 $max-tablet-landscape-width:   940px;
