@@ -80,6 +80,12 @@ In scss/
 - grid-layout.scss => compiles everything in layout/ and adds any needed compass add-ons
 - screen.scss => compiles everything in style/ and adds any needed compass add-ons
 
+In js/
+------
+
+- html5-respondjs.js => This is a combination of html5shiv and respond.js
+- ios-viewport-scaling-bug-fix.js => This fixes horizontal rotation zoom of ios devices when scale is set to 1
+
 Changing the Layout
 ------------------------
 
