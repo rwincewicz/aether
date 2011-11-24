@@ -224,7 +224,7 @@ table {
 }
 
 #site-name {
-  @include adjust-font-size-to($font-size-xxxl,3);
+  @include adjust-font-size-to($font-size-xxxl,4);
   @include margin-leader(0, $font-size-xxxl);
   @include margin-trailer(1, $font-size-xxxl);
 }
