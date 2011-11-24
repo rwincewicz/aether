@@ -1,4 +1,3 @@
-
 Introduction to Aether
 ------------------------
 
@@ -37,6 +36,9 @@ Download & run helper software for debugging Sass:
 
 - https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
 - https://github.com/mockko/livereload
+
+Compass Reference: http://compass-style.org/reference/compass/
+Sass Reference: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
 What are the files for ?
 ------------------------
