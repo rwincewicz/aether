@@ -1,3 +1,12 @@
+Github Location: https://github.com/krisbulman/Aether
+Documentation:   https://github.com/krisbulman/Aether/wiki
+Maintainer(s):  
+                 Kris Bulman
+                   http://www.twitter.com/krisbulman
+                 Danny Joris
+                   http://www.twitter.com/dannyjoris
+                 Richard Wincewicz
+
 Introduction to Aether
 ------------------------
 
@@ -20,197 +29,11 @@ Installation of theme on Drupal 7
 - Log in as an administrator on your Drupal site and go to 
   /Appearance (admin/appearance) and make Aether the default theme.
 
-Installation of Sass/Compass in your local development environment
-------------------------
+Create a sub theme
+------------------
+Since this theme is still in development phase, no starter kit will be created until an alpha tag is created
 
-Environment requirement: Mac or Linux
+Resources
+---------
 
-- Open bash prompt
-- $ gem update --system
-- $ gem install compass
-- Navigate to the directory: $ cd drupal/sites/all/themes/Aether
-- Watch for changes: $ compass watch
-- Edit scss/ files and watch the magic happen
-
-Download & run helper software for debugging Sass: 
-
-- https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
-- https://github.com/mockko/livereload
-
-Documentation
-
-- Compass Reference: http://compass-style.org/reference/compass/
-- Sass Reference: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
-
-What are the files for ?
-------------------------
-
-- config.rb => By default, you are in debugging mode, switch to production by adjusting commenting
-- aether.info => provide informations about the theme, like regions, css, settings, js ...
-- block.tpl.php => template to edit the blocks
-- comment.tpl.php => template to edit the comments
-- node.tpl.php => template to edit the nodes (in content)
-- page.tpl.php => template to edit the page structure markup
-- html.tpl.php => template to the head of the page
-- template.php => used to modify drupal's default behavior before outputting HTML through 
-  the theme
-- theme-settings => used to create additional settings in the theme settings page
-
-In css/
--------
-
-- grid-layout.css => defines the base grid
-- screen.css => styles & media queries
-
-
-In scss/
--------
-
-- base/_utilities.scss => mixins
-- base/_variables.scss => should control any set variable in the theme
-- layout/_grid-template1.scss => this is a template to build grids using sass @extends (causes css bloat)
-- layout/_grid.scss => this is the main code to build responsive grids
-- layout/_layout.scss => this is for page element layout, such as logo, etc
-- style/_reset.scss => this is a modified normalize.scss, which contains mostly defaults for elements
-- style/_type.scss => this sets vertical rhythm and font specifications
-- style/_patterns.scss => this is a set of re-usable patterns
-- style/_forms.scss => for all form elements
-- style/_tables.scss => for all table styling
-- style/_tabs.scss => for tabs styling
-- grid-layout.scss => compiles everything in layout/ and adds any needed compass add-ons
-- screen.scss => compiles everything in style/ and adds any needed compass add-ons
-
-In js/
-------
-
-- html5-respondjs.js => This is a combination of html5shiv and respond.js
-- ios-viewport-scaling-bug-fix.js => This fixes horizontal rotation zoom of ios devices when scale is set to 1
-
-Changing the Layout
-------------------------
-
-The layout used in Aether is grid based, either use layout/_grid-template1.scss or theme-settings (not yet implimented) to define column widths. 
-
-**Number of columns per media:** 
-
-```
- * Handheld: 12 columns
- * Tablet:   24 columns
- * Desktop:  32 columns
-```
-
-**Fixed widths per media:**
-
-```
-$max-desktop-width:            1140px;
-$max-tablet-landscape-width:   940px;
-$max-tablet-width:             748px;
-$max-handheld-landscape-width: 476px;
-$max-handheld-width:           320px;
-```
-
-**Media Queries used:**
-
-```
- * Handheld:            < 479px
- * Handheld Landscape: >= 480px
- * Tablet:              > 759px
- * Tablet Landscape:   >= 960px
- * Desktop:            >= 1140px
-```
-
-**CSS Classes per media:**
-
-```
-.g-<media>-<columns>
-```
-
-```
- * Handheld:           .g-h-12
- * Handheld Landscape: .g-hl-12
- * Tablet:             .g-t-24
- * Tablet Landscape:   .g-tl-24
- * Desktop:            .g-d-32
-```
-
-An example SASS grid template for the #main content are when 2 sidebars are enabled would be: 
-
-```
-.two-sidebars #main {
-	@extend .row;
-	.region-sidebar-first {
-		@extend .g-d-8;
-		@extend .g-tl-6;
-		@extend .g-t-6;
-		@extend .g-hl-3;
-		@extend .g-h-12;
-	}
-	#content {
-		@extend .g-d-16;
-		@extend .g-tl-12;
-		@extend .g-t-12;
-		@extend .g-hl-9;
-		@extend .g-h-12;
-	}
-	.region-sidebar-second {
-		@extend .g-d-8;
-		@extend .g-tl-6;
-		@extend .g-t-6;
-		@extend .g-hl-3;
-		@extend .g-h-12;
-	}
-}
-```
-
-If these classes were added to the markup, it would look like: 
-
-
-```
-<body class="two-sidebars">
-	<div id="main" class="row">
-		<div class="region-sidebar-first g-d-8 g-tl-6 g-t-6 g-hl-3 g-h-12">...</div>
-		<div id="content" class=" class="g-d-16 g-tl-12 g-t-2 g-hl-9 g-h-12">...</div>
-		<div class="region-sidebar-second g-d-8 g-tl-6 g-t-6 g-hl-3 g-h-12">...</div>
-	</div>
-</body>
-```
-
-**How rows are defined:**
-.row
-
-This is how the page template is buit in Aether, and it is responsive up from mobile 320px up to desktop 1140px
-
-	1. header
-	2. navigation
-	3. content
-	4. sidebars
-	5. footer
-
-Debugging
-------------------------
-
-To turn on css debugging for FireSass, modify the following lines in config.rb
-
-```
-# Change this to :production when ready to deploy the CSS to the live server.
-environment = :development
-#environment = :production
-```
-
-To turn on grid overlay, modify base/_variables.scss
-
-```
-// Grid overlay
-$show-grid-background:         true;
-```
-
-The horizontal lines that appaear show the vertical rhythm of the site, they change based on font and line-height
-
-```
-$base-line-height:             18px;
-$base-font-size:               13px;
-```
-
-__________________________________________________________________________________________
-
-
+Read the documentation at http://www.github.com/krisbulman/Aether/wiki
