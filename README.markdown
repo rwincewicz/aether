@@ -93,7 +93,16 @@ The layout used in Aether is grid based, either use layout/_grid-template1.scss 
  * Desktop:  32 columns
 ```
 
-**Widths per media:**
+**Fixed widths per media:**
+```
+$max-desktop-width:            1140px;
+$max-tablet-landscape-width:   940px;
+$max-tablet-width:             748px;
+$max-handheld-landscape-width: 476px;
+$max-handheld-width:           320px;
+```
+
+**Media Queries used:**
 
 ```
  * Handheld:            < 479px
