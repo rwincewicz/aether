@@ -1,6 +1,6 @@
-
-  Github Location: https://github.com/krisbulman/Aether  
-  Documentation:   https://github.com/krisbulman/Aether/wiki  
+  Github Location: http://github.com/krisbulman/Aether  
+  Documentation:   http://github.com/krisbulman/Aether/wiki  
+  Style Guide:     http://aether.bulman.ca/  
   Maintainer(s):  
 
 * Kris Bulman  
