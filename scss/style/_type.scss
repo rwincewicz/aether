@@ -133,11 +133,20 @@ q {
 
 blockquote, q, cite {
   font-style: italic;
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
 }
 
 blockquote {
   padding-left: $typographic-indent;
   border-left: 1px solid $text-border;
+  margin: 0 0 20px;
+  padding: 9px 20px 0 19px;
   > p {
     padding: 0;
   }
