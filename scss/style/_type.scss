@@ -66,8 +66,8 @@ h2 {
 
 h3 {
   @include adjust-font-size-to($font-size-xl,1);
-  @include margin-leader(0, $font-size-lg);
-  @include margin-trailer(1, $font-size-lg);
+  @include margin-leader(0, $font-size-xl);
+  @include margin-trailer(1, $font-size-xl);
 }
 
 h4 {
@@ -78,14 +78,14 @@ h4 {
 
 h5 {
   @include adjust-font-size-to($font-size-md,1);
-  @include margin-leader(0, $font-size-lg);
-  @include margin-trailer(1, $font-size-lg);
+  @include margin-leader(0, $font-size-md);
+  @include margin-trailer(1, $font-size-md);
 }
 
 h6 {
   @include adjust-font-size-to($font-size-md,1);
-  @include margin-leader(0, $font-size-lg);
-  @include margin-trailer(1, $font-size-lg);
+  @include margin-leader(0, $font-size-md);
+  @include margin-trailer(1, $font-size-md);
 }
 
 small {

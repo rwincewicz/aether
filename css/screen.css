@@ -182,7 +182,7 @@ h3 {
   font-size: 1.538em;
   line-height: 0.9em;
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
 }
 
 h4 {
@@ -196,14 +196,14 @@ h5 {
   font-size: 1.077em;
   line-height: 1.286em;
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: 1.286em;
 }
 
 h6 {
   font-size: 1.077em;
   line-height: 1.286em;
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: 1.286em;
 }
 
 small {
