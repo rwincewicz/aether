@@ -9,7 +9,7 @@
 
 // Some variables to make altering the styling easier.
 $tabs-container-bg: #fff;
-$tabs-border: #e9e9e9;
+$tabs-border: #bbb;
 
 
 //
@@ -18,9 +18,9 @@ $tabs-border: #e9e9e9;
 ul.primary,
 ul.secondary {
   @include clearfix;
-  border-bottom: 1px solid $tabs-border;
+  @include trailing-border(1px, 1, $font-size-normal, solid);
+  border-color: $tabs-border;
   list-style: none;
-  margin: 1em 0 px-to-em($base-line-height);
   padding: 0 2px;
   white-space: nowrap;
 
@@ -31,11 +31,10 @@ ul.secondary {
 
   a {
     @include rhythm-borders(1px, 1, $font-size-normal, solid);
-    border-color: $tabs-border;
+    border-color: #e9e9e9;
     border-right: 0;
     border-bottom: 0;
     display: block;
-    line-height: px-to-em($base-line-height);
     text-decoration: none;
   }
 }
