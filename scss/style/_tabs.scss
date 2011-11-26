@@ -9,7 +9,7 @@
 
 // Some variables to make altering the styling easier.
 $tabs-container-bg: #fff;
-$tabs-border: #bbb;
+$tabs-border: #e9e9e9;
 
 
 //
@@ -30,7 +30,8 @@ ul.secondary {
   }
 
   a {
-    border: 1px solid #e9e9e9;
+    @include rhythm-borders(1px, 1, $font-size-normal, solid);
+    border-color: $tabs-border;
     border-right: 0;
     border-bottom: 0;
     display: block;

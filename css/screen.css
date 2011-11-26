@@ -533,7 +533,7 @@ table tbody th {
 /* Tabs Styling */
 ul.primary,
 ul.secondary {
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 1px solid #e9e9e9;
   list-style: none;
   margin: 1em 0 1.385em;
   padding: 0 2px;
@@ -562,7 +562,10 @@ ul.secondary li {
 }
 ul.primary a,
 ul.secondary a {
-  border: 1px solid #e9e9e9;
+  border-style: solid;
+  border-width: 0.077em;
+  padding: 1.308em;
+  border-color: #e9e9e9;
   border-right: 0;
   border-bottom: 0;
   display: block;
@@ -584,7 +587,7 @@ ul.primary li {
   -khtml-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   text-shadow: white 1px 1px 0;
-  border: 1px solid #bbbbbb;
+  border: 1px solid #e9e9e9;
   border-bottom: 0;
 }
 ul.primary li.active {
