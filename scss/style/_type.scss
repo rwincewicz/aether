@@ -65,6 +65,24 @@ h2 {
 }
 
 h3 {
+  @include adjust-font-size-to($font-size-xl,1);
+  @include margin-leader(0, $font-size-lg);
+  @include margin-trailer(1, $font-size-lg);
+}
+
+h4 {
+  @include adjust-font-size-to($font-size-lg,1);
+  @include margin-leader(0, $font-size-lg);
+  @include margin-trailer(1, $font-size-lg);
+}
+
+h5 {
+  @include adjust-font-size-to($font-size-md,1);
+  @include margin-leader(0, $font-size-lg);
+  @include margin-trailer(1, $font-size-lg);
+}
+
+h6 {
   @include adjust-font-size-to($font-size-md,1);
   @include margin-leader(0, $font-size-lg);
   @include margin-trailer(1, $font-size-lg);
