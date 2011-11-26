@@ -255,8 +255,8 @@ q:before, q:after {
 blockquote {
   padding-left: 1.625em;
   border-left: 1px solid #dddddd;
-  margin: 0 0 20px;
-  padding: 9px 20px 0 19px;
+  padding-right: 20px;
+  padding-left: 19px;
 }
 blockquote > p {
   padding: 0;
