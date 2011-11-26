@@ -4,7 +4,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-// Corrects inline-block not defined in IE6/7/8 and FF3 
+// Corrects inline-block not defined in IE6/7/8 and FF3
 
 audio, canvas, video {
   display: inline-block;
@@ -16,7 +16,7 @@ audio:not([controls]) {
   display: none;
 }
 
-// Ensures content is hidden from all presentations, including screenreaders 
+// Ensures content is hidden from all presentations, including screenreaders
 
 [hidden] {
   display: none;
@@ -29,7 +29,7 @@ html {
   height: 100%;
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-  // Prevent iOS text size adjust on orientation change without disabling user zoom 
+  // Prevent iOS text size adjust on orientation change without disabling user zoom
   -ms-text-size-adjust: 100%;
 }
 
@@ -40,14 +40,14 @@ body {
   color: $text-color;
 }
 
-// Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ 
+// Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/
 
 button, input, select, textarea {
   font-family: $text-font-family;
   color: $text-color;
 }
 
-// Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 
+// Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930
 
 sub {
   @include adjust-font-size-to($font-size-xxs,0);
@@ -72,7 +72,7 @@ hr {
   border-bottom: 1px solid $text-border;
 }
 
-// Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test 
+// Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test
 
 // Figures
 
@@ -84,17 +84,17 @@ figure {
 
 img, object, video {
   max-width: 100%;
-//   Automatically scales images larger than the container. Consider this first: http://unstoppablerobotninja.com/entry/fluid-images/ 
-//   _width: 100%; // IE6 doesn't support max-width, so we just use width. If the image is larger than the container, just uncomment this. If it is smaller than the container, uncomment and change the 100% value to an absolute one  
+//   Automatically scales images larger than the container. Consider this first: http://unstoppablerobotninja.com/entry/fluid-images/
+//   _width: 100%; // IE6 doesn't support max-width, so we just use width. If the image is larger than the container, just uncomment this. If it is smaller than the container, uncomment and change the 100% value to an absolute one
 }
 
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
-  // Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images  
+  // Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images
 }
 
-// Corrects overflow displayed oddly in IE9 
+// Corrects overflow displayed oddly in IE9
 
 svg:not(:root) {
   overflow: hidden;
@@ -107,7 +107,7 @@ abbr[title], dfn[title] {
   cursor: help;
 }
 
-// Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7 
+// Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
 
 table {
   button, input {
@@ -115,13 +115,13 @@ table {
   }
 }
 
-// Print styles inlined to avoid extra HTTP connection 
+// Print styles inlined to avoid extra HTTP connection
 
 @media print {
   * {
     background: transparent !important;
     color: black !important;
-    // Black prints faster: sanbeiji.com/archives/953 
+    // Black prints faster: sanbeiji.com/archives/953
     @include text-shadow(none);
     filter: none !important;
     -ms-filter: none !important;
@@ -139,13 +139,13 @@ table {
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-  // Do not show javascript and internal links 
+  // Do not show javascript and internal links
   a {
     &[href^="javascript:"]:after, &[href^="#"]:after {
       content: "";
     }
   }
-  // Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables 
+  // Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables
   thead {
     display: table-header-group;
   }

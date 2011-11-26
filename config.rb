@@ -22,16 +22,14 @@ javascripts_dir = "js"
 # Require any additional compass plugins here.
 #require 'ninesixty'
 
-
-
 ##
 ## You probably don't need to edit anything below this.
 ##
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
-#output_style =  :compressed 
-output_style =  :expanded 
+#output_style =  :compressed
+output_style =  :expanded
 
 # To enable relative paths to assets via compass helper functions. Since Drupal
 # themes can be installed in multiple locations, we don't need to worry about

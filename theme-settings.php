@@ -13,7 +13,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#description'   => t('Check this if you wish to replace the default tabs by the ZEN tabs'),
     '#default_value' => theme_get_setting('aether_tabs'),
   );
-  
+
   $form['options_settings']['aether_breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),
@@ -81,5 +81,5 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#description'   =>t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
     '#default_value' => theme_get_setting('clear_registry'),
   );
-  
+
 }

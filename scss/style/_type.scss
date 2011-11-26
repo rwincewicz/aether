@@ -32,7 +32,7 @@ $mono-font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New"
 
 @include establish-baseline($base-font-size);
 
-// Add and/or remove tags as your baseline grid needs 
+// Add and/or remove tags as your baseline grid needs
 
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr {
   @include margin-leader(0, $font-size-normal);
@@ -78,7 +78,7 @@ small {
 
 // Preformatted text and code
 
-// Allows line wrapping of 'pre' 
+// Allows line wrapping of 'pre'
 
 pre {
   white-space: pre;
@@ -180,7 +180,7 @@ a {
 #primary {
   @include menu-links-inline(2em, 1px, solid, transparentize(#FFFFFF, 0.6));
 }
- 
+
 #secondary {
   @include menu-links-inline(1.5em, 2px, dashed, white);
 }

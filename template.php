@@ -4,7 +4,7 @@
  * Here we override the default HTML output of drupal.
  * refer to http://drupal.org/node/550722
  */
- 
+
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('clear_registry')) {
   // Rebuild .info data.
@@ -173,21 +173,21 @@ function aether_breadcrumb($variables) {
   return '';
 }
 
-/* 	
+/*
  * 	Converts a string to a suitable html ID attribute.
- * 	
+ *
  * 	 http://www.w3.org/TR/html4/struct/global.html#h-7.5.2 specifies what makes a
  * 	 valid ID attribute in HTML. This function:
- * 	
+ *
  * 	- Ensure an ID starts with an alpha character by optionally adding an 'n'.
  * 	- Replaces any character except A-Z, numbers, and underscores with dashes.
  * 	- Converts entire string to lowercase.
- * 	
+ *
  * 	@param $string
  * 	  The string
  * 	@return
  * 	  The converted string
- */	
+ */
 
 
 function aether_id_safe($string) {
@@ -212,7 +212,7 @@ function aether_id_safe($string) {
  *
  * @ingroup themeable
  */
- 
+
 function aether_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
@@ -247,7 +247,7 @@ function aether_preprocess_menu_local_task(&$variables) {
  *  Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 
-function aether_menu_local_tasks(&$variables) {  
+function aether_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
