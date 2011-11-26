@@ -1,13 +1,9 @@
-  Github Location: http://github.com/krisbulman/Aether
-  Documentation:   http://github.com/krisbulman/Aether/wiki
-  Style Guide:     http://aether.bulman.ca/
-  Maintainer(s):
-
-* Kris Bulman
- * http://www.twitter.com/krisbulman
-* Danny Joris
-  * http://www.twitter.com/dannyjoris
-* Richard Wincewicz
+* Github Location: http://github.com/krisbulman/Aether
+* Documentation:   http://github.com/krisbulman/Aether/wiki
+* Style Guide:     http://aether.bulman.ca/
+* Maintainer(s):
+ * Kris Bulman
+  * http://www.twitter.com/krisbulman
 
 Introduction to Aether
 ------------------------
