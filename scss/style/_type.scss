@@ -4,7 +4,7 @@ $base-line-height: 18px !default;
 $relative-font-sizing: true !default; // output px instead of em's. cuz em's are annoying.
 $base-em-ratio: 1em / $base-font-size !default; // used by the px-to-em function below
 
-$show-grid-backgrounds: true !default;
+$show-grid-backgrounds: false !default;
 
 // Font size constants
 $font-size-xxs: 10px !default;
