@@ -384,9 +384,9 @@ table td {
 
 #site-name {
   font-size: 2.308em;
-  line-height: 2.4em;
-  margin-top: 0em;
-  margin-bottom: 0.6em;
+  line-height: 0.9em;
+  margin-top: 0.6em;
+  margin-bottom: 0em;
 }
 
 div.messages {
