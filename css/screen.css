@@ -982,9 +982,4 @@ ul.secondary a:active {
 .ie6 #footer {
   width: 960px;
   margin: 0 auto;
-  text-align: center;
-}
-
-.ie6 #site-name {
-  font-size: 10px;
 }
