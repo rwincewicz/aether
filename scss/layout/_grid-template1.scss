@@ -1,6 +1,15 @@
+.ie6 {
+	#header,
+	#navigation,
+	.one-sidebar #main,
+	.two-sidebars #main,
+	#footer {
+		width: 960px;
+	}
+}
+
 #header {
 	@extend .row;
-
 }
 
 #navigation {
