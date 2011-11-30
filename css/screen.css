@@ -975,11 +975,3 @@ ul.secondary a:active {
   border-color: #000;
   color: #fff;
 }
-
-.ie6 #header,
-.ie6 #navigation,
-.ie6 #main,
-.ie6 #footer {
-  width: 960px;
-  margin: 0 auto;
-}
