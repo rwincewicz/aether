@@ -528,7 +528,7 @@ input[type="button"] {
   -ms-background-clip: padding-box;
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
-  background: #dddddd url('../images/button.png?1322582961') repeat-x;
+  background: #dddddd url('../images/button.png?1322620999') repeat-x;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dedede));
   background-image: -webkit-linear-gradient(#ffffff, #dedede);
   background-image: -moz-linear-gradient(#ffffff, #dedede);
@@ -590,7 +590,7 @@ input[type="button"]:active {
 }
 
 .ie6 .form-submit {
-  background: #dddddd url('../images/button.png?1322582961') repeat-x;
+  background: #dddddd url('../images/button.png?1322620999') repeat-x;
   border: 1px solid;
   border-color: #dddddd #b9b9b9 #989898;
   cursor: pointer;
@@ -759,7 +759,7 @@ select[multiple] {
 
 @media (-webkit-min-device-pixel-ratio: 0) {
   select {
-    background-image: url('../images/select_arrow.gif?1322582961');
+    background-image: url('../images/select_arrow.gif?1322620999');
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 20px;
@@ -974,4 +974,17 @@ ul.secondary a:active {
   background-color: #666;
   border-color: #000;
   color: #fff;
+}
+
+.ie6 #header,
+.ie6 #navigation,
+.ie6 #main,
+.ie6 #footer {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ie6 #site-name {
+  font-size: 10px;
 }
