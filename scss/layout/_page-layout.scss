@@ -6,3 +6,12 @@
 #secondary {
 	float: right;
 }
+
+.ie6 #header,
+.ie6 #navigation,
+.ie6 #main,
+.ie6 #footer {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
