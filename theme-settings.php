@@ -7,13 +7,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#collapsible' => FALSE,
     '#collapsed' => FALSE
   );
-  $form['options_settings']['aether_tabs'] = array(
-    '#type' => 'checkbox',
-    '#title' =>  t('Use the ZEN tabs'),
-    '#description'   => t('Check this if you wish to replace the default tabs by the ZEN tabs'),
-    '#default_value' => theme_get_setting('aether_tabs'),
-  );
-
   $form['options_settings']['aether_breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),

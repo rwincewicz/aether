@@ -12,10 +12,6 @@ if (theme_get_setting('clear_registry')) {
   // Rebuild theme registry.
   drupal_theme_rebuild();
 }
-// Add Zen Tabs styles
-if (theme_get_setting('aether_tabs')) {
-  drupal_add_css( drupal_get_path('theme', 'aether') .'/css/tabs.css');
-}
 
 function aether_preprocess_html(&$variables, $hook) {
   // Add paths needed for html5shim.
