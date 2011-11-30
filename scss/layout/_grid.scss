@@ -120,10 +120,6 @@ $_allColumns-d: "";
 @media only screen and (max-width: 479px) {
 	body{}
 
-	.ie6 .row {
-		max-width: $max-tablet-landscape-width;
-	}
-
 	.row {
 	max-width: $max-handheld-width;
 	@if $show-grid-background {
@@ -148,10 +144,6 @@ $_allColumns-d: "";
   // Disables iphone font size increase when viewing in landscape mode.
   html { -webkit-text-size-adjust: none; }
 
-	.ie6 .row {
-		max-width: $max-tablet-landscape-width;
-	}
-
 	.row {
 	@if $show-grid-background {
 	@include grid-background(
@@ -174,10 +166,6 @@ $_allColumns-d: "";
 // Tablet Portrait
 @media only screen and (min-width: 759px) {
 	body{}
-
-	.ie6 .row {
-		max-width: $max-tablet-landscape-width;
-	}
 
 	.row {
 	max-width: $max-tablet-width;
@@ -215,10 +203,6 @@ $_allColumns-d: "";
 @media only screen and (min-width: 960px) {
 	body{}
 
-	.ie6 .row {
-		max-width: $max-tablet-landscape-width;
-	}
-
 	.row {
 	max-width: $max-tablet-landscape-width;
 	@if $show-grid-background {
@@ -244,21 +228,16 @@ $_allColumns-d: "";
 	body{}
 
 	.row {
-		max-width: $max-desktop-width;
-		@if $show-grid-background {
-		@include grid-background(
-		  $total: $desktop-columns,
-		  $column: $col-desktop-width,
-		  $gutter: $gutter-width,
-		  $baseline: $base-line-height,
-		  $force-fluid: true);
-		}
+	max-width: $max-desktop-width;
+	@if $show-grid-background {
+	@include grid-background(
+	  $total: $desktop-columns,
+	  $column: $col-desktop-width,
+	  $gutter: $gutter-width,
+	  $baseline: $base-line-height,
+	  $force-fluid: true);
+		  }
 	}
-
-	.ie6 .row {
-		max-width: $max-tablet-landscape-width;
-	}
-
 
 	@for $col from 1 to ($desktop-columns + 1) {
 		.g-d-#{$col} {

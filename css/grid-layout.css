@@ -164,10 +164,6 @@
 }
 
 @media only screen and (max-width: 479px) {
-  .ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
-    max-width: 940px;
-  }
-
   .row, #header, #navigation, .one-sidebar #main, .two-sidebars #main, #footer {
     max-width: 320px;
     background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(153, 0, 0, 0.1)), color-stop(5.469%, rgba(153, 0, 0, 0.1)), color-stop(5.469%, rgba(0, 0, 0, 0)), color-stop(8.594%, rgba(0, 0, 0, 0)), color-stop(8.594%, rgba(153, 0, 0, 0.1)), color-stop(14.063%, rgba(153, 0, 0, 0.1)), color-stop(14.063%, rgba(0, 0, 0, 0)), color-stop(17.188%, rgba(0, 0, 0, 0)), color-stop(17.188%, rgba(153, 0, 0, 0.1)), color-stop(22.656%, rgba(153, 0, 0, 0.1)), color-stop(22.656%, rgba(0, 0, 0, 0)), color-stop(25.781%, rgba(0, 0, 0, 0)), color-stop(25.781%, rgba(153, 0, 0, 0.1)), color-stop(31.25%, rgba(153, 0, 0, 0.1)), color-stop(31.25%, rgba(0, 0, 0, 0)), color-stop(34.375%, rgba(0, 0, 0, 0)), color-stop(34.375%, rgba(153, 0, 0, 0.1)), color-stop(39.844%, rgba(153, 0, 0, 0.1)), color-stop(39.844%, rgba(0, 0, 0, 0)), color-stop(42.969%, rgba(0, 0, 0, 0)), color-stop(42.969%, rgba(153, 0, 0, 0.1)), color-stop(48.438%, rgba(153, 0, 0, 0.1)), color-stop(48.438%, rgba(0, 0, 0, 0)), color-stop(51.563%, rgba(0, 0, 0, 0)), color-stop(51.563%, rgba(153, 0, 0, 0.1)), color-stop(57.031%, rgba(153, 0, 0, 0.1)), color-stop(57.031%, rgba(0, 0, 0, 0)), color-stop(60.156%, rgba(0, 0, 0, 0)), color-stop(60.156%, rgba(153, 0, 0, 0.1)), color-stop(65.625%, rgba(153, 0, 0, 0.1)), color-stop(65.625%, rgba(0, 0, 0, 0)), color-stop(68.75%, rgba(0, 0, 0, 0)), color-stop(68.75%, rgba(153, 0, 0, 0.1)), color-stop(74.219%, rgba(153, 0, 0, 0.1)), color-stop(74.219%, rgba(0, 0, 0, 0)), color-stop(77.344%, rgba(0, 0, 0, 0)), color-stop(77.344%, rgba(153, 0, 0, 0.1)), color-stop(82.813%, rgba(153, 0, 0, 0.1)), color-stop(82.813%, rgba(0, 0, 0, 0)), color-stop(85.938%, rgba(0, 0, 0, 0)), color-stop(85.938%, rgba(153, 0, 0, 0.1)), color-stop(91.406%, rgba(153, 0, 0, 0.1)), color-stop(91.406%, rgba(0, 0, 0, 0)), color-stop(94.531%, rgba(0, 0, 0, 0)), color-stop(94.531%, rgba(153, 0, 0, 0.1)), color-stop(100%, rgba(153, 0, 0, 0.1)), color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -190,10 +186,6 @@
 
   html {
     -webkit-text-size-adjust: none;
-  }
-
-  .ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
-    max-width: 940px;
   }
 
   .row, #header, #navigation, .one-sidebar #main, .two-sidebars #main, #footer {
@@ -259,10 +251,6 @@
   }
 }
 @media only screen and (min-width: 759px) {
-  .ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
-    max-width: 940px;
-  }
-
   .row, #header, #navigation, .one-sidebar #main, .two-sidebars #main, #footer {
     max-width: 748px;
     background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(153, 0, 0, 0.1)), color-stop(2.885%, rgba(153, 0, 0, 0.1)), color-stop(2.885%, rgba(0, 0, 0, 0)), color-stop(4.222%, rgba(0, 0, 0, 0)), color-stop(4.222%, rgba(153, 0, 0, 0.1)), color-stop(7.108%, rgba(153, 0, 0, 0.1)), color-stop(7.108%, rgba(0, 0, 0, 0)), color-stop(8.445%, rgba(0, 0, 0, 0)), color-stop(8.445%, rgba(153, 0, 0, 0.1)), color-stop(11.33%, rgba(153, 0, 0, 0.1)), color-stop(11.33%, rgba(0, 0, 0, 0)), color-stop(12.667%, rgba(0, 0, 0, 0)), color-stop(12.667%, rgba(153, 0, 0, 0.1)), color-stop(15.553%, rgba(153, 0, 0, 0.1)), color-stop(15.553%, rgba(0, 0, 0, 0)), color-stop(16.889%, rgba(0, 0, 0, 0)), color-stop(16.889%, rgba(153, 0, 0, 0.1)), color-stop(19.775%, rgba(153, 0, 0, 0.1)), color-stop(19.775%, rgba(0, 0, 0, 0)), color-stop(21.112%, rgba(0, 0, 0, 0)), color-stop(21.112%, rgba(153, 0, 0, 0.1)), color-stop(23.997%, rgba(153, 0, 0, 0.1)), color-stop(23.997%, rgba(0, 0, 0, 0)), color-stop(25.334%, rgba(0, 0, 0, 0)), color-stop(25.334%, rgba(153, 0, 0, 0.1)), color-stop(28.22%, rgba(153, 0, 0, 0.1)), color-stop(28.22%, rgba(0, 0, 0, 0)), color-stop(29.557%, rgba(0, 0, 0, 0)), color-stop(29.557%, rgba(153, 0, 0, 0.1)), color-stop(32.442%, rgba(153, 0, 0, 0.1)), color-stop(32.442%, rgba(0, 0, 0, 0)), color-stop(33.779%, rgba(0, 0, 0, 0)), color-stop(33.779%, rgba(153, 0, 0, 0.1)), color-stop(36.664%, rgba(153, 0, 0, 0.1)), color-stop(36.664%, rgba(0, 0, 0, 0)), color-stop(38.001%, rgba(0, 0, 0, 0)), color-stop(38.001%, rgba(153, 0, 0, 0.1)), color-stop(40.887%, rgba(153, 0, 0, 0.1)), color-stop(40.887%, rgba(0, 0, 0, 0)), color-stop(42.224%, rgba(0, 0, 0, 0)), color-stop(42.224%, rgba(153, 0, 0, 0.1)), color-stop(45.109%, rgba(153, 0, 0, 0.1)), color-stop(45.109%, rgba(0, 0, 0, 0)), color-stop(46.446%, rgba(0, 0, 0, 0)), color-stop(46.446%, rgba(153, 0, 0, 0.1)), color-stop(49.332%, rgba(153, 0, 0, 0.1)), color-stop(49.332%, rgba(0, 0, 0, 0)), color-stop(50.668%, rgba(0, 0, 0, 0)), color-stop(50.668%, rgba(153, 0, 0, 0.1)), color-stop(53.554%, rgba(153, 0, 0, 0.1)), color-stop(53.554%, rgba(0, 0, 0, 0)), color-stop(54.891%, rgba(0, 0, 0, 0)), color-stop(54.891%, rgba(153, 0, 0, 0.1)), color-stop(57.776%, rgba(153, 0, 0, 0.1)), color-stop(57.776%, rgba(0, 0, 0, 0)), color-stop(59.113%, rgba(0, 0, 0, 0)), color-stop(59.113%, rgba(153, 0, 0, 0.1)), color-stop(61.999%, rgba(153, 0, 0, 0.1)), color-stop(61.999%, rgba(0, 0, 0, 0)), color-stop(63.336%, rgba(0, 0, 0, 0)), color-stop(63.336%, rgba(153, 0, 0, 0.1)), color-stop(66.221%, rgba(153, 0, 0, 0.1)), color-stop(66.221%, rgba(0, 0, 0, 0)), color-stop(67.558%, rgba(0, 0, 0, 0)), color-stop(67.558%, rgba(153, 0, 0, 0.1)), color-stop(70.443%, rgba(153, 0, 0, 0.1)), color-stop(70.443%, rgba(0, 0, 0, 0)), color-stop(71.78%, rgba(0, 0, 0, 0)), color-stop(71.78%, rgba(153, 0, 0, 0.1)), color-stop(74.666%, rgba(153, 0, 0, 0.1)), color-stop(74.666%, rgba(0, 0, 0, 0)), color-stop(76.003%, rgba(0, 0, 0, 0)), color-stop(76.003%, rgba(153, 0, 0, 0.1)), color-stop(78.888%, rgba(153, 0, 0, 0.1)), color-stop(78.888%, rgba(0, 0, 0, 0)), color-stop(80.225%, rgba(0, 0, 0, 0)), color-stop(80.225%, rgba(153, 0, 0, 0.1)), color-stop(83.111%, rgba(153, 0, 0, 0.1)), color-stop(83.111%, rgba(0, 0, 0, 0)), color-stop(84.447%, rgba(0, 0, 0, 0)), color-stop(84.447%, rgba(153, 0, 0, 0.1)), color-stop(87.333%, rgba(153, 0, 0, 0.1)), color-stop(87.333%, rgba(0, 0, 0, 0)), color-stop(88.67%, rgba(0, 0, 0, 0)), color-stop(88.67%, rgba(153, 0, 0, 0.1)), color-stop(91.555%, rgba(153, 0, 0, 0.1)), color-stop(91.555%, rgba(0, 0, 0, 0)), color-stop(92.892%, rgba(0, 0, 0, 0)), color-stop(92.892%, rgba(153, 0, 0, 0.1)), color-stop(95.778%, rgba(153, 0, 0, 0.1)), color-stop(95.778%, rgba(0, 0, 0, 0)), color-stop(97.115%, rgba(0, 0, 0, 0)), color-stop(97.115%, rgba(153, 0, 0, 0.1)), color-stop(100.0%, rgba(153, 0, 0, 0.1)), color-stop(100.0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -536,10 +524,6 @@
   }
 }
 @media only screen and (min-width: 960px) {
-  .ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
-    max-width: 940px;
-  }
-
   .row, #header, #navigation, .one-sidebar #main, .two-sidebars #main, #footer {
     max-width: 940px;
     background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(153, 0, 0, 0.1)), color-stop(2.885%, rgba(153, 0, 0, 0.1)), color-stop(2.885%, rgba(0, 0, 0, 0)), color-stop(4.222%, rgba(0, 0, 0, 0)), color-stop(4.222%, rgba(153, 0, 0, 0.1)), color-stop(7.108%, rgba(153, 0, 0, 0.1)), color-stop(7.108%, rgba(0, 0, 0, 0)), color-stop(8.445%, rgba(0, 0, 0, 0)), color-stop(8.445%, rgba(153, 0, 0, 0.1)), color-stop(11.33%, rgba(153, 0, 0, 0.1)), color-stop(11.33%, rgba(0, 0, 0, 0)), color-stop(12.667%, rgba(0, 0, 0, 0)), color-stop(12.667%, rgba(153, 0, 0, 0.1)), color-stop(15.553%, rgba(153, 0, 0, 0.1)), color-stop(15.553%, rgba(0, 0, 0, 0)), color-stop(16.889%, rgba(0, 0, 0, 0)), color-stop(16.889%, rgba(153, 0, 0, 0.1)), color-stop(19.775%, rgba(153, 0, 0, 0.1)), color-stop(19.775%, rgba(0, 0, 0, 0)), color-stop(21.112%, rgba(0, 0, 0, 0)), color-stop(21.112%, rgba(153, 0, 0, 0.1)), color-stop(23.997%, rgba(153, 0, 0, 0.1)), color-stop(23.997%, rgba(0, 0, 0, 0)), color-stop(25.334%, rgba(0, 0, 0, 0)), color-stop(25.334%, rgba(153, 0, 0, 0.1)), color-stop(28.22%, rgba(153, 0, 0, 0.1)), color-stop(28.22%, rgba(0, 0, 0, 0)), color-stop(29.557%, rgba(0, 0, 0, 0)), color-stop(29.557%, rgba(153, 0, 0, 0.1)), color-stop(32.442%, rgba(153, 0, 0, 0.1)), color-stop(32.442%, rgba(0, 0, 0, 0)), color-stop(33.779%, rgba(0, 0, 0, 0)), color-stop(33.779%, rgba(153, 0, 0, 0.1)), color-stop(36.664%, rgba(153, 0, 0, 0.1)), color-stop(36.664%, rgba(0, 0, 0, 0)), color-stop(38.001%, rgba(0, 0, 0, 0)), color-stop(38.001%, rgba(153, 0, 0, 0.1)), color-stop(40.887%, rgba(153, 0, 0, 0.1)), color-stop(40.887%, rgba(0, 0, 0, 0)), color-stop(42.224%, rgba(0, 0, 0, 0)), color-stop(42.224%, rgba(153, 0, 0, 0.1)), color-stop(45.109%, rgba(153, 0, 0, 0.1)), color-stop(45.109%, rgba(0, 0, 0, 0)), color-stop(46.446%, rgba(0, 0, 0, 0)), color-stop(46.446%, rgba(153, 0, 0, 0.1)), color-stop(49.332%, rgba(153, 0, 0, 0.1)), color-stop(49.332%, rgba(0, 0, 0, 0)), color-stop(50.668%, rgba(0, 0, 0, 0)), color-stop(50.668%, rgba(153, 0, 0, 0.1)), color-stop(53.554%, rgba(153, 0, 0, 0.1)), color-stop(53.554%, rgba(0, 0, 0, 0)), color-stop(54.891%, rgba(0, 0, 0, 0)), color-stop(54.891%, rgba(153, 0, 0, 0.1)), color-stop(57.776%, rgba(153, 0, 0, 0.1)), color-stop(57.776%, rgba(0, 0, 0, 0)), color-stop(59.113%, rgba(0, 0, 0, 0)), color-stop(59.113%, rgba(153, 0, 0, 0.1)), color-stop(61.999%, rgba(153, 0, 0, 0.1)), color-stop(61.999%, rgba(0, 0, 0, 0)), color-stop(63.336%, rgba(0, 0, 0, 0)), color-stop(63.336%, rgba(153, 0, 0, 0.1)), color-stop(66.221%, rgba(153, 0, 0, 0.1)), color-stop(66.221%, rgba(0, 0, 0, 0)), color-stop(67.558%, rgba(0, 0, 0, 0)), color-stop(67.558%, rgba(153, 0, 0, 0.1)), color-stop(70.443%, rgba(153, 0, 0, 0.1)), color-stop(70.443%, rgba(0, 0, 0, 0)), color-stop(71.78%, rgba(0, 0, 0, 0)), color-stop(71.78%, rgba(153, 0, 0, 0.1)), color-stop(74.666%, rgba(153, 0, 0, 0.1)), color-stop(74.666%, rgba(0, 0, 0, 0)), color-stop(76.003%, rgba(0, 0, 0, 0)), color-stop(76.003%, rgba(153, 0, 0, 0.1)), color-stop(78.888%, rgba(153, 0, 0, 0.1)), color-stop(78.888%, rgba(0, 0, 0, 0)), color-stop(80.225%, rgba(0, 0, 0, 0)), color-stop(80.225%, rgba(153, 0, 0, 0.1)), color-stop(83.111%, rgba(153, 0, 0, 0.1)), color-stop(83.111%, rgba(0, 0, 0, 0)), color-stop(84.447%, rgba(0, 0, 0, 0)), color-stop(84.447%, rgba(153, 0, 0, 0.1)), color-stop(87.333%, rgba(153, 0, 0, 0.1)), color-stop(87.333%, rgba(0, 0, 0, 0)), color-stop(88.67%, rgba(0, 0, 0, 0)), color-stop(88.67%, rgba(153, 0, 0, 0.1)), color-stop(91.555%, rgba(153, 0, 0, 0.1)), color-stop(91.555%, rgba(0, 0, 0, 0)), color-stop(92.892%, rgba(0, 0, 0, 0)), color-stop(92.892%, rgba(153, 0, 0, 0.1)), color-stop(95.778%, rgba(153, 0, 0, 0.1)), color-stop(95.778%, rgba(0, 0, 0, 0)), color-stop(97.115%, rgba(0, 0, 0, 0)), color-stop(97.115%, rgba(153, 0, 0, 0.1)), color-stop(100.0%, rgba(153, 0, 0, 0.1)), color-stop(100.0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -665,10 +649,6 @@
     -o-background-size: 100% 18px, auto;
     background-size: 100% 18px, auto;
     background-position: left top;
-  }
-
-  .ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
-    max-width: 940px;
   }
 
   .g-d-1 {
@@ -1015,4 +995,7 @@
   .offset31:first-child {
     margin-left: -836.932% !important;
   }
+}
+.ie6 #page {
+  width: 960px;
 }

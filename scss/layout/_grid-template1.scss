@@ -1,3 +1,7 @@
+.ie6 #page {
+	width: 960px;
+}
+
 #header {
 	@extend .row;
 }
