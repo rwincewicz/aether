@@ -41,8 +41,13 @@ settings[aether_tabs] = 1
 settings[aether_breadcrumb_separator] = »
 settings[wireframe_mode] = 0
 settings[clear_registry] = 0
-; Information added by drupal.org packaging script on 2011-02-16
-version = "7.x-2.0-rc3"
+settings[aether_html5_respond_meta][] = respond
+settings[aether_html5_respond_meta][] = html5
+settings[aether_html5_respond_meta][] = meta
+settings[aether_html5_respond_meta][] = selectivizr
+
+; Information added by author
+version = "7.x-1.0-alpha"
 core = "7.x"
 project = "aether"
 datestamp = "1297878443"

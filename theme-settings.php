@@ -56,11 +56,17 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#description'   => t('Useful when the breadcrumb is not placed just before the title.'),
     '#suffix'        => '</div>', // #div-aether-breadcrumb
   );
-  $form['themedev']['aether_add_html5_respond_js'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('Add HTML5 shim and Respond.js to every page.'),
-    '#default_value' => theme_get_setting('aether_add_html5_respond_js'),
-    '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add aether support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable this option.', array('!link' => 'http://www.modernizr.com/')),
+  $form['support']['aether_html5_respond_meta'] = array(
+    '#type'          => 'checkboxes',
+    '#title'         => t('Add HTML5 and responsive scripts and meta tags to every page.'),
+    '#default_value' => theme_get_setting('aether_html5_respond_meta'),
+    '#options'       => array(
+                          'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
+                          'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
+                          'meta' => t('Add meta tags to support responsive design on mobile devices.'),
+                          'selectivizr' => t('Add pseudo class support to IE6-8.'),
+                        ),
+    '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable these options. Mobile devices require a few meta tags for responsive designs.', array('!link' => 'http://www.modernizr.com/')),
   );
   $form['themedev']['aether_skip_link_anchor'] = array(
     '#type'          => 'textfield',

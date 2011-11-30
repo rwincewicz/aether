@@ -21,14 +21,20 @@ function aether_preprocess_html(&$variables, $hook) {
   // Add paths needed for html5shim.
   $variables['base_path'] = base_path();
   $variables['path_to_aether'] = drupal_get_path('theme', 'aether');
-  $variables['add_html5_respond_js'] = theme_get_setting('aether_add_html5_respond_js');
+  $html5_respond_meta = theme_get_setting('aether_html5_respond_meta');
+  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
+  $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
+  $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
+  $variables['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
+
+  $variables['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
+  $variables['skip_link_text'] = theme_get_setting('aether_skip_link_text');
+
   // Attributes for html element.
   $variables['html_attributes_array'] = array(
     'lang' => $variables['language']->language,
     'dir' => $variables['language']->dir,
   );
-  $variables['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
-  $variables['skip_link_text'] = theme_get_setting('aether_skip_link_text');
 }
 
 /**
