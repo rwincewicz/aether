@@ -5,6 +5,10 @@
  * Licensed under the GNU General Public License
  * http://www.gnu.org/licenses/gpl.html
  */
+.ie6 .row, .ie6 #header, .ie6 #navigation, .ie6 .one-sidebar #main, .one-sidebar .ie6 #main, .ie6 .two-sidebars #main, .two-sidebars .ie6 #main, .ie6 #footer {
+  width: 940px;
+}
+
 .row, #header, #navigation, .one-sidebar #main, .two-sidebars #main, #footer {
   margin: 0 auto;
 }
@@ -995,11 +999,4 @@
   .offset31:first-child {
     margin-left: -836.932% !important;
   }
-}
-.ie6 #header,
-.ie6 #navigation,
-.ie6 #main,
-.ie6 #footer {
-  width: 960px;
-  margin: 0 auto;
 }

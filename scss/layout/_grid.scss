@@ -24,6 +24,10 @@ $col-tablet-width: ($max-tablet-width - $gutter-width * ($tablet-columns - 1)) /
 $col-handheld-landscape-width: ($max-handheld-landscape-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
 $col-handheld-width: ($max-handheld-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
 
+.ie6 .row {
+	width: $max-tablet-landscape-width;
+}
+
 .row {
 	margin: 0 auto;
 }
