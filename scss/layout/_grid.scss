@@ -30,14 +30,14 @@ $col-handheld-width: ($max-handheld-width - $gutter-width * ($handheld-columns -
 
 .row {
 	zoom: 1;
-	
+
 	&:before, &:after {
 		display: table;
 		content: "";
 		zoom: 1;
 		*display: inline;
 	}
-		
+
 	&:after {
 		clear: both;
 	}
@@ -83,7 +83,7 @@ $_allColumns-d: "";
 		$_allColumns-d: $_allColumns-d + ", .g-d-#{$col}";
 	}
 }
-	
+
 #{$_allColumns-d}, #{$_allColumns-t}, #{$_allColumns-h} {
 	@include box-sizing(border-box);
 }
@@ -98,7 +98,7 @@ $_allColumns-d: "";
 	display: inline;
 	float: left;  // enforces implicit display: block
 	margin-left: $gutter-width-percent;
-	
+
 	&:first-child {
 		margin-left: 0;
 	}
@@ -108,7 +108,7 @@ $_allColumns-d: "";
 @for $col from 1 to $handheld-columns {
 	.offset#{$col} {
 		margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-		
+
 		&:first-child {
 			margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
 		}
@@ -117,9 +117,9 @@ $_allColumns-d: "";
 
 
 // Handheld Portrait
-@media only screen and (max-width: 479px) { 
+@media only screen and (max-width: 479px) {
 	body{}
-	
+
 	.row {
 	max-width: $max-handheld-width;
 	@if $show-grid-background {
@@ -133,7 +133,6 @@ $_allColumns-d: "";
 	}
 
 }
-
 
 // Handheld Landscape
 @media only screen and (min-width: 480px) {
@@ -191,7 +190,7 @@ $_allColumns-d: "";
 	@for $col from 1 to $tablet-columns {
 		.offset#{$col} {
 			margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-			
+
 			&:first-child {
 				margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
 			}
@@ -251,7 +250,7 @@ $_allColumns-d: "";
 	@for $col from 1 to $desktop-columns {
 		.offset#{$col} {
 			margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-			
+
 			&:first-child {
 				margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
 			}
