@@ -1,5 +1,5 @@
-* Github Location: http://github.com/krisbulman/Aether
-* Documentation:   http://github.com/krisbulman/Aether/wiki
+* Github Location: http://github.com/krisbulman/aether
+* Documentation:   http://github.com/krisbulman/aether/wiki
 * Style Guide:     http://aetherdev.bulman.ca/
 * Maintainer(s):
  * Kris Bulman
@@ -16,7 +16,7 @@ This theme is a starter theme, with all the components you should need to build 
 Installation of theme on Drupal 7
 ------------------------
 
-- Download Aether from https://github.com/krisbulman/Aether
+- Download Aether from https://github.com/krisbulman/aether
 - Unpack the downloaded file and place the Aether folder in your Drupal installation under
   one of the following locations:
 
@@ -34,4 +34,4 @@ Since this theme is still in development phase, no starter kit will be created u
 Resources
 ---------
 
-Read the documentation at http://www.github.com/krisbulman/Aether/wiki
+Read the documentation at http://www.github.com/krisbulman/aether/wiki
