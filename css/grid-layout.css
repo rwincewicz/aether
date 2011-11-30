@@ -996,7 +996,10 @@
     margin-left: -836.932% !important;
   }
 }
-.ie6 #page {
+.ie6 #header,
+.ie6 #navigation,
+.ie6 #main,
+.ie6 #footer {
   width: 960px;
   margin: 0 auto;
 }
