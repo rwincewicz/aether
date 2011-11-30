@@ -1,57 +1,323 @@
-// Forms
+// UI Consistency
+//----------------------------------------------------------------------------------------------------
 
-form {
-  margin-bottom: px-to-em($base-line-height);
-}
-
-fieldset {
+::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
+input[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: relative;
+  vertical-align: top;
+  top: 3px;
+  // IE8, IE9, IE10
+  top: 0 \0;
+}
+
+.ie7 {
+  input[type="radio"],
+  input[type="checkbox"] {
+    top: -3px;
+  }
+}
+
+// iPad
+@media (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 1024px) {
+  input[type="radio"],
+  input[type="checkbox"] {
+    vertical-align: baseline;
+    top: 2px;
+  }
+}
+
+// iPhone 3
+@media (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 480px) {
+  input[type="radio"],
+  input[type="checkbox"] {
+    vertical-align: baseline;
+    top: 0;
+  }
+}
+
+// iPhone 4
+@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 480px) {
+  input[type="radio"],
+  input[type="checkbox"] {
+    vertical-align: baseline;
+    top: 0;
+  }
+}
+
+input,
+button,
+select,
 textarea {
-  overflow: auto;
+  margin: 0;
+  vertical-align: middle;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  @include box-shadow(#0066ff 0 0 7px 0);
+  // for Opera
+  z-index: 1;
+}
+
+input[type="file"],
+input[type="radio"],
+input[type="checkbox"] {
+  &:focus,
+  &:active {
+    @include box-shadow(none);
+  }
+}
+
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: none;
+  @include border-radius(4px);
+  @include background-clip(padding-box);
+  background: $button-background image-url("button.png") repeat-x;
+  @include background-image(linear-gradient($button-color-1, $button-color-3));
+  border: 1px solid;
+  border-color: $button-border-1 $button-border-2 $button-border-3;
+  cursor: pointer;
+  color: $text-color;
+  // Helvetica Neue present, because it works better
+  // for line-height on buttons than Arial, on OS X.
+  @include adjust-font-size-to($font-size-sm,1);
+  font-family: $button-font-family;
+  outline: 0;
+  overflow: visible;
+  padding: 3px 10px;
+  @include text-shadow(rgba(white, 0) 0 1px 1px);
+  width: auto;
+  &:hover {
+    @include background-image(linear-gradient($button-color-hover-1, $button-color-hover-2 33%, $button-color-hover-3)); }
+  &:active {
+    @include background-image(linear-gradient($button-color-active-1, $button-color-active-2 33%, $button-color-active-3));
+    @include box-shadow(inset rgba(black, 0.25) 0 1px 2px 0);
+    border-color: $text-border-alt-2 $text-border-alt $text-border;
+  }
+}
+
+.ie7 {
+  button,
+  input[type="reset"],
+  input[type="submit"],
+  input[type="button"] {
+    padding-top: 2px;
+    padding-bottom: 0;
+  }
+}
+
+.ie7 button {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.ie6 .form-submit {
+  background: $button-background image-url("button.png") repeat-x;
+  border: 1px solid;
+  border-color: $button-border-1 $button-border-2 $button-border-3;
+  cursor: pointer;
+  color: $text-color;
+  font-style: bold;
+  @include adjust-font-size-to($font-size-sm,1);
+  font-family: $input-font-family;
+  padding: 2px 10px 0px;
+  overflow: visible;
+  width: auto;
+}
+
+.ie6 .form-submit {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  @include box-sizing(border-box);
+  @include background-clip(padding-box);
+  @include border-radius(0);
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid;
+  border-color: $form-border-1 $form-border-2 $form-border-3;
+  color: black;
+  outline: 0;
+  padding: 2px 3px;
+  text-align: left;
+  @include adjust-font-size-to($font-size-normal,1);
+  // Leaving out Helvetica Neue, to not throw off size="..."
+  // on inputs. Arial is more reliable, on Windows and OS X.
+  font-family: $input-font-family;
+  &[disabled] {
+    background-color: #eeeeee;
+  }
+}
+
+.ie7 {
+  textarea,
+  select,
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"] {
+    padding-top: 2px;
+    padding-bottom: 1px;
+    height: auto;
+  }
+}
+
+.ie6 textarea,
+.ie6 select
+.ie6 input.form-text {
+  background: white;
+  border: 1px solid;
+  border-color: $form-border-1 $form-border-2 $form-border-3;
+  color: black;
+  padding: 2px 3px 1px;
+  @include adjust-font-size-to($font-size-normal,1);
+  font-family: $input-font-family;
   vertical-align: top;
 }
 
-legend {
-  border: 0;
-  *margin-left: -7px;
+.ie6 select {
+  margin-top: 1px;
 }
 
-button, input, select, textarea {
-  vertical-align: baseline;
-  *vertical-align: middle;
+
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled] {
+  @include box-shadow(none);
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  color: $form-disabled;
+  cursor: default;
 }
 
-button, input {
-  line-height: normal;
-  *overflow: visible;
+.ie6 input.form-button-disabled {
+  color: $form-disabled;
 }
 
-button {
-  cursor: pointer;
-  @include appearance('button');
+// Separate rule for Firefox.
+// Separate rule for IE, too.
+// Cannot stack with WebKit's.
+::-webkit-input-placeholder {
+  color: $form-disabled;
 }
 
-input {
-  &[type="button"], &[type="reset"], &[type="submit"] {
-    cursor: pointer;
-    @include appearance('button');
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: $form-disabled;
+}
+
+// going to replace when i find out a class name for placeholder text in drupal
+input.placeholder_text,
+textarea.placeholder_text {
+  color: $form-disabled;
+}
+
+:invalid {
+  // Suppress red glow that Firefox
+  // adds to form fields by default,
+  // even when user is still typing.
+  @include box-shadow(none);
+}
+
+textarea,
+select[size],
+select[multiple] {
+  height: auto;
+}
+
+// Tweaks for Safari + Chrome.
+@media (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    background-image: image-url("select_arrow.gif");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
   }
-  &[type="checkbox"], &[type="radio"] {
-    @include box-sizing(border-box);
+  select[size],
+  select[multiple] {
+    background-image: none;
+    padding: 0; }
+  ::-webkit-validation-bubble-message {
+    -webkit-box-shadow: rgba(black, 0.5) 0 0 5px 0;
+    box-shadow: rgba(black, 0.5) 0 0 5px 0;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
+    border: 1px solid;
+    border-color: $form-border-1 $form-border-2 $form-border-3;
+    color: white;
+    @include adjust-font-size-to($font-size-sm,1);
+    font-family: $input-font-family;
+    overflow: hidden;
+    padding: 15px 15px 17px;
+    @include text-shadow(rgba(black, 0) 0 0 1px);
+    height: 16px;
   }
-  &[type="search"] {
-    @include appearance('textfield');
-    @include box-sizing(content-box);
-    &::-webkit-search-decoration {
-      @include appearance('none');
-    }
+  ::-webkit-validation-bubble-arrow,
+  ::-webkit-validation-bubble-top-outer-arrow,
+  ::-webkit-validation-bubble-top-inner-arrow {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #666666;
+    border: 0;
   }
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+textarea {
+  min-height: 40px;
+  overflow: auto;
+  resize: vertical;
+  width: 100%;
 }
+
+optgroup {
+  color: black;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+
+

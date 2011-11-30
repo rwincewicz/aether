@@ -1,5 +1,5 @@
 // Grid overlay
-$show-grid-background:         false;
+$show-grid-background:         true;
 $grid-background-column-color: rgba(153, 0, 0, 0.1);
 
 // Base grid system
@@ -34,8 +34,10 @@ $font-size-xxxl:               30px;
 $typographic-indent:           1.625em;
 
 // Font Stacks
-$header-font-family:           "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$text-font-family:             "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$header-font-family:           "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
+$text-font-family:             "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
+$button-font-family:		   		 "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
+$input-font-family:						 Arial, "Liberation Sans", FreeSans, sans-serif;
 $mono-font-family:             Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 
 // Main Link Colors
@@ -48,5 +50,28 @@ $link-color-active:            adjust-color($link-color-hover, $lightness: -15);
 $text-color:                   #222;
 $text-color-light:             adjust-color($text-color, $lightness: 54);
 $text-border:                  #ddd;
+$text-border-alt:              adjust-lightness($text-border, -14);
+$text-border-alt-2:            adjust-lightness($text-border, -27);
 $text-marked:                  #ff0;
 $text-inserted:                adjust-color($text-marked, $lightness: 30);
+
+// Button colors
+$button-background:            #ddd;
+$button-border-1:              $button-background;
+$button-border-2:              adjust-lightness($button-border-1, -14);
+$button-border-3:            	 adjust-lightness($button-border-1, -27);
+$button-color-1:					 		 #fff;
+$button-color-2:					     adjust-lightness($button-color-1, -6);
+$button-color-3:			 				 adjust-lightness($button-color-1, -13);
+$button-color-hover-1:				 #fff;
+$button-color-hover-2:				 adjust-lightness($button-color-hover-1, -13);
+$button-color-hover-3:			   adjust-lightness($button-color-hover-1, -20);
+$button-color-active-1:				 #fff;
+$button-color-active-2:				 adjust-lightness($button-color-active-1, -13);
+$button-color-active-3:			 	 adjust-lightness($button-color-active-1, -7);
+
+// Form input colors
+$form-border-1:              	 #848484;
+$form-border-2:              	 adjust-lightness($form-border-1, 24);
+$form-border-3:              	 adjust-lightness($form-border-1, 36);
+$form-disabled: 							 #888888;

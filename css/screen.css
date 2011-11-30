@@ -35,12 +35,12 @@ html {
 
 body {
   margin: 0 auto;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
   color: #222222;
 }
 
 button, input, select, textarea {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
   color: #222222;
 }
 
@@ -159,7 +159,7 @@ p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldse
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
   font-size: 1em;
   font-weight: bold;
 }
@@ -529,49 +529,51 @@ input[type="button"] {
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
   background: #dddddd url('../images/button.png?1322582961') repeat-x;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
-  background-image: -webkit-linear-gradient(#ffffff, #dddddd);
-  background-image: -moz-linear-gradient(#ffffff, #dddddd);
-  background-image: -o-linear-gradient(#ffffff, #dddddd);
-  background-image: -ms-linear-gradient(#ffffff, #dddddd);
-  background-image: linear-gradient(#ffffff, #dddddd);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dedede));
+  background-image: -webkit-linear-gradient(#ffffff, #dedede);
+  background-image: -moz-linear-gradient(#ffffff, #dedede);
+  background-image: -o-linear-gradient(#ffffff, #dedede);
+  background-image: -ms-linear-gradient(#ffffff, #dedede);
+  background-image: linear-gradient(#ffffff, #dedede);
   border: 1px solid;
-  border-color: #dddddd #bbbbbb #999999;
+  border-color: #dddddd #b9b9b9 #989898;
   cursor: pointer;
-  color: #333333;
-  font: bold 12px/1.3 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+  color: #222222;
+  font-size: 0.923em;
+  line-height: 1.5em;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
   outline: 0;
   overflow: visible;
   padding: 3px 10px;
-  text-shadow: white 0 1px 1px;
+  text-shadow: rgba(255, 255, 255, 0) 0 1px 1px;
   width: auto;
 }
 button:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #eeeeee), color-stop(100%, #cccccc));
-  background-image: -webkit-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
-  background-image: -moz-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
-  background-image: -o-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
-  background-image: -ms-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
-  background-image: linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(33%, #dedede), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(#ffffff, #dedede 33%, #cccccc);
+  background-image: -moz-linear-gradient(#ffffff, #dedede 33%, #cccccc);
+  background-image: -o-linear-gradient(#ffffff, #dedede 33%, #cccccc);
+  background-image: -ms-linear-gradient(#ffffff, #dedede 33%, #cccccc);
+  background-image: linear-gradient(#ffffff, #dedede 33%, #cccccc);
 }
 button:active,
 input[type="reset"]:active,
 input[type="submit"]:active,
 input[type="button"]:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #dddddd), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
-  background-image: -moz-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
-  background-image: -o-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
-  background-image: -ms-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
-  background-image: linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(33%, #dedede), color-stop(100%, #ededed));
+  background-image: -webkit-linear-gradient(#ffffff, #dedede 33%, #ededed);
+  background-image: -moz-linear-gradient(#ffffff, #dedede 33%, #ededed);
+  background-image: -o-linear-gradient(#ffffff, #dedede 33%, #ededed);
+  background-image: -ms-linear-gradient(#ffffff, #dedede 33%, #ededed);
+  background-image: linear-gradient(#ffffff, #dedede 33%, #ededed);
   -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -o-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
-  border-color: #999999 #bbbbbb #dddddd;
+  border-color: #989898 #b9b9b9 #dddddd;
 }
 
 .ie7 button,
@@ -590,10 +592,13 @@ input[type="button"]:active {
 .ie6 .form-submit {
   background: #dddddd url('../images/button.png?1322582961') repeat-x;
   border: 1px solid;
-  border-color: #dddddd #bbbbbb #999999;
+  border-color: #dddddd #b9b9b9 #989898;
   cursor: pointer;
-  color: #333333;
-  font: bold 12px/1.2 Arial, sans-serif;
+  color: #222222;
+  font-style: bold;
+  font-size: 0.923em;
+  line-height: 1.5em;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
   padding: 2px 10px 0px;
   overflow: visible;
   width: auto;
@@ -638,14 +643,14 @@ input[type="week"] {
   -webkit-appearance: none;
   background-color: white;
   border: 1px solid;
-  border-color: #848484 #c1c1c1 #e1e1e1;
+  border-color: #848484 #c1c1c1 #e0e0e0;
   color: black;
   outline: 0;
   padding: 2px 3px;
   text-align: left;
-  font-size: 13px;
+  font-size: 1em;
+  line-height: 1.385em;
   font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
-  height: 1.8em;
 }
 textarea[disabled],
 select[disabled],
@@ -690,11 +695,12 @@ input[type="week"][disabled] {
 .ie6 input.form-text {
   background: white;
   border: 1px solid;
-  border-color: #848484 #c1c1c1 #e1e1e1;
+  border-color: #848484 #c1c1c1 #e0e0e0;
   color: black;
   padding: 2px 3px 1px;
-  font-size: 13px;
-  font-family: Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.385em;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
   vertical-align: top;
 }
 
@@ -720,13 +726,8 @@ textarea[disabled] {
   cursor: default;
 }
 
-.placeholder_text,
 .ie6 input.form-button-disabled {
   color: #888888;
-}
-
-.ie6 input.form-button-disabled {
-  background: #eeeeee;
 }
 
 ::-webkit-input-placeholder {
@@ -775,12 +776,14 @@ select[multiple] {
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px 0;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
     border: 1px solid;
-    border-color: #747474 #5e5e5e #4f4f4f;
+    border-color: #848484 #c1c1c1 #e0e0e0;
     color: white;
-    font: 13px/17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 0.923em;
+    line-height: 1.5em;
+    font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
     overflow: hidden;
     padding: 15px 15px 17px;
-    text-shadow: black 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0) 0 0 1px;
     height: 16px;
   }
 

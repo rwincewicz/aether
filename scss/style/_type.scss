@@ -27,7 +27,7 @@ $typographic-indent: 1.625em !default;
 
 // Font Stacks
 $header-font-family: Palatino, "Helvetica Neue",Helvetica,Arial,sans-serif !default;
-$text-font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$text-font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif !default;
 $mono-font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 
 @include establish-baseline($base-font-size);
