@@ -19,7 +19,7 @@ ul.primary,
 ul.secondary {
   @include clearfix;
   @include trailing-border(1px, 1, $font-size-normal, solid);
-  margin: 0;
+  margin-left: 0;
   border-color: $tabs-border;
   list-style: none;
   padding: 0 2px;
