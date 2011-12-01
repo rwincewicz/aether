@@ -95,6 +95,12 @@ small {
   @include margin-trailer(1, $font-size-xxs);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  small {
+    color: $text-color-light;
+  }
+}
+
 // Preformatted text and code
 
 // Allows line wrapping of 'pre'

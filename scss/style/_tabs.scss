@@ -85,27 +85,5 @@ ul.secondary {
   font-size: .9em;
   margin-top: -1.5em; // Collapse bottom margin of ul.primary.
   padding-bottom: .5em;
-
-  a:link,
-  a:visited {
-    @include border-radius(.75em);
-    @include transition(background-color 0.3s);
-    @include single-text-shadow(#fff, 1px, 1px, 0);
-    background-color: #f2f2f2;
-    color: #666;
-    padding: 0 .5em;
-  }
-  a:hover,
-  a:focus {
-    background-color: #dedede;
-    border-color: #999;
-    color: #333;
-  }
-  a.active,
-  a:active {
-    @include single-text-shadow(#333, 1px, 1px, 0);
-    background-color: #666;
-    border-color: #000;
-    color: #fff;
-  }
+  @extend .pill
 }
