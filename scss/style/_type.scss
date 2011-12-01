@@ -86,6 +86,7 @@ h6 {
   @include adjust-font-size-to($font-size-md,1);
   @include margin-leader(0, $font-size-md);
   @include margin-trailer(1, $font-size-md);
+  color: $text-color-light;
 }
 
 small {
