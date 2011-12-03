@@ -4,11 +4,9 @@
 }
 
 #header {
-	@extend .row;
 }
 
 #navigation {
-	@extend .row;
 	#primary {
 		@extend .g-d-32;
 		@extend .g-tl-24;
@@ -19,7 +17,6 @@
 }
 
 .one-sidebar #main {
-	@extend .row;
 	.region-sidebar-first {
 		@extend .g-d-8;
 		@extend .g-tl-6;
@@ -44,7 +41,6 @@
 }
 
 .two-sidebars #main {
-	@extend .row;
 	.region-sidebar-first {
 		@extend .g-d-8;
 		@extend .g-tl-6;
@@ -68,8 +64,17 @@
 	}
 }
 
+.no-sidebars #main {
+	#content {
+		@extend .g-d-32;
+		@extend .g-tl-24;
+		@extend .g-t-24;
+		@extend .g-hl-12;
+		@extend .g-h-12;
+	}
+}
+
 #footer {
-	@extend .row;
 	.region-footer {
 		@extend .g-d-32;
 		@extend .g-tl-24;

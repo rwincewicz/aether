@@ -262,3 +262,9 @@ table {
   @include margin-leader(1, $font-size-xxxl);
   @include margin-trailer(0, $font-size-xxxl);
 }
+
+div.admin-panel,
+div.admin-panel .body {
+    padding-top: 0;
+    padding-bottom: 0;
+}

@@ -475,6 +475,13 @@ table td {
   margin-bottom: 0em;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003267}}
+div.admin-panel,
+div.admin-panel .body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\000036}}
 div.messages {
   background-position: 0;
@@ -570,7 +577,7 @@ div.messages.error {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000362}}
 .pill a:link, ul.secondary a:link,
 .pill a:visited,
 ul.secondary a:visited {
@@ -589,7 +596,7 @@ ul.secondary a:visited {
   color: #666;
   padding: 0 .5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000371}}
 .pill a:hover, ul.secondary a:hover,
 .pill a:focus,
 ul.secondary a:focus {
@@ -597,7 +604,7 @@ ul.secondary a:focus {
   border-color: #999;
   color: #333;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000377}}
 .pill a.active, ul.secondary a.active,
 .pill a:active,
 ul.secondary a:active {

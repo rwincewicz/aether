@@ -1,6 +1,7 @@
 <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
-  <header id="header">
+<!-- BEGIN ROW -->
+  <header id="header" class="row">
 
     <?php if ($secondary_menu): ?>
       <nav class="menu">
@@ -42,14 +43,18 @@
       </div>
     <?php endif; ?>
   </header> <!-- /header -->
+<!-- END ROW -->
 
+<!-- BEGIN ROW -->
     <?php if ($main_menu): ?>
-      <nav id="navigation" class="menu">
+      <nav id="navigation" class="menu row">
         <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
       </nav>
     <?php endif; ?>
+<!-- END ROW -->
 
-  <div id="main" class="clearfix">
+<!-- BEGIN ROW -->
+  <div id="main" class="clearfix row">
 
     <?php print render($page['sidebar_first']); ?>
 
@@ -77,7 +82,7 @@
             <?php if ($action_links): ?>
               <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
-            
+
           </div> <!-- /#content-header -->
         <?php endif; ?>
 
@@ -92,11 +97,14 @@
     <?php print render($page['sidebar_second']); ?>
 
   </div> <!-- /main -->
+<!-- END ROW -->
 
+<!-- BEGIN ROW -->
   <?php if ($page['footer']): ?>
-    <div id="footer">
+    <div id="footer" class="row">
         <?php print render($page['footer']); ?>
     </div> <!-- /footer -->
   <?php endif; ?>
+<!-- END ROW -->
 
 </div> <!-- /page -->
