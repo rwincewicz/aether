@@ -85,6 +85,6 @@ ul.secondary {
   margin-top: -1.5em; // Collapse bottom margin of ul.primary.
   padding-bottom: .5em;
   a {
-    @include pill($font-size-xs, 2em, 1px, #f2f2f2);
+    @include pill($font-size-sm, 2em, 1px, #f2f2f2);
   }
 }
