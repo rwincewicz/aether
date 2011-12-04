@@ -24,17 +24,11 @@ ul.secondary {
   list-style: none;
   padding: 0 2px;
   white-space: nowrap;
-
   li {
     float: left; // letter
     margin: 0 0 0 3px; // LTR
   }
-
   a {
-    @include rhythm-borders(1px, 1, $font-size-normal, solid);
-    border-color: #e9e9e9;
-    border-right: 0;
-    border-bottom: 0;
     display: block;
     text-decoration: none;
   }
@@ -54,27 +48,32 @@ ul.primary {
     border-bottom: 1px solid $tabs-container-bg;
     margin-bottom: -1px; // Overlap the ul's border.
   }
-
-  a:link,
-  a:visited {
-    @include border-top-radius(4px);
-    @include transition(background-color 0.3s);
-    color: #333;
-    background-color: #dedede;
-    letter-spacing: 1px;
-    padding: 0 1em;
-    text-align: center;
-  }
-  a:hover,
-  a:focus {
-    background-color: #e9e9e9;
-    border-color: #f2f2f2;
-  }
-  a.active {
-    background-color: transparent;
-    @include filter-gradient(rgba(#e9e9e9, 1), rgba(#e9e9e9, 0));
-    @include background-image(linear-gradient(rgba(#e9e9e9, 1), rgba(#e9e9e9, 0)));
-    border-color: #fff;
+  a {
+      @include rhythm-borders(1px, 1, $font-size-normal, solid);
+      border-color: #e9e9e9;
+      border-right: 0;
+      border-bottom: 0;
+    &:link,
+    &:visited {
+      @include border-top-radius(4px);
+      @include transition(background-color 0.3s);
+      color: #333;
+      background-color: #dedede;
+      letter-spacing: 1px;
+      padding: 0 1em;
+      text-align: center;
+    }
+    &:hover,
+    &:focus {
+      background-color: #e9e9e9;
+      border-color: #f2f2f2;
+    }
+    &.active {
+      background-color: transparent;
+      @include filter-gradient(rgba(#e9e9e9, 1), rgba(#e9e9e9, 0));
+      @include background-image(linear-gradient(rgba(#e9e9e9, 1), rgba(#e9e9e9, 0)));
+      border-color: #fff;
+    }
   }
 }
 
@@ -82,8 +81,10 @@ ul.primary {
 // Secondary tabs
 //
 ul.secondary {
-  font-size: .9em;
+  font-size: 0.9em;
   margin-top: -1.5em; // Collapse bottom margin of ul.primary.
   padding-bottom: .5em;
-  @extend .pill
+  a {
+    @include pill($font-size-xs, 2em, 1px, #f2f2f2);
+  }
 }

@@ -1,0 +1,76 @@
+$p-invert-on-click: 0 !default;
+$p-font-size: px-to-em($font-size-normal) !default;
+$p-color: #f2f2f2 !default;
+$p-color-hover: adjust-lightness($p-color, -35) !default;
+$p-color-active: adjust-lightness($p-color, -55) !default;
+$p-font-weight: bold !default;
+$p-border-width: 1px !default;
+$p-radius: 2em !default;
+$p-light-text: white !default;
+$p-dark-text: #666666 !default;
+$p-line-height: $base-line-height !default;
+$p-padding-v: 0em;
+$p-padding-h: 0.5em;
+
+@mixin pill($font-size: $p-font-size, $radius: $p-radius, $border-width: $p-border-width, $color: $p-color, $color-hover: $p-color-hover, $color-active: $p-color-active) {
+    text-decoration: none;
+    @include pill-color($color, $color-hover, $color-active);
+    @include pill-size($font-size, $radius, $border-width);
+  }
+
+@mixin pill-color($color: $p-color, $color-hover: $p-color-hover, $color-active: $p-color-active) {
+  &:link,
+  &:visited {
+    @include transition(background-color 0.2s);
+    background-color: $color;
+    border-color: adjust-lightness($color, -4);
+    @if lightness($color) <= lightness(#999) {
+      color: $p-light-text;
+      @include single-text-shadow(#333, 1px, 1px, 0);
+    }
+    @else {
+      color: $p-dark-text;
+      @include single-text-shadow(#fff, 1px, 1px, 0);
+    }
+  }
+  &:hover,
+  &:focus {
+    background-color: $color-hover;
+    border-color: adjust-lightness($color-hover, -20);
+    @if lightness($color-hover) <= lightness(#c7c7c7) {
+      color: $p-light-text;
+      @include single-text-shadow(#333, 1px, 1px, 0);
+    }
+    @else {
+      color: $p-dark-text;
+      @include single-text-shadow(#fff, 1px, 1px, 0);
+    }
+  }
+  &.active,
+  &:active {
+    background-color: $color-active;
+    border-color: adjust-lightness($color, -95);
+      @if lightness($color-active) <= lightness(#999) {
+      color: $p-light-text;
+      @include single-text-shadow(#333, 1px, 1px, 0);
+      }
+      @else {
+      color: $p-dark-text;
+      @include single-text-shadow(#fff, 1px, 1px, 0);
+      }
+    }
+  }
+
+@mixin pill-size($font-size: $p-font-size, $radius: $p-radius, $border-width: $p-border-width, $line-height: $p-line-height, $v-padding: $p-padding-v, $h-padding: $p-padding-h) {
+  font-size: px-to-em($font-size);
+  @if $radius > 0 {
+    @include border-radius($radius); }
+  @include rhythm-borders($border-width, 1, $font-size, solid);
+  border-right: 0;
+  border-bottom: 0;
+  @include pill-padding($v-padding, $h-padding);
+}
+
+@mixin pill-padding($v-padding: $p-padding-v, $h-padding: $p-padding-h) {
+  padding: $v-padding $h-padding;
+}
