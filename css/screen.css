@@ -396,8 +396,13 @@ blockquote > p {
 }
 
 ul, ol, .item-list ul {
-  margin: 0 0 0 0.813em;
+  margin: 0 0 0 1.625em;
   margin-bottom: 1.385em;
+  padding: 0;
+}
+
+.item-list ul li {
+  margin: 0;
   padding: 0;
 }
 
@@ -416,7 +421,7 @@ ol {
   list-style: decimal;
 }
 
-li {
+li, .item-list li {
   line-height: 1.385em;
 }
 

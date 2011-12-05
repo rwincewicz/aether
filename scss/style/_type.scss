@@ -161,9 +161,14 @@ blockquote {
 
 // Unordered and Ordered lists
 ul, ol, .item-list ul {
-  margin: 0 0 0 ($typographic-indent/2);
+  margin: 0 0 0 $typographic-indent;
   @include margin-trailer(1, $base-font-size);
   padding: 0;
+}
+
+.item-list ul li {
+    margin: 0;
+    padding: 0;
 }
 
 ul ul,
@@ -178,7 +183,7 @@ ul {
 ol {
   list-style: decimal;
 }
-li {
+li, .item-list li {
   line-height: px-to-em($base-line-height);
 }
 ul.unstyled {
