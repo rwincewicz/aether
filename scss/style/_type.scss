@@ -160,11 +160,12 @@ blockquote {
 }
 
 // Unordered and Ordered lists
-ul, ol {
+ul, ol, .item-list ul {
   margin: 0 0 0 ($typographic-indent);
   @include margin-trailer(1, $base-font-size);
   padding: 0;
 }
+
 ul ul,
 ul ol,
 ol ol,
