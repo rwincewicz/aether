@@ -450,12 +450,15 @@ a:hover, a:active {
   margin-bottom: 0.692em;
 }
 
-.with-navigation .breadcrumb {
+.with-navigation .breadcrumb ul {
   margin-bottom: 0.692em;
 }
 
 .breadcrumb {
   color: #6f6f6f;
+}
+.breadcrumb ul {
+  margin-left: 0;
 }
 .breadcrumb li {
   display: inline;

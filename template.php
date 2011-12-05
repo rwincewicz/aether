@@ -192,6 +192,8 @@ function aether_preprocess_region(&$variables, $hook) {
  */
 function aether_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
+  $output = '';
+
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('aether_breadcrumb');
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
@@ -210,13 +212,10 @@ function aether_breadcrumb($variables) {
         $item = menu_get_item();
         if (!empty($item['tab_parent'])) {
           // If we are on a non-default tab, use the tab's title.
-          $title = check_plain($item['title']);
+          $breadcrumb[] = check_plain($item['title']);
         }
         else {
-          $title = drupal_get_title();
-        }
-        if ($title) {
-          $trailing_separator = $breadcrumb_separator;
+          $breadcrumb[] = drupal_get_title();
         }
       }
       elseif (theme_get_setting('aether_breadcrumb_trailing')) {
@@ -224,14 +223,24 @@ function aether_breadcrumb($variables) {
       }
 
       // Provide a navigational heading to give context for breadcrumb links to
-      // screen-reader users. Make the heading invisible with .element-invisible.
-      $heading = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+      // screen-reader users.
+      if (empty($variables['title'])) {
+        $variables['title'] = t('You are here');
+      }
+      // Unless overridden by a preprocess function, make the heading invisible.
+      if (!isset($variables['title_attributes_array']['class'])) {
+        $variables['title_attributes_array']['class'][] = 'element-invisible';
+      }
 
-      return $heading . '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . $trailing_separator . $title . '</div>';
+      // Build the breadcrumb trail.
+      $output = '<nav class="breadcrumb" role="navigation">';
+      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+      $output .= '<ul><li>' . implode($breadcrumb_separator . '</li><li>', $breadcrumb) . $trailing_separator . '</li></ul>';
+      $output .= '</nav>';
     }
   }
-  // Otherwise, return an empty string.
-  return '';
+
+  return $output;
 }
 
 /*
