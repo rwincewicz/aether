@@ -1,14 +1,14 @@
 // Grid overlay
-$show-grid-background:         false;
+$show-grid-background:         true;
 $grid-background-column-color: rgba(153, 0, 0, 0.1);
 
 // Base grid system
 $desktop-columns:              32;
 $tablet-columns:               24;
 $handheld-columns:             12;
-$max-desktop-width:            1140px;
-$max-tablet-landscape-width:   940px;
-$max-tablet-width:             748px;
+$max-desktop-width:            1140px; // minus double your gutter if you want outer margins on the following widths
+$max-tablet-landscape-width:   960px;
+$max-tablet-width:             760px;
 $max-handheld-landscape-width: 476px;
 $max-handheld-width:           320px;
 $gutter-width:                 10px; // The width of the gutters of your grid.

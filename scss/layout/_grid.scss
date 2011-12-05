@@ -14,8 +14,8 @@ $handheld-columns: 12 !default; // the number of columns in your grid
 $gutter-width: 10px !default; // The width of the gutters of your grid, in percentages
 $gutter-width-percent: percentage($gutter-width / $max-desktop-width);
 $max-desktop-width: 1140px !default;
-$max-tablet-landscape-width: 940px !default;
-$max-tablet-width: 748px !default;
+$max-tablet-landscape-width: 960px !default;
+$max-tablet-width: 760px !default;
 $max-handheld-landscape-width: 476px !default;
 $max-handheld-width: 320px !default;
 $col-desktop-width: ($max-desktop-width - $gutter-width * ($desktop-columns - 1)) / $desktop-columns;
@@ -121,7 +121,7 @@ $_allColumns-d: "";
 	body{}
 
 	.row {
-	max-width: $max-handheld-width;
+	max-width: $max-handheld-width - ($gutter-width * 2);
 	@if $show-grid-background {
 	@include grid-background(
 	  $total: $handheld-columns,
@@ -136,15 +136,13 @@ $_allColumns-d: "";
 
 // Handheld Landscape
 @media only screen and (min-width: 480px) {
-
-.row {
-	max-width: $max-handheld-landscape-width;
-}
+	body {}
 
   // Disables iphone font size increase when viewing in landscape mode.
   html { -webkit-text-size-adjust: none; }
 
 	.row {
+	max-width: $max-handheld-landscape-width - ($gutter-width * 2);
 	@if $show-grid-background {
 	@include grid-background(
 	  $total: $handheld-columns,
@@ -152,23 +150,23 @@ $_allColumns-d: "";
 	  $gutter: $gutter-width,
 	  $baseline: $base-line-height,
 	  $force-fluid: true);
-		  }
+		}
 	}
 
-@for $col from 1 to ($handheld-columns + 1) {
-	.g-hl-#{$col} {
-		width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
+	@for $col from 1 to ($handheld-columns + 1) {
+		.g-hl-#{$col} {
+			width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
+		}
 	}
-}
 
 }
 
 // Tablet Portrait
-@media only screen and (min-width: 759px) {
+@media only screen and (min-width: 768px) {
 	body{}
 
 	.row {
-	max-width: $max-tablet-width;
+	max-width: $max-tablet-width - ($gutter-width * 2);
 	@if $show-grid-background {
 	@include grid-background(
 	  $total: $tablet-columns,
@@ -204,7 +202,7 @@ $_allColumns-d: "";
 	body{}
 
 	.row {
-	max-width: $max-tablet-landscape-width;
+	max-width: $max-tablet-landscape-width - ($gutter-width * 2);
 	@if $show-grid-background {
 	@include grid-background(
 	  $total: $tablet-columns,
@@ -228,7 +226,7 @@ $_allColumns-d: "";
 	body{}
 
 	.row {
-	max-width: $max-desktop-width;
+	max-width: $max-desktop-width - ($gutter-width * 2);
 	@if $show-grid-background {
 	@include grid-background(
 	  $total: $desktop-columns,
