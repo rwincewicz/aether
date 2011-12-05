@@ -56,13 +56,15 @@
 <!-- BEGIN ROW -->
   <div id="main" class="clearfix row">
 
+    <?php if ($breadcrumb): ?>
+      <?php print $breadcrumb; ?>
+    <?php endif; ?>
+
     <?php print render($page['sidebar_first']); ?>
 
     <article id="content">
-        <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
+        <?php if ($title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
-
-            <?php print $breadcrumb; ?>
 
             <?php if ($page['highlight']): ?>
               <div id="highlight"><?php print render($page['highlight']) ?></div>
