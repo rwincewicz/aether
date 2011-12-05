@@ -226,6 +226,10 @@ a {
   @include menu-links-inline(1.5em, 2px, dashed, white);
 }
 
+.breadcrumb {
+    @include link-colors($link-color-alt, $hover: $link-color-hover-alt, $focus: $link-color-hover-alt, $visited: $link-color-visited-alt, $active: $link-color-active-alt);
+}
+
 // Marked/inserted/deleted text
 
 mark {

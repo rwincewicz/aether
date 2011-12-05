@@ -46,6 +46,12 @@ $link-color-hover:             adjust-color($link-color, $lightness: 12, $satura
 $link-color-visited:           $link-color;
 $link-color-active:            adjust-color($link-color-hover, $lightness: -15);
 
+// Alternative Link Colors
+$link-color-alt:               #888;
+$link-color-hover-alt:         adjust-color($link-color-alt, $lightness: 12);
+$link-color-visited-alt:       $link-color-alt;
+$link-color-active-alt:        adjust-color($link-color-hover-alt, $lightness: -15);
+
 // Text Colors
 $text-color:                   #222;
 $text-color-light:             adjust-color($text-color, $lightness: 54);

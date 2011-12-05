@@ -202,13 +202,6 @@ div.messages.error {
   display: inline;
   text-shadow: 0 1px 0 #333;
 }
-.breadcrumb li a {
-  color: #222222;
-}
-.breadcrumb .divider {
-  padding: 0 5px;
-  color: #333;
-}
 .breadcrumb a {
   padding: 0;
 }
@@ -463,6 +456,22 @@ a:hover, a:active {
 }
 #secondary .last {
   border-right: none;
+}
+
+.breadcrumb {
+  color: #888888;
+}
+.breadcrumb:visited {
+  color: #888888;
+}
+.breadcrumb:focus {
+  color: #a7a7a7;
+}
+.breadcrumb:hover {
+  color: #a7a7a7;
+}
+.breadcrumb:active {
+  color: gray;
 }
 
 mark {
