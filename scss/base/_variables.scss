@@ -6,7 +6,7 @@ $grid-background-column-color: rgba(153, 0, 0, 0.1);
 $desktop-columns:              32;
 $tablet-columns:               24;
 $handheld-columns:             12;
-$max-desktop-width:            1140px; // minus double your gutter if you want outer margins on the following widths
+$max-desktop-width:            1140px; // actual design width is this value minus double your gutter
 $max-tablet-landscape-width:   960px;
 $max-tablet-width:             760px;
 $max-handheld-landscape-width: 476px;
