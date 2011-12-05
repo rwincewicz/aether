@@ -168,13 +168,12 @@ div.messages {
   background-image: linear-gradient(#5bc0de, #339bb9);
 }
 div.messages.status {
-  color: white;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e1e1e1));
-  background-image: -webkit-linear-gradient(#ffffff, #e1e1e1);
-  background-image: -moz-linear-gradient(#ffffff, #e1e1e1);
-  background-image: -o-linear-gradient(#ffffff, #e1e1e1);
-  background-image: -ms-linear-gradient(#ffffff, #e1e1e1);
-  background-image: linear-gradient(#ffffff, #e1e1e1);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2f2f2), color-stop(100%, #e1e1e1));
+  background-image: -webkit-linear-gradient(#f2f2f2, #e1e1e1);
+  background-image: -moz-linear-gradient(#f2f2f2, #e1e1e1);
+  background-image: -o-linear-gradient(#f2f2f2, #e1e1e1);
+  background-image: -ms-linear-gradient(#f2f2f2, #e1e1e1);
+  background-image: linear-gradient(#f2f2f2, #e1e1e1);
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 }
 div.messages.warning {
