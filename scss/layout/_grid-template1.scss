@@ -21,7 +21,7 @@
 .one-sidebar #main {
 	// .row class has been moved to page.tpl.php
 	.region-sidebar-first {
-		@extend .g-d-7;
+		@extend .g-d-6;
 		@extend .g-tl-6;
 		@extend .g-t-6;
 		@extend .g-hl-3;
@@ -35,7 +35,7 @@
 		@extend .g-h-12;
 	}
 	.region-sidebar-second {
-		@extend .g-d-7;
+		@extend .g-d-6;
 		@extend .g-tl-6;
 		@extend .g-t-6;
 		@extend .g-hl-3;
@@ -46,21 +46,21 @@
 .two-sidebars #main {
 	// .row class has been moved to page.tpl.php
 	.region-sidebar-first {
-		@extend .g-d-7;
+		@extend .g-d-6;
 		@extend .g-tl-6;
 		@extend .g-t-6;
 		@extend .g-hl-3;
 		@extend .g-h-12;
 	}
 	#content {
-		@extend .g-d-17;
+		@extend .g-d-20;
 		@extend .g-tl-12;
 		@extend .g-t-12;
 		@extend .g-hl-9;
 		@extend .g-h-12;
 	}
 	.region-sidebar-second {
-		@extend .g-d-7;
+		@extend .g-d-6;
 		@extend .g-tl-6;
 		@extend .g-t-6;
 		@extend .g-hl-3;
