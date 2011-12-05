@@ -396,7 +396,7 @@ blockquote > p {
 }
 
 ul, ol, .item-list ul {
-  margin: 0 0 0 1.625em;
+  margin: 0 0 0 0.813em;
   margin-bottom: 1.385em;
   padding: 0;
 }
