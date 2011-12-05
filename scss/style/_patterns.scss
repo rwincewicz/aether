@@ -12,7 +12,7 @@ div.messages {
   @include text-shadow(rgba(255,255,255,.5) 0 1px 0);
   @include rhythm-borders(1px, 0.5, $font-size-normal, solid);
   border-style: solid;
-  @include border-radius(4px);
+  @include border-radius(6px);
   @include background-image(linear-gradient(#5bc0de, #339bb9));
   &.status {
     @include background-image(linear-gradient(#f2f2f2, #e1e1e1));
