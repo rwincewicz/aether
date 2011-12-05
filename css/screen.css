@@ -613,11 +613,17 @@ table td {
 fieldset {
   border-style: solid;
   border-width: 0.077em;
-  padding: 0.615em;
+  padding: 1.308em;
   border-color: #b9b9b9;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003270}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003268}}
+.form-item, .form-actions {
+  margin-top: 1.385em;
+  margin-bottom: 1.385em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003275}}
 #site-name {
   font-size: 2.308em;
   line-height: 0.9em;
@@ -625,19 +631,19 @@ fieldset {
   margin-bottom: 0em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003279}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003284}}
 div.admin-panel,
 div.admin-panel .body {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003286}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003291}}
 ul.secondary {
   font-size: 0.923em;
   margin-top: -0.975em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003289}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003294}}
 ul.secondary li {
   margin-top: 0.091em;
   margin-bottom: 0.091em;

@@ -261,8 +261,13 @@ table {
 // Forms
 
 fieldset {
-  @include rhythm-borders(1px, 0.5, $font-size-normal, solid);
+  @include rhythm-borders(1px, 1, $font-size-normal, solid);
   border-color: $text-border-alt;
+}
+
+.form-item, .form-actions {
+  @include margin-leader(1, $font-size-normal);
+  @include margin-trailer(1, $font-size-normal);
 }
 
 // Pages Rhythm
