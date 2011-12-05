@@ -194,18 +194,6 @@ div.messages.error {
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 }
 
-.breadcrumb {
-  color: #acacac;
-  margin-bottom: 1.385em;
-}
-.breadcrumb li {
-  display: inline;
-  text-shadow: 0 1px 0 #333;
-}
-.breadcrumb a {
-  padding: 0;
-}
-
 .pill a {
   border-style: solid;
   border-width: 0.077em;
@@ -442,7 +430,7 @@ a:hover, a:active {
 
 #primary li {
   display: inline;
-  padding: 0 2em;
+  padding: 0 1em;
   border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
 #primary .last {
@@ -458,20 +446,35 @@ a:hover, a:active {
   border-right: none;
 }
 
+.with-breadcrumb #primary {
+  margin-bottom: 0.692em;
+}
+
+.with-navigation .breadcrumb {
+  margin-bottom: 0.692em;
+}
+
+.breadcrumb {
+  color: #6f6f6f;
+}
+.breadcrumb li {
+  display: inline;
+}
 .breadcrumb a {
   color: #888888;
+  padding: 0;
 }
 .breadcrumb a:visited {
   color: #888888;
 }
 .breadcrumb a:focus {
-  color: #a7a7a7;
+  color: #6f6f6f;
 }
 .breadcrumb a:hover {
-  color: #a7a7a7;
+  color: #6f6f6f;
 }
 .breadcrumb a:active {
-  color: gray;
+  color: #484848;
 }
 
 mark {

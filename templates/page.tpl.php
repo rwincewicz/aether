@@ -47,7 +47,7 @@
 
 <!-- BEGIN ROW -->
     <?php if ($main_menu): ?>
-      <nav id="navigation" class="menu row">
+      <nav id="navigation" class="menu row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
         <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
       </nav>
     <?php endif; ?>

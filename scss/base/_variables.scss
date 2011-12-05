@@ -48,7 +48,7 @@ $link-color-active:            adjust-color($link-color-hover, $lightness: -15);
 
 // Alternative Link Colors
 $link-color-alt:               #888;
-$link-color-hover-alt:         adjust-color($link-color-alt, $lightness: 12);
+$link-color-hover-alt:         adjust-color($link-color-alt, $lightness: -10);
 $link-color-visited-alt:       $link-color-alt;
 $link-color-active-alt:        adjust-color($link-color-hover-alt, $lightness: -15);
 

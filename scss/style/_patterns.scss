@@ -27,22 +27,6 @@ div.messages {
   }
 }
 
-
-// BREADCRUMBS
-// -----------
-
-.breadcrumb {
-  color: $text-color-light;
-  @include margin-trailer(1, $font-size-normal);
-  li {
-    display: inline;
-    text-shadow: 0 1px 0 #333;
-  }
-  a {
-    padding: 0;
-  }
-}
-
 // Pill outline, used in secondary tabs but could be used on any link
 // this could be made into a mixin
 .pill {

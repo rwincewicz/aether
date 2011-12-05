@@ -219,16 +219,33 @@ a {
 }
 
 #primary {
-  @include menu-links-inline(2em, 1px, solid, transparentize(#FFFFFF, 0.6));
+  @include menu-links-inline(1em, 1px, solid, transparentize(#FFFFFF, 0.6));
 }
 
 #secondary {
   @include menu-links-inline(1.5em, 2px, dashed, white);
 }
 
+.with-breadcrumb {
+  #primary {
+      @include margin-trailer(0.5, $font-size-normal);
+    }
+}
+
+.with-navigation {
+  .breadcrumb {
+    @include margin-trailer(0.5, $font-size-normal);
+  }
+}
+
 .breadcrumb {
+  color: adjust-color($link-color-alt, $lightness: -10);
+  li {
+    display: inline;
+  }
   a {
     @include link-colors($link-color-alt, $hover: $link-color-hover-alt, $focus: $link-color-hover-alt, $visited: $link-color-visited-alt, $active: $link-color-active-alt);
+    padding: 0;
     }
 }
 
