@@ -18,15 +18,14 @@ $tabs-border: #bbb;
 ul.primary,
 ul.secondary {
   @include clearfix;
-  @include trailing-border(1px, 1, $font-size-normal, solid);
+  @include trailing-border(1px, 0.45, $font-size-normal, solid);
   margin-left: 0;
   border-color: $tabs-border;
   list-style: none;
-  padding: 0 2px;
   white-space: nowrap;
   li {
     float: left; // letter
-    margin: 0 0 0 3px; // LTR
+    margin-left: 3px; // LTR
   }
   a {
     display: block;
@@ -38,6 +37,7 @@ ul.secondary {
 // Primary tabs
 //
 ul.primary {
+  padding: 0 2px;
   li {
     @include border-top-radius(4px);
     @include single-text-shadow(#fff, 1px, 1px, 0);
@@ -81,9 +81,6 @@ ul.primary {
 // Secondary tabs
 //
 ul.secondary {
-  font-size: 0.9em;
-  margin-top: -1.5em; // Collapse bottom margin of ul.primary.
-  padding-bottom: .5em;
   a {
     @include pill($font-size-sm, 2em, 1px, #f2f2f2);
   }

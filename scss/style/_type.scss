@@ -161,7 +161,8 @@ blockquote {
 
 // Unordered and Ordered lists
 ul, ol {
-  margin: 0 0 px-to-em($base-line-height) ($typographic-indent);
+  margin: 0 0 0 ($typographic-indent);
+  @include margin-trailer(1, $base-font-size);
   padding: 0;
 }
 ul ul,
@@ -186,7 +187,7 @@ ul.unstyled {
 
 // Description Lists
 dl {
-    @include margin-trailer(1, $font-size-normal);
+  @include margin-trailer(1, $base-font-size);
   dt, dd {
     line-height: px-to-em($base-line-height);
   }
@@ -250,12 +251,14 @@ var, address {
 
 table {
   font-size: $base-font-size;
-  @include margin-trailer(1, $font-size-normal);
+  @include margin-trailer(1, $base-font-size);
   th,
   td {
     line-height: px-to-em($base-line-height);
   }
 }
+
+// Pages Rhythm
 
 #site-name {
   @include adjust-font-size-to($font-size-xxxl,1.5);
@@ -263,8 +266,21 @@ table {
   @include margin-trailer(0, $font-size-xxxl);
 }
 
+// Admin Rhythm
+
 div.admin-panel,
 div.admin-panel .body {
     padding-top: 0;
     padding-bottom: 0;
+}
+
+// Tabs Rhythm
+
+ul.secondary {
+  font-size: px-to-em($font-size-sm);
+  @include margin-leader(-.7, $font-size-sm); // Collapse bottom margin of ul.primary.
+  li {
+    @include margin-leader(0.061, $font-size-sm);
+    @include margin-trailer(0.061, $font-size-sm);
+  }
 }

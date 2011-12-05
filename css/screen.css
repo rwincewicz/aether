@@ -198,14 +198,16 @@ div.messages {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000318}}
 div.messages.status {
+  color: white;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #62c462), color-stop(100%, #57a957));
   background-image: -webkit-linear-gradient(#62c462, #57a957);
   background-image: -moz-linear-gradient(#62c462, #57a957);
   background-image: -o-linear-gradient(#62c462, #57a957);
   background-image: -ms-linear-gradient(#62c462, #57a957);
   background-image: linear-gradient(#62c462, #57a957);
+  text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000323}}
 div.messages.warning {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fceec1), color-stop(100%, #eedc94));
   background-image: -webkit-linear-gradient(#fceec1, #eedc94);
@@ -214,7 +216,7 @@ div.messages.warning {
   background-image: -ms-linear-gradient(#fceec1, #eedc94);
   background-image: linear-gradient(#fceec1, #eedc94);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000326}}
 div.messages.error {
   color: white;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));
@@ -226,7 +228,7 @@ div.messages.error {
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000337}}
 .breadcrumb {
   color: #acacac;
   margin-bottom: 1.385em;
@@ -249,26 +251,26 @@ div.messages.error {
   -o-box-shadow: inset 0 1px 0 white;
   box-shadow: inset 0 1px 0 white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000345}}
 .breadcrumb li {
   display: inline;
   text-shadow: 0 1px 0 #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000349}}
 .breadcrumb .divider {
   padding: 0 5px;
   color: #333;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000353}}
 .breadcrumb a {
   padding: 0 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000355}}
 .breadcrumb a:first-child {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000364}}
 .pill a {
   border-style: solid;
   border-width: 0.077em;
@@ -278,7 +280,7 @@ div.messages.error {
   border-bottom: 0;
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000371}}
 .pill a:link, .pill a:visited {
   -moz-border-radius: 0.75em;
   -webkit-border-radius: 0.75em;
@@ -295,13 +297,13 @@ div.messages.error {
   color: #666;
   padding: 0 .5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000380}}
 .pill a:hover, .pill a:focus {
   background-color: #dedede;
   border-color: #999;
   color: #333;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_patterns\.scss}line{font-family:\0000386}}
 .pill a.active, .pill a:active {
   text-shadow: #333333 1px 1px 0;
   background-color: #666;
@@ -455,11 +457,12 @@ blockquote > p {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003163}}
 ul, ol {
-  margin: 0 0 1.385em 1.625em;
+  margin: 0 0 0 1.625em;
+  margin-bottom: 1.385em;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003171}}
 ul ul,
 ul ol,
 ol ol,
@@ -467,45 +470,45 @@ ol ul {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003174}}
 ul {
   list-style: disc;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003177}}
 ol {
   list-style: decimal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003180}}
 li {
   line-height: 1.385em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003182}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003183}}
 ul.unstyled {
   list-style: none;
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003189}}
 dl {
   margin-bottom: 1.385em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003190}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003191}}
 dl dt, dl dd {
   line-height: 1.385em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003193}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003194}}
 dl dt {
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003196}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003197}}
 dl dd {
   margin-left: 0.813em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003204}}
 a {
   text-decoration: none;
   color: #0066cc;
@@ -530,11 +533,11 @@ a:hover {
 a:active {
   color: #005ebd;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003206}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003207}}
 a:focus {
   outline: thin dotted;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003209}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003210}}
 a:hover, a:active {
   outline: none;
 }
@@ -561,49 +564,49 @@ a:hover, a:active {
   border-right: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003224}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003225}}
 mark {
   background: yellow;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003228}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003229}}
 ins {
   text-decoration: none;
   background: #ffff99;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003233}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003234}}
 del {
   text-decoration: line-through;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003239}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003240}}
 strong, b, dt {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003243}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003244}}
 dfn {
   font-style: italic;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003247}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003248}}
 var, address {
   font-style: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003251}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003252}}
 table {
   font-size: 13px;
   margin-bottom: 1.385em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003255}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003256}}
 table th,
 table td {
   line-height: 1.385em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003260}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003263}}
 #site-name {
   font-size: 2.308em;
   line-height: 0.9em;
@@ -611,11 +614,22 @@ table td {
   margin-bottom: 0em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003267}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003272}}
 div.admin-panel,
 div.admin-panel .body {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003279}}
+ul.secondary {
+  font-size: 0.923em;
+  margin-top: -1.05em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_type\.scss}line{font-family:\00003282}}
+ul.secondary li {
+  margin-top: 0.091em;
+  margin-bottom: 0.091em;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_forms\.scss}line{font-family:\000034}}
@@ -1060,11 +1074,10 @@ ul.primary,
 ul.secondary {
   border-bottom-style: solid;
   border-bottom-width: 0.077em;
-  padding-bottom: 1.308em;
+  padding-bottom: 0.546em;
   margin-left: 0;
   border-color: #bbbbbb;
   list-style: none;
-  padding: 0 2px;
   white-space: nowrap;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/base\/_utilities\.scss}line{font-family:\0000316}}
@@ -1086,19 +1099,23 @@ ul.secondary {
 ul.secondary {
   min-height: 1%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000326}}
 ul.primary li,
 ul.secondary li {
   float: left;
-  margin: 0 0 0 3px;
+  margin-left: 3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000330}}
 ul.primary a,
 ul.secondary a {
   display: block;
   text-decoration: none;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000339}}
+ul.primary {
+  padding: 0 2px;
+}
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000341}}
 ul.primary li {
   -moz-border-radius-topleft: 4px;
@@ -1174,13 +1191,7 @@ ul.primary a.active {
   border-color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000383}}
-ul.secondary {
-  font-size: 0.9em;
-  margin-top: -1.5em;
-  padding-bottom: .5em;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/kgbulman\/bulmandropbox\/Dropbox\/drupal-7\.2\/sites\/all\/themes\/aether\/scss\/style\/_tabs\.scss}line{font-family:\0000384}}
 ul.secondary a {
   text-decoration: none;
   font-size: 0.923em;
