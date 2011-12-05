@@ -284,6 +284,12 @@ fieldset {
   @include margin-trailer(0, $font-size-xxxl);
 }
 
+#logo {
+  img {
+    margin-bottom: 0;
+  }
+}
+
 // Admin Rhythm
 
 div.admin-panel,
