@@ -167,11 +167,11 @@ input[type="week"] {
   background-color: white;
   border: 1px solid;
   border-color: $form-border-1 $form-border-2 $form-border-3;
+  @include adjust-font-size-to($font-size-normal,1);
   color: black;
   outline: 0;
   padding: 2px 3px;
   text-align: left;
-  @include adjust-font-size-to($font-size-normal,1);
   // Leaving out Helvetica Neue, to not throw off size="..."
   // on inputs. Arial is more reliable, on Windows and OS X.
   font-family: $input-font-family;
@@ -319,6 +319,10 @@ optgroup {
   font-weight: normal;
 }
 
+// Login form
 
-
+#user-login-form .item-list ul {
+  margin: 0;
+  list-style: none;
+}
 

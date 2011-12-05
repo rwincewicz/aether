@@ -276,6 +276,25 @@ fieldset {
   @include margin-trailer(1, $font-size-normal);
 }
 
+.form-type-textfield,
+.form-type-date,
+.form-type-select,
+.form-type-file,
+.form-type-managed-file,
+.form-type-password {
+  @include margin-leader(0.75, $font-size-normal);
+  @include margin-trailer(0.75, $font-size-normal);
+}
+
+input.password-confirm, input.password-field {
+  margin-bottom: 0;
+}
+
+.form-checkboxes .form-item, .form-radios .form-item {
+  @include margin-leader(0, $font-size-normal);
+  @include margin-trailer(0, $font-size-normal);
+}
+
 // Pages Rhythm
 
 #site-name {
