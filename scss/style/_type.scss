@@ -258,6 +258,13 @@ table {
   }
 }
 
+// Forms
+
+fieldset {
+  @include rhythm-borders(1px, 0.5, $font-size-normal, solid);
+  border-color: $text-border-alt;
+}
+
 // Pages Rhythm
 
 #site-name {
@@ -278,7 +285,7 @@ div.admin-panel .body {
 
 ul.secondary {
   font-size: px-to-em($font-size-sm);
-  @include margin-leader(-.7, $font-size-sm); // Collapse bottom margin of ul.primary.
+  @include margin-leader(-.65, $font-size-sm); // Collapse bottom margin of ul.primary.
   li {
     @include margin-leader(0.061, $font-size-sm);
     @include margin-trailer(0.061, $font-size-sm);
