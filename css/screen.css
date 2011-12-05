@@ -458,19 +458,19 @@ a:hover, a:active {
   border-right: none;
 }
 
-.breadcrumb {
+.breadcrumb a {
   color: #888888;
 }
-.breadcrumb:visited {
+.breadcrumb a:visited {
   color: #888888;
 }
-.breadcrumb:focus {
+.breadcrumb a:focus {
   color: #a7a7a7;
 }
-.breadcrumb:hover {
+.breadcrumb a:hover {
   color: #a7a7a7;
 }
-.breadcrumb:active {
+.breadcrumb a:active {
   color: gray;
 }
 
