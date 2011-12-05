@@ -540,6 +540,10 @@ fieldset {
   margin-bottom: 0em;
 }
 
+#logo img {
+  margin-bottom: 0;
+}
+
 div.admin-panel,
 div.admin-panel .body {
   padding-top: 0;
