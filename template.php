@@ -93,9 +93,63 @@ function aether_preprocess_page(&$variables, $hook) {
 function aether_preprocess_node(&$variables) {
   // Add a striping class.
   $variables['classes_array'][] = 'node-' . $variables['zebra'];
+  // Add $unpublished variable.
+  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
+
+  // Add pubdate to submitted variable.
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . $variables['date'] . '</time>';
+  if ($variables['display_submitted']) {
+    $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['pubdate']));
+  }
 }
 
+/**
+ * Override or insert variables into the comment templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("comment" in this case.)
+ */
+function aether_preprocess_comment(&$variables, $hook) {
+  // If comment subjects are disabled, don't display them.
+  if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
+    $variables['title'] = '';
+  }
+
+  // Add pubdate to submitted variable.
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
+  $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
+
+  // Zebra striping.
+  if ($variables['id'] == 1) {
+    $variables['classes_array'][] = 'first';
+  }
+  if ($variables['id'] == $variables['node']->comment_count) {
+    $variables['classes_array'][] = 'last';
+  }
+  $variables['classes_array'][] = $variables['zebra'];
+
+  $variables['title_attributes_array']['class'][] = 'comment-title';
+}
+
+
 function aether_preprocess_block(&$variables, $hook) {
+  // Use a template with no wrapper for the page's main content.
+  if ($variables['block_html_id'] == 'block-system-main') {
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
+
+  // Classes describing the position of the block within the region.
+  if ($variables['block_id'] == 1) {
+    $variables['classes_array'][] = 'first';
+  }
+  // The last_in_region property is set in aether_page_alter().
+  if (isset($variables['block']->last_in_region)) {
+    $variables['classes_array'][] = 'last';
+  }
+  $variables['title_attributes_array']['class'][] = 'block-title';
+
   // Add a striping class.
   $variables['classes_array'][] = 'block-' . $variables['zebra'];
   // Add Aria Roles via attributes.
@@ -159,6 +213,30 @@ function aether_preprocess_block(&$variables, $hook) {
   }
 }
 
+/**
+ * Implements hook_page_alter().
+ *
+ * Look for the last block in the region. This is impossible to determine from
+ * within a preprocess_block function.
+ *
+ * @param $page
+ *   Nested array of renderable elements that make up the page.
+ */
+function aether_page_alter(&$page) {
+  // Look in each visible region for blocks.
+  foreach (system_region_list($GLOBALS['theme'], REGIONS_VISIBLE) as $region => $name) {
+    if (!empty($page[$region])) {
+      // Find the last block in the region.
+      $blocks = array_reverse(element_children($page[$region]));
+      while ($blocks && !isset($page[$region][$blocks[0]]['#block'])) {
+        array_shift($blocks);
+      }
+      if ($blocks) {
+        $page[$region][$blocks[0]]['#block']->last_in_region = TRUE;
+      }
+    }
+  }
+}
 
 /**
  * Preprocess variables for region.tpl.php
@@ -171,9 +249,10 @@ function aether_preprocess_block(&$variables, $hook) {
 function aether_preprocess_region(&$variables, $hook) {
   // Sidebar regions get some extra classes and a common template suggestion.
   if (strpos($variables['region'], 'sidebar_') === 0) {
-    $variables['theme_hook_suggestions'][] = 'region__sidebar';
-    // Allow a region-specific template to override Zen's region--sidebar.
-    $variables['theme_hook_suggestions'][] = 'region__' . $variables['region'];
+    $variables['classes_array'][] = 'column';
+    $variables['classes_array'][] = 'sidebar';
+    // Allow a region-specific template to override aether's region--sidebar.
+    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
   }
   // Use a template with no wrapper for the content region.
   elseif ($variables['region'] == 'content') {
@@ -334,5 +413,26 @@ function aether_menu_local_tasks(&$variables) {
   }
 
   return $output;
+}
 
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Prevent user-facing field styling from screwing up node edit forms by
+ * renaming the classes on the node edit form's field wrappers.
+ */
+function aether_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // Remove if #1245218 is backported to D7 core.
+  foreach (array_keys($form) as $item) {
+    if (strpos($item, 'field_') === 0) {
+      if (!empty($form[$item]['#attributes']['class'])) {
+        foreach ($form[$item]['#attributes']['class'] as &$class) {
+          if (strpos($class, 'field-type-') === 0 || strpos($class, 'field-name-') === 0) {
+            // Make the class different from that used in theme_field().
+            $class = 'form-' . $class;
+          }
+        }
+      }
+    }
+  }
 }
