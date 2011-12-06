@@ -437,6 +437,9 @@ a:hover, a:active {
   border-right: none;
 }
 
+#secondary {
+  margin-top: 1.385em;
+}
 #secondary li {
   display: inline;
   padding: 0 1.5em;
@@ -603,10 +606,6 @@ input.password-confirm, input.password-field {
   font-size: 1.846em;
   line-height: 0.75em;
   margin-top: -0.18em;
-}
-
-#logo img {
-  margin-bottom: 0;
 }
 
 div.admin-panel,

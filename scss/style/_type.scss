@@ -223,6 +223,7 @@ a {
 }
 
 #secondary {
+  @include margin-leader(1, $font-size-normal);
   @include menu-links-inline(1.5em, 2px, dashed, white);
 }
 
@@ -363,7 +364,7 @@ input.password-confirm, input.password-field {
 
 #logo {
   img {
-    margin-bottom: 0;
+
   }
 }
 
