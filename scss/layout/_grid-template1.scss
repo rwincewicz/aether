@@ -5,6 +5,20 @@
 
 #header {
 	// .row class has been moved to page.tpl.php
+	#logo-name-and-slogan {
+		@extend .g-d-18;
+		@extend .g-tl-12;
+		@extend .g-t-12;
+		@extend .g-hl-6;
+		@extend .g-h-6;
+	}
+	#secondary {
+		@extend .g-d-18;
+		@extend .g-tl-12;
+		@extend .g-t-12;
+		@extend .g-hl-6;
+		@extend .g-h-6;
+	}
 }
 
 #navigation {

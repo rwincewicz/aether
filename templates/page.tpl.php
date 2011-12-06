@@ -9,6 +9,9 @@
       </nav>
     <?php endif; ?>
 
+    <?php if ($logo || $site_name || $site_slogan): ?>
+    <div id="logo-name-and-slogan">
+
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
@@ -33,6 +36,9 @@
         <?php if ($site_slogan): ?>
           <div id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
+
+      </div>
+    <?php endif; ?>
 
       </div>
     <?php endif; ?>
