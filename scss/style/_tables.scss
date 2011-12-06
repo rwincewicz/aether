@@ -8,21 +8,31 @@ table {
   border-collapse: collapse;
   th,
   td {
-    padding: 10px 10px 9px;
+    padding-left: 0.692em;
+    padding-right: 0.692em;
     text-align: left;
   }
   th {
-    padding-top: 9px;
     font-weight: bold;
     vertical-align: middle;
+    border-color: #ccc;
   }
   td {
     vertical-align: top;
-    border-top: 1px solid #ddd;
+    border-color: #ddd;
   }
   // When scoped to row, fix th in tbody
   tbody th {
-    border-top: 1px solid #ddd;
+    border-color: #ddd;
     vertical-align: top;
   }
+  tr.even, tr.odd {
+    background-color: transparent;
+  }
+}
+
+// condensed-table
+// -----------------
+.condensed-table {
+
 }

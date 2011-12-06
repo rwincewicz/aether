@@ -281,12 +281,34 @@ var, address {
   font-style: normal;
 }
 
+// Table Vertical Rhythm
+
 table {
-  font-size: $base-font-size;
-  @include margin-trailer(1, $base-font-size);
-  th,
+  @include margin-trailer(1, $font-size-normal);
   td {
-    line-height: px-to-em($base-line-height);
+    @include apply-side-rhythm-border(top, 1px, 0.5, $font-size-normal, solid);
+    @include padding-trailer(0.5, $font-size-normal);
+  }
+  th {
+    @include padding-leader(0.5, $font-size-normal);
+    @include apply-side-rhythm-border(bottom, 1px, 0.5, $font-size-normal, solid);
+  }
+  tbody th {
+    @include apply-side-rhythm-border(top, 1px, 0.5, $font-size-normal, solid);
+  }
+}
+
+.condensed-table {
+  td {
+    @include apply-side-rhythm-border(top, 1px, 0.25, $font-size-normal, solid);
+    @include padding-trailer(0.25, $font-size-normal);
+  }
+  th {
+    @include padding-leader(0.25, $font-size-normal);
+    @include apply-side-rhythm-border(bottom, 1px, 0.25, $font-size-normal, solid);
+  }
+  tbody th {
+    @include apply-side-rhythm-border(top, 1px, 0.25, $font-size-normal, solid);
   }
 }
 
