@@ -346,9 +346,18 @@ input.password-confirm, input.password-field {
 // Pages Rhythm
 
 #site-name {
-  @include adjust-font-size-to($font-size-xxxl,1.5);
-  @include margin-leader(1, $font-size-xxxl);
-  @include margin-trailer(0, $font-size-xxxl);
+  font-weight: bold;
+  @include margin-leader(0.9, $font-size-xxxl);
+  @include adjust-font-size-to($font-size-xxxl,1);
+  a {
+    @include link-colors($text-color, $hover: $text-color, $focus: $text-color, $visited: $text-color, $active: $text-color);
+    text-decoration: none;
+  }
+}
+
+#site-slogan {
+  @include adjust-font-size-to($font-size-xxl,1);
+  @include margin-leader(-0.24, $font-size-xxl);
 }
 
 #logo {

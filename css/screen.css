@@ -576,10 +576,32 @@ input.password-confirm, input.password-field {
 }
 
 #site-name {
+  font-weight: bold;
+  margin-top: 0.54em;
   font-size: 2.308em;
-  line-height: 0.9em;
-  margin-top: 0.6em;
-  margin-bottom: 0em;
+  line-height: 0.6em;
+}
+#site-name a {
+  color: #222222;
+  text-decoration: none;
+}
+#site-name a:visited {
+  color: #222222;
+}
+#site-name a:focus {
+  color: #222222;
+}
+#site-name a:hover {
+  color: #222222;
+}
+#site-name a:active {
+  color: #222222;
+}
+
+#site-slogan {
+  font-size: 1.846em;
+  line-height: 0.75em;
+  margin-top: -0.18em;
 }
 
 #logo img {
