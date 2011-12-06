@@ -580,6 +580,7 @@ input.password-confirm, input.password-field {
   margin-top: 0.54em;
   font-size: 2.308em;
   line-height: 0.6em;
+  margin-bottom: 0.54em;
 }
 #site-name a {
   color: #222222;

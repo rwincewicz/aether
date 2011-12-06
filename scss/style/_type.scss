@@ -349,6 +349,7 @@ input.password-confirm, input.password-field {
   font-weight: bold;
   @include margin-leader(0.9, $font-size-xxxl);
   @include adjust-font-size-to($font-size-xxxl,1);
+  @include margin-trailer(0.9, $font-size-xxxl);
   a {
     @include link-colors($text-color, $hover: $text-color, $focus: $text-color, $visited: $text-color, $active: $text-color);
     text-decoration: none;
