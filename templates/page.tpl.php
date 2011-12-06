@@ -34,13 +34,13 @@
       </div>
     <?php endif; ?>
 
+      </div>
+    <?php endif; ?>
+
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
       </nav>
-    <?php endif; ?>
-
-      </div>
     <?php endif; ?>
 
     <?php if ($page['header']): ?>
