@@ -1,6 +1,6 @@
 #logo {
   float: left;
-  padding: 0 15px 0 0;
+  padding: 0 18px 0 0;
 }
 
 #secondary {
@@ -577,10 +577,10 @@ input.password-confirm, input.password-field {
 
 #site-name {
   font-weight: bold;
-  margin-top: 0.54em;
+  margin-top: 0.564em;
   font-size: 2.308em;
   line-height: 0.6em;
-  margin-bottom: 0.54em;
+  margin-bottom: 0.564em;
 }
 #site-name a {
   color: #222222;
