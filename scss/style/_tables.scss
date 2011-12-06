@@ -80,6 +80,7 @@ table { // See type.scss for vertical rhythm
 // Default zebra-stripe styles
 .zebra-striped {
   tbody {
+    tr:nth-child(even),
     tr.even {
       background-color: #f9f9f9;
     }
