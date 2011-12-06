@@ -223,7 +223,6 @@ a {
 }
 
 #secondary {
-  @include margin-leader(1, $font-size-normal);
   @include menu-links-inline(1.5em, 2px, dashed, white);
 }
 
@@ -364,10 +363,14 @@ input.password-confirm, input.password-field {
 
 #logo {
   img {
-
+    margin-bottom: 0;
   }
 }
 
+header {
+  @include padding-leader(1, $font-size-xxl);
+  @include padding-trailer(1, $font-size-xxl);
+}
 // Admin Rhythm
 
 div.admin-panel,
