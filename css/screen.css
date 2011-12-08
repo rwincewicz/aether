@@ -4,8 +4,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 audio, canvas, video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+}
+
+.ie6-8 audio, .ie6-8 canvas, .ie6-8 video {
+  display: inline;
+  zoom: 1;
 }
 
 audio:not([controls]) {
@@ -83,8 +86,8 @@ abbr[title], dfn[title] {
   cursor: help;
 }
 
-table button, table input {
-  *overflow: auto;
+.ie6-7 table button, .ie6-7 table input {
+  overflow: auto;
 }
 
 @media print {

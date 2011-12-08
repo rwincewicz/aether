@@ -111,38 +111,42 @@ input[type="button"] {
   }
 }
 
-.ie7 {
-  button,
-  input[type="reset"],
-  input[type="submit"],
-  input[type="button"] {
-    padding-top: 2px;
-    padding-bottom: 0;
+// IE7
+@if $legacy-support-for-ie7 {
+  .ie7 {
+    button,
+    input[type="reset"],
+    input[type="submit"],
+    input[type="button"] {
+      padding-top: 2px;
+      padding-bottom: 0;
+    }
+  }
+  .ie7 button {
+    padding-top: 1px;
+    padding-bottom: 1px;
   }
 }
 
-.ie7 button {
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
-
-.ie6 .form-submit {
-  background: $button-background image-url("button.png") repeat-x;
-  border: 1px solid;
-  border-color: $button-border-1 $button-border-2 $button-border-3;
-  cursor: pointer;
-  color: $text-color;
-  font-style: bold;
-  @include adjust-font-size-to($font-size-sm,1);
-  font-family: $input-font-family;
-  padding: 2px 10px 0px;
-  overflow: visible;
-  width: auto;
-}
-
-.ie6 .form-submit {
-  padding-top: 1px;
-  padding-bottom: 1px;
+// IE6
+@if $legacy-support-for-ie6 {
+  .ie6 .form-submit {
+    background: $button-background image-url("button.png") repeat-x;
+    border: 1px solid;
+    border-color: $button-border-1 $button-border-2 $button-border-3;
+    cursor: pointer;
+    color: $text-color;
+    font-style: bold;
+    @include adjust-font-size-to($font-size-sm,1);
+    font-family: $input-font-family;
+    padding: 2px 10px 0px;
+    overflow: visible;
+    width: auto;
+  }
+  .ie6 .form-submit {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
 }
 
 textarea,
@@ -180,45 +184,49 @@ input[type="week"] {
   }
 }
 
-.ie7 {
-  textarea,
-  select,
-  input[type="date"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="email"],
-  input[type="month"],
-  input[type="number"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="text"],
-  input[type="time"],
-  input[type="url"],
-  input[type="week"] {
-    padding-top: 2px;
-    padding-bottom: 1px;
-    height: auto;
+// IE7
+@if $legacy-support-for-ie7 {
+  .ie7 {
+    textarea,
+    select,
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"] {
+      padding-top: 2px;
+      padding-bottom: 1px;
+      height: auto;
+    }
   }
 }
 
-.ie6 textarea,
-.ie6 select
-.ie6 input.form-text {
-  background: white;
-  border: 1px solid;
-  border-color: $form-border-1 $form-border-2 $form-border-3;
-  color: black;
-  padding: 2px 3px 1px;
-  @include adjust-font-size-to($font-size-normal,1);
-  font-family: $input-font-family;
-  vertical-align: top;
+// IE6
+@if $legacy-support-for-ie6 {
+  .ie6 textarea,
+  .ie6 select
+  .ie6 input.form-text {
+    background: white;
+    border: 1px solid;
+    border-color: $form-border-1 $form-border-2 $form-border-3;
+    color: black;
+    padding: 2px 3px 1px;
+    @include adjust-font-size-to($font-size-normal,1);
+    font-family: $input-font-family;
+    vertical-align: top;
+  }
+  .ie6 select {
+    margin-top: 1px;
+  }
 }
-
-.ie6 select {
-  margin-top: 1px;
-}
-
 
 button[disabled],
 input[disabled],
@@ -235,8 +243,11 @@ textarea[disabled] {
   cursor: default;
 }
 
-.ie6 input.form-button-disabled {
-  color: $form-disabled;
+// IE6
+@if $legacy-support-for-ie6 {
+  .ie6 input.form-button-disabled {
+    color: $form-disabled;
+  }
 }
 
 // Separate rule for Firefox.

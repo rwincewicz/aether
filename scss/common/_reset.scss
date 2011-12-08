@@ -8,8 +8,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 audio, canvas, video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+}
+
+.ie6-8 {
+  audio, canvas, video {
+    display: inline;
+    zoom: 1;
+  }
 }
 
 audio:not([controls]) {
@@ -109,9 +114,14 @@ abbr[title], dfn[title] {
 
 // Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
 
-table {
-  button, input {
-    *overflow: auto;
+// IE7
+@if $legacy-support-for-ie7 {
+  .ie6-7 {
+    table {
+      button, input {
+        overflow: auto;
+      }
+    }
   }
 }
 

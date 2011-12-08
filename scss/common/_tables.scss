@@ -83,10 +83,12 @@ table { // See type.scss for vertical rhythm
   }
 }
 
-.ie7 .bordered-table {
-  border-collapse: collapse; /* IE7, collapse table to remove spacing */
+// IE7
+@if $legacy-support-for-ie7 {
+  .ie7 .bordered-table {
+    border-collapse: collapse; /* IE7, collapse table to remove spacing */
+  }
 }
-
 
 // Zebra
 // --------------

@@ -1,6 +1,9 @@
-.ie6 #page {
-	width: 960px;
-	margin: 0 auto;
+// IE6
+@if $legacy-support-for-ie6 {
+	.ie6 #page {
+		width: 960px;
+		margin: 0 auto;
+	}
 }
 
 #header {
