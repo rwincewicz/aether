@@ -1,0 +1,37 @@
+// Pages
+
+#site-name {
+  font-weight: bold;
+  @include padding-leader(0.94, $font-size-xxxl);
+  @include adjust-font-size-to($font-size-xxxl,1);
+  @include margin-trailer(0.94, $font-size-xxxl);
+  a {
+    @include link-colors($text-color, $hover: $text-color, $focus: $text-color, $visited: $text-color, $active: $text-color);
+    text-decoration: none;
+  }
+}
+
+#site-slogan {
+  @include adjust-font-size-to($font-size-xxl,1);
+  @include margin-leader(-0.24, $font-size-xxl);
+}
+
+#logo {
+	@include float(left);
+  padding: 0 10px;
+  img {
+    margin-bottom: 0;
+  }
+}
+
+#secondary {
+	float: right;
+}
+
+// Admin
+
+div.admin-panel,
+div.admin-panel .body {
+    padding-top: 0;
+    padding-bottom: 0;
+}

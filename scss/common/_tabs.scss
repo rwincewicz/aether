@@ -11,7 +11,6 @@
 $tabs-container-bg: #fff;
 $tabs-border: #bbb;
 
-
 //
 // Basic positioning styles shared by primary and secondary tabs.
 //
@@ -84,6 +83,12 @@ ul.primary {
 // Secondary tabs
 //
 ul.secondary {
+  font-size: px-to-em($font-size-sm);
+  @include margin-leader(-.65, $font-size-sm); // Collapse bottom margin of ul.primary.
+  li {
+    @include margin-leader(0.061, $font-size-sm);
+    @include margin-trailer(0.061, $font-size-sm);
+  }
   a {
     @include pill($font-size-sm, 2em, 1px, #f2f2f2);
   }

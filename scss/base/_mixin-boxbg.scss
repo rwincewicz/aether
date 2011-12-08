@@ -1,0 +1,57 @@
+$boxbg-gradient-state: true !default;
+$boxbg-rhythm: 0.5;
+$boxbg-bgcolor: #fff;
+$boxbg-gradient-top: adjust-color($boxbg-bgcolor, $lightness: 6, $saturation: 12) !default;
+$boxbg-gradient-bottom: adjust-color($boxbg-bgcolor, $lightness: -6, $saturation: -12) !default;
+$boxbg-border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)  !default;
+$boxbg-font-size: px-to-em($font-size-normal) !default;
+$boxbg-font-weight: bold !default;
+$boxbg-border-width: 1px !default;
+$boxbg-radius: 4px !default;
+$boxbg-light-text: white !default;
+$boxbg-dark-text: #666666 !default;
+$boxbg-line-height: $base-line-height !default;
+$boxbg-padding: 0.5 !default;
+
+@mixin boxbg($gradient-state: $boxbg-gradient-state, $bgcolor: $boxbg-bgcolor, $border-width: $boxbg-border-width, $radius: $boxbg-radius, $rhythm: $boxbg-rhythm, $font-size: $boxbg-font-size) {
+  @include boxbg-color($gradient-state, $bgcolor);
+  @include boxbg-structure($border-width, $radius, $rhythm, $font-size);
+}
+
+@mixin boxbg-color ($gradient-state: $boxbg-gradient-state, $bgcolor: $boxbg-bgcolor, $light-text: $boxbg-light-text, $dark-text: $boxbg-dark-text){
+  border-color: adjust-lightness($bgcolor, -8);
+  @if $gradient-state {
+    @include boxbg-gradient;
+  }
+  @else {
+    background-color: $boxbg-bgcolor;
+  }
+  @if lightness($bgcolor) <= lightness(#999) {
+    color: $light-text;
+    @include single-text-shadow(#333, 1px, 1px, 0);
+    }
+  @else {
+    color: $dark-text;
+    @include single-text-shadow(#fff, 1px, 1px, 0);
+  }
+}
+
+@mixin boxbg-gradient ($bgcolor: $boxbg-bgcolor) {
+  $gradient-top: adjust-color($bgcolor, $lightness: 6, $saturation: 12);
+  $gradient-bottom: adjust-color($bgcolor, $lightness: -6, $saturation: -12);
+  @include background-image(linear-gradient($gradient-top, $gradient-bottom));
+}
+
+@mixin boxbg-gradient-custom ($gradient-top: $boxbg-gradient-top, $gradient-bottom: $boxbg-gradient-bottom) {
+  @include background-image(linear-gradient($gradient-top, $gradient-bottom));
+}
+
+
+@mixin boxbg-structure ($border-width: $boxbg-border-width, $radius: $boxbg-radius, $rhythm: $boxbg-padding, $font-size: $boxbg-font-size) {
+  background-position: 0;
+  position: relative;
+  @include rhythm-borders($border-width, $rhythm, $font-size-normal, solid);
+  @if $radius > 0 {
+    @include border-radius($radius);
+  }
+}

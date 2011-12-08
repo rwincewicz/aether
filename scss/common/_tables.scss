@@ -3,6 +3,7 @@
 // BASELINE STYLES
 
 table { // See type.scss for vertical rhythm
+  @include margin-trailer(1, $font-size-normal);
   width: 100%;
   padding: 0;
   border-collapse: collapse;
@@ -13,16 +14,21 @@ table { // See type.scss for vertical rhythm
     text-align: left;
   }
   th {
+    @include padding-leader(0.5, $font-size-normal);
+    @include apply-side-rhythm-border(bottom, 1px, 0.5, $font-size-normal, solid);
     font-weight: bold;
     vertical-align: middle;
     border-color: #ccc;
   }
   td {
+    @include apply-side-rhythm-border(top, 1px, 0.5, $font-size-normal, solid);
+    @include padding-trailer(0.5, $font-size-normal);
     vertical-align: top;
     border-color: #ddd;
   }
   // When scoped to row, fix th in tbody
   tbody th {
+    @include apply-side-rhythm-border(top, 1px, 0.5, $font-size-normal, solid);
     border-color: #ddd;
     vertical-align: top;
   }
@@ -31,10 +37,18 @@ table { // See type.scss for vertical rhythm
   }
 }
 
-// condensed-table
-// -----------------
-.condensed-table { // See type.scss for vertical rhythm
-
+.condensed-table {
+  td {
+    @include apply-side-rhythm-border(top, 1px, 0.25, $font-size-normal, solid);
+    @include padding-trailer(0.25, $font-size-normal);
+  }
+  th {
+    @include padding-leader(0.25, $font-size-normal);
+    @include apply-side-rhythm-border(bottom, 1px, 0.25, $font-size-normal, solid);
+  }
+  tbody th {
+    @include apply-side-rhythm-border(top, 1px, 0.25, $font-size-normal, solid);
+  }
 }
 
 // bordered-table

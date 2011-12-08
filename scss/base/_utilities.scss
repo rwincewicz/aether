@@ -80,7 +80,7 @@ $legacy-support-for-ie7: true !default;
 }
 
 
-/// Define a mixin class that controls menu styles
+// Define a mixin class that controls menu styles
 @mixin menu-links-inline($padding, $width, $style, $color) {
   li {
     display: inline;
@@ -91,3 +91,25 @@ $legacy-support-for-ie7: true !default;
     border-right: none
   }
  }
+
+// Center-align a block level element
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Opacity
+@mixin opacity($opacity: 100) {
+  filter: alpha(opacity=$opacity);
+  -khtml-opacity: $opacity / 100;
+    -moz-opacity: $opacity / 100;
+         opacity: $opacity / 100;
+}
+
+// Turn off bullets for an element of a list
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}

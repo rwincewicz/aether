@@ -9,21 +9,7 @@
 @import "compass/utilities/general/clearfix";
 
 // Base mixins, variables, functions & page structure
-// Base files should produce no css
 @import "base/utilities";
 @import "base/variables";
 @import "base/mixin-pill";
 @import "base/mixin-boxbg";
-
-// Common resets, components & patterns
-@import "common/reset";
-@import "common/type";
-@import "common/patterns";
-@import "common/forms";
-@import "common/tables";
-@import "common/tabs";
-
-// Partial page sections
-@import "partials/navigation";
-@import "partials/blocks";
-@import "partials/pages";

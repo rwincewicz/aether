@@ -4,21 +4,11 @@
 }
 
 #header {
-	// .row class has been moved to page.tpl.php
-	#logo-name-and-slogan {
-		@extend .g-d-16;
+		@extend .g-d-32;
 		@extend .g-tl-24;
 		@extend .g-t-24;
 		@extend .g-hl-12;
 		@extend .g-h-12;
-	}
-	#secondary {
-		@extend .g-d-16;
-		@extend .g-tl-24;
-		@extend .g-t-24;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
 }
 
 #navigation {

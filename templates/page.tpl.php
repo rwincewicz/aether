@@ -1,10 +1,18 @@
 <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
 <!-- BEGIN ROW -->
-  <header id="header" class="row">
+
+  <div class="row">
+  <header id="header" role="banner">
+
+    <?php if ($secondary_menu): ?>
+      <nav class="menu">
+        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
+      </nav>
+    <?php endif; ?>
 
     <?php if ($logo || $site_name || $site_slogan): ?>
-    <div id="logo-name-and-slogan">
+    <hgroup id="logo-name-and-slogan">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -34,13 +42,7 @@
       </div>
     <?php endif; ?>
 
-      </div>
-    <?php endif; ?>
-
-    <?php if ($secondary_menu): ?>
-      <nav class="menu">
-        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
-      </nav>
+      </hgroup>
     <?php endif; ?>
 
     <?php if ($page['header']): ?>
@@ -49,6 +51,7 @@
       </div>
     <?php endif; ?>
   </header> <!-- /header -->
+  </div> <!-- /row -->
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->
@@ -60,22 +63,14 @@
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->
-    <?php if ($breadcrumb): ?>
-      <div class="row">
-        <?php print $breadcrumb; ?>
-      </div>
-    <?php endif; ?>
-<!-- END ROW -->
-
-<!-- BEGIN ROW -->
   <div id="main" class="clearfix row">
 
     <?php print render($page['sidebar_first']); ?>
 
     <article id="content">
-        <?php if ($title|| $messages || $tabs || $action_links): ?>
+        <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
-
+            <?php print $breadcrumb; ?>
             <?php if ($page['highlight']): ?>
               <div id="highlight"><?php print render($page['highlight']) ?></div>
             <?php endif; ?>
