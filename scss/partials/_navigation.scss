@@ -1,3 +1,26 @@
+#navigation {
+  ul {
+    @include margin-trailer(1, $font-size-normal);
+  }
+  li {
+    a {
+      padding: 0.1em 2em;
+    }
+  }
+}
+
+// Primary and Secondary menus
+
+#primary {
+  @include menu-links-inline(0, 1px, solid, transparentize(#FFFFFF, 0.6));
+}
+
+#secondary {
+  float: right;
+  @include menu-links-inline(1.5em, 2px, dashed, white);
+}
+
+
 // Links
 
 a {
@@ -9,16 +32,6 @@ a {
   &:hover, &:active {
     outline: none;
   }
-}
-
-// Primary and Secondary menus
-
-#primary {
-  @include menu-links-inline(1em, 1px, solid, transparentize(#FFFFFF, 0.6));
-}
-
-#secondary {
-  @include menu-links-inline(1.5em, 2px, dashed, white);
 }
 
 // Breadcrumbs

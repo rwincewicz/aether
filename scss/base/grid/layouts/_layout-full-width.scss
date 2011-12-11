@@ -1,0 +1,9 @@
+// .l-<name> - A layout
+// .c-<name> - A column within a layout.
+
+.l-1c {
+  // main content
+  .c-1 {
+    @extend .g-all-full;
+  }
+}

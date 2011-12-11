@@ -1,0 +1,61 @@
+.g-all-full {
+  .one-sidebar #content & { // content is 9 columns
+    @extend .g-d-9;
+    @extend .g-tl-9;
+    @extend .g-t-9;
+    @extend .g-hl-12;
+    @extend .g-h-12;
+  }
+   .one-sidebar .region-sidebar-first & { // content is 9 columns
+    @extend .g-d-3;
+    @extend .g-tl-3;
+    @extend .g-t-3;
+    @extend .g-hl-12;
+    @extend .g-h-12;
+  }
+}
+
+.g-all-1of3 {
+  .one-sidebar #content & { // content is 9 columns
+    @extend .g-d-3;
+    @extend .g-tl-3;
+    @extend .g-t-3;
+    @extend .g-hl-4;
+    @extend .g-h-4;
+  }
+   .one-sidebar .region-sidebar-first & { // content is 9 columns
+    @extend .g-d-1;
+    @extend .g-tl-1;
+    @extend .g-t-1;
+    @extend .g-hl-4;
+    @extend .g-h-4;
+  }
+}
+
+.g-all-2of3 {
+  .one-sidebar #content & { // content is 9 columns
+    @extend .g-d-6;
+    @extend .g-tl-6;
+    @extend .g-t-6;
+    @extend .g-hl-8;
+    @extend .g-h-8;
+
+  }
+   .one-sidebar .region-sidebar-first & { // content is 9 columns
+    @extend .g-d-2;
+    @extend .g-tl-2;
+    @extend .g-t-2;
+    @extend .g-hl-8;
+    @extend .g-h-8;
+  }
+}
+
+.demo-container {
+    background-color: #afafaf;
+    border-radius: 3px 3px 3px 3px;
+    @include margin-trailer(1, $base-font-size);
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

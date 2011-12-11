@@ -1,0 +1,20 @@
+//.g-all-1of4 - One fourth
+//.g-all-1of3 - One third
+//.g-all-half - One half
+//.g-all-half2full - One half in desktop and larger, full in smaller medias
+//.g-all-2of3 - Two thirds
+//.g-all-full - Full width
+
+.g-all-1of3 {
+  .one-sidebar #content & {
+    @extend .g-d-3;
+  }
+}
+
+.g-all-half {
+  .one-sidebar #content & {
+    @extend .g-d-9;
+  }
+}
+
+

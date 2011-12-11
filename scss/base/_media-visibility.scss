@@ -1,0 +1,50 @@
+// These classes make it possible to display elements in only certain medias.
+.desktop-visible,
+.tablet-landscape-visible,
+.tablet-visible,
+.handheld-landscape-visible {
+  display: none;
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .desktop-visible, .tablet-visible, .tablet-landscape-visible, .handheld-visible { display: none !important; }
+  .handheld-landscape-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.handheld-landscape-visible {
+      display: inline !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .desktop-visible, .tablet-landscape-visible, .handheld-landscape-visible, .handheld-visible { display: none !important; }
+  .tablet-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.tablet-visible {
+      display: inline !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1159px) {
+  .desktop-visible, .tablet-visible, .handheld-landscape-visible, .handheld-visible { display: none !important; }
+  .tablet-landscape-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.tablet-landscape-visible {
+      display: inline !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 1160px) {
+  .tablet-visible, .tablet-landscape-visible, .handheld-landscape-visible, .handheld-visible { display: none !important; }
+  .desktop-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.desktop-visible {
+      display: inline !important;
+    }
+  }
+}
+
+

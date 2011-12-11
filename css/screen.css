@@ -1129,6 +1129,34 @@ ul.secondary a.active, ul.secondary a:active {
   text-shadow: #333333 1px 1px 0;
 }
 
+#navigation ul {
+  margin-bottom: 1.385em;
+}
+#navigation li a {
+  padding: 0.1em 2em;
+}
+
+#primary li {
+  display: inline;
+  padding: 0 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+#primary .last {
+  border-right: none;
+}
+
+#secondary {
+  float: right;
+}
+#secondary li {
+  display: inline;
+  padding: 0 1.5em;
+  border-right: 2px dashed white;
+}
+#secondary .last {
+  border-right: none;
+}
+
 a {
   text-decoration: none;
   color: #0066cc;
@@ -1153,24 +1181,6 @@ a:focus {
 }
 a:hover, a:active {
   outline: none;
-}
-
-#primary li {
-  display: inline;
-  padding: 0 1em;
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
-}
-#primary .last {
-  border-right: none;
-}
-
-#secondary li {
-  display: inline;
-  padding: 0 1.5em;
-  border-right: 2px dashed white;
-}
-#secondary .last {
-  border-right: none;
 }
 
 .breadcrumb {
@@ -1205,12 +1215,26 @@ a:hover, a:active {
   margin-bottom: 1.385em;
 }
 
+#name-and-slogan {
+  padding-top: 1.385em;
+  padding-bottom: 1.385em;
+}
+
+#logo {
+  display: inline;
+  float: left;
+  padding: 0 10px 0 0;
+}
+#logo img {
+  margin-top: 0.346em;
+  margin-bottom: 0em;
+}
+
 #site-name {
   font-weight: bold;
-  padding-top: 0.564em;
   font-size: 2.308em;
   line-height: 0.6em;
-  margin-bottom: 0.564em;
+  margin-bottom: 0.6em;
 }
 #site-name a {
   color: #222222;
@@ -1232,20 +1256,6 @@ a:hover, a:active {
 #site-slogan {
   font-size: 1.846em;
   line-height: 0.75em;
-  margin-top: -0.18em;
-}
-
-#logo {
-  display: inline;
-  float: left;
-  padding: 0 10px;
-}
-#logo img {
-  margin-bottom: 0;
-}
-
-#secondary {
-  float: right;
 }
 
 div.admin-panel,

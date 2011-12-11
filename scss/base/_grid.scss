@@ -8,41 +8,65 @@
  */
 
 // Configuration
-$desktop-columns: 32 !default; // the number of columns in your grid
-$tablet-columns: 24 !default; // the number of columns in your grid
+$desktop-columns: 12 !default; // the number of columns in your grid
+$tablet-columns: 12 !default; // the number of columns in your grid
 $handheld-columns: 12 !default; // the number of columns in your grid
-$gutter-width: 10px !default; // The width of the gutters of your grid, in percentages
-$gutter-width-percent: percentage($gutter-width / $max-desktop-width);
-$max-desktop-width: 1140px !default;
-$max-tablet-landscape-width: 960px !default;
-$max-tablet-width: 760px !default;
-$max-handheld-landscape-width: 476px !default;
-$max-handheld-width: 320px !default;
-$col-desktop-width: ($max-desktop-width - $gutter-width * ($desktop-columns - 1)) / $desktop-columns;
-$col-tablet-landscape-width: ($max-tablet-landscape-width - $gutter-width * ($tablet-columns - 1)) / $tablet-columns;
-$col-tablet-width: ($max-tablet-width - $gutter-width * ($tablet-columns - 1)) / $tablet-columns;
-$col-handheld-landscape-width: ($max-handheld-landscape-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
-$col-handheld-width: ($max-handheld-width - $gutter-width * ($handheld-columns - 1)) / $handheld-columns;
+//$column-width: 60 !default;
 
-.row {
+$gutter-width: 10 !default;
+$max-desktop-width: 1140px + $gutter-width !default;
+$max-tablet-landscape-width: 960px !default;
+$max-tablet-width: 768px !default;
+$max-handheld-landscape-width: 420px !default;
+$max-handheld-width: 300px !default;
+
+// Handheld
+$grid-h-width: $max-handheld-width - $gutter-width;
+$column-h-width: ($grid-h-width - ($gutter-width * $handheld-columns)) / $handheld-columns;
+// Handheld Landscape
+$grid-hl-width: $max-handheld-landscape-width - $gutter-width;
+$column-hl-width: ($grid-hl-width - ($gutter-width * $handheld-columns)) / $handheld-columns;
+// Tablet
+$grid-t-width: $max-tablet-width - $gutter-width;
+$column-t-width: ($grid-t-width - ($gutter-width * $tablet-columns)) / $tablet-columns;
+// Tablet Landscape
+$grid-tl-width: $max-tablet-landscape-width - $gutter-width;
+$column-tl-width: ($grid-tl-width - ($gutter-width * $tablet-columns)) / $tablet-columns;
+// Desktop
+$grid-d-width: $max-desktop-width - $gutter-width;
+$column-d-width: ($grid-d-width - ($gutter-width * $desktop-columns)) / $desktop-columns;
+
+$total-h-width:  $grid-h-width;
+$total-hl-width: $grid-hl-width;
+$total-t-width:  $grid-t-width;
+$total-tl-width: $grid-tl-width;
+$total-d-width:  $grid-d-width;
+
+
+body {
+	width: 100%;
+}
+
+#page {
 	margin: 0 auto;
 }
 
-.row {
-	zoom: 1;
+@mixin clearfix() {
+*zoom:1;
 
-	&:before, &:after {
-		display: table;
-		content: "";
-		zoom: 1;
-		*display: inline;
-	}
-
-	&:after {
-		clear: both;
-	}
+&:before,
+&:after {
+content:"";
+display:table;
+}
+&:after {
+clear:both;
+}
 }
 
+.row {
+	@include clearfix();
+}
 
 // Create the Handheld columns
 $_allColumns-h: "";
@@ -75,6 +99,16 @@ $_allColumns-t: "";
 }
 
 // Create the Desktop columns
+$_allRows-d: "";
+@for $col from 1 to ($tablet-columns + 1) {
+	@if $_allRows-d == "" {
+		$_allColumns-d: ".g-dr-#{$col}";
+	} @else {
+		$_allRows-d: $_allRows-d + ", .g-dr-#{$col}";
+	}
+}
+
+// Create the Desktop columns
 $_allColumns-d: "";
 @for $col from 1 to ($desktop-columns + 1) {
 	@if $_allColumns-d == "" {
@@ -88,171 +122,288 @@ $_allColumns-d: "";
 	@include box-sizing(border-box);
 }
 
+// Utility variable — you should never need to modify this
+$grid-system-h-width: ($column-h-width*$handheld-columns) + ($gutter-width*$handheld-columns);
+
+// Set $total-width to 100% for a fluid layout
+$total-width: $grid-system-h-width;
+
+
 @for $col from 1 to ($handheld-columns + 1) {
-	.g-h-#{$col} {
-		width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
-	}
+.g-hr-#{$col} {
+width: $total-width*(($gutter-width + $grid-system-h-width)/$grid-system-h-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-h-width)*-1);
+@include clearfix();
+}
+}
+
+@for $col from 1 to ($handheld-columns + 1) {
+.g-h-#{$col} {
+display: inline;
+float: left;
+width: $total-width*(((($gutter-width+$column-h-width)*$col)-$gutter-width) / $grid-system-h-width);
+margin: 0 $total-width*(($gutter-width*.5)/$grid-system-h-width);
+}
+}
+
+@for $col from 1 to ($handheld-columns + 1) {
+.g-ho-#{$col} {
+	margin-left: ($gutter-width+$column-h-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+}
 }
 
 #{$_allColumns-d}, #{$_allColumns-t}, #{$_allColumns-h} {
-	display: inline;
-	float: left;  // enforces implicit display: block
-	margin-left: $gutter-width-percent;
-
-	&:first-child {
-		margin-left: 0;
-	}
-}
-
-
-@for $col from 1 to $handheld-columns {
-	.offset#{$col} {
-		margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-
-		&:first-child {
-			margin-left: ($col * ((100.0 - (($handheld-columns - 1) * $handheld-columns)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
-		}
-	}
+display: inline;
+float: left;  // enforces implicit display: block
+overflow: hidden;
 }
 
 
 // Handheld Portrait
-@media only screen and (max-width: 479px) {
-	body{}
-
-	.row {
-	max-width: $max-handheld-width - ($gutter-width * 2);
-	@if $show-grid-background {
-	@include grid-background(
-	  $total: $handheld-columns,
-	  $column: $col-handheld-width,
-	  $gutter: $gutter-width,
-	  $baseline: $base-line-height,
-	  $force-fluid: true);
-		  }
-	}
-
+//@media only screen and (max-width: 479px) {
+body{}
+#page {
+width: $max-handheld-width;
+//	border: 1px solid #ccc;
 }
+
+.row {
+width: $total-width*(($gutter-width + $grid-system-h-width)/$grid-system-h-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-h-width)*1);
+@if $show-grid-background {
+	$grid-background-total-columns: $handheld-columns;
+	$grid-background-offset: 4px;
+	$grid-background-column-width: $column-h-width;
+	$grid-background-gutter-width: $gutter-width;
+	$grid-background-baseline-height: $base-line-height;
+	@include grid-background;
+	}
+}
+
+//}
 
 // Handheld Landscape
 @media only screen and (min-width: 480px) {
 	body {}
+#page {
+width: $max-handheld-landscape-width;
+//	border: 1px solid #ccc;
+}
 
-  // Disables iphone font size increase when viewing in landscape mode.
-  html { -webkit-text-size-adjust: none; }
 
-	.row {
-	max-width: $max-handheld-landscape-width - ($gutter-width * 2);
-	@if $show-grid-background {
-	@include grid-background(
-	  $total: $handheld-columns,
-	  $column: $col-handheld-width,
-	  $gutter: $gutter-width,
-	  $baseline: $base-line-height,
-	  $force-fluid: true);
-		}
+// Disables iphone font size increase when viewing in landscape mode.
+html { -webkit-text-size-adjust: none; }
+body {}
+
+// Utility variable — you should never need to modify this
+$grid-system-hl-width: ($column-hl-width*$handheld-columns) + ($gutter-width*$handheld-columns);
+
+// Set $total-width to 100% for a fluid layout
+$total-width: $grid-system-hl-width;
+
+
+.row {
+width: $total-width*(($gutter-width + $grid-system-hl-width)/$grid-system-hl-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-hl-width)*1);
+@if $show-grid-background {
+$grid-background-total-columns: $handheld-columns;
+$grid-background-offset: 4px;
+$grid-background-column-width: $column-hl-width;
+$grid-background-gutter-width: $gutter-width;
+$grid-background-baseline-height: $base-line-height;
+@include grid-background;
+}
+}
+
+
+@for $col from 1 to ($handheld-columns + 1) {
+	.g-hlr-#{$col} {
+width: $total-width*(($gutter-width + $grid-system-hl-width)/$grid-system-hl-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-hl-width)*-1);
+@include clearfix();
 	}
+}
 
-	@for $col from 1 to ($handheld-columns + 1) {
-		.g-hl-#{$col} {
-			width: ($col * ((100.0 - (($handheld-columns - 1) * $gutter-width-percent)) / $handheld-columns)) + (($col - 1) * $gutter-width-percent);
-		}
+@for $col from 1 to ($handheld-columns + 1) {
+	.g-hl-#{$col} {
+display: inline;
+float: left;
+width: $total-width*(((($gutter-width+$column-hl-width)*$col)-$gutter-width) / $grid-system-hl-width);
+margin: 0 $total-width*(($gutter-width*.5)/$grid-system-hl-width);
 	}
+}
+
+@for $col from 1 to ($handheld-columns + 1) {
+	.g-hlo-#{$col} {
+		margin-left: ($gutter-width+$column-hl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+	}
+}
 
 }
 
 // Tablet Portrait
 @media only screen and (min-width: 768px) {
-	body{}
+body{}
+#page {
+width: $max-tablet-width;
+//	border: 1px solid #ccc;
+}
 
-	.row {
-	max-width: $max-tablet-width - ($gutter-width * 2);
-	@if $show-grid-background {
-	@include grid-background(
-	  $total: $tablet-columns,
-	  $column: $col-tablet-width,
-	  $gutter: $gutter-width,
-	  $baseline: $base-line-height,
-	  $force-fluid: true);
-		  }
+// Utility variable — you should never need to modify this
+$grid-system-t-width: ($column-t-width*$tablet-columns) + ($gutter-width*$tablet-columns);
+
+// Set $total-width to 100% for a fluid layout
+$total-width: $grid-system-t-width;
+
+
+.row {
+width: $total-width*(($gutter-width + $grid-system-t-width)/$grid-system-t-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-t-width)*1);
+@if $show-grid-background {
+	$grid-background-total-columns: $tablet-columns;
+	$grid-background-offset: 4px;
+	$grid-background-column-width: $column-t-width;
+	$grid-background-gutter-width: $gutter-width;
+	$grid-background-baseline-height: $base-line-height;
+	@include grid-background;
 	}
+}
 
-	@for $col from 1 to ($tablet-columns + 1) {
-		.g-t-#{$col} {
-			width: ($col * ((100.0 - (($tablet-columns - 1) * $gutter-width-percent)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent);
-		}
+
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-tr-#{$col} {
+width: $total-width*(($gutter-width + $grid-system-t-width)/$grid-system-t-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-t-width)*-1);
+@include clearfix();
 	}
+}
 
-
-
-	@for $col from 1 to $tablet-columns {
-		.offset#{$col} {
-			margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-
-			&:first-child {
-				margin-left: ($col * ((100.0 - (($tablet-columns - 1) * $tablet-columns)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
-			}
-		}
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-t-#{$col} {
+display: inline;
+float: left;
+width: $total-width*(((($gutter-width+$column-t-width)*$col)-$gutter-width) / $grid-system-t-width);
+margin: 0 $total-width*(($gutter-width*.5)/$grid-system-t-width);
 	}
+}
+
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-to-#{$col} {
+		margin-left: ($gutter-width+$column-t-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+	}
+}
+
+
 }
 
 
 // Tablet Landscape
 @media only screen and (min-width: 960px) {
-	body{}
+body{}
+#page {
+width: $max-tablet-landscape-width;
+//	border: 1px solid #ccc;
+}
 
-	.row {
-	max-width: $max-tablet-landscape-width - ($gutter-width * 2);
-	@if $show-grid-background {
-	@include grid-background(
-	  $total: $tablet-columns,
-	  $column: $col-tablet-width,
-	  $gutter: $gutter-width,
-	  $baseline: $base-line-height,
-	  $force-fluid: true);
-		  }
-	}
 
-	@for $col from 1 to ($tablet-columns + 1) {
-		.g-tl-#{$col} {
-			width: ($col * ((100.0 - (($tablet-columns - 1) * $gutter-width-percent)) / $tablet-columns)) + (($col - 1) * $gutter-width-percent);
-		}
+// Utility variable — you should never need to modify this
+$grid-system-tl-width: ($column-tl-width*$tablet-columns) + ($gutter-width*$tablet-columns);
+
+// Set $total-width to 100% for a fluid layout
+$total-width: $grid-system-tl-width;
+
+
+.row {
+width: $total-width*(($gutter-width + $grid-system-tl-width)/$grid-system-tl-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-tl-width)*1);
+@if $show-grid-background {
+	$grid-background-total-columns: $tablet-columns;
+	$grid-background-offset: 4px;
+	$grid-background-column-width: $column-tl-width;
+	$grid-background-gutter-width: $gutter-width;
+	$grid-background-baseline-height: $base-line-height;
+	@include grid-background;
 	}
+}
+
+
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-tlr-#{$col} {
+width: $total-width*(($gutter-width + $grid-system-tl-width)/$grid-system-tl-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-tl-width)*-1);
+@include clearfix();
+	}
+}
+
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-tl-#{$col} {
+display: inline;
+float: left;
+width: $total-width*(((($gutter-width+$column-tl-width)*$col)-$gutter-width) / $grid-system-tl-width);
+margin: 0 $total-width*(($gutter-width*.5)/$grid-system-tl-width);
+	}
+}
+
+@for $col from 1 to ($tablet-columns + 1) {
+	.g-tlo-#{$col} {
+		margin-left: ($gutter-width+$column-tl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+	}
+}
+
 
 }
 
 // Desktop
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1160px) {
 	body{}
-
-	.row {
-	max-width: $max-desktop-width - ($gutter-width * 2);
-	@if $show-grid-background {
-	@include grid-background(
-	  $total: $desktop-columns,
-	  $column: $col-desktop-width,
-	  $gutter: $gutter-width,
-	  $baseline: $base-line-height,
-	  $force-fluid: true);
-		  }
+	#page {
+	width: $max-desktop-width;
+//	border: 1px solid #ccc;
 	}
 
-	@for $col from 1 to ($desktop-columns + 1) {
-		.g-d-#{$col} {
-			width: ($col * ((100.0 - (($desktop-columns - 1) * $gutter-width-percent)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent);
-		}
+// Utility variable — you should never need to modify this
+$grid-system-d-width: ($column-d-width*$desktop-columns) + ($gutter-width*$desktop-columns);
+
+// Set $total-width to 100% for a fluid layout
+$total-width: $grid-system-d-width;
+
+
+.row {
+width: $total-width*(($gutter-width + $grid-system-d-width)/$grid-system-d-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-d-width)*1);
+@if $show-grid-background {
+	$grid-background-total-columns: $desktop-columns;
+	$grid-background-offset: 4px;
+	$grid-background-column-width: $column-d-width;
+	$grid-background-gutter-width: $gutter-width;
+	$grid-background-baseline-height: $base-line-height;
+	@include grid-background;
 	}
+}
 
 
-
-	@for $col from 1 to $desktop-columns {
-		.offset#{$col} {
-			margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + ($gutter-width-percent * 2) !important;
-
-			&:first-child {
-				margin-left: ($col * ((100.0 - (($desktop-columns - 1) * $desktop-columns)) / $desktop-columns)) + (($col - 1) * $gutter-width-percent) + $gutter-width-percent !important;
-			}
-		}
+@for $col from 1 to ($desktop-columns + 1) {
+	.g-dr-#{$col} {
+width: $total-width*(($gutter-width + $grid-system-d-width)/$grid-system-d-width) - $gutter-width;
+margin: 0 $total-width*((($gutter-width*.5)/$grid-system-d-width)*-1);
+@include clearfix();
 	}
+}
+
+@for $col from 1 to ($desktop-columns + 1) {
+	.g-d-#{$col} {
+display: inline;
+float: left;
+width: $total-width*(((($gutter-width+$column-d-width)*$col)-$gutter-width) / $grid-system-d-width);
+margin: 0 $total-width*(($gutter-width*.5)/$grid-system-d-width);
+	}
+}
+
+@for $col from 1 to ($desktop-columns + 1) {
+	.g-do-#{$col} {
+		margin-left: ($gutter-width+$column-d-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+	}
+}
+
 }
 

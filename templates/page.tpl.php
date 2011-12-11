@@ -12,7 +12,7 @@
     <?php endif; ?>
 
     <?php if ($logo || $site_name || $site_slogan): ?>
-    <hgroup id="logo-name-and-slogan">
+    <hgroup id="logo-name-and-slogan" class="clearfix">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -50,16 +50,17 @@
         <?php print render($page['header']); ?>
       </div>
     <?php endif; ?>
+
   </header> <!-- /header -->
   </div> <!-- /row -->
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->
-    <?php if ($main_menu): ?>
-      <nav id="navigation" class="menu row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
-        <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
-      </nav>
-    <?php endif; ?>
+<?php if ($main_menu): ?>
+  <nav id="navigation" class="menu row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
+    <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
+  </nav>
+<?php endif; ?>
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->

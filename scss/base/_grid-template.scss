@@ -7,44 +7,41 @@
 }
 
 #header {
-		@extend .g-d-32;
-		@extend .g-tl-24;
-		@extend .g-t-24;
+		@extend .g-d-12;
+		@extend .g-tl-12;
+		@extend .g-t-12;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 }
 
-#navigation {
-	// .row class has been moved to page.tpl.php
 	#primary {
-		@extend .g-d-32;
-		@extend .g-tl-24;
-		@extend .g-t-24;
+		@extend .g-d-12;
+		@extend .g-tl-12;
+		@extend .g-t-12;
 		@extend .g-hl-12;
 		@extend .g-h-12;
-	}
 }
 
 .one-sidebar #main {
 	// .row class has been moved to page.tpl.php
 	.region-sidebar-first {
-		@extend .g-d-6;
-		@extend .g-tl-6;
-		@extend .g-t-6;
+		@extend .g-d-3;
+		@extend .g-tl-3;
+		@extend .g-t-3;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	#content {
-		@extend .g-d-26;
-		@extend .g-tl-18;
-		@extend .g-t-18;
+		@extend .g-d-9;
+		@extend .g-tl-9;
+		@extend .g-t-9;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	.region-sidebar-second {
-		@extend .g-d-6;
-		@extend .g-tl-6;
-		@extend .g-t-6;
+		@extend .g-d-3;
+		@extend .g-tl-3;
+		@extend .g-t-3;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
@@ -53,23 +50,23 @@
 .two-sidebars #main {
 	// .row class has been moved to page.tpl.php
 	.region-sidebar-first {
-		@extend .g-d-6;
-		@extend .g-tl-6;
-		@extend .g-t-6;
+		@extend .g-d-4;
+		@extend .g-tl-4;
+		@extend .g-t-4;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	#content {
-		@extend .g-d-20;
-		@extend .g-tl-12;
-		@extend .g-t-18;
+		@extend .g-d-8;
+		@extend .g-tl-8;
+		@extend .g-t-8;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	.region-sidebar-second {
-		@extend .g-d-6;
-		@extend .g-tl-6;
-		@extend .g-t-24;
+		@extend .g-d-4;
+		@extend .g-tl-4;
+		@extend .g-t-4;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
@@ -78,9 +75,9 @@
 .no-sidebars #main {
 	// .row class has been moved to page.tpl.php
 	#content {
-		@extend .g-d-32;
-		@extend .g-tl-24;
-		@extend .g-t-24;
+		@extend .g-d-12;
+		@extend .g-tl-12;
+		@extend .g-t-12;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
@@ -89,10 +86,11 @@
 #footer {
 	// .row class has been moved to page.tpl.php
 	.region-footer {
-		@extend .g-d-32;
-		@extend .g-tl-24;
-		@extend .g-t-24;
+		@extend .g-d-12;
+		@extend .g-tl-12;
+		@extend .g-t-12;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 }
+

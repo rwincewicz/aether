@@ -1,0 +1,52 @@
+// *********** Desktop Details ***********
+$desktop-columns: 24 !default;
+$page-wrapper-padding: 10px !default;
+$desktop-pixel-width: 980px !default;
+$desktop-width: $desktop-pixel-width - $gutter-width - ($page-wrapper-padding * 2) !default;
+$desktop-wrapper-width: $desktop-width + 2 * $page-wrapper-padding !default;
+$desktop-col-width: ($desktop-width - $gutter-width * ($desktop-columns - 1)) / $desktop-columns !default;
+
+@function desktop-column-width($n) {
+  @return column-width($n, $desktop-col-width);
+}
+
+@mixin desktop-column($n) {
+  @include column($n, $desktop-columns, $desktop-col-width, g-d);
+}
+
+// The desktop grid is the default for any user-agent
+// that does not understand media queries.
+
+// The desktop container extends the
+// base container and defines a width.
+// It also established the grid-debugging styles.
+
+//.g-<media>-c - The grid container.
+.g-d-c {
+  @extend .g-base-c;
+  width: $desktop-width;
+  @if $show-grid-background {
+    @include grid-background(
+      $total: $desktop-columns,
+      $column: $desktop-col-width,
+      $gutter: $gutter-width,
+      $baseline: $base-line-height
+    );
+  }
+}
+
+.g-d-sunken { float: none !important; }
+
+.grid-wrapper {
+  @include centered;
+  width: $desktop-wrapper-width;
+}
+
+@include grids(d,
+               1 2 3 4 5 6 7 8 9
+               10 11 12 13 14 15 16
+               18 20 21 22 23 24,
+               $desktop-columns,
+               $desktop-col-width);
+
+
