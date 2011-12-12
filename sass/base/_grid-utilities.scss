@@ -1,0 +1,18 @@
+
+
+@mixin row($columns:$columns) {
+	width: $total-width*(($gutter-width + $grid-system-d-width)/$grid-system-d-width) - $gutter-width;
+	margin: 0 $total-width*((($gutter-width*.5)/$grid-system-d-width)*-1);
+	@include clearfix();
+}
+
+@mixin column($x,$columns:$columns) {
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-d-width)*$col)-$gutter-width) / $grid-system-d-width);
+	margin: 0 $total-width*(($gutter-width*.5)/$grid-system-d-width);
+}
+
+@mixin offset($offset:1) {
+	margin-left: ($total-width*(((($gutter-width+$column-d-width)*$col)-$gutter-width) / $grid-system-d-width)) + ($total-width*(($gutter-width)/$grid-system-d-width));
+}
