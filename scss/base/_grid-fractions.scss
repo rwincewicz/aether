@@ -6,12 +6,43 @@
     @extend .g-hl-12;
     @extend .g-h-12;
   }
-   .one-sidebar .region-sidebar-first & { // content is 9 columns
+   .one-sidebar .region-sidebar-first &,
+   .one-sidebar .region-sidebar-second &,
+   .two-sidebars .region-sidebar-first &,
+   .two-sidebars .region-sidebar-second & { // content is 9 columns
     @extend .g-d-3;
     @extend .g-tl-3;
     @extend .g-t-3;
     @extend .g-hl-12;
     @extend .g-h-12;
+  }
+  .two-sidebars #content & { // content is 9 columns
+    @extend .g-d-6;
+    @extend .g-tl-6;
+    @extend .g-t-6;
+    @extend .g-hl-12;
+    @extend .g-h-12;
+  }
+}
+
+.g-all-half {
+  .one-sidebar #content & { // content is 9 columns
+    @extend .g-hl-6;
+    @extend .g-h-6;
+  }
+   .one-sidebar .region-sidebar-first &,
+   .one-sidebar .region-sidebar-second &,
+   .two-sidebars .region-sidebar-first &,
+   .two-sidebars .region-sidebar-second & { // content is 9 columns
+    @extend .g-hl-6;
+    @extend .g-h-6;
+  }
+  .two-sidebars #content & { // content is 9 columns
+    @extend .g-d-3;
+    @extend .g-tl-3;
+    @extend .g-t-3;
+    @extend .g-hl-6;
+    @extend .g-h-6;
   }
 }
 
@@ -23,28 +54,47 @@
     @extend .g-hl-4;
     @extend .g-h-4;
   }
-   .one-sidebar .region-sidebar-first & { // content is 9 columns
+   .one-sidebar .region-sidebar-first &,
+   .one-sidebar .region-sidebar-second &,
+   .two-sidebars .region-sidebar-first &,
+   .two-sidebars .region-sidebar-second & { // content is 9 columns
     @extend .g-d-1;
     @extend .g-tl-1;
     @extend .g-t-1;
     @extend .g-hl-4;
     @extend .g-h-4;
   }
+  .two-sidebars #content & { // content is 9 columns
+    @extend .g-d-2;
+    @extend .g-tl-2;
+    @extend .g-t-2;
+    @extend .g-hl-4;
+    @extend .g-h-4;
+  }
 }
 
 .g-all-2of3 {
-  .one-sidebar #content & { // content is 9 columns
+  .one-sidebar #content & { // content is 3 columns
     @extend .g-d-6;
     @extend .g-tl-6;
     @extend .g-t-6;
     @extend .g-hl-8;
     @extend .g-h-8;
-
   }
-   .one-sidebar .region-sidebar-first & { // content is 9 columns
+   .one-sidebar .region-sidebar-first &,
+   .one-sidebar .region-sidebar-second &,
+   .two-sidebars .region-sidebar-first &,
+   .two-sidebars .region-sidebar-second & { // content is 3 columns
     @extend .g-d-2;
     @extend .g-tl-2;
     @extend .g-t-2;
+    @extend .g-hl-8;
+    @extend .g-h-8;
+  }
+  .two-sidebars #content & { // content is 3 columns
+    @extend .g-d-4;
+    @extend .g-tl-4;
+    @extend .g-t-4;
     @extend .g-hl-8;
     @extend .g-h-8;
   }

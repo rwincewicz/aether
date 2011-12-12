@@ -2,8 +2,20 @@
 .desktop-visible,
 .tablet-landscape-visible,
 .tablet-visible,
-.handheld-landscape-visible {
+.tablet-all-visible,
+.handheld-landscape-visible,
+.handheld-all-visible {
   display: none;
+}
+
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+  .desktop-visible, .tablet-visible, .tablet-landscape-visible { display: none !important; }
+  .handheld-all-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.handheld-all-visible {
+      display: inline !important;
+    }
+  }
 }
 
 
@@ -12,6 +24,16 @@
   .handheld-landscape-visible { display: block !important; }
   #{elements-of-type(inline)} {
     &.handheld-landscape-visible {
+      display: inline !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1159px) {
+  .desktop-visible, .handheld-landscape-visible, .handheld-visible { display: none !important; }
+  .tablet-all-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.tablet-all-visible {
       display: inline !important;
     }
   }

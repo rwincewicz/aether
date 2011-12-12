@@ -222,7 +222,7 @@ pre {
 
 code, kbd, samp {
   font-size: 1em;
-  line-height: 1.385em;
+  line-height: 1.246em;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 }
 
@@ -530,6 +530,7 @@ input[type="button"] {
   outline: 0;
   overflow: visible;
   padding: 3px 10px;
+  margin-right: 3px;
   text-shadow: rgba(255, 255, 255, 0) 0 1px 1px;
   width: auto;
 }

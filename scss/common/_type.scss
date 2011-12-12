@@ -114,7 +114,7 @@ pre {
 }
 
 code, kbd, samp {
-  @include adjust-font-size-to($font-size-normal,1);
+  @include adjust-font-size-to($font-size-normal,0.9);
   font-family: $mono-font-family;
 }
 

@@ -50,23 +50,23 @@
 .two-sidebars #main {
 	// .row class has been moved to page.tpl.php
 	.region-sidebar-first {
-		@extend .g-d-4;
-		@extend .g-tl-4;
-		@extend .g-t-4;
+		@extend .g-d-3;
+		@extend .g-tl-3;
+		@extend .g-t-3;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	#content {
-		@extend .g-d-8;
-		@extend .g-tl-8;
-		@extend .g-t-8;
+		@extend .g-d-6;
+		@extend .g-tl-6;
+		@extend .g-t-6;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
 	.region-sidebar-second {
-		@extend .g-d-4;
-		@extend .g-tl-4;
-		@extend .g-t-4;
+		@extend .g-d-3;
+		@extend .g-tl-3;
+		@extend .g-t-3;
 		@extend .g-hl-12;
 		@extend .g-h-12;
 	}
