@@ -148,7 +148,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-h-width);
 
 @for $col from 1 to ($handheld-columns + 1) {
 .g-h-o-#{$col} {
-	margin-left: ($gutter-width+$column-h-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+	margin-left: ($total-width*(((($gutter-width+$column-h-width)*$col)-$gutter-width) / $grid-system-h-width)) + ($total-width*(($gutter-width)/$grid-system-h-width));
 }
 }
 
@@ -235,7 +235,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-hl-width);
 
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-hl-o-#{$col} {
-		margin-left: ($gutter-width+$column-hl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+		margin-left: ($total-width*(((($gutter-width+$column-hl-width)*$col)-$gutter-width) / $grid-system-hl-width)) + ($total-width*(($gutter-width)/$grid-system-hl-width));
 	}
 }
 
@@ -289,7 +289,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-t-width);
 
 @for $col from 1 to ($tablet-columns + 1) {
 	.g-t-o-#{$col} {
-		margin-left: ($gutter-width+$column-t-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+		margin-left: ($total-width*(((($gutter-width+$column-t-width)*$col)-$gutter-width) / $grid-system-t-width)) + ($total-width*(($gutter-width)/$grid-system-t-width));
 	}
 }
 
@@ -346,7 +346,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-tl-width);
 
 @for $col from 1 to ($tablet-columns + 1) {
 	.g-tl-o-#{$col} {
-		margin-left: ($gutter-width+$column-tl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+		margin-left: ($total-width*(((($gutter-width+$column-tl-width)*$col)-$gutter-width) / $grid-system-tl-width)) + ($total-width*(($gutter-width)/$grid-system-tl-width));
 	}
 }
 
@@ -401,7 +401,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-d-width);
 
 @for $col from 1 to ($desktop-columns + 1) {
 	.g-d-o-#{$col} {
-		margin-left: ($gutter-width+$column-d-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
+		margin-left: ($total-width*(((($gutter-width+$column-d-width)*$col)-$gutter-width) / $grid-system-d-width)) + ($total-width*(($gutter-width)/$grid-system-d-width));
 	}
 }
 
