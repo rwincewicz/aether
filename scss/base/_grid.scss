@@ -130,7 +130,7 @@ $total-width: $grid-system-h-width;
 
 
 @for $col from 1 to ($handheld-columns + 1) {
-.g-hr-#{$col} {
+.g-h-r-#{$col} {
 width: $total-width*(($gutter-width + $grid-system-h-width)/$grid-system-h-width) - $gutter-width;
 margin: 0 $total-width*((($gutter-width*.5)/$grid-system-h-width)*-1);
 @include clearfix();
@@ -147,7 +147,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-h-width);
 }
 
 @for $col from 1 to ($handheld-columns + 1) {
-.g-ho-#{$col} {
+.g-h-o-#{$col} {
 	margin-left: ($gutter-width+$column-h-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
 }
 }
@@ -217,7 +217,7 @@ $grid-background-baseline-height: $base-line-height;
 
 
 @for $col from 1 to ($handheld-columns + 1) {
-	.g-hlr-#{$col} {
+	.g-hl-r-#{$col} {
 width: $total-width*(($gutter-width + $grid-system-hl-width)/$grid-system-hl-width) - $gutter-width;
 margin: 0 $total-width*((($gutter-width*.5)/$grid-system-hl-width)*-1);
 @include clearfix();
@@ -234,7 +234,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-hl-width);
 }
 
 @for $col from 1 to ($handheld-columns + 1) {
-	.g-hlo-#{$col} {
+	.g-hl-o-#{$col} {
 		margin-left: ($gutter-width+$column-hl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
 	}
 }
@@ -271,7 +271,7 @@ margin: 0 $total-width*((($gutter-width*.5)/$grid-system-t-width)*1);
 
 
 @for $col from 1 to ($tablet-columns + 1) {
-	.g-tr-#{$col} {
+	.g-t-r-#{$col} {
 width: $total-width*(($gutter-width + $grid-system-t-width)/$grid-system-t-width) - $gutter-width;
 margin: 0 $total-width*((($gutter-width*.5)/$grid-system-t-width)*-1);
 @include clearfix();
@@ -288,7 +288,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-t-width);
 }
 
 @for $col from 1 to ($tablet-columns + 1) {
-	.g-to-#{$col} {
+	.g-t-o-#{$col} {
 		margin-left: ($gutter-width+$column-t-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
 	}
 }
@@ -328,7 +328,7 @@ margin: 0 $total-width*((($gutter-width*.5)/$grid-system-tl-width)*1);
 
 
 @for $col from 1 to ($tablet-columns + 1) {
-	.g-tlr-#{$col} {
+	.g-tl-r-#{$col} {
 width: $total-width*(($gutter-width + $grid-system-tl-width)/$grid-system-tl-width) - $gutter-width;
 margin: 0 $total-width*((($gutter-width*.5)/$grid-system-tl-width)*-1);
 @include clearfix();
@@ -345,7 +345,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-tl-width);
 }
 
 @for $col from 1 to ($tablet-columns + 1) {
-	.g-tlo-#{$col} {
+	.g-tl-o-#{$col} {
 		margin-left: ($gutter-width+$column-tl-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
 	}
 }
@@ -383,7 +383,7 @@ margin: 0 $total-width*((($gutter-width*.5)/$grid-system-d-width)*1);
 
 
 @for $col from 1 to ($desktop-columns + 1) {
-	.g-dr-#{$col} {
+	.g-d-r-#{$col} {
 width: $total-width*(($gutter-width + $grid-system-d-width)/$grid-system-d-width) - $gutter-width;
 margin: 0 $total-width*((($gutter-width*.5)/$grid-system-d-width)*-1);
 @include clearfix();
@@ -400,7 +400,7 @@ margin: 0 $total-width*(($gutter-width*.5)/$grid-system-d-width);
 }
 
 @for $col from 1 to ($desktop-columns + 1) {
-	.g-do-#{$col} {
+	.g-d-o-#{$col} {
 		margin-left: ($gutter-width+$column-d-width)*$col + $total-d-width*(($gutter-width*.5)/$grid-d-width);
 	}
 }
