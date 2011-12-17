@@ -1132,18 +1132,14 @@ ul.secondary a.active, ul.secondary a:active {
 
 #navigation ul {
   margin-bottom: 1.385em;
+  margin-left: 0;
+}
+#navigation li {
+  text-align: center;
 }
 #navigation li a {
-  padding: 0.1em 1.5em;
-}
-
-#primary li {
-  display: inline;
-  padding: 0 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
-}
-#primary .last {
-  border-right: none;
+  display: block;
+  width: 100%;
 }
 
 #secondary {

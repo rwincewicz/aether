@@ -14,12 +14,14 @@
 		@extend .g-h-12;
 }
 
-	#primary {
-		@extend .g-d-12;
-		@extend .g-tl-12;
-		@extend .g-t-12;
-		@extend .g-hl-12;
-		@extend .g-h-12;
+#navigation {
+	li {
+    @extend .g-d-1;
+    @extend .g-tl-1;
+    @extend .g-t-2;
+    @extend .g-hl-4;
+    @extend .g-h-4;
+  }
 }
 
 .one-sidebar #main {

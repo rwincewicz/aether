@@ -10,7 +10,7 @@ $max-tablet-width: 768px + $gutter-width !default;
 $max-handheld-landscape-width: 420px + $gutter-width !default;
 $max-handheld-width: 300px + $gutter-width !default;
 
-// Utility variables — you should never need to modify these
+// Utility variables for column and row widths — you should never need to modify these
 // Handheld
 $column-h-width: (($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $grid-h-width: ($column-h-width*$handheld-columns) + ($gutter-width*$handheld-columns);

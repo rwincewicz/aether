@@ -1,10 +1,12 @@
 #navigation {
   ul {
     @include margin-trailer(1, $font-size-normal);
+    margin-left: 0;
   }
   li {
+    text-align: center;
     a {
-      padding: 0.1em 1.5em;
+      display: block; width: 100%
     }
   }
 }
@@ -12,7 +14,8 @@
 // Primary and Secondary menus
 
 #primary {
-  @include menu-links-inline(0, 1px, solid, transparentize(#FFFFFF, 0.6));
+//  @include menu-links-inline(0, 1px, solid, transparentize(#FFFFFF, 0.6));
+
 }
 
 #secondary {
