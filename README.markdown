@@ -11,7 +11,7 @@ Introduction to Aether
 ------------------------
 
 Aether is geared towards a themer that utilizes sass/compass, it also aims to provide theme settings
-for tasks better handled on the Drupal theme layer, such as grid column sizes per region
+for tasks better handled on the Drupal theme layer, such as grid column sizes per region (not yet implimented).
 
 This theme is a starter theme, with all the components you should need to build a fixed-width responsive site using re-usable CSS patterns, it supports (out of the box) Handheld Portrait (320px), Handheld Landscape, Tablet Landscape, Tablet Portrait, & Desktop (1140px).
 
