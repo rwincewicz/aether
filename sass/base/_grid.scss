@@ -33,11 +33,7 @@ $total-t-width:  $grid-t-width;
 $total-tl-width: $grid-tl-width;
 $total-d-width:  $grid-d-width;
 
-@mixin main-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
-	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
-}
-
-@mixin nested-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
+@mixin row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
 	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
 }
 
@@ -143,7 +139,7 @@ $_allRows: "";
 // Generate nested row classes for handheld media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-r#{$col} {
-	@include nested-row($col,$total-h-width,$grid-h-width);
+	@include row($col,$total-h-width,$grid-h-width);
 	}
 }
 
@@ -162,7 +158,7 @@ $_allRows: "";
 }
 
 .row {
-	@include main-row($tablet-columns,$total-h-width,$grid-h-width);
+	@include row($tablet-columns,$total-h-width,$grid-h-width);
 	@if $show-grid-background {
 		$grid-background-total-columns: $handheld-columns;
 		$grid-background-offset: 4px;
@@ -185,7 +181,7 @@ $_allRows: "";
 	body {}
 
 	.row {
-		@include main-row($tablet-columns,$total-hl-width,$grid-hl-width);
+		@include row($tablet-columns,$total-hl-width,$grid-hl-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $handheld-columns;
 			$grid-background-offset: 4px;
@@ -199,7 +195,7 @@ $_allRows: "";
 	// Generate nested row classes for handheld-landscape media
 	@for $col from 1 to ($handheld-columns + 1) {
 		.g-hl-r#{$col} {
-		@include nested-row($col,$total-hl-width,$grid-hl-width);
+		@include row($col,$total-hl-width,$grid-hl-width);
 		}
 	}
 
@@ -227,7 +223,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($tablet-columns,$total-t-width,$grid-t-width);
+		@include row($tablet-columns,$total-t-width,$grid-t-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $tablet-columns;
 			$grid-background-offset: 4px;
@@ -241,7 +237,7 @@ $_allRows: "";
 	// Generate nested row classes for tablet portrait media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-t-r#{$col} {
-		@include nested-row($col,$total-t-width,$grid-t-width);
+		@include row($col,$total-t-width,$grid-t-width);
 		}
 	}
 
@@ -269,7 +265,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($tablet-columns,$total-tl-width,$grid-tl-width);
+		@include row($tablet-columns,$total-tl-width,$grid-tl-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $tablet-columns;
 			$grid-background-offset: 4px;
@@ -283,7 +279,7 @@ $_allRows: "";
 	// Generate nested row classes for tablet landscape media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-tl-r#{$col} {
-		@include nested-row($col,$total-tl-width,$grid-tl-width);
+		@include row($col,$total-tl-width,$grid-tl-width);
 		}
 	}
 
@@ -311,7 +307,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($desktop-columns,$total-d-width,$grid-d-width);
+		@include row($desktop-columns,$total-d-width,$grid-d-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $desktop-columns;
 			$grid-background-offset: 4px;
@@ -325,7 +321,7 @@ $_allRows: "";
 	// Generate row classes for desktop media
 	@for $col from 1 to ($desktop-columns + 1) {
 		.g-d-r#{$col} {
-		@include nested-row($col,$total-d-width,$grid-d-width);
+		@include row($col,$total-d-width,$grid-d-width);
 		}
 	}
 
