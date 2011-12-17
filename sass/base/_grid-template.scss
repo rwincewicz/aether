@@ -73,7 +73,6 @@
 }
 
 .no-sidebars #main {
-	// .row class has been moved to page.tpl.php
 	#content {
 		@extend .g-d-12;
 		@extend .g-tl-12;
@@ -84,7 +83,6 @@
 }
 
 #footer {
-	// .row class has been moved to page.tpl.php
 	.region-footer {
 		@extend .g-d-12;
 		@extend .g-tl-12;
