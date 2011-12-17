@@ -35,17 +35,14 @@ $total-d-width:  $grid-d-width;
 
 @mixin main-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
 	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
-	margin: 0 $total-width*((($gutter-width*.5)/$grid-width)*1);
 }
 
 @mixin nested-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
 	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
-	margin: 0 $total-width*((($gutter-width*.5)/$grid-width)*-1);
 }
 
 @mixin column($columns:$desktop-columns,$total-width:$total-d-width,$column-width:$column-d-width,$grid-width:$grid-d-width) {
 	width: $total-width*(((($gutter-width+$column-width)*$columns)-$gutter-width) / $grid-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$grid-width);
 }
 
 @mixin offset($offset:1,$total-width:$total-d-width,$column-width:$column-d-width,$grid-width:$grid-d-width) {
@@ -125,10 +122,22 @@ $_allRows: "";
 	display: inline;
 	float: left;
 	overflow: hidden;
+	margin-left: $gutter-width*.5;
+	margin-right: $gutter-width*.5;
 }
 
 #{$_allRows}, .row {
 	@include clearfix();
+}
+
+#{$_allRows} {
+	margin-right: (($gutter-width*.5)*-1);
+	margin-left: (($gutter-width*.5)*-1);
+}
+
+.row {
+	margin-right: (($gutter-width*.5)*1);
+	margin-left: (($gutter-width*.5)*1);
 }
 
 // Generate nested row classes for handheld media
