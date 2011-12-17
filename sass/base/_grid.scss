@@ -131,21 +131,21 @@ $_allRows: "";
 	@include clearfix();
 }
 
-// Generate row classes for desktop media
+// Generate nested row classes for handheld media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-r#{$col} {
 	@include nested-row($col,$total-h-width,$grid-h-width);
 	}
 }
 
-// Generate column classes for desktop media
+// Generate column classes for handheld media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-#{$col} {
 	@include column($col,$total-h-width,$column-h-width,$grid-h-width);
 	}
 }
 
-// Generate offset column classes for desktop media
+// Generate offset column classes for handheld media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-o#{$col} {
 	@include offset($col,$total-h-width,$column-h-width,$grid-h-width);
