@@ -7,56 +7,50 @@ $handheld-columns: 12 !default; // the number of columns in your grid
 $gutter-width: 10 !default;
 $max-desktop-width: 1140px + $gutter-width !default;
 $max-tablet-landscape-width: 960px + $gutter-width !default;
-$max-tablet-width: 768px !default;
-$max-handheld-landscape-width: 420px !default;
-$max-handheld-width: 300px !default;
+$max-tablet-width: 768px + $gutter-width !default;
+$max-handheld-landscape-width: 420px + $gutter-width !default;
+$max-handheld-width: 300px + $gutter-width !default;
 
 // Utility variables — you should never need to modify these
 // Handheld
-$grid-h-width: $max-handheld-width - $gutter-width;
-$column-h-width: ($grid-h-width - ($gutter-width * $handheld-columns)) / $handheld-columns;
-$grid-system-h-width: ($column-h-width*$handheld-columns) + ($gutter-width*$handheld-columns);
+$column-h-width: (($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$grid-h-width: ($column-h-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Handheld Landscape
-$grid-hl-width: $max-handheld-landscape-width - $gutter-width;
-$column-hl-width: ($grid-hl-width - ($gutter-width * $handheld-columns)) / $handheld-columns;
-$grid-system-hl-width: ($column-hl-width*$handheld-columns) + ($gutter-width*$handheld-columns);
+$column-hl-width: (($max-handheld-landscape-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$grid-hl-width: ($column-hl-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Tablet
-$grid-t-width: $max-tablet-width - $gutter-width;
-$column-t-width: ($grid-t-width - ($gutter-width * $tablet-columns)) / $tablet-columns;
-$grid-system-t-width: ($column-t-width*$tablet-columns) + ($gutter-width*$tablet-columns);
+$column-t-width: (($max-tablet-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$grid-t-width: ($column-t-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Tablet Landscape
-$grid-tl-width: $max-tablet-landscape-width - $gutter-width;
-$column-tl-width: ($grid-tl-width - ($gutter-width * $tablet-columns)) / $tablet-columns;
-$grid-system-tl-width: ($column-tl-width*$tablet-columns) + ($gutter-width*$tablet-columns);
+$column-tl-width: (($max-tablet-landscape-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$grid-tl-width: ($column-tl-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Desktop
-$grid-d-width: $max-desktop-width - $gutter-width;
-$column-d-width: ($grid-d-width - ($gutter-width * $desktop-columns)) / $desktop-columns;
-$grid-system-d-width: ($column-d-width*$desktop-columns) + ($gutter-width*$desktop-columns);
+$column-d-width: (($max-desktop-width - $gutter-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
+$grid-d-width: ($column-d-width*$desktop-columns) + ($gutter-width*$desktop-columns);
 
-$total-h-width:  $grid-system-h-width;
-$total-hl-width: $grid-system-hl-width;
-$total-t-width:  $grid-system-t-width;
-$total-tl-width: $grid-system-tl-width;
-$total-d-width:  $grid-system-d-width;
+$total-h-width:  $grid-h-width;
+$total-hl-width: $grid-hl-width;
+$total-t-width:  $grid-t-width;
+$total-tl-width: $grid-tl-width;
+$total-d-width:  $grid-d-width;
 
-
-@mixin main-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-system-width:$grid-system-d-width) {
-	width: $total-width*(($gutter-width + $grid-system-width)/$grid-system-width) - $gutter-width;
-	margin: 0 $total-width*((($gutter-width*.5)/$grid-system-width)*1);
+@mixin main-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
+	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
+	margin: 0 $total-width*((($gutter-width*.5)/$grid-width)*1);
 }
 
-@mixin nested-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-system-width:$grid-system-d-width) {
-	width: $total-width*(($gutter-width + $grid-system-width)/$grid-system-width) - $gutter-width;
-	margin: 0 $total-width*((($gutter-width*.5)/$grid-system-width)*-1);
+@mixin nested-row($columns:$desktop-columns,$total-width:$total-d-width,$grid-width:$grid-d-width) {
+	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
+	margin: 0 $total-width*((($gutter-width*.5)/$grid-width)*-1);
 }
 
-@mixin column($columns:$desktop-columns,$total-width:$total-d-width,$column-width:$column-d-width,$grid-system-width:$grid-system-d-width) {
-	width: $total-width*(((($gutter-width+$column-width)*$columns)-$gutter-width) / $grid-system-width);
-	margin: 0 $total-width*(($gutter-width*.5)/$grid-system-width);
+@mixin column($columns:$desktop-columns,$total-width:$total-d-width,$column-width:$column-d-width,$grid-width:$grid-d-width) {
+	width: $total-width*(((($gutter-width+$column-width)*$columns)-$gutter-width) / $grid-width);
+	margin: 0 $total-width*(($gutter-width*.5)/$grid-width);
 }
 
-@mixin offset($offset:1,$total-width:$total-d-width,$column-width:$column-d-width,$grid-system-width:$grid-system-d-width) {
-	margin-left: ($total-width*(((($gutter-width+$column-width)*$offset)-$gutter-width) / $grid-system-width)) + ($total-width*(($gutter-width)/$grid-system-width));
+@mixin offset($offset:1,$total-width:$total-d-width,$column-width:$column-d-width,$grid-width:$grid-d-width) {
+	margin-left: ($total-width*(((($gutter-width+$column-width)*$offset)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
 }
 
 body{}
@@ -141,26 +135,26 @@ $_allRows: "";
 // Generate row classes for desktop media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-r#{$col} {
-	@include nested-row($col,$total-h-width,$grid-system-h-width);
+	@include nested-row($col,$total-h-width,$grid-h-width);
 	}
 }
 
 // Generate column classes for desktop media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-#{$col} {
-	@include column($col,$total-h-width,$column-h-width,$grid-system-h-width);
+	@include column($col,$total-h-width,$column-h-width,$grid-h-width);
 	}
 }
 
 // Generate offset column classes for desktop media
 @for $col from 1 to ($handheld-columns + 1) {
 	.g-h-o#{$col} {
-	@include offset($col,$total-h-width,$column-h-width,$grid-system-h-width);
+	@include offset($col,$total-h-width,$column-h-width,$grid-h-width);
 	}
 }
 
 .row {
-	@include main-row($tablet-columns,$total-h-width,$grid-system-h-width);
+	@include main-row($tablet-columns,$total-h-width,$grid-h-width);
 	@if $show-grid-background {
 		$grid-background-total-columns: $handheld-columns;
 		$grid-background-offset: 4px;
@@ -183,7 +177,7 @@ $_allRows: "";
 	body {}
 
 	.row {
-		@include main-row($tablet-columns,$total-hl-width,$grid-system-hl-width);
+		@include main-row($tablet-columns,$total-hl-width,$grid-hl-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $handheld-columns;
 			$grid-background-offset: 4px;
@@ -194,24 +188,24 @@ $_allRows: "";
 		}
 	}
 
-	// Generate row classes for desktop media
+	// Generate nested row classes for handheld-landscape media
 	@for $col from 1 to ($handheld-columns + 1) {
 		.g-hl-r#{$col} {
-		@include nested-row($col,$total-hl-width,$grid-system-hl-width);
+		@include nested-row($col,$total-hl-width,$grid-hl-width);
 		}
 	}
 
-	// Generate column classes for desktop media
+	// Generate column classes for handheld-landscape media
 	@for $col from 1 to ($handheld-columns + 1) {
 		.g-hl-#{$col} {
-		@include column($col,$total-hl-width,$column-hl-width,$grid-system-hl-width);
+		@include column($col,$total-hl-width,$column-hl-width,$grid-hl-width);
 		}
 	}
 
-	// Generate offset column classes for desktop media
+	// Generate offset column classes for handheld-landscape media
 	@for $col from 1 to ($handheld-columns + 1) {
 		.g-hl-o#{$col} {
-		@include offset($col,$total-hl-width,$column-hl-width,$grid-system-hl-width);
+		@include offset($col,$total-hl-width,$column-hl-width,$grid-hl-width);
 		}
 	}
 
@@ -225,7 +219,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($tablet-columns,$total-t-width,$grid-system-t-width);
+		@include main-row($tablet-columns,$total-t-width,$grid-t-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $tablet-columns;
 			$grid-background-offset: 4px;
@@ -236,24 +230,24 @@ $_allRows: "";
 		}
 	}
 
-	// Generate row classes for desktop media
+	// Generate nested row classes for tablet portrait media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-t-r#{$col} {
-		@include nested-row($col,$total-t-width,$grid-system-t-width);
+		@include nested-row($col,$total-t-width,$grid-t-width);
 		}
 	}
 
-	// Generate column classes for desktop media
+	// Generate column classes for tablet portrait media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-t-#{$col} {
-		@include column($col,$total-t-width,$column-t-width,$grid-system-t-width);
+		@include column($col,$total-t-width,$column-t-width,$grid-t-width);
 		}
 	}
 
-	// Generate offset column classes for desktop media
+	// Generate offset column classes for tablet portrait media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-t-o#{$col} {
-		@include offset($col,$total-t-width,$column-t-width,$grid-system-t-width);
+		@include offset($col,$total-t-width,$column-t-width,$grid-t-width);
 		}
 	}
 
@@ -267,7 +261,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($tablet-columns,$total-tl-width,$grid-system-tl-width);
+		@include main-row($tablet-columns,$total-tl-width,$grid-tl-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $tablet-columns;
 			$grid-background-offset: 4px;
@@ -278,24 +272,24 @@ $_allRows: "";
 		}
 	}
 
-	// Generate row classes for desktop media
+	// Generate nested row classes for tablet landscape media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-tl-r#{$col} {
-		@include nested-row($col,$total-tl-width,$grid-system-tl-width);
+		@include nested-row($col,$total-tl-width,$grid-tl-width);
 		}
 	}
 
-	// Generate column classes for desktop media
+	// Generate column classes for tablet landscape media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-tl-#{$col} {
-		@include column($col,$total-tl-width,$column-tl-width,$grid-system-tl-width);
+		@include column($col,$total-tl-width,$column-tl-width,$grid-tl-width);
 		}
 	}
 
-	// Generate offset column classes for desktop media
+	// Generate offset column classes for tablet landscape media
 	@for $col from 1 to ($tablet-columns + 1) {
 		.g-tl-o#{$col} {
-		@include offset($col,$total-tl-width,$column-tl-width,$grid-system-tl-width);
+		@include offset($col,$total-tl-width,$column-tl-width,$grid-tl-width);
 		}
 	}
 
@@ -309,7 +303,7 @@ $_allRows: "";
 	}
 
 	.row {
-		@include main-row($desktop-columns,$total-d-width,$grid-system-d-width);
+		@include main-row($desktop-columns,$total-d-width,$grid-d-width);
 		@if $show-grid-background {
 			$grid-background-total-columns: $desktop-columns;
 			$grid-background-offset: 4px;
@@ -323,21 +317,21 @@ $_allRows: "";
 	// Generate row classes for desktop media
 	@for $col from 1 to ($desktop-columns + 1) {
 		.g-d-r#{$col} {
-		@include nested-row($col,$total-d-width,$grid-system-d-width);
+		@include nested-row($col,$total-d-width,$grid-d-width);
 		}
 	}
 
 	// Generate column classes for desktop media
 	@for $col from 1 to ($desktop-columns + 1) {
 		.g-d-#{$col} {
-		@include column($col,$total-d-width,$column-d-width,$grid-system-d-width);
+		@include column($col,$total-d-width,$column-d-width,$grid-d-width);
 		}
 	}
 
 	// Generate offset column classes for desktop media
 	@for $col from 1 to ($desktop-columns + 1) {
 		.g-d-o#{$col} {
-		@include offset($col,$total-d-width,$column-d-width,$grid-system-d-width);
+		@include offset($col,$total-d-width,$column-d-width,$grid-d-width);
 		}
 	}
 
