@@ -15,10 +15,10 @@ $handheld-columns: 12; // the number of columns in your grid
 $gutter-width: 10px;
 
 $max-desktop-width:            1140px + $gutter-width;
-$max-tablet-landscape-width:   960px;
-$max-tablet-width:             768px;
-$max-handheld-landscape-width: 420px;
-$max-handheld-width:           300px;
+$max-tablet-landscape-width:   960px + $gutter-width;
+$max-tablet-width:             768px + $gutter-width;
+$max-handheld-landscape-width: 420px + $gutter-width;
+$max-handheld-width:           300px + $gutter-width;
 
 // Vertical Rhythm
 $base-line-height:             18px;
