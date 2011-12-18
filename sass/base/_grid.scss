@@ -37,17 +37,62 @@ $total-d-width:  $grid-d-width;
 	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
 }
 
-$handheld: "h";
+// Prefixes
+$pre-handheld: "h";
+$pre-handheld-l: "hl";
+$pre-tablet: "t";
+$pre-tablet-l: "tl";
+$pre-desktop: "d";
 
-@mixin column($prefix:$handheld,$columns:$handheld-columns,$total-width:$total-h-width,$column-width:$column-h-width,$grid-width:$grid-h-width) {
+@mixin column($prefix:$pre-handheld,$columns:$handheld-columns,$total-width:$total-h-width,$column-width:$column-h-width,$grid-width:$grid-h-width) {
+		@if $prefix == $pre-handheld-l {
+		$total-width:$total-hl-width;
+		$column-width:$column-hl-width;
+		$grid-width:$grid-hl-width;
+		}
+		@else if $prefix == $pre-tablet {
+		$total-width:$total-t-width;
+		$column-width:$column-t-width;
+		$grid-width:$grid-t-width;
+		}
+		@else if $prefix == $pre-tablet-l {
+		$total-width:$total-tl-width;
+		$column-width:$column-tl-width;
+		$grid-width:$grid-tl-width;
+		}
+		@else if $prefix == $pre-desktop {
+		$total-width:$total-d-width;
+		$column-width:$column-d-width;
+		$grid-width:$grid-d-width;
+		}
 	  @for $col from 1 through $columns {
 		.g-#{$prefix}-#{$col} {
 			width: $total-width*(((($gutter-width+$column-width)*$col)-$gutter-width) / $grid-width);
+			}
 		}
-	}
 }
 
-@mixin offset($prefix:$handheld,$columns:$handheld-columns,$total-width:$total-h-width,$column-width:$column-h-width,$grid-width:$grid-h-width) {
+@mixin offset($prefix:$pre-handheld,$columns:$handheld-columns,$total-width:$total-h-width,$column-width:$column-h-width,$grid-width:$grid-h-width) {
+		@if $prefix == $pre-handheld-l {
+		$total-width:$total-hl-width;
+		$column-width:$column-hl-width;
+		$grid-width:$grid-hl-width;
+		}
+		@else if $prefix == $pre-tablet {
+		$total-width:$total-t-width;
+		$column-width:$column-t-width;
+		$grid-width:$grid-t-width;
+		}
+		@else if $prefix == $pre-tablet-l {
+		$total-width:$total-tl-width;
+		$column-width:$column-tl-width;
+		$grid-width:$grid-tl-width;
+		}
+		@else if $prefix == $pre-desktop {
+		$total-width:$total-d-width;
+		$column-width:$column-d-width;
+		$grid-width:$grid-d-width;
+		}
 	  @for $col from 1 through ($columns - 1) {
 		.g-#{$prefix}-o#{$col} {
 			margin-left: ($total-width*(((($gutter-width+$column-width)*$col)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
@@ -96,16 +141,6 @@ $_allColumns: "";
 	margin-right: $gutter-width*.5;
 }
 
-.row {
-	@include clearfix();
-	margin-right: (($gutter-width*.5)*1);
-	margin-left: (($gutter-width*.5)*1);
-	.row {
-		margin-right: (($gutter-width*.5)*-1);
-		margin-left: (($gutter-width*.5)*-1);
-	}
-}
-
 // Generate column classes for handheld media
 @include column;
 
@@ -114,6 +149,9 @@ $_allColumns: "";
 
 .row {
 	@include row($tablet-columns,$total-h-width,$grid-h-width);
+	@include clearfix();
+	margin-right: (($gutter-width*.5)*1);
+	margin-left: (($gutter-width*.5)*1);
 	@if $show-grid-background {
 		$grid-background-total-columns: $handheld-columns;
 		$grid-background-offset: 4px;
@@ -121,6 +159,10 @@ $_allColumns: "";
 		$grid-background-gutter-width: $gutter-width;
 		$grid-background-baseline-height: $base-line-height;
 		@include grid-background;
+	}
+	.row {
+		margin-right: (($gutter-width*.5)*-1);
+		margin-left: (($gutter-width*.5)*-1);
 	}
 }
 
@@ -147,8 +189,8 @@ $_allColumns: "";
 		}
 	}
 
-	@include column("hl",$handheld-columns,$total-hl-width,$column-hl-width,$grid-hl-width);
-	@include offset("hl",$handheld-columns,$total-hl-width,$column-hl-width,$grid-hl-width);
+	@include column($pre-handheld-l,$handheld-columns);
+	@include offset($pre-handheld-l,$handheld-columns);
 
 }
 
@@ -171,8 +213,8 @@ $_allColumns: "";
 		}
 	}
 
-	@include column("t",$tablet-columns,$total-t-width,$column-t-width,$grid-t-width);
-	@include offset("t",$tablet-columns,$total-t-width,$column-t-width,$grid-t-width);
+	@include column($pre-tablet,$tablet-columns);
+	@include offset($pre-tablet,$tablet-columns);
 
 }
 
@@ -195,8 +237,8 @@ $_allColumns: "";
 		}
 	}
 
-	@include column("tl",$tablet-columns,$total-tl-width,$column-tl-width,$grid-tl-width);
-	@include offset("tl",$tablet-columns,$total-tl-width,$column-tl-width,$grid-tl-width);
+	@include column($pre-tablet-l,$tablet-columns);
+	@include offset($pre-tablet-l,$tablet-columns);
 
 }
 
@@ -219,8 +261,8 @@ $_allColumns: "";
 		}
 	}
 
-	@include column("d",$desktop-columns,$total-d-width,$column-d-width,$grid-d-width);
-	@include offset("d",$desktop-columns,$total-d-width,$column-d-width,$grid-d-width);
+	@include column($pre-desktop,$desktop-columns);
+	@include offset($pre-desktop,$desktop-columns);
 
 }
 
