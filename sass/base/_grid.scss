@@ -10,7 +10,7 @@ $max-tablet-width: 768px + $gutter-width !default;
 $max-handheld-landscape-width: 420px + $gutter-width !default;
 $max-handheld-width: 300px + $gutter-width !default;
 
-// Utility variables for column and row widths — you should never need to modify these
+// Utility variables for column and grid wrapper widths — you should never need to modify these
 // Handheld
 $handheld-col-width: 	(($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $handheld-grid-width: ($handheld-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
@@ -141,17 +141,12 @@ $_allColumns: "";
 @include grid;
 
 .row {
-	@include row($tablet-columns,$handheld-total-width,$handheld-grid-width);
+	@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
 	@include clearfix();
 	margin-right: (($gutter-width*.5)*1);
 	margin-left: (($gutter-width*.5)*1);
 	@if $show-grid-background {
-		$grid-background-total-columns: $handheld-columns;
-		$grid-background-offset: 4px;
-		$grid-background-column-width: $handheld-col-width;
-		$grid-background-gutter-width: $gutter-width;
-		$grid-background-baseline-height: $base-line-height;
-		@include grid-background;
+		@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
 	}
 	.row {
 		margin-right: (($gutter-width*.5)*-1);
@@ -171,14 +166,9 @@ $_allColumns: "";
 	body {}
 
 	.row {
-		@include row($tablet-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
+		@include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
 		@if $show-grid-background {
-			$grid-background-total-columns: $handheld-columns;
-			$grid-background-offset: 4px;
-			$grid-background-column-width: $handheld-landscape-col-width;
-			$grid-background-gutter-width: $gutter-width;
-			$grid-background-baseline-height: $base-line-height;
-			@include grid-background;
+			@include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, 4px);
 		}
 	}
 
@@ -196,12 +186,7 @@ $_allColumns: "";
 	.row {
 		@include row($tablet-columns,$tablet-total-width,$tablet-grid-width);
 		@if $show-grid-background {
-			$grid-background-total-columns: $tablet-columns;
-			$grid-background-offset: 4px;
-			$grid-background-column-width: $tablet-col-width;
-			$grid-background-gutter-width: $gutter-width;
-			$grid-background-baseline-height: $base-line-height;
-			@include grid-background;
+			@include grid-background($tablet-columns, $tablet-col-width, $gutter-width, $base-line-height, 4px);
 		}
 	}
 
@@ -219,12 +204,7 @@ $_allColumns: "";
 	.row {
 		@include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
 		@if $show-grid-background {
-			$grid-background-total-columns: $tablet-columns;
-			$grid-background-offset: 4px;
-			$grid-background-column-width: $tablet-landscape-col-width;
-			$grid-background-gutter-width: $gutter-width;
-			$grid-background-baseline-height: $base-line-height;
-			@include grid-background;
+			@include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, 4px);
 		}
 	}
 
@@ -242,12 +222,7 @@ $_allColumns: "";
 	.row {
 		@include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
 		@if $show-grid-background {
-			$grid-background-total-columns: $desktop-columns;
-			$grid-background-offset: 4px;
-			$grid-background-column-width: $desktop-col-width;
-			$grid-background-gutter-width: $gutter-width;
-			$grid-background-baseline-height: $base-line-height;
-			@include grid-background;
+			@include grid-background($desktop-columns, $desktop-col-width, $gutter-width, $base-line-height, 4px);
 		}
 	}
 
