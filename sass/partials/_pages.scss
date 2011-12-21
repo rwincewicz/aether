@@ -9,7 +9,7 @@
   @include float(left);
   padding: 0 10px 0 0;
   img {
-    @include margin-leader(.25, $font-size-normal);
+    @include margin-leader(.2, $font-size-normal);
     @include margin-trailer(0, $font-size-normal);
   }
 }
