@@ -107,6 +107,10 @@
   margin-left: 275px;
 }
 
+.g-h-o12 {
+  margin-left: 300px;
+}
+
 .row {
   width: 300.0px;
   overflow: hidden;
@@ -223,6 +227,10 @@
   .g-hl-o11 {
     margin-left: 385px;
   }
+
+  .g-hl-o12 {
+    margin-left: 420px;
+  }
 }
 @media only screen and (min-width: 768px) {
   #page {
@@ -323,6 +331,10 @@
 
   .g-t-o11 {
     margin-left: 704px;
+  }
+
+  .g-t-o12 {
+    margin-left: 768px;
   }
 }
 @media only screen and (min-width: 960px) {
@@ -425,6 +437,10 @@
   .g-tl-o11 {
     margin-left: 880px;
   }
+
+  .g-tl-o12 {
+    margin-left: 960px;
+  }
 }
 @media only screen and (min-width: 1160px) {
   #page {
@@ -525,6 +541,10 @@
 
   .g-d-o11 {
     margin-left: 1045px;
+  }
+
+  .g-d-o12 {
+    margin-left: 1140px;
   }
 }
 .ie6 #page {
