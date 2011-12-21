@@ -162,7 +162,10 @@ $_allColumns: "";
 	}
 
 	// Disables iphone font size increase when viewing in landscape mode.
-	html { -webkit-text-size-adjust: none; }
+	html {
+		-webkit-text-size-adjust: none;
+		-ms-text-size-adjust:none;
+	}
 	body {}
 
 	.row {
