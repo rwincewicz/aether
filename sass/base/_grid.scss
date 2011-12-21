@@ -137,9 +137,6 @@ $_allColumns: "";
 	margin-right: $gutter-width*.5;
 }
 
-// Generate column classes for handheld media
-@include grid;
-
 .row {
 	@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
 	@include clearfix();
@@ -153,6 +150,9 @@ $_allColumns: "";
 		margin-left: (($gutter-width*.5)*-1);
 	}
 }
+
+// Generate column classes for handheld media
+@include grid;
 
 // Handheld Landscape
 @media only screen and (min-width: 480px) {
