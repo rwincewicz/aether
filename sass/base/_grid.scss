@@ -75,7 +75,7 @@ $desktop: "d";
   }
 
   // generate offset classes
-  @for $n from 1 through $columns {
+  @for $n from 1 through ($columns - 1) {
     .g-#{$media}-o#{$n} {
       @include offset($n,$columns,$total-width,$column-width,$grid-width);
     }
