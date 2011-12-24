@@ -1025,7 +1025,9 @@ ul.primary li {
   text-shadow: white 1px 1px 0;
   font-size: 0.923em;
   line-height: 1.35em;
-  border: 1px 1px 0 1px solid #bbbbbb;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #bbbbbb;
 }
 ul.primary li.active {
   border-bottom: 1px solid white;
