@@ -41,7 +41,7 @@ ul.primary {
   li {
     @include border-top-radius(4px);
     @include single-text-shadow(#fff, 1px, 1px, 0);
-    @include rhythm-borders(1px, 0, $font-size-normal, solid);
+    @include rhythm-borders(1px, 0, $font-size-sm, solid);
     @include adjust-font-size-to($font-size-sm,0.9);
     border-color: $tabs-border;
     border-bottom: 0;
