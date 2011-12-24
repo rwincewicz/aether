@@ -1034,7 +1034,7 @@ ul.primary li {
 }
 ul.primary li.active {
   border-bottom: 1px solid white;
-  margin-bottom: 0;
+  margin-bottom: -1px;
 }
 ul.primary a {
   border-style: solid;
