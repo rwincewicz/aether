@@ -49,7 +49,7 @@ ul.primary {
   }
   li.active {
     border-bottom: 1px solid $tabs-container-bg;
-    margin-bottom: -1px; // Overlap the ul's border.
+    margin-bottom: 0; // Overlap the ul's border.
   }
   a {
       @include rhythm-borders(1px, 1, $font-size-normal, solid);

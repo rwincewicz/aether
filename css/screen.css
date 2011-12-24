@@ -1023,14 +1023,18 @@ ul.primary li {
   -khtml-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   text-shadow: white 1px 1px 0;
-  border: 0.09em solid #bbbbbb;
+  border-style: solid;
+  border-width: 0.083em;
+  padding: -0.083em;
   font-size: 0.923em;
   line-height: 1.35em;
+  border-color: #bbbbbb;
+  border-top: 1px;
   border-bottom: 0;
 }
 ul.primary li.active {
   border-bottom: 1px solid white;
-  margin-bottom: -1px;
+  margin-bottom: 0;
 }
 ul.primary a {
   border-style: solid;
