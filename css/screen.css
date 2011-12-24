@@ -970,6 +970,9 @@ table tr.even, table tr.odd {
 /* Tabs Styling */
 ul.primary,
 ul.secondary {
+  border-bottom-style: solid;
+  border-bottom-width: 0.083em;
+  padding-bottom: 0.592em;
   margin-left: 0;
   border-color: #bbbbbb;
   list-style: none;

@@ -17,7 +17,7 @@ $tabs-border: #bbb;
 ul.primary,
 ul.secondary {
   @include clearfix;
-//  @include trailing-border(1px, 0.45, $font-size-sm, solid);
+  @include trailing-border(1px, 0.45, $font-size-sm, solid);
   margin-left: 0;
   border-color: $tabs-border;
   list-style: none;
