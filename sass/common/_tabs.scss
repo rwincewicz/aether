@@ -78,7 +78,7 @@ ul.primary {
   }
 }
 
-.ie8 ul.primary a.active {
+.ie6-8 ul.primary a.active {
   @include filter-gradient(#e9e9e9, $tabs-container-bg);
 }
 

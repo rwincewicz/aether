@@ -1079,7 +1079,7 @@ ul.primary a.active {
   border-color: #fff;
 }
 
-.ie8 ul.primary a.active {
+.ie6-8 ul.primary a.active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#FFFFFFFF');
 }
