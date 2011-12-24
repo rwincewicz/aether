@@ -42,9 +42,7 @@ ul.primary {
     @include border-top-radius(4px);
     @include single-text-shadow(#fff, 1px, 1px, 0);
     @include adjust-font-size-to($font-size-sm,0.9);
-    @include rhythm-borders(1px, 0, $font-size-sm, solid);
-    border-color: $tabs-border;
-    border-bottom: 0;
+    border: 1px 1px 0 1px solid $tabs-border;
   }
   li.active {
     border-bottom: 1px solid $tabs-container-bg;
