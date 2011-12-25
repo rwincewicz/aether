@@ -1,5 +1,5 @@
 #page {
-  width: 310px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -121,7 +121,7 @@
 
 @media only screen and (min-width: 480px) {
   #page {
-    width: 430px;
+    width: 420px;
   }
 
   html {
@@ -227,7 +227,7 @@
 }
 @media only screen and (min-width: 768px) {
   #page {
-    width: 754px;
+    width: 744px;
   }
 
   .row {
@@ -328,7 +328,7 @@
 }
 @media only screen and (min-width: 960px) {
   #page {
-    width: 970px;
+    width: 960px;
   }
 
   .row {
@@ -429,7 +429,7 @@
 }
 @media only screen and (min-width: 1160px) {
   #page {
-    width: 1150px;
+    width: 1140px;
   }
 
   .row {
