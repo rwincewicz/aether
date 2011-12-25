@@ -227,103 +227,103 @@
 }
 @media only screen and (min-width: 768px) {
   #page {
-    width: 778px;
-  }
-
-  .row {
-    width: 768px;
-  }
-
-  .g-t-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3 {
-    width: 54px;
-  }
-
-  .g-t-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
-    width: 118px;
-  }
-
-  .g-t-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3 {
-    width: 182px;
-  }
-
-  .g-t-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3 {
-    width: 246px;
-  }
-
-  .g-t-5 {
-    width: 310px;
-  }
-
-  .g-t-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3 {
-    width: 374px;
-  }
-
-  .g-t-7 {
-    width: 438px;
-  }
-
-  .g-t-8, .no-sidebars #content .g-all-2of3 {
-    width: 502px;
-  }
-
-  .g-t-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full {
-    width: 566px;
-  }
-
-  .g-t-10 {
-    width: 630px;
-  }
-
-  .g-t-11 {
-    width: 694px;
-  }
-
-  .g-t-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
     width: 758px;
   }
 
+  .row {
+    width: 748px;
+  }
+
+  .g-t-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3 {
+    width: 52.333px;
+  }
+
+  .g-t-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
+    width: 114.667px;
+  }
+
+  .g-t-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3 {
+    width: 177px;
+  }
+
+  .g-t-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3 {
+    width: 239.333px;
+  }
+
+  .g-t-5 {
+    width: 301.667px;
+  }
+
+  .g-t-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3 {
+    width: 364px;
+  }
+
+  .g-t-7 {
+    width: 426.333px;
+  }
+
+  .g-t-8, .no-sidebars #content .g-all-2of3 {
+    width: 488.667px;
+  }
+
+  .g-t-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full {
+    width: 551px;
+  }
+
+  .g-t-10 {
+    width: 613.333px;
+  }
+
+  .g-t-11 {
+    width: 675.667px;
+  }
+
+  .g-t-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
+    width: 738px;
+  }
+
   .g-t-o1 {
-    margin-left: 64px;
+    margin-left: 62.333px;
   }
 
   .g-t-o2 {
-    margin-left: 128px;
+    margin-left: 124.667px;
   }
 
   .g-t-o3 {
-    margin-left: 192px;
+    margin-left: 187px;
   }
 
   .g-t-o4 {
-    margin-left: 256px;
+    margin-left: 249.333px;
   }
 
   .g-t-o5 {
-    margin-left: 320px;
+    margin-left: 311.667px;
   }
 
   .g-t-o6 {
-    margin-left: 384px;
+    margin-left: 374px;
   }
 
   .g-t-o7 {
-    margin-left: 448px;
+    margin-left: 436.333px;
   }
 
   .g-t-o8 {
-    margin-left: 512px;
+    margin-left: 498.667px;
   }
 
   .g-t-o9 {
-    margin-left: 576px;
+    margin-left: 561px;
   }
 
   .g-t-o10 {
-    margin-left: 640px;
+    margin-left: 623.333px;
   }
 
   .g-t-o11 {
-    margin-left: 704px;
+    margin-left: 685.667px;
   }
 }
 @media only screen and (min-width: 960px) {
