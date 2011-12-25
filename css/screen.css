@@ -1080,8 +1080,10 @@ ul.primary a.active {
 }
 
 .ie6-8 ul.primary a.active {
+  zoom: 1;
+  *display: block;
   *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#FFFFFFFF');
 }
 
 ul.secondary {
