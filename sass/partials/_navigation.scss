@@ -36,6 +36,14 @@ a {
   }
 }
 
+#main .block-inner a {
+  &:hover {
+    @include contrasted($link-color, #222, #fff, 50%);
+    @include border-radius(3px);
+    text-decoration: none;
+  }
+}
+
 // Breadcrumbs
 
 .breadcrumb {
