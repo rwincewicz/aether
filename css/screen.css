@@ -1080,7 +1080,11 @@ ul.primary a.active {
 }
 
 .ie6-8 ul.primary a.active {
+  display: inline-block;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#FFFFFFFF');
+}
+.ie6-8 ul.primary a.active {
+  display: block;
 }
 
 ul.secondary {
