@@ -137,7 +137,7 @@ $_allColumns: "";
 	margin-right: $gutter-width*.5;
 }
 
-.row {
+.g-all-row {
 	@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
 	@include clearfix();
 	margin-right: (($gutter-width*.5)*1);
@@ -145,7 +145,7 @@ $_allColumns: "";
 	@if $show-grid-background {
 		@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
 	}
-	.row {
+	.g-all-row {
 		margin-right: (($gutter-width*.5)*-1);
 		margin-left: (($gutter-width*.5)*-1);
 	}
@@ -168,7 +168,7 @@ $_allColumns: "";
 	}
 	body {}
 
-	.row {
+	.g-all-row {
 		@include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
 		@if $show-grid-background {
 			@include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, 4px);
@@ -186,7 +186,7 @@ $_allColumns: "";
 	width: $max-tablet-width;
 	}
 
-	.row {
+	.g-all-row {
 		@include row($tablet-columns,$tablet-total-width,$tablet-grid-width);
 		@if $show-grid-background {
 			@include grid-background($tablet-columns, $tablet-col-width, $gutter-width, $base-line-height, 4px);
@@ -204,7 +204,7 @@ $_allColumns: "";
 	width: $max-tablet-landscape-width;
 	}
 
-	.row {
+	.g-all-row {
 		@include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
 		@if $show-grid-background {
 			@include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, 4px);
@@ -222,7 +222,7 @@ $_allColumns: "";
 	width: $max-desktop-width;
 	}
 
-	.row {
+	.g-all-row {
 		@include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
 		@if $show-grid-background {
 			@include grid-background($desktop-columns, $desktop-col-width, $gutter-width, $base-line-height, 4px);

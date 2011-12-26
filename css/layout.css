@@ -15,14 +15,14 @@
   margin-right: 5px;
 }
 
-.row {
+.g-all-row {
   width: 300.0px;
   overflow: hidden;
   *zoom: 1;
   margin-right: 5px;
   margin-left: 5px;
 }
-.row .row {
+.g-all-row .g-all-row {
   margin-right: -5px;
   margin-left: -5px;
 }
@@ -129,7 +129,7 @@
     -ms-text-size-adjust: none;
   }
 
-  .row {
+  .g-all-row {
     width: 420.0px;
   }
 
@@ -230,7 +230,7 @@
     width: 754px;
   }
 
-  .row {
+  .g-all-row {
     width: 744px;
   }
 
@@ -331,7 +331,7 @@
     width: 970px;
   }
 
-  .row {
+  .g-all-row {
     width: 960.0px;
   }
 
@@ -432,7 +432,7 @@
     width: 1150px;
   }
 
-  .row {
+  .g-all-row {
     width: 1140px;
   }
 

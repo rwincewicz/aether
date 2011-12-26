@@ -2,7 +2,7 @@
 
 <!-- BEGIN ROW -->
 
-  <div class="row">
+  <div class="g-all-row">
   <header id="header" role="banner">
 
     <?php if ($secondary_menu): ?>
@@ -52,19 +52,19 @@
     <?php endif; ?>
 
   </header> <!-- /header -->
-  </div> <!-- /row -->
+  </div> <!-- /g-all-row -->
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->
 <?php if ($main_menu): ?>
-  <nav id="navigation" class="menu row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
+  <nav id="navigation" class="menu g-all-row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
     <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
   </nav>
 <?php endif; ?>
 <!-- END ROW -->
 
 <!-- BEGIN ROW -->
-  <div id="main" class="clearfix row">
+  <div id="main" class="clearfix g-all-row">
 
     <?php print render($page['sidebar_first']); ?>
 
@@ -109,7 +109,7 @@
 
 <!-- BEGIN ROW -->
   <?php if ($page['footer']): ?>
-    <div id="footer" class="row">
+    <div id="footer" class="g-all-row">
         <?php print render($page['footer']); ?>
     </div> <!-- /footer -->
   <?php endif; ?>
