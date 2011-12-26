@@ -95,11 +95,10 @@ $desktop: "d";
 	margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
 }
 
-
-body{}
-#page {
+.inside {
 	width: $max-handheld-width;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 // Create the Columns
@@ -157,7 +156,7 @@ $_allColumns: "";
 // Handheld Landscape
 @media only screen and (min-width: 480px) {
 	body {}
-	#page {
+	.inside {
 	width: $max-handheld-landscape-width;
 	}
 
@@ -182,7 +181,7 @@ $_allColumns: "";
 // Tablet Portrait
 @media only screen and (min-width: 768px) {
 	body{}
-	#page {
+	.inside {
 	width: $max-tablet-width;
 	}
 
@@ -200,7 +199,7 @@ $_allColumns: "";
 // Tablet Landscape
 @media only screen and (min-width: 1024px) {
 	body{}
-	#page {
+	.inside {
 	width: $max-tablet-landscape-width;
 	}
 
@@ -218,7 +217,7 @@ $_allColumns: "";
 // Desktop
 @media only screen and (min-width: 1280px) {
 	body{}
-	#page {
+	.inside {
 	width: $max-desktop-width;
 	}
 

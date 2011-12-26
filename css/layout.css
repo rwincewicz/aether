@@ -1,9 +1,10 @@
-#page {
+.inside {
   width: 310px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.g-h-1, .g-hl-1, .g-h-2, .g-hl-2, .g-h-3, .g-hl-3, .g-h-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3, .g-hl-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3, .g-h-5, .g-hl-5, .g-h-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half, .g-hl-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half, .g-h-7, .g-hl-7, .g-h-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3, .g-hl-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3, .g-h-9, .g-hl-9, .g-h-10, .g-hl-10, .g-h-11, .g-hl-11, .g-h-12, #header, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full, .g-hl-12, #header, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full, .g-t-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-tl-1, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-t-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-tl-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-t-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-tl-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-t-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-tl-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-t-5, .g-tl-5, .g-t-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-tl-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-t-7, .g-tl-7, .g-t-8, .no-sidebars #content .g-all-2of3, .g-tl-8, .no-sidebars #content .g-all-2of3, .g-t-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-tl-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-t-10, .g-tl-10, .g-t-11, .g-tl-11, .g-t-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full, .g-tl-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full, .g-d-1, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-d-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-d-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-d-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-d-5, .g-d-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-d-7, .g-d-8, .no-sidebars #content .g-all-2of3, .g-d-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-d-10, .g-d-11, .g-d-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
+.g-h-1, .g-hl-1, .g-h-2, .g-hl-2, .g-h-3, .g-hl-3, .g-h-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3, .g-hl-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3, .g-h-5, .g-hl-5, .g-h-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half, .g-hl-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half, .g-h-7, .g-hl-7, .g-h-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3, .g-hl-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3, .g-h-9, .g-hl-9, .g-h-10, .g-hl-10, .g-h-11, .g-hl-11, .g-h-12, .header-inner, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full, .g-hl-12, .header-inner, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full, .g-t-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-tl-1, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-t-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-tl-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-t-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-tl-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-t-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-tl-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-t-5, .g-tl-5, .g-t-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-tl-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-t-7, .g-tl-7, .g-t-8, .no-sidebars #content .g-all-2of3, .g-tl-8, .no-sidebars #content .g-all-2of3, .g-t-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-tl-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-t-10, .g-tl-10, .g-t-11, .g-tl-11, .g-t-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full, .g-tl-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full, .g-d-1, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .g-d-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .g-d-3, .one-sidebar #main .region-sidebar-first, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main .region-sidebar-second, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3, .g-d-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3, .g-d-5, .g-d-6, .two-sidebars #main #content, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3, .g-d-7, .g-d-8, .no-sidebars #content .g-all-2of3, .g-d-9, .one-sidebar #main #content, .one-sidebar #content .g-all-full, .g-d-10, .g-d-11, .g-d-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -17,10 +18,21 @@
 
 .g-all-row {
   width: 300.0px;
-  overflow: hidden;
-  *zoom: 1;
   margin-right: 5px;
   margin-left: 5px;
+}
+.g-all-row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ie6 .g-all-row {
+  height: 1%;
+}
+.ie7 .g-all-row {
+  min-height: 1%;
 }
 .g-all-row .g-all-row {
   margin-right: -5px;
@@ -71,7 +83,7 @@
   width: 265px;
 }
 
-.g-h-12, #header, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
+.g-h-12, .header-inner, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
   width: 290px;
 }
 
@@ -120,7 +132,7 @@
 }
 
 @media only screen and (min-width: 480px) {
-  #page {
+  .inside {
     width: 430px;
   }
 
@@ -177,7 +189,7 @@
     width: 375px;
   }
 
-  .g-hl-12, #header, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
+  .g-hl-12, .header-inner, .one-sidebar #main .region-sidebar-first, .one-sidebar #main #content, .one-sidebar #main .region-sidebar-second, .two-sidebars #main .region-sidebar-first, .two-sidebars #main #content, .two-sidebars #main .region-sidebar-second, .no-sidebars #main #content, #footer .region-footer, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
     width: 410px;
   }
 
@@ -226,7 +238,7 @@
   }
 }
 @media only screen and (min-width: 768px) {
-  #page {
+  .inside {
     width: 754px;
   }
 
@@ -278,7 +290,7 @@
     width: 672px;
   }
 
-  .g-t-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
+  .g-t-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
     width: 734px;
   }
 
@@ -327,7 +339,7 @@
   }
 }
 @media only screen and (min-width: 1024px) {
-  #page {
+  .inside {
     width: 970px;
   }
 
@@ -379,7 +391,7 @@
     width: 870px;
   }
 
-  .g-tl-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
+  .g-tl-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
     width: 950px;
   }
 
@@ -428,7 +440,7 @@
   }
 }
 @media only screen and (min-width: 1280px) {
-  #page {
+  .inside {
     width: 1150px;
   }
 
@@ -480,7 +492,7 @@
     width: 1035px;
   }
 
-  .g-d-12, #header, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
+  .g-d-12, .header-inner, .no-sidebars #main #content, #footer .region-footer, .no-sidebars #content .g-all-full {
     width: 1130px;
   }
 
@@ -528,11 +540,6 @@
     margin-left: 1045px;
   }
 }
-.ie6 #page {
-  width: 960px;
-  margin: 0 auto;
-}
-
 .demo-container {
   background-color: #afafaf;
   border-radius: 3px 3px 3px 3px;

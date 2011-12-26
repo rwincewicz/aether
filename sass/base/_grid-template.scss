@@ -1,12 +1,4 @@
-// IE6
-@if $legacy-support-for-ie6 {
-	.ie6 #page {
-		width: 960px;
-		margin: 0 auto;
-	}
-}
-
-#header {
+.header-inner {
 		@extend .g-d-12;
 		@extend .g-tl-12;
 		@extend .g-t-12;

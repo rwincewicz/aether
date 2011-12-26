@@ -1,10 +1,8 @@
 <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
-<!-- BEGIN ROW -->
-
-  <div class="g-all-row">
   <header id="header" role="banner">
-
+  <div class="inside">
+  <div class="g-all-row">
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
@@ -50,22 +48,23 @@
         <?php print render($page['header']); ?>
       </div>
     <?php endif; ?>
-
-  </header> <!-- /header -->
   </div> <!-- /g-all-row -->
-<!-- END ROW -->
+  </div> <!-- /inside -->
+  </header> <!-- /header -->
 
-<!-- BEGIN ROW -->
 <?php if ($main_menu): ?>
-  <nav id="navigation" class="menu g-all-row <?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
+  <nav id="navigation" class="menu<?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
+  <div class="inside">
+  <div class="g-all-row">
     <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
+  </div> <!-- /g-all-row -->
+  </div> <!-- /inside -->
   </nav>
 <?php endif; ?>
-<!-- END ROW -->
 
-<!-- BEGIN ROW -->
-  <div id="main" class="clearfix g-all-row">
-
+  <div id="main" class="clearfix">
+  <div class="inside">
+  <div class="g-all-row">
     <?php print render($page['sidebar_first']); ?>
 
     <article id="content">
@@ -104,15 +103,18 @@
 
     <?php print render($page['sidebar_second']); ?>
 
+  </div> <!-- /g-all-row -->
+  </div> <!-- /inside -->
   </div> <!-- /main -->
-<!-- END ROW -->
 
-<!-- BEGIN ROW -->
   <?php if ($page['footer']): ?>
-    <div id="footer" class="g-all-row">
+    <footer id="footer">
+    <div class="inside">
+    <div class="g-all-row">
         <?php print render($page['footer']); ?>
-    </div> <!-- /footer -->
+    </div> <!-- /g-all-row -->
+    </div> <!-- /inside -->
+    </footer> <!-- /footer -->
   <?php endif; ?>
-<!-- END ROW -->
 
 </div> <!-- /page -->
