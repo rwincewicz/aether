@@ -13,11 +13,11 @@ $tablet-columns: 12; // the number of columns in your grid
 $handheld-columns: 12; // the number of columns in your grid
 $gutter-width: 10px;
 
-$max-desktop-width:            1150px;
-$max-tablet-landscape-width:   970px;
-$max-tablet-width:             754px;
-$max-handheld-landscape-width: 430px;
-$max-handheld-width:           310px;
+$max-desktop-width:            1150px; // http://gridcalculator.dk/#/1150/12/10/10
+$max-tablet-landscape-width:   970px; // http://gridcalculator.dk/#/970/12/10/10
+$max-tablet-width:             754px; // http://gridcalculator.dk/#/754/12/10/10
+$max-handheld-landscape-width: 430px; // http://gridcalculator.dk/#/430/12/10/10
+$max-handheld-width:           310px; // http://gridcalculator.dk/#/310/12/10/10
 
 // Vertical Rhythm
 $base-line-height:             18px;
