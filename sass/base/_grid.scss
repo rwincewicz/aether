@@ -4,11 +4,11 @@ $tablet-columns: 12 !default; // the number of columns in your grid
 $handheld-columns: 12 !default; // the number of columns in your grid
 
 $gutter-width: 10 !default;
-$max-desktop-width: 1140px + $gutter-width !default;
-$max-tablet-landscape-width: 960px + $gutter-width !default;
-$max-tablet-width: 744px + $gutter-width !default;
-$max-handheld-landscape-width: 420px + $gutter-width !default;
-$max-handheld-width: 300px + $gutter-width !default;
+$max-desktop-width:            1150px !default;
+$max-tablet-landscape-width:   970px !default;
+$max-tablet-width:             754px !default;
+$max-handheld-landscape-width: 430px !default;
+$max-handheld-width:           310px !default;
 
 // Utility variables for column and grid wrapper widths — you should never need to modify these
 // Handheld
