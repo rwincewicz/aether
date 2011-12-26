@@ -326,7 +326,7 @@
     margin-left: 682px;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1024px) {
   #page {
     width: 970px;
   }
@@ -427,7 +427,7 @@
     margin-left: 880px;
   }
 }
-@media only screen and (min-width: 1160px) {
+@media only screen and (min-width: 1280px) {
   #page {
     width: 1150px;
   }
