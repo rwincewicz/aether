@@ -3,6 +3,7 @@
   <header id="header" role="banner">
   <div class="inside">
   <div class="g-all-row">
+  <div class="header-inner">
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
@@ -48,6 +49,7 @@
         <?php print render($page['header']); ?>
       </div>
     <?php endif; ?>
+  </div>
   </div> <!-- /g-all-row -->
   </div> <!-- /inside -->
   </header> <!-- /header -->
