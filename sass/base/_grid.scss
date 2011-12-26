@@ -12,19 +12,19 @@ $max-handheld-width: 300px + $gutter-width !default;
 
 // Utility variables for column and grid wrapper widths — you should never need to modify these
 // Handheld
-$handheld-col-width: 	(($max-handheld-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$handheld-col-width: 	(($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $handheld-grid-width: ($handheld-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Handheld Landscape
-$handheld-landscape-col-width: 	(($max-handheld-landscape-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$handheld-landscape-col-width: 	(($max-handheld-landscape-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $handheld-landscape-grid-width: ($handheld-landscape-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Tablet
-$tablet-col-width: 	(($max-tablet-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$tablet-col-width: 	(($max-tablet-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
 $tablet-grid-width: ($tablet-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Tablet Landscape
-$tablet-landscape-col-width: 	(($max-tablet-landscape-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$tablet-landscape-col-width: 	(($max-tablet-landscape-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
 $tablet-landscape-grid-width: ($tablet-landscape-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Desktop
-$desktop-col-width: 	(($max-desktop-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
+$desktop-col-width: 	(($max-desktop-width - $gutter-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
 $desktop-grid-width: 	($desktop-col-width*$desktop-columns) + ($gutter-width*$desktop-columns);
 
 $handheld-total-width:  					$handheld-grid-width;
