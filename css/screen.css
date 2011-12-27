@@ -78,7 +78,7 @@ img, object, video {
 }
 
 @media only screen and (max-width: 768px) {
-  .ie6 img {
+  .ie6 #main img {
     width: 100%;
   }
 }
