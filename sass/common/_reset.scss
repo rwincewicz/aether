@@ -93,8 +93,8 @@ img, object, video {
 //   _width: 100%; // IE6 doesn't support max-width, so we just use width. If the image is larger than the container, just uncomment this. If it is smaller than the container, uncomment and change the 100% value to an absolute one
 }
 
-.ie6 img, .ie6 object, .ie6 video {
-  width: 100%; // IE6 doesn't support max-width, so we just use width.
+.ie6-8 {
+  -ms-interpolation-mode: bicubic;
 }
 
 img {
