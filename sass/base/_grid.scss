@@ -221,7 +221,7 @@ $_allColumns: "";
 }
 
 // Tablet Landscape
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 980px) {
 	body{}
 	.inside {
 	width: $max-tablet-landscape-width;
@@ -239,7 +239,7 @@ $_allColumns: "";
 }
 
 // Desktop
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1160px) {
 	body{}
 	.inside {
 	width: $max-desktop-width;
