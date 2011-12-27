@@ -28,6 +28,8 @@
 ?>
 <?php if ($content): ?>
   <aside class="<?php print $classes; ?>">
-    <?php print $content; ?>
+  	<div class="sidebar-inner">
+    	<?php print $content; ?>
+    </div>
   </aside>
 <?php endif; ?>

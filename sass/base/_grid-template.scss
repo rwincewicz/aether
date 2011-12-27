@@ -1,3 +1,9 @@
+@import "layout-three-col";
+//@import "layout-two-col-left";
+//@import "layout-two-col-right";
+//@import "layout-full-width";
+//@import "layout-one-col-right-one-bottom";
+
 .header-inner {
 		@extend .g-d-12;
 		@extend .g-tl-12;
@@ -14,56 +20,6 @@
     @extend .g-hl-4;
     @extend .g-h-4;
   }
-}
-
-.one-sidebar #main {
-	// .row class has been moved to page.tpl.php
-	.region-sidebar-first {
-		@extend .g-d-3;
-		@extend .g-tl-3;
-		@extend .g-t-3;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
-	#content {
-		@extend .g-d-9;
-		@extend .g-tl-9;
-		@extend .g-t-9;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
-	.region-sidebar-second {
-		@extend .g-d-3;
-		@extend .g-tl-3;
-		@extend .g-t-3;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
-}
-
-.two-sidebars #main {
-	// .row class has been moved to page.tpl.php
-	.region-sidebar-first {
-		@extend .g-d-3;
-		@extend .g-tl-3;
-		@extend .g-t-3;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
-	#content {
-		@extend .g-d-6;
-		@extend .g-tl-6;
-		@extend .g-t-6;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
-	.region-sidebar-second {
-		@extend .g-d-3;
-		@extend .g-tl-3;
-		@extend .g-t-3;
-		@extend .g-hl-12;
-		@extend .g-h-12;
-	}
 }
 
 .no-sidebars #main {

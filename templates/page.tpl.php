@@ -67,9 +67,9 @@
   <div id="main" class="clearfix">
   <div class="inside">
   <div class="g-all-row">
-    <?php print render($page['sidebar_first']); ?>
 
     <article id="content">
+      <div class="content-inner">
         <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
             <?php print $breadcrumb; ?>
@@ -100,9 +100,10 @@
         </div>
 
         <?php print $feed_icons; ?>
-
+      </div> <!-- /content-inner -->
     </article> <!-- /content -->
 
+    <?php print render($page['sidebar_first']); ?>
     <?php print render($page['sidebar_second']); ?>
 
   </div> <!-- /g-all-row -->
