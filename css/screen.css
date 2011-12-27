@@ -72,6 +72,11 @@ img, object, video {
   max-width: 100%;
 }
 
+.ie6 .region-sidebar-first img,
+.ie6 .region-sidebar-second img {
+  width: 100%;
+}
+
 .ie6-8 {
   -ms-interpolation-mode: bicubic;
 }
