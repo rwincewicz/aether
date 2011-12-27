@@ -98,6 +98,13 @@ img, object, video {
   width: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+  body {}
+  .ie6 img {
+    width: 100%;
+  }
+}
+
 .ie6-8 {
   -ms-interpolation-mode: bicubic;
 }
