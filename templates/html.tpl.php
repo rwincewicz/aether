@@ -103,7 +103,7 @@
     <![endif]-->
   <?php endif; ?>
   <?php if ($add_imgsizer_js): ?>
-    <!--[if lt IE 8)]>
+    <!--[if lt IE 8]>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/imgsizer.js"></script>
     <![endif]-->
   <?php endif; ?>
