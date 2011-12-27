@@ -35,9 +35,6 @@ stylesheets[all][] = css/screen.css
 ; Optionally add some JavaScripts to your theme.
 
 scripts[] = js/ios-viewport-scaling-bug-fix.js
-scripts[] = js/imgsizer-src.js
-scripts[] = js/imgsizer.js
-
 
 settings[aether_tabs] = 1
 settings[aether_breadcrumb_separator] = »
@@ -47,6 +44,7 @@ settings[aether_html5_respond_meta][] = respond
 settings[aether_html5_respond_meta][] = html5
 settings[aether_html5_respond_meta][] = meta
 settings[aether_html5_respond_meta][] = selectivizr
+settings[aether_html5_respond_meta][] = imgsizer
 
 ; Information added by author
 version = "7.x-0.4-alpha"

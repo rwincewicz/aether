@@ -102,6 +102,11 @@
     <script src="<?php print $base_path . $path_to_aether; ?>/js/selectivizr-min.js"></script>
     <![endif]-->
   <?php endif; ?>
+  <?php if ($add_imgsizer_js): ?>
+    <!--[if lt IE 8)]>
+    <script src="<?php print $base_path . $path_to_aether; ?>/js/imgsizer.js"></script>
+    <![endif]-->
+  <?php endif; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php if ($skip_link_text && $skip_link_anchor): ?>

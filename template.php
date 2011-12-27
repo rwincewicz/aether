@@ -22,7 +22,7 @@ function aether_preprocess_html(&$variables, $hook) {
   $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
   $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
   $variables['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
-
+  $variables['add_imgsizer_js']  = in_array('imgsizer', $html5_respond_meta);
   $variables['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
   $variables['skip_link_text'] = theme_get_setting('aether_skip_link_text');
 

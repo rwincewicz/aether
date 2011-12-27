@@ -58,6 +58,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
                           'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
                           'meta' => t('Add meta tags to support responsive design on mobile devices.'),
                           'selectivizr' => t('Add pseudo class support to IE6-8.'),
+                          'imgsizer' => t('Add imgsizer fluid image support to IE6-8.'),
                         ),
     '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable these options. Mobile devices require a few meta tags for responsive designs.', array('!link' => 'http://www.modernizr.com/')),
   );
