@@ -436,3 +436,21 @@ function aether_form_node_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 }
+
+/**
+ * Make drupal core generated images responsive i.e. flexible in width
+ */
+function aether_image($variables) {
+  $attributes = $variables['attributes'];
+  $attributes['src'] = file_create_url($variables['path']);
+
+  // remove width and height attributes
+  foreach (array('alt', 'title') as $key) {
+
+    if (isset($variables[$key])) {
+      $attributes[$key] = $variables[$key];
+    }
+  }
+
+  return '<img' . drupal_attributes($attributes) . ' />';
+}
