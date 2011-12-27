@@ -35,6 +35,8 @@ stylesheets[all][] = css/screen.css
 ; Optionally add some JavaScripts to your theme.
 
 scripts[] = js/ios-viewport-scaling-bug-fix.js
+scripts[] = js/imgszr-src.js
+scripts[] = js/imgszr.js
 
 
 settings[aether_tabs] = 1
