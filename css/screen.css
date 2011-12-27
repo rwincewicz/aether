@@ -72,6 +72,10 @@ img, object, video {
   max-width: 100%;
 }
 
+.ie6 img, .ie6 object, .ie6 video {
+  width: 100%;
+}
+
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
