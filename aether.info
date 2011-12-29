@@ -70,28 +70,28 @@ settings[sidebar_second_width_d]	 				= 3
 settings[content_width_d]	 								= 6
 
 ; Default theme settings
-settings[theme_grid_prefix] = g-d-
-settings[theme_grid] = g-d-12-1140
-settings[theme_grid_options][] = g-d-12-1140
-settings[sidebar_layout] = sidebars-split
-settings[sidebar_first_width] = 3
-settings[sidebar_second_width] = 3
+settings[grid_handheld_prefix] 						= g-h-
+settings[grid_handheld_landscape_prefix] 	= g-hl-
+settings[grid_tablet_prefix] 							= g-t-
+settings[grid_tablet_landscape_prefix] 		= g-tl-
+settings[grid_desktop_prefix] 						= g-d-
+settings[theme_grid]											= g-d-12-1140
+settings[theme_grid_options][] 						= g-d-12-1140
+settings[sidebar_layout] 									= sidebars-split
+settings[sidebar_first_width] 						= 3
+settings[sidebar_second_width] 						= 3
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
-settings[grid_nested_regions][] = sidebar_first
-settings[grid_nested_regions][] = sidebar_second
-settings[grid_nested_regions][] = header
-settings[grid_nested_regions][] = preface_bottom
-settings[grid_nested_regions][] = content
-settings[grid_nested_regions][] = postscript_top
-settings[grid_nested_regions][] = node_top
-settings[grid_nested_regions][] = node_bottom
-settings[grid_nested_regions][] = help
+settings[grid_nested_regions][] 					= sidebar_first
+settings[grid_nested_regions][] 					= sidebar_second
+settings[grid_nested_regions][] 					= header
+settings[grid_nested_regions][] 					= content
+settings[grid_nested_regions][] 					= help
 ; Nested region width adjustments: adjacent regions to subtract for correct region width
 settings[grid_adjusted_regions][preface_bottom][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_second
+settings[grid_adjusted_regions][help][] 	= sidebar_first
+settings[grid_adjusted_regions][help][] 	= sidebar_second
 settings[grid_adjusted_regions][content][] = sidebar_first
 settings[grid_adjusted_regions][content][] = sidebar_second
 settings[grid_adjusted_regions][node_top][] = sidebar_first

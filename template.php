@@ -104,7 +104,11 @@ function aether_grid_info() {
 
   if (!isset($grid)) {
     $grid = array();
-    $grid['prefix'] = substr(theme_get_setting('theme_grid_prefix'), 0);
+    $grid['prefix_h'] = substr(theme_get_setting('grid_handheld_prefix'), 0);
+    $grid['prefix_hl'] = substr(theme_get_setting('grid_handheld_landscape_prefix'), 0);
+    $grid['prefix_t'] = substr(theme_get_setting('grid_tablet_prefix'), 0);
+    $grid['prefix_tl'] = substr(theme_get_setting('grid_tablet_landscape_prefix'), 0);
+    $grid['prefix_d'] = substr(theme_get_setting('grid_desktop_prefix'), 0);
     $grid['name'] = substr(theme_get_setting('theme_grid'), 0, 7);
     $grid['type'] = substr(theme_get_setting('theme_grid'), 7);
     $grid['fixed'] = (substr(theme_get_setting('theme_grid'), 7) != 'fluid') ? TRUE : FALSE;
@@ -155,7 +159,7 @@ function aether_preprocess_page(&$variables, $hook) {
 
   // Set grid width
   $grid = aether_grid_info();
-  $variables['grid_width'] = $grid['prefix'] . $grid['width'];
+  $variables['grid_width'] = $grid['prefix_d'] . $grid['width'];
 
   // Adjust width variables for nested grid groups
   $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
@@ -168,7 +172,7 @@ function aether_preprocess_page(&$variables, $hook) {
     //   $variables[$group . '_width'] = '" style="width:' . $grid['fluid_adjustments'][$group] . '%"';
     // }
     // else {
-      $variables[$group . '_width'] = $grid['prefix'] . $width;
+      $variables[$group . '_width'] = $grid['prefix_d'] . $width;
     // }
   }
 
@@ -332,7 +336,6 @@ function aether_page_alter(&$page) {
  *   The name of the template being rendered ("region" in this case.)
  */
 function aether_preprocess_region(&$variables, $hook) {
-
   static $grid;
 
   // Initialize grid info once per page
@@ -365,7 +368,7 @@ function aether_preprocess_region(&$variables, $hook) {
     // Set region full-width or nested style
     $variables['region_style'] = $grid['regions'][$variables['region']]['style'];
     $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
-    $variables['content_attributes_array']['class'][] = $grid['prefix'] . $grid['regions'][$variables['region']]['width'];
+    $variables['content_attributes_array']['class'][] = $grid['prefix_d'] . $grid['regions'][$variables['region']]['width'];
     // Adjust & set region width
     if (!$grid['fixed'] && isset($grid['fluid_adjustments'][$variables['region']])) {
       $variables['fluid_width'] = ' style="width:' . $grid['fluid_adjustments'][$variables['region']] . '%"';
