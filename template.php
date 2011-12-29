@@ -71,6 +71,69 @@ function aether_html_head_alter(&$head) {
   $head['system_meta_content_type']['#attributes'] = array('charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']));
 }
 
+/**
+ * Custom theme functions
+ */
+function aether_theme() {
+  return array(
+    'grid_block' => array(
+      'variables' => array('content' => NULL, 'id' => NULL),
+    ),
+  );
+}
+
+/**
+ * Returns a list of blocks.
+ * Uses Drupal block interface and appends any blocks assigned by the Context module.
+ */
+function aether_block_list($region) {
+  $drupal_list = array();
+  if (module_exists('block')) {
+    $drupal_list = block_list($region);
+  }
+  if (module_exists('context') && $context = context_get_plugin('reaction', 'block')) {
+    $context_list = $context->block_list($region);
+    $drupal_list = array_merge($context_list, $drupal_list);
+  }
+  return $drupal_list;
+}
+
+function aether_grid_info() {
+  global $theme_key;
+  static $grid;
+
+  if (!isset($grid)) {
+    $grid = array();
+    $grid['prefix'] = substr(theme_get_setting('theme_grid_prefix'), 0);
+    $grid['name'] = substr(theme_get_setting('theme_grid'), 0, 7);
+    $grid['type'] = substr(theme_get_setting('theme_grid'), 7);
+    $grid['fixed'] = (substr(theme_get_setting('theme_grid'), 7) != 'fluid') ? TRUE : FALSE;
+    $grid['width'] = (int)substr($grid['name'], 4, 2);
+    $grid['sidebar_first_width'] = (aether_block_list('sidebar_first')) ? theme_get_setting('sidebar_first_width') : 0;
+    $grid['sidebar_second_width'] = (aether_block_list('sidebar_second')) ? theme_get_setting('sidebar_second_width') : 0;
+    $grid['regions'] = array();
+    $regions = array_keys(system_region_list($theme_key, REGIONS_VISIBLE));
+    $nested_regions = theme_get_setting('grid_nested_regions');
+    $adjusted_regions = theme_get_setting('grid_adjusted_regions');
+    foreach ($regions as $region) {
+      $region_style = 'full-width';
+      $region_width = $grid['width'];
+      if ($region == 'sidebar_first' || $region == 'sidebar_second') {
+        $region_width = ($region == 'sidebar_first') ? $grid['sidebar_first_width'] : $grid['sidebar_second_width'];
+      }
+      if ($nested_regions && in_array($region, $nested_regions)) {
+        $region_style = 'nested';
+        if ($adjusted_regions && in_array($region, array_keys($adjusted_regions))) {
+          foreach ($adjusted_regions[$region] as $adjacent_region) {
+            $region_width = $region_width - $grid[$adjacent_region . '_width'];
+          }
+        }
+      }
+      $grid['regions'][$region] = array('width' => $region_width, 'style' => $region_style, 'total' => count(aether_block_list($region)), 'count' => 0);
+    }
+  }
+  return $grid;
+}
 
 function aether_preprocess_page(&$variables, $hook) {
   if (isset($variables['node_title'])) {
@@ -86,6 +149,27 @@ function aether_preprocess_page(&$variables, $hook) {
   }
   if (!empty($variables['secondary_menu'])) {
     $variables['classes_array'][] = 'with-subnav';
+  }
+    // $content_width_d = theme_get_setting('content_width_d');
+    // $variables['content_attributes_array']['class'][] = 'content-inner ' . 'g-d-'. $content_width_d;
+
+  // Set grid width
+  $grid = aether_grid_info();
+  $variables['grid_width'] = $grid['prefix'] . $grid['width'];
+
+  // Adjust width variables for nested grid groups
+  $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
+  foreach (array_keys($grid_adjusted_groups) as $group) {
+    $width = $grid['width'];
+    foreach ($grid_adjusted_groups[$group] as $region) {
+      $width = $width - $grid['regions'][$region]['width'];
+    }
+    // if (!$grid['fixed'] && isset($grid['fluid_adjustments'][$group])) {
+    //   $variables[$group . '_width'] = '" style="width:' . $grid['fluid_adjustments'][$group] . '%"';
+    // }
+    // else {
+      $variables[$group . '_width'] = $grid['prefix'] . $width;
+    // }
   }
 
 }
@@ -135,6 +219,7 @@ function aether_preprocess_comment(&$variables, $hook) {
 
 
 function aether_preprocess_block(&$variables, $hook) {
+
   // Use a template with no wrapper for the page's main content.
   if ($variables['block_html_id'] == 'block-system-main') {
     $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
@@ -247,17 +332,60 @@ function aether_page_alter(&$page) {
  *   The name of the template being rendered ("region" in this case.)
  */
 function aether_preprocess_region(&$variables, $hook) {
+
+  static $grid;
+
+  // Initialize grid info once per page
+  if (!isset($grid)) {
+    $grid = aether_grid_info();
+  }
+
   // Sidebar regions get some extra classes and a common template suggestion.
   if (strpos($variables['region'], 'sidebar_') === 0) {
     $variables['classes_array'][] = 'column';
     $variables['classes_array'][] = 'sidebar';
+    $variables['content_attributes_array']['class'][] = 'sidebar-inner';
     // Allow a region-specific template to override aether's region--sidebar.
     array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
   }
-  // Use a template with no wrapper for the content region.
-  elseif ($variables['region'] == 'content') {
-    $variables['theme_hook_suggestions'][] = 'region__no_wrapper';
+
+  // Footer region gets a common template suggestion.
+  if (strpos($variables['region'], 'footer') === 0) {
+    $variables['content_attributes_array']['class'][] = 'footer-inner';
+    // Allow a region-specific template to override aether's region--sidebar.
+    array_unshift($variables['theme_hook_suggestions'], 'region__footer');
   }
+
+
+  // Set region variables
+  $variables['region_style'] = $variables['fluid_width'] = '';
+  $variables['region_name'] = str_replace('_', '-', $variables['region']);
+  $variables['classes_array'][] = $variables['region_name'];
+  if (in_array($variables['region'], array_keys($grid['regions']))) {
+    // Set region full-width or nested style
+    $variables['region_style'] = $grid['regions'][$variables['region']]['style'];
+    $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
+    $variables['content_attributes_array']['class'][] = $grid['prefix'] . $grid['regions'][$variables['region']]['width'];
+    // Adjust & set region width
+    if (!$grid['fixed'] && isset($grid['fluid_adjustments'][$variables['region']])) {
+      $variables['fluid_width'] = ' style="width:' . $grid['fluid_adjustments'][$variables['region']] . '%"';
+    }
+  }
+  // Sidebar regions receive common class, "sidebar".
+  $sidebar_regions = array('sidebar_first', 'sidebar_second');
+  if (in_array($variables['region'], $sidebar_regions)) {
+    $variables['classes_array'][] = 'sidebar';
+  }
+
+
+  // if (strpos($variables['region'], 'sidebar_first') === 0) {
+  //   $sidebar_first_width_d = theme_get_setting('sidebar_first_width_d');
+  //   $variables['content_attributes_array']['class'][] = 'g-d-'. $sidebar_first_width_d;
+  // }
+  // if (strpos($variables['region'], 'sidebar_second') === 0) {
+  //   $sidebar_second_width_d = theme_get_setting('sidebar_second_width_d');
+  //   $variables['content_attributes_array']['class'][] = 'g-d-'. $sidebar_second_width_d;
+  // }
 }
 
 

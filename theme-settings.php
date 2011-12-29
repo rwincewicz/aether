@@ -1,6 +1,17 @@
 <?php
+
 // Form override fo theme settings
 function aether_form_system_theme_settings_alter(&$form, $form_state) {
+
+  global $base_url;
+
+  // Get theme name from url (admin/.../theme_name)
+  $theme_name = arg(count(arg()) - 1);
+
+  // Get default theme settings from .info file
+  $theme_data = list_themes();   // get data for all themes
+  $defaults = ($theme_name && isset($theme_data[$theme_name]->info['settings'])) ? $theme_data[$theme_name]->info['settings'] : array();
+
 
   global $base_path;
   $subject_theme = arg(count(arg()) - 1);
@@ -23,6 +34,151 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#weight' => 0,
     '#prefix' => $header,
   );
+
+  $form['aether_settings']['layout'] = array(
+    '#title' => t('Aether Layout'),
+    '#type' => 'fieldset',
+  );
+
+  // $form['aether_settings']['layout']["desktop"]["grid_columns_d"] = array(
+  //   '#type' => 'radios',
+  //   '#title' => t('Select a grid layout for Desktop'),
+  //   '#default_value' => (theme_get_setting("grid_columns_d")),
+  //   '#options' => array(
+  //     1 => t('24 column grid'),
+  //     2 => t('12 column grid'),
+  //   ),
+  //   '#required' => TRUE,
+  // );
+
+  // Grid type
+  // Generate grid type options
+  $grid_options = array();
+  if (isset($defaults['theme_grid_options'])) {
+    foreach ($defaults['theme_grid_options'] as $grid_option) {
+      $grid_type = t('responsive fixed grid') . ' [' . substr($grid_option, 7) . 'px]';
+      $grid_options[$grid_option] = (int)substr($grid_option, 4, 2) . t(' column ') . $grid_type;
+    }
+  }
+  $form['aether_settings']['theme_grid_config']['theme_grid'] = array(
+    '#type'          => 'select',
+    '#title'         => t('Select a grid layout for your theme'),
+    '#default_value' => theme_get_setting('theme_grid'),
+    '#options'       => $grid_options,
+  );
+  $form['aether_settings']['theme_grid_config']['theme_grid']['#options'][$defaults['theme_grid']] .= t(' - Theme Default');
+  // Sidebar layout
+  $form['aether_settings']['theme_grid_config']['sidebar_layout'] = array(
+    '#type'          => 'radios',
+    '#title'         => t('Select a sidebar layout for your theme'),
+    '#default_value' => theme_get_setting('sidebar_layout'),
+    '#options'       => array(
+      'sidebars-split' => t('Split sidebars'),
+      'sidebars-both-first' => t('Both sidebars first'),
+      'sidebars-both-last' => t('Both sidebars last'),
+    ),
+  );
+  $form['aether_settings']['theme_grid_config']['sidebar_layout']['#options'][$defaults['sidebar_layout']] .= t(' - Theme Default');
+  // Calculate sidebar width options
+  $grid_width = (int)substr(theme_get_setting('theme_grid'), 4, 2);
+  $grid_type = substr(theme_get_setting('theme_grid'), 7);
+  $width_options = array();
+  for ($i = 1; $i <= floor($grid_width / 2); $i++) {
+    $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
+    $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width - 10)) . 'px');
+  }
+  // Sidebar first width
+  $form['aether_settings']['theme_grid_config']['sidebar_first_width'] = array(
+    '#type'          => 'select',
+    '#title'         => t('Select a different width for your first sidebar'),
+    '#default_value' => theme_get_setting('sidebar_first_width'),
+    '#options'       => $width_options,
+  );
+  $form['aether_settings']['theme_grid_config']['sidebar_first_width']['#options'][$defaults['sidebar_first_width']] .= t(' - Theme Default');
+  // Sidebar last width
+  $form['aether_settings']['theme_grid_config']['sidebar_second_width'] = array(
+    '#type'          => 'select',
+    '#title'         => t('Select a different width for your second sidebar'),
+    '#default_value' => theme_get_setting('sidebar_second_width'),
+    '#options'       => $width_options,
+  );
+  $form['aether_settings']['theme_grid_config']['sidebar_second_width']['#options'][$defaults['sidebar_second_width']] .= t(' - Theme Default');
+
+
+  // $grid_columns = array(
+  //    1 => t('1'),
+  //    2 => t('2'),
+  //    3 => t('3'),
+  //    4 => t('4'),
+  //    5 => t('5'),
+  //    6 => t('6'),
+  //    7 => t('7'),
+  //    8 => t('8'),
+  //    9 => t('9'),
+  //    10 => t('10'),
+  //    11 => t('11'),
+  //    12 => t('12'),
+  //   );
+
+  // $form['aether_settings']['layout']["desktop"]["layout_type_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop Sidebar positions'),
+  //   '#default_value' => (theme_get_setting("layout_type_d")),
+  //   '#options' => array(
+  //     1 => t('Split sidebars'),
+  //     2 => t('Sidebars right'),
+  //     3 => t('Sidebars left'),
+  //   ),
+  //   '#required' => TRUE,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["sidebar_first_width_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop sidebar first width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("sidebar_first_width_d")),
+  //   '#options' => $grid_columns,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["content_width_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop content width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("content_width_d")),
+  //   '#options' => $grid_columns,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["sidebar_first_offset_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop Sidebar first width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("sidebar_first_offset_d")),
+  //   '#options' => $grid_columns,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["sidebar_first_push_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop Sidebar first width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("sidebar_first_push_d")),
+  //   '#options' => $grid_columns,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["sidebar_first_pull_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop Sidebar first width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("sidebar_first_pull_d")),
+  //   '#options' => $grid_columns,
+  // );
+
+  // $form['aether_settings']['layout']["desktop"]["sidebar_second_width_d"] = array(
+  //   '#type' => 'select',
+  //   '#title' => t('Desktop sidebar second width'),
+  //   '#description' => t('Select how wide you would like this sidebar to be'),
+  //   '#default_value' => (theme_get_setting("sidebar_second_width_d")),
+  //   '#options' => $grid_columns,
+  // );
 
   $form['aether_settings']['polyfills'] = array(
     '#title' => t('Polyfills'),
@@ -47,19 +203,12 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   );
 
   $form['aether_settings']['drupal'] = array(
-    '#title' => t('Drupal core options / styles'),
+    '#title' => t('Drupal core options'),
     '#type' => 'fieldset',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#weight' => 11,
   );
-
-  // $form['aether_settings']['drupal']['theme_settings'] = $form['theme_settings'];
-  // $form['aether_settings']['drupal']['logo'] = $form['logo'];
-  // $form['aether_settings']['drupal']['favicon'] = $form['favicon'];
-  // unset($form['theme_settings']);
-  // unset($form['logo']);
-  // unset($form['favicon']);
 
   $form['aether_settings']['drupal']['aether_breadcrumb'] = array(
     '#type'          => 'fieldset',

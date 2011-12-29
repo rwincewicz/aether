@@ -3,7 +3,7 @@
   <header id="header" role="banner">
   <div class="inside">
   <div class="g-all-row">
-  <div class="header-inner">
+  <div class="header-inner <?php print $grid_width; ?>">
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
@@ -68,56 +68,50 @@
   <div class="inside">
   <div class="g-all-row">
 
-    <article id="content">
-      <div class="content-inner">
-        <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
-          <div id="content-header">
-            <?php print $breadcrumb; ?>
-            <?php if ($page['highlight']): ?>
-              <div id="highlight"><?php print render($page['highlight']) ?></div>
-            <?php endif; ?>
-
-            <?php if ($title): ?>
-              <h1 class="title"><?php print $title; ?></h1>
-            <?php endif; ?>
-
-            <?php print $messages; ?>
-            <?php print render($page['help']); ?>
-
-            <?php if ($tabs): ?>
-              <div class="tabs"><?php print render($tabs); ?></div>
-            <?php endif; ?>
-
-            <?php if ($action_links): ?>
-              <ul class="action-links"><?php print render($action_links); ?></ul>
-            <?php endif; ?>
-
-          </div> <!-- /#content-header -->
+  <article id="content">
+  <div class="content-inner <?php print $main_group_width; ?>">
+    <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
+      <div id="content-header">
+        <?php print $breadcrumb; ?>
+        <?php if ($page['highlight']): ?>
+          <div id="highlight"><?php print render($page['highlight']) ?></div>
         <?php endif; ?>
 
-        <div id="content-area">
-          <?php print render($page['content']) ?>
-        </div>
+        <?php if ($title): ?>
+          <h1 class="title"><?php print $title; ?></h1>
+        <?php endif; ?>
 
-        <?php print $feed_icons; ?>
-      </div> <!-- /content-inner -->
-    </article> <!-- /content -->
+        <?php print $messages; ?>
+        <?php print render($page['help']); ?>
 
-    <?php print render($page['sidebar_first']); ?>
-    <?php print render($page['sidebar_second']); ?>
+        <?php if ($tabs): ?>
+          <div class="tabs"><?php print render($tabs); ?></div>
+        <?php endif; ?>
+
+        <?php if ($action_links): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+
+      </div> <!-- /#content-header -->
+    <?php endif; ?>
+
+    <div id="content-area">
+      <?php print render($page['content']) ?>
+    </div>
+
+    <?php print $feed_icons; ?>
+  </div> <!-- /content-inner -->
+  </article> <!-- /content -->
+
+  <?php print render($page['sidebar_first']); ?>
+  <?php print render($page['sidebar_second']); ?>
 
   </div> <!-- /g-all-row -->
   </div> <!-- /inside -->
   </div> <!-- /main -->
 
   <?php if ($page['footer']): ?>
-    <footer id="footer">
-    <div class="inside">
-    <div class="g-all-row">
-        <?php print render($page['footer']); ?>
-    </div> <!-- /g-all-row -->
-    </div> <!-- /inside -->
-    </footer> <!-- /footer -->
+    <?php print render($page['footer']); ?>
   <?php endif; ?>
 
 </div> <!-- /page -->
