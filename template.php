@@ -104,32 +104,42 @@ function aether_grid_info() {
 
   if (!isset($grid)) {
     $grid = array();
-    $grid['prefix_h'] = substr(theme_get_setting('grid_handheld_prefix'), 0);
-    $grid['prefix_hl'] = substr(theme_get_setting('grid_handheld_landscape_prefix'), 0);
-    $grid['prefix_t'] = substr(theme_get_setting('grid_tablet_prefix'), 0);
-    $grid['prefix_tl'] = substr(theme_get_setting('grid_tablet_landscape_prefix'), 0);
-    $grid['prefix_d'] = substr(theme_get_setting('grid_desktop_prefix'), 0);
-    $grid['name'] = substr(theme_get_setting('theme_grid'), 0, 7);
-    $grid['type'] = substr(theme_get_setting('theme_grid'), 7);
-    $grid['fixed'] = (substr(theme_get_setting('theme_grid'), 7) != 'fluid') ? TRUE : FALSE;
-    $grid['width'] = (int)substr($grid['name'], 4, 2);
-    $grid['sidebar_first_width'] = (aether_block_list('sidebar_first')) ? theme_get_setting('sidebar_first_width') : 0;
-    $grid['sidebar_second_width'] = (aether_block_list('sidebar_second')) ? theme_get_setting('sidebar_second_width') : 0;
+    $media_queries = theme_get_setting('media_queries');
+    if ($media_queries && is_numeric($media_queries)) {
+    for ($i = 1; $i <= $media_queries; $i++) {
+      $media[] = 'medium' . $i;
+        }
+      }
+    }
+    else {
+      $media = array(t('Default'));
+      $media_queries = 1;
+    }
+    for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+      $medium = $media[$media_count-1];
+    $grid["prefix{$media_count}"] = substr(theme_get_setting("grid_prefix{$media_count}"), 0);
+    $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
+    $grid["type{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 7);
+    $grid["fixed{$media_count}"] = (substr(theme_get_setting("theme_grid{$media_count}"), 7) != 'fluid') ? TRUE : FALSE;
+    $grid["width{$media_count}"] = (int)substr($grid["name{$media_count}"], 4, 2);
+    $grid["sidebar_first_width{$media_count}"] = (aether_block_list('sidebar_first')) ? theme_get_setting("sidebar_first_width{$media_count}") : 0;
+    $grid["sidebar_second_width{$media_count}"] = (aether_block_list('sidebar_second')) ? theme_get_setting("sidebar_second_width{$media_count}") : 0;
+
     $grid['regions'] = array();
     $regions = array_keys(system_region_list($theme_key, REGIONS_VISIBLE));
     $nested_regions = theme_get_setting('grid_nested_regions');
     $adjusted_regions = theme_get_setting('grid_adjusted_regions');
     foreach ($regions as $region) {
       $region_style = 'full-width';
-      $region_width = $grid['width'];
+      $region_width = $grid["width{$media_count}"];
       if ($region == 'sidebar_first' || $region == 'sidebar_second') {
-        $region_width = ($region == 'sidebar_first') ? $grid['sidebar_first_width'] : $grid['sidebar_second_width'];
+        $region_width = ($region == 'sidebar_first') ? $grid["sidebar_first_width{$media_count}"] : $grid["sidebar_second_width{$media_count}"];
       }
       if ($nested_regions && in_array($region, $nested_regions)) {
         $region_style = 'nested';
         if ($adjusted_regions && in_array($region, array_keys($adjusted_regions))) {
           foreach ($adjusted_regions[$region] as $adjacent_region) {
-            $region_width = $region_width - $grid[$adjacent_region . '_width'];
+            $region_width = $region_width - $grid[$adjacent_region . '_width' . $media_count];
           }
         }
       }
@@ -137,6 +147,7 @@ function aether_grid_info() {
     }
   }
   return $grid;
+
 }
 
 function aether_preprocess_page(&$variables, $hook) {
@@ -154,28 +165,42 @@ function aether_preprocess_page(&$variables, $hook) {
   if (!empty($variables['secondary_menu'])) {
     $variables['classes_array'][] = 'with-subnav';
   }
-    // $content_width_d = theme_get_setting('content_width_d');
-    // $variables['content_attributes_array']['class'][] = 'content-inner ' . 'g-d-'. $content_width_d;
+  $variables['content_attributes_array']['class'][] = 'content-inner';
 
   // Set grid width
   $grid = aether_grid_info();
-  $variables['grid_width'] = $grid['prefix_d'] . $grid['width'];
+  if (theme_get_setting('responsive_enable')) {
+  $media = array();
+  $media_queries = theme_get_setting('media_queries');
+    if ($media_queries && is_numeric($media_queries)) {
+      for ($i = 1; $i <= $media_queries; $i++) {
+        $media[] = 'medium' . $i;
+      }
+    }
+  }
+  else {
+    $media = array(t('Default'));
+    $media_queries = 1;
+  }
+
+  for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+    $medium = $media[$media_count-1];
 
   // Adjust width variables for nested grid groups
   $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
   foreach (array_keys($grid_adjusted_groups) as $group) {
-    $width = $grid['width'];
+    $width = $grid["width{$media_count}"];
     foreach ($grid_adjusted_groups[$group] as $region) {
       $width = $width - $grid['regions'][$region]['width'];
     }
-    // if (!$grid['fixed'] && isset($grid['fluid_adjustments'][$group])) {
-    //   $variables[$group . '_width'] = '" style="width:' . $grid['fluid_adjustments'][$group] . '%"';
-    // }
-    // else {
-      $variables[$group . '_width'] = $grid['prefix_d'] . $width;
-    // }
+      $variables[$group . '_width'] = $grid["width{$media_count}"] . $width;
   }
 
+    if ($region == 'sidebar_first' || $region == 'sidebar_second') {
+      $content_width = $grid["prefix{$media_count}"] . ($grid["width{$media_count}"] - $grid["sidebar_first_width{$media_count}"]  - $grid["sidebar_second_width{$media_count}"]);
+      $variables['content_attributes_array']['class'][] = $content_width;
+    }
+  }
 }
 
 function aether_preprocess_node(&$variables) {
@@ -359,7 +384,6 @@ function aether_preprocess_region(&$variables, $hook) {
     array_unshift($variables['theme_hook_suggestions'], 'region__footer');
   }
 
-
   // Set region variables
   $variables['region_style'] = $variables['fluid_width'] = '';
   $variables['region_name'] = str_replace('_', '-', $variables['region']);
@@ -368,27 +392,36 @@ function aether_preprocess_region(&$variables, $hook) {
     // Set region full-width or nested style
     $variables['region_style'] = $grid['regions'][$variables['region']]['style'];
     $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
-    $variables['content_attributes_array']['class'][] = $grid['prefix_d'] . $grid['regions'][$variables['region']]['width'];
-    // Adjust & set region width
-    if (!$grid['fixed'] && isset($grid['fluid_adjustments'][$variables['region']])) {
-      $variables['fluid_width'] = ' style="width:' . $grid['fluid_adjustments'][$variables['region']] . '%"';
+
+  if (theme_get_setting('responsive_enable')) {
+  $media = array();
+  $media_queries = theme_get_setting('media_queries');
+  if ($media_queries && is_numeric($media_queries)) {
+    for ($i = 1; $i <= $media_queries; $i++) {
+      $media[] = 'medium' . $i;
+      }
     }
   }
+  else {
+    $media = array(t('Default'));
+    $media_queries = 1;
+  }
+
+  for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+    $medium = $media[$media_count-1];
+    if (strpos($variables['region'], 'sidebar_first') === 0) {
+      $variables['content_attributes_array']['class'][] = $grid["prefix{$media_count}"] . $grid["sidebar_first_width{$media_count}"];
+    }
+    if (strpos($variables['region'], 'sidebar_second') === 0) {
+      $variables['content_attributes_array']['class'][] = $grid["prefix{$media_count}"] . $grid["sidebar_second_width{$media_count}"];
+    }
+  }
+}
   // Sidebar regions receive common class, "sidebar".
   $sidebar_regions = array('sidebar_first', 'sidebar_second');
   if (in_array($variables['region'], $sidebar_regions)) {
     $variables['classes_array'][] = 'sidebar';
   }
-
-
-  // if (strpos($variables['region'], 'sidebar_first') === 0) {
-  //   $sidebar_first_width_d = theme_get_setting('sidebar_first_width_d');
-  //   $variables['content_attributes_array']['class'][] = 'g-d-'. $sidebar_first_width_d;
-  // }
-  // if (strpos($variables['region'], 'sidebar_second') === 0) {
-  //   $sidebar_second_width_d = theme_get_setting('sidebar_second_width_d');
-  //   $variables['content_attributes_array']['class'][] = 'g-d-'. $sidebar_second_width_d;
-  // }
 }
 
 

@@ -3,7 +3,7 @@
   <header id="header" role="banner">
   <div class="inside">
   <div class="g-all-row">
-  <div class="header-inner <?php print $grid_width; ?>">
+  <div class="header-inner">
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
@@ -69,7 +69,7 @@
   <div class="g-all-row">
 
   <article id="content">
-  <div class="content-inner <?php print $main_group_width; ?>">
+  <div <?php print $content_attributes; ?>>
     <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
       <div id="content-header">
         <?php print $breadcrumb; ?>

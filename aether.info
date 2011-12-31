@@ -64,22 +64,47 @@ settings[aether_html5_respond_meta][] 		= html5
 settings[aether_html5_respond_meta][] 		= meta
 settings[aether_html5_respond_meta][] 		= selectivizr
 settings[aether_html5_respond_meta][] 		= imgsizer
-settings[layout_type_d]	 									= 1
-settings[sidebar_first_width_d]	 					= 3
-settings[sidebar_second_width_d]	 				= 3
-settings[content_width_d]	 								= 6
+
+settings[media_queries]                   = '5'
+settings[layout_type1]                    = '1'
+settings[layout_type2]                    = '1'
+settings[layout_type3]                    = '1'
+settings[layout_type4]                    = '1'
+settings[layout_type5]                    = '1'
 
 ; Default theme settings
-settings[grid_handheld_prefix] 						= g-h-
-settings[grid_handheld_landscape_prefix] 	= g-hl-
-settings[grid_tablet_prefix] 							= g-t-
-settings[grid_tablet_landscape_prefix] 		= g-tl-
-settings[grid_desktop_prefix] 						= g-d-
-settings[theme_grid]											= g-d-12-1140
-settings[theme_grid_options][] 						= g-d-12-1140
-settings[sidebar_layout] 									= sidebars-split
-settings[sidebar_first_width] 						= 3
-settings[sidebar_second_width] 						= 3
+settings[grid_prefix1] 										= g-d-
+settings[grid_prefix2] 										= g-tl-
+settings[grid_prefix3] 										= g-t-
+settings[grid_prefix4] 										= g-hl-
+settings[grid_prefix5] 										= g-h-
+settings[theme_grid1]											= grid12-1140
+settings[theme_grid_options1][] 					= grid12-1140
+settings[theme_grid2]											= grid12-1140
+settings[theme_grid_options2][] 					= grid12-1140
+settings[theme_grid3]											= grid12-1140
+settings[theme_grid_options3][] 					= grid12-1140
+settings[theme_grid4]											= grid12-1140
+settings[theme_grid_options4][] 					= grid12-1140
+settings[theme_grid5]											= grid12-1140
+settings[theme_grid_options5][] 					= grid12-1140
+settings[sidebar_layout1] 								= sidebars-split
+settings[sidebar_layout2] 								= sidebars-split
+settings[sidebar_layout3] 								= sidebars-split
+settings[sidebar_layout4] 								= sidebars-split
+settings[sidebar_layout5] 								= sidebars-split
+settings[sidebar_first_width1] 						= '3'
+settings[sidebar_second_width1] 					= '3'
+settings[sidebar_first_width2] 						= '3'
+settings[sidebar_second_width2] 					= '3'
+settings[sidebar_first_width3] 						= '3'
+settings[sidebar_second_width3] 					= '3'
+settings[sidebar_first_width4] 						= '3'
+settings[sidebar_second_width4] 					= '3'
+settings[sidebar_first_width5] 						= '3'
+settings[sidebar_second_width5] 					= '3'
+
+
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
@@ -94,21 +119,11 @@ settings[grid_adjusted_regions][help][] 	= sidebar_first
 settings[grid_adjusted_regions][help][] 	= sidebar_second
 settings[grid_adjusted_regions][content][] = sidebar_first
 settings[grid_adjusted_regions][content][] = sidebar_second
-settings[grid_adjusted_regions][node_top][] = sidebar_first
-settings[grid_adjusted_regions][node_top][] = sidebar_second
-settings[grid_adjusted_regions][node_bottom][] = sidebar_first
-settings[grid_adjusted_regions][node_bottom][] = sidebar_second
-settings[grid_adjusted_regions][postscript_top][] = sidebar_first
 ; Nested group width adjustments: adjacent regions to subtract for correct group width
 settings[grid_adjusted_groups][main_group][] = sidebar_first
+settings[grid_adjusted_groups][main_group][] = sidebar_second
 settings[grid_adjusted_groups][content_group][] = sidebar_first
 settings[grid_adjusted_groups][content_group][] = sidebar_second
-; Nested region fluid width adjustments: regions outside a parent group to subtract to get correct parent width
-settings[grid_adjusted_regions_fluid][sidebar_second][] = sidebar_first
-settings[grid_adjusted_regions_fluid][content][] = sidebar_first
-settings[grid_adjusted_regions_fluid][content][] = sidebar_second
-; Nested group fluid width adjustments: regions inside a parent group to subtract to get remaining width
-settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
 
 ; --------------------------------------------------------------------------------
 ; Information added by author
