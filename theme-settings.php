@@ -59,7 +59,7 @@ if (theme_get_setting('responsive_enable')) {
   $media_queries = theme_get_setting('media_queries');
   if ($media_queries && is_numeric($media_queries)) {
     for ($i = 1; $i <= $media_queries; $i++) {
-      $media[] = 'medium' . $i;
+      $media[] = 'Media' . $i;
     }
   }
 }
@@ -79,7 +79,7 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
   // Sidebar layout
   $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"] = array(
     '#type'          => 'radios',
-    '#title'         => t('Select a sidebar layout for your theme'),
+    '#title'         => t('----@media Sidebar layout----', array('@media' => $medium)),
     '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
     '#options'       => array(
       1 => t('Split sidebars'),
