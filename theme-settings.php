@@ -80,13 +80,15 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
   $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"] = array(
     '#type'          => 'radios',
     '#title'         => t('Select a sidebar layout for your theme'),
-    '#default_value' => (theme_get_setting("layout_type{$media_count}")) ? theme_get_setting("layout_type{$media_count}") : theme_get_setting("layout_type{$media_count}"),
+    '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
     '#options'       => array(
-      'sidebars-split' => t('Split sidebars'),
-      'sidebars-both-first' => t('Both sidebars first'),
-      'sidebars-both-last' => t('Both sidebars last'),
+      1 => t('Split sidebars'),
+      2 => t('Both sidebars first'),
+      3 => t('Both sidebars last'),
     ),
   );
+
+  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
 
   // Grid type
   // Generate grid type options
@@ -105,7 +107,7 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
   );
   $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
 
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
+
   // Calculate sidebar width options
   $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
   $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
