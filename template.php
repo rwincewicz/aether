@@ -198,7 +198,8 @@ function aether_preprocess_page(&$variables, $hook) {
 
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {
       $content_width = $grid["prefix{$media_count}"] . ($grid["width{$media_count}"] - $grid["sidebar_first_width{$media_count}"]  - $grid["sidebar_second_width{$media_count}"]);
-      $variables['content_attributes_array']['class'][] = $content_width;
+      $content_push = $grid["prefix{$media_count}"] . 'push' . $grid["sidebar_first_width{$media_count}"];
+      $variables['content_attributes_array']['class'][] = "$content_width" . " $content_push";
     }
   }
 }
@@ -410,10 +411,16 @@ function aether_preprocess_region(&$variables, $hook) {
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     $medium = $media[$media_count-1];
     if (strpos($variables['region'], 'sidebar_first') === 0) {
-      $variables['content_attributes_array']['class'][] = $grid["prefix{$media_count}"] . $grid["sidebar_first_width{$media_count}"];
+      $content_width = $grid["width{$media_count}"] - $grid["sidebar_first_width{$media_count}"]  - $grid["sidebar_second_width{$media_count}"];
+      $sidebar_width = $grid["prefix{$media_count}"] . $grid["sidebar_first_width{$media_count}"];
+      $sidebar_pull = $grid["prefix{$media_count}"] . 'pull' . $content_width;
+      $variables['content_attributes_array']['class'][] = "$sidebar_width" . " $sidebar_pull";
     }
     if (strpos($variables['region'], 'sidebar_second') === 0) {
+      $content_width = $grid["width{$media_count}"] - $grid["sidebar_first_width{$media_count}"]  - $grid["sidebar_second_width{$media_count}"];
       $variables['content_attributes_array']['class'][] = $grid["prefix{$media_count}"] . $grid["sidebar_second_width{$media_count}"];
+      $sidebar_offset = $grid["prefix{$media_count}"] . 'o' . ($content_width + $grid["sidebar_first_width{$media_count}"]);
+      $variables['classes_array'][] = $sidebar_offset;
     }
   }
 }
