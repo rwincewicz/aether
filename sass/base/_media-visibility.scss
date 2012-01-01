@@ -4,15 +4,27 @@
 .tablet-visible,
 .tablet-all-visible,
 .handheld-landscape-visible,
+.handheld-visible,
 .handheld-all-visible {
   display: none;
 }
 
-@media only screen and (min-width: 1px) and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .desktop-visible, .tablet-visible, .tablet-landscape-visible { display: none !important; }
   .handheld-all-visible { display: block !important; }
   #{elements-of-type(inline)} {
     &.handheld-all-visible {
+      display: inline !important;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 479px) {
+  .desktop-visible, .tablet-visible, .tablet-landscape-visible, .handheld-landscape-visible { display: none !important; }
+  .handheld-visible { display: block !important; }
+  #{elements-of-type(inline)} {
+    &.handheld-visible {
       display: inline !important;
     }
   }

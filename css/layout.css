@@ -1086,11 +1086,12 @@
 .tablet-visible,
 .tablet-all-visible,
 .handheld-landscape-visible,
+.handheld-visible,
 .handheld-all-visible {
   display: none;
 }
 
-@media only screen and (min-width: 1px) and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .desktop-visible, .tablet-visible, .tablet-landscape-visible {
     display: none !important;
   }
@@ -1100,6 +1101,19 @@
   }
 
   a.handheld-all-visible, abbr.handheld-all-visible, acronym.handheld-all-visible, audio.handheld-all-visible, b.handheld-all-visible, basefont.handheld-all-visible, bdo.handheld-all-visible, big.handheld-all-visible, br.handheld-all-visible, canvas.handheld-all-visible, cite.handheld-all-visible, code.handheld-all-visible, command.handheld-all-visible, datalist.handheld-all-visible, dfn.handheld-all-visible, em.handheld-all-visible, embed.handheld-all-visible, font.handheld-all-visible, i.handheld-all-visible, img.handheld-all-visible, input.handheld-all-visible, keygen.handheld-all-visible, kbd.handheld-all-visible, label.handheld-all-visible, mark.handheld-all-visible, meter.handheld-all-visible, output.handheld-all-visible, progress.handheld-all-visible, q.handheld-all-visible, rp.handheld-all-visible, rt.handheld-all-visible, ruby.handheld-all-visible, s.handheld-all-visible, samp.handheld-all-visible, select.handheld-all-visible, small.handheld-all-visible, span.handheld-all-visible, strike.handheld-all-visible, strong.handheld-all-visible, sub.handheld-all-visible, sup.handheld-all-visible, textarea.handheld-all-visible, time.handheld-all-visible, tt.handheld-all-visible, u.handheld-all-visible, var.handheld-all-visible, video.handheld-all-visible, wbr.handheld-all-visible {
+    display: inline !important;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .desktop-visible, .tablet-visible, .tablet-landscape-visible, .handheld-landscape-visible {
+    display: none !important;
+  }
+
+  .handheld-visible {
+    display: block !important;
+  }
+
+  a.handheld-visible, abbr.handheld-visible, acronym.handheld-visible, audio.handheld-visible, b.handheld-visible, basefont.handheld-visible, bdo.handheld-visible, big.handheld-visible, br.handheld-visible, canvas.handheld-visible, cite.handheld-visible, code.handheld-visible, command.handheld-visible, datalist.handheld-visible, dfn.handheld-visible, em.handheld-visible, embed.handheld-visible, font.handheld-visible, i.handheld-visible, img.handheld-visible, input.handheld-visible, keygen.handheld-visible, kbd.handheld-visible, label.handheld-visible, mark.handheld-visible, meter.handheld-visible, output.handheld-visible, progress.handheld-visible, q.handheld-visible, rp.handheld-visible, rt.handheld-visible, ruby.handheld-visible, s.handheld-visible, samp.handheld-visible, select.handheld-visible, small.handheld-visible, span.handheld-visible, strike.handheld-visible, strong.handheld-visible, sub.handheld-visible, sup.handheld-visible, textarea.handheld-visible, time.handheld-visible, tt.handheld-visible, u.handheld-visible, var.handheld-visible, video.handheld-visible, wbr.handheld-visible {
     display: inline !important;
   }
 }
