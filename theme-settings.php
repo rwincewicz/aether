@@ -49,10 +49,9 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
   $form['aether_settings']['layout']['theme_grid_config']['responsive_enable'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t("Enable responsive design for LayoutKit. If you currently don't do !responsive !design you can switch this off. This will simplify settings (removing media query stuff).", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'), '!design' => l(t('design'), 'http://mediaqueri.es/'))),
+    '#title'         => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a plain old fixed width layout, simply uncheck this option to use the default desktop layout.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
     '#default_value' => theme_get_setting('responsive_enable'),
   );
-
 
 if (theme_get_setting('responsive_enable')) {
   $media = array();
