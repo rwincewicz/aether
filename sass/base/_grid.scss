@@ -151,6 +151,24 @@ $_allColumns: "";
 	}
 }
 
+$_DesktopOffsetPull: "";
+@for $col from 1 to ($desktop-columns + 1) {
+	@if $_DesktopOffsetPull == "" {
+		$_DesktopOffsetPull: ".g-d-o#{$col}, .g-d-pull#{$col}";
+	} @else {
+		$_DesktopOffsetPull: $_DesktopOffsetPull + ", .g-d-o#{$col}, .g-d-pull#{$col}";
+	}
+}
+
+$_DesktopPush: "";
+@for $col from 1 to ($desktop-columns + 1) {
+	@if $_DesktopPush == "" {
+		$_DesktopPush: ".g-d-push#{$col}";
+	} @else {
+		$_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
+	}
+}
+
 #{$_allColumns} {
 	@include box-sizing(border-box);
 	display: inline;
@@ -174,9 +192,7 @@ $_allColumns: "";
 	}
 }
 
-@media only screen and (min-width: 1160px) {
-	@include grid;
-}
+@include grid;
 
 @media only screen and (max-width: 479px) {
 	body {}
@@ -190,6 +206,15 @@ $_allColumns: "";
 				@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
 			}
 		}
+
+	#{$_DesktopOffsetPull} {
+		margin-left: 0;
+	}
+
+	#{$_DesktopPush} {
+		margin-left: 0;
+		margin-right: 0;
+	}
 
 	// Generate column classes for handheld media
 	@include grid($handheld);
@@ -215,6 +240,15 @@ $_allColumns: "";
 		}
 	}
 
+	#{$_DesktopOffsetPull} {
+		margin-left: 0;
+	}
+
+	#{$_DesktopPush} {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 	@include grid($handheld-landscape);
 
 }
@@ -233,6 +267,15 @@ $_allColumns: "";
 		}
 	}
 
+	#{$_DesktopOffsetPull} {
+		margin-left: 0;
+	}
+
+	#{$_DesktopPush} {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 	@include grid($tablet);
 
 }
@@ -249,6 +292,15 @@ $_allColumns: "";
 		@if $show-grid-background {
 			@include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, 4px);
 		}
+	}
+
+	#{$_DesktopOffsetPull} {
+		margin-left: 0;
+	}
+
+	#{$_DesktopPush} {
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	@include grid($tablet-landscape);
