@@ -77,7 +77,7 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
   );
 
   // Sidebar layout
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"] = array(
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"] = array(
     '#type'          => 'radios',
     '#title'         => t('----@media Sidebar layout----', array('@media' => $medium)),
     '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
@@ -85,10 +85,11 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
       1 => t('Split sidebars'),
       2 => t('Both sidebars first'),
       3 => t('Both sidebars last'),
+      4 => t('Full width'),
     ),
   );
 
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
 
   // Grid type
   // Generate grid type options
@@ -99,39 +100,39 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
       $grid_options[$grid_option] = (int)substr($grid_option, 4, 2) . t(' column ') . $grid_type;
     }
   }
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["theme_grid{$media_count}"] = array(
+  $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"] = array(
     '#type'          => 'select',
     '#title'         => t('Select a grid layout for your theme'),
     '#default_value' => (theme_get_setting("theme_grid{$media_count}")) ? theme_get_setting("theme_grid{$media_count}") : theme_get_setting("theme_grid{$media_count}"),
     '#options'       => $grid_options,
   );
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
+  $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
 
 
   // Calculate sidebar width options
   $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
   $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
   $width_options = array();
-  for ($i = 1; $i <= floor($grid_width); $i++) {
+  for ($i = 1; $i <= floor($grid_width / 2); $i++) {
     $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
     $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
   }
   // Sidebar first width
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_first_width{$media_count}"] = array(
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
     '#type'          => 'select',
     '#title'         => t('Select a different width for your first sidebar'),
     '#default_value' => (theme_get_setting("sidebar_first_width{$media_count}")) ? theme_get_setting("sidebar_first_width{$media_count}") : theme_get_setting("sidebar_first_width{$media_count}"),
     '#options'       => $width_options,
   );
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_first_width{$media_count}"]['#options'][$defaults["sidebar_first_width{$media_count}"]] .= t(' - Theme Default');
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"]['#options'][$defaults["sidebar_first_width{$media_count}"]] .= t(' - Theme Default');
   // Sidebar last width
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_second_width{$media_count}"] = array(
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"] = array(
     '#type'          => 'select',
     '#title'         => t('Select a different width for your second sidebar'),
     '#default_value' => (theme_get_setting("sidebar_second_width{$media_count}")) ? theme_get_setting("sidebar_second_width{$media_count}") : theme_get_setting("sidebar_second_width{$media_count}"),
     '#options'       => $width_options,
   );
-  $form['aether_settings']['layout']["media{$media_count}"]["layout_type{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
+  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
 }
 
   $form['aether_settings']['polyfills'] = array(

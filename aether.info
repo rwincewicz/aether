@@ -66,14 +66,8 @@ settings[aether_html5_respond_meta][] 		= meta
 settings[aether_html5_respond_meta][] 		= selectivizr
 settings[aether_html5_respond_meta][] 		= imgsizer
 
-settings[media_queries]                   = '5'
-settings[layout_type1]                    = '1'
-settings[layout_type2]                    = '1'
-settings[layout_type3]                    = '1'
-settings[layout_type4]                    = '1'
-settings[layout_type5]                    = '1'
-
 ; Default theme settings
+settings[media_queries]                   = '5'
 settings[grid_prefix1] 										= g-d-
 settings[grid_prefix2] 										= g-tl-
 settings[grid_prefix3] 										= g-t-
@@ -92,20 +86,18 @@ settings[theme_grid_options5][] 					= grid12-310
 settings[sidebar_layout1] 								= '1'
 settings[sidebar_layout2] 								= '1'
 settings[sidebar_layout3] 								= '1'
-settings[sidebar_layout4] 								= '1'
-settings[sidebar_layout5] 								= '1'
+settings[sidebar_layout4] 								= '4'
+settings[sidebar_layout5] 								= '4'
 settings[sidebar_first_width1] 						= '3'
 settings[sidebar_second_width1] 					= '3'
 settings[sidebar_first_width2] 						= '3'
 settings[sidebar_second_width2] 					= '3'
-settings[sidebar_first_width3] 						= '3'
-settings[sidebar_second_width3] 					= '3'
+settings[sidebar_first_width3] 						= '2'
+settings[sidebar_second_width3] 					= '2'
 settings[sidebar_first_width4] 						= '3'
 settings[sidebar_second_width4] 					= '3'
 settings[sidebar_first_width5] 						= '3'
 settings[sidebar_second_width5] 					= '3'
-
-
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
@@ -130,8 +122,7 @@ settings[grid_adjusted_groups][content_group][] = sidebar_second
 ; Information added by author
 ; --------------------------------------------------------------------------------
 
-version 																	= "7.x-0.4-alpha"
+version 																	= "7.x-0.6-alpha"
 core 																			= "7.x"
 project 																	= "aether"
-datestamp 																= "1325003720"
-
+datestamp 																= "1325424693"
