@@ -40,8 +40,14 @@ $tablet: "t";
 $tablet-landscape: "tl";
 $desktop: "d";
 
-@mixin grid($media:$handheld, $columns:$handheld-columns, $total-width:$handheld-total-width, $column-width:$handheld-col-width, $grid-width:$handheld-grid-width) {
+@mixin grid($media:$desktop, $columns:$desktop-columns, $total-width:$desktop-total-width, $column-width:$desktop-col-width, $grid-width:$desktop-grid-width) {
 
+	@if $media == $handheld {
+	$columns:$handheld-columns;
+	$total-width:$handheld-total-width;
+	$column-width:$handheld-col-width;
+	$grid-width:$handheld-grid-width;
+	}
 	@if $media == $handheld-landscape {
 	$columns:$handheld-columns;
 	$total-width:$handheld-landscape-total-width;
@@ -59,12 +65,6 @@ $desktop: "d";
 	$total-width:$tablet-landscape-total-width;
 	$column-width:$tablet-landscape-col-width;
 	$grid-width:$tablet-landscape-grid-width;
-	}
-	@else if $media == $desktop {
-	$columns:$desktop-columns;
-	$total-width:$desktop-total-width;
-	$column-width:$desktop-col-width;
-	$grid-width:$desktop-grid-width;
 	}
 
   // generate column classes
@@ -97,30 +97,30 @@ $desktop: "d";
 
 }
 
-@mixin row($columns:$handheld-columns,$total-width:$handheld-total-width,$grid-width:$handheld-grid-width) {
+@mixin row($columns:$desktop-columns,$total-width:$desktop-total-width,$grid-width:$desktop-grid-width) {
 	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
 }
 
-@mixin column($n,$columns:$handheld-columns,$total-width:$handheld-total-width,$column-width:$handheld-col-width,$grid-width:$handheld-grid-width) {
+@mixin column($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
 	width: $total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width);
 }
 
-@mixin offset($n,$columns:$handheld-columns,$total-width:$handheld-total-width,$column-width:$handheld-col-width,$grid-width:$handheld-grid-width) {
+@mixin offset($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
 	margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
 }
 
-@mixin push($n,$columns:$handheld-columns,$total-width:$handheld-total-width,$column-width:$handheld-col-width,$grid-width:$handheld-grid-width) {
+@mixin push($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
 	margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 	margin-right: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
-@mixin pull($n,$columns:$handheld-columns,$total-width:$handheld-total-width,$column-width:$handheld-col-width,$grid-width:$handheld-grid-width) {
+@mixin pull($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
 	margin-left: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
 
 .inside {
-	width: $max-handheld-width;
+	width: $max-desktop-width;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -161,12 +161,12 @@ $_allColumns: "";
 }
 
 .g-all-row {
-	@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
 	@include clearfix();
+	@include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
 	margin-right: (($gutter-width*.5)*1);
 	margin-left: (($gutter-width*.5)*1);
 	@if $show-grid-background {
-		@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
+		@include grid-background($desktop-columns, $desktop-col-width, $gutter-width, $base-line-height, 4px);
 	}
 	.g-all-row {
 		margin-right: (($gutter-width*.5)*-1);
@@ -174,11 +174,29 @@ $_allColumns: "";
 	}
 }
 
-// Generate column classes for handheld media
-@include grid;
+@media only screen and (min-width: 1160px) {
+	@include grid;
+}
+
+@media only screen and (max-width: 479px) {
+	body {}
+	.inside {
+	width: $max-handheld-width;
+	}
+
+	.g-all-row {
+		@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
+			@if $show-grid-background {
+				@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
+			}
+		}
+
+	// Generate column classes for handheld media
+	@include grid($handheld);
+}
 
 // Handheld Landscape
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 	body {}
 	.inside {
 	width: $max-handheld-landscape-width;
@@ -189,7 +207,6 @@ $_allColumns: "";
 		-webkit-text-size-adjust: none;
 		-ms-text-size-adjust:none;
 	}
-	body {}
 
 	.g-all-row {
 		@include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
@@ -203,7 +220,7 @@ $_allColumns: "";
 }
 
 // Tablet Portrait
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 979px)  {
 	body{}
 	.inside {
 	width: $max-tablet-width;
@@ -221,7 +238,7 @@ $_allColumns: "";
 }
 
 // Tablet Landscape
-@media only screen and (min-width: 980px) {
+@media only screen and (min-width: 980px) and (max-width: 1159px) {
 	body{}
 	.inside {
 	width: $max-tablet-landscape-width;
@@ -235,24 +252,6 @@ $_allColumns: "";
 	}
 
 	@include grid($tablet-landscape);
-
-}
-
-// Desktop
-@media only screen and (min-width: 1160px) {
-	body{}
-	.inside {
-	width: $max-desktop-width;
-	}
-
-	.g-all-row {
-		@include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
-		@if $show-grid-background {
-			@include grid-background($desktop-columns, $desktop-col-width, $gutter-width, $base-line-height, 4px);
-		}
-	}
-
-	@include grid($desktop);
 
 }
 

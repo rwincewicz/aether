@@ -68,7 +68,7 @@
   <div class="inside">
   <div class="g-all-row">
 
-  <article id="content">
+  <article id="content" <?php print $attributes; ?>>
   <div <?php print $content_attributes; ?>>
     <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
       <div id="content-header">
