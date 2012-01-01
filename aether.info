@@ -59,6 +59,7 @@ settings[aether_tabs] 										= 1
 settings[aether_breadcrumb_separator] 		= »
 settings[wireframe_mode] 									= 0
 settings[clear_registry] 									= 0
+settings[responsive_enable]               = '1'
 settings[aether_html5_respond_meta][] 		= respond
 settings[aether_html5_respond_meta][] 		= html5
 settings[aether_html5_respond_meta][] 		= meta
