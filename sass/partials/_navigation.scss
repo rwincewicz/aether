@@ -5,6 +5,10 @@
   }
   li {
     text-align: center;
+    &.first {
+    }
+    &.last {
+    }
     a {
       display: block; width: 100%
     }
@@ -13,7 +17,7 @@
 
 // Primary and Secondary menus
 
-#primary {
+#primary { // if nav grid alignment is turned off, you can enable this for inline links
 //  @include menu-links-inline(0, 1px, solid, transparentize(#FFFFFF, 0.6));
 }
 
