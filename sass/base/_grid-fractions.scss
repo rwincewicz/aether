@@ -127,13 +127,3 @@
     @extend .g-h-8;
   }
 }
-
-.demo-container {
-    background-color: #afafaf;
-    border-radius: 3px 3px 3px 3px;
-    @include margin-trailer(1, $base-font-size);
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
