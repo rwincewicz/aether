@@ -170,21 +170,24 @@ function aether_preprocess_page(&$variables, $hook) {
   // Set grid width
   $grid = aether_grid_info();
   if (theme_get_setting('responsive_enable')) {
-  $media = array();
-  $media_queries = theme_get_setting('media_queries');
-    if ($media_queries && is_numeric($media_queries)) {
-      for ($i = 1; $i <= $media_queries; $i++) {
-        $media[] = 'medium' . $i;
-      }
-    }
+    $media_queries = theme_get_setting('media_queries');
   }
   else {
-    $media = array(t('Default'));
     $media_queries = 1;
   }
 
+  // Looping for each var like this seems to work fine when writing an array to a custom variable, but it kinda sucks.
+  $grid_width = ' ';
+
+  $i = 1;
+    while($i <= $media_queries) {
+    $grid_width .= $grid['prefix' . $i] . $grid['width' . $i] . ' '; $i++;
+  }
+
+  $variables['grid_width'] = $grid_width;
+
+  // Using this method seems to give trouble writing arrays to variables and i think it may have a performance impact. it works fine for the classes array and content attributes array though.
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-    $medium = $media[$media_count-1];
 
   // Adjust width variables for nested grid groups
   $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
@@ -414,22 +417,15 @@ function aether_preprocess_region(&$variables, $hook) {
     $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
 
   if (theme_get_setting('responsive_enable')) {
-  $media = array();
-  $media_queries = theme_get_setting('media_queries');
-  if ($media_queries && is_numeric($media_queries)) {
-    for ($i = 1; $i <= $media_queries; $i++) {
-      $media[] = 'medium' . $i;
-      }
-    }
+    $media_queries = theme_get_setting('media_queries');
   }
   else {
-    $media = array(t('Default'));
     $media_queries = 1;
   }
 
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-    $medium = $media[$media_count-1];
 
+    // Do we really need to duplicate all of these vars.. or can they be set globally in $grid
     $base_grid_prefix = $grid["prefix{$media_count}"];
     $push_prefix = $base_grid_prefix . "push";
     $pull_prefix = $base_grid_prefix . "pull";
@@ -457,6 +453,7 @@ function aether_preprocess_region(&$variables, $hook) {
         $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
     }
+
     if (strpos($variables['region'], 'sidebar_second') === 0) {
       $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
@@ -472,6 +469,10 @@ function aether_preprocess_region(&$variables, $hook) {
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
+    }
+
+    if (strpos($variables['region'], 'footer') === 0) {
+      $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
     }
   }
 }

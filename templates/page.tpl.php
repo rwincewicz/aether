@@ -3,7 +3,7 @@
   <header id="header" role="banner">
   <div class="inside">
   <div class="g-all-row">
-  <div class="header-inner <?php echo $grid_width ?>">
+  <div class="header-inner <?php print $variables['grid_width'] ?>">
     <?php if ($secondary_menu): ?>
       <nav class="menu">
         <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
