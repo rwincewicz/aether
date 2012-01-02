@@ -103,20 +103,13 @@ function aether_grid_info() {
   static $grid;
 
   if (!isset($grid)) {
-    $grid = array();
-    $media_queries = theme_get_setting('media_queries');
-    if ($media_queries && is_numeric($media_queries)) {
-    for ($i = 1; $i <= $media_queries; $i++) {
-      $media[] = 'medium' . $i;
-        }
-      }
+      $grid = array();
+      $media_queries = theme_get_setting('media_queries');
     }
     else {
-      $media = array(t('Default'));
       $media_queries = 1;
     }
     for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-      $medium = $media[$media_count-1];
     $grid["prefix{$media_count}"] = substr(theme_get_setting("grid_prefix{$media_count}"), 0);
     $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
     $grid["type{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 7);
