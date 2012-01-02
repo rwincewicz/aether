@@ -1,0 +1,30 @@
+.inside {
+	width: $max-desktop-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#{$_allColumns} {
+	@include box-sizing(border-box);
+	display: inline;
+	float: left;
+	overflow: hidden;
+	margin-left: $gutter-width*.5;
+	margin-right: $gutter-width*.5;
+}
+
+.g-all-row {
+	@include clearfix();
+	@include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
+	margin-right: (($gutter-width*.5)*1);
+	margin-left: (($gutter-width*.5)*1);
+	@if $show-grid-background {
+		@include grid-background($desktop-columns, $desktop-col-width, $gutter-width, $base-line-height, 4px);
+	}
+	.g-all-row {
+		margin-right: (($gutter-width*.5)*-1);
+		margin-left: (($gutter-width*.5)*-1);
+	}
+}
+
+@include grid;

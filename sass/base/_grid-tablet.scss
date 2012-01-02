@@ -1,0 +1,26 @@
+// Tablet Portrait
+@media only screen and (min-width: 768px) and (max-width: 979px)  {
+	body{}
+	.inside {
+	width: $max-tablet-width;
+	}
+
+	.g-all-row {
+		@include row($tablet-columns,$tablet-total-width,$tablet-grid-width);
+		@if $show-grid-background {
+			@include grid-background($tablet-columns, $tablet-col-width, $gutter-width, $base-line-height, 4px);
+		}
+	}
+
+	#{$_DesktopOffsetPull} {
+		margin-left: 0;
+	}
+
+	#{$_DesktopPush} {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@include grid($tablet);
+
+}
