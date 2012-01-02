@@ -18,8 +18,8 @@ function aether_preprocess_html(&$variables, $hook) {
   $variables['base_path'] = base_path();
   $variables['path_to_aether'] = drupal_get_path('theme', 'aether');
   $html5_respond_meta = theme_get_setting('aether_html5_respond_meta');
-  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
   $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
+  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
   $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
   $variables['add_ios_viewport_bugfix'] = in_array('ioszoombugfix', $html5_respond_meta);
   $variables['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
