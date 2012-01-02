@@ -49,7 +49,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
   $form['aether_settings']['layout']['theme_grid_config']['responsive_enable'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a plain old fixed width layout, simply uncheck this option to use the default desktop layout.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
+    '#title'         => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a fixed width desktop layout, uncheck this option. WARNING: if you disable media queries, you will need to also disable the responsive meta and polyfills.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
     '#default_value' => theme_get_setting('responsive_enable'),
   );
 
