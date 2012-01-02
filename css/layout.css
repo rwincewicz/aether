@@ -1,3 +1,13 @@
+.demo-container {
+  background-color: #afafaf;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 1.385em;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .inside {
   width: 1150px;
   margin-left: auto;
@@ -230,6 +240,16 @@
   margin-left: -1040px;
 }
 
+.demo-container {
+  background-color: #afafaf;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 1.385em;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media only screen and (min-width: 980px) and (max-width: 1159px) {
   .inside {
     width: 970px;
@@ -439,6 +459,16 @@
     margin-left: -875px;
   }
 }
+.demo-container {
+  background-color: #afafaf;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 1.385em;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 979px) {
   .inside {
     width: 754px;
@@ -648,6 +678,16 @@
     margin-left: -677px;
   }
 }
+.demo-container {
+  background-color: #afafaf;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 1.385em;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .inside {
     width: 430px;
@@ -862,6 +902,16 @@
     margin-left: -380px;
   }
 }
+.demo-container {
+  background-color: #afafaf;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 1.385em;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media only screen and (max-width: 479px) {
   .inside {
     width: 310px;
@@ -1071,16 +1121,6 @@
     margin-left: -270px;
   }
 }
-.demo-container {
-  background-color: #afafaf;
-  border-radius: 3px 3px 3px 3px;
-  margin-bottom: 1.385em;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .desktop-visible,
 .tablet-landscape-visible,
 .tablet-visible,

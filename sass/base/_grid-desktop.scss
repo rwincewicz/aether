@@ -1,3 +1,7 @@
+@import "grid-utilities";
+@import "grid-template";
+@import "grid-fractions";
+
 .inside {
 	width: $max-desktop-width;
 	margin-left: auto;
