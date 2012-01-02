@@ -51,7 +51,7 @@ stylesheets[all][] 												= css/screen.css
 ; Optionally add some JavaScripts to your theme.
 ; --------------------------------------------------------------------------------
 
-scripts[] 																= js/ios-viewport-scaling-bug-fix.js
+; scripts[] 																= js/yourscript.js
 
 ; --------------------------------------------------------------------------------
 ; Theme Settings Defaults.
@@ -64,6 +64,7 @@ settings[clear_registry] 									= 0
 settings[responsive_enable]               = '1'
 settings[aether_html5_respond_meta][] 		= respond
 settings[aether_html5_respond_meta][] 		= html5
+settings[aether_html5_respond_meta][] 		= ioszoombugfix
 settings[aether_html5_respond_meta][] 		= meta
 settings[aether_html5_respond_meta][] 		= selectivizr
 settings[aether_html5_respond_meta][] 		= imgsizer

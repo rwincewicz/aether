@@ -147,8 +147,9 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     '#title'         => t('Add HTML5 and responsive scripts and meta tags to every page.'),
     '#default_value' => theme_get_setting('aether_html5_respond_meta'),
     '#options'       => array(
-                          'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
                           'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
+                          'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
+                          'ioszoombugfix' => t('Fix zoom bug on ios landscape rotation (only useful for responsive design)'),
                           'meta' => t('Add meta tags to support responsive design on mobile devices.'),
                           'selectivizr' => t('Add pseudo class support to IE6-8.'),
                           'imgsizer' => t('Add imgsizer fluid image support to IE6-8.'),

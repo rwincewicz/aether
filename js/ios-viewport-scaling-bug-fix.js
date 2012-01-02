@@ -1,3 +1,6 @@
+// Original code from http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/
+// Rewritten version by @mathias, @cheeaun and @jdalton from https://gist.github.com/901295
+
 (function ($) {
 
 Drupal.behaviors.iosbug = {
