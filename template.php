@@ -32,6 +32,12 @@ function aether_preprocess_html(&$variables, $hook) {
     'lang' => $variables['language']->language,
     'dir' => $variables['language']->dir,
   );
+
+  if (theme_get_setting('responsive_enable')) {
+  // then load the media queries
+    drupal_add_css(drupal_get_path('theme', 'aether') . '/css/layout-mediaqueries.css', array('group' => CSS_THEME, 'preprocess' => TRUE, 'every_page' => TRUE, 'weight' => '0'));
+  }
+
 }
 
 /**
