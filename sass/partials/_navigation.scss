@@ -3,12 +3,7 @@
     @include margin-trailer(1, $font-size-normal);
     margin-left: 0;
   }
-  li { // make menu align to grid
-    @extend .g-d-2;
-    @extend .g-tl-2;
-    @extend .g-t-2;
-    @extend .g-hl-4;
-    @extend .g-h-4;
+  li {
     text-align: center;
     a {
       display: block; width: 100%
