@@ -7,8 +7,11 @@
 @import "base/utilities";
 @import "base/variables";
 
-// Layout
-@import "base/grid-desktop";
+// Layout MediaQueries
+@import "base/grid-tablet-landscape";
+@import "base/grid-tablet";
+@import "base/grid-handheld-landscape";
+@import "base/grid-handheld";
 
 // must be imported into both default layout and media queries stylesheets
 @import "base/grid-template";
