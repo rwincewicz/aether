@@ -105,8 +105,8 @@ settings[sidebar_second_width5] 					= '3'
 settings[nav_link_width1]									= '2'
 settings[nav_link_width2]									= '2'
 settings[nav_link_width3]									= '2'
-settings[nav_link_width4]									= '2'
-settings[nav_link_width5]									= '2'
+settings[nav_link_width4]									= '4'
+settings[nav_link_width5]									= '4'
 
 
 ; Grid layout settings (Advanced)
