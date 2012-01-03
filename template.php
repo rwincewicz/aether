@@ -107,7 +107,6 @@ function aether_block_list($region) {
 
 function aether_grid_info() {
   global $theme_key;
-  static $grid;
 
   if (!isset($grid)) {
       $grid = array();
@@ -146,6 +145,7 @@ function aether_grid_info() {
       }
       $grid['regions'][$region] = array('width' => $region_width, 'style' => $region_style, 'total' => count(aether_block_list($region)), 'count' => 0);
     }
+
   }
   return $grid;
 
@@ -170,6 +170,9 @@ function aether_preprocess_page(&$variables, $hook) {
 
   // Set grid width
   $grid = aether_grid_info();
+  if (!isset($grid)) {
+    $grid = array();
+  }
   if (theme_get_setting('responsive_enable')) {
     $media_queries = theme_get_setting('media_queries');
   }
@@ -177,17 +180,9 @@ function aether_preprocess_page(&$variables, $hook) {
     $media_queries = 1;
   }
 
-  // Looping for each var like this seems to work fine when writing an array to a custom variable, but it kinda sucks.
+  // Define var for later use
   $grid_width = '';
 
-  $i = 1;
-    while($i <= $media_queries) {
-    $grid_width .= $grid['prefix' . $i] . $grid['width' . $i] . ' '; $i++;
-  }
-  $variables['grid_width'] = $grid_width;
-
-
-  // Using this method seems to give trouble writing arrays to variables and i think it may have a performance impact. it works fine for the classes array and content attributes array though.
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
 
   // Adjust width variables for nested grid groups
@@ -200,6 +195,7 @@ function aether_preprocess_page(&$variables, $hook) {
       $variables[$group . '_width'] = $grid["width{$media_count}"] . $width;
   }
 
+  // Add nav to grid option if checked
   if (theme_get_setting("nav_grid_enable")) {
     $base_grid_prefix = $grid["prefix{$media_count}"];
     $nav_link_width = $grid["nav_link_width{$media_count}"];
@@ -207,7 +203,11 @@ function aether_preprocess_page(&$variables, $hook) {
       $variables['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
     }
   }
+    // Create full grid width variable
+    $grid_width .= $grid["prefix{$media_count}"] . $grid["width{$media_count}"] . ' ';
+    $variables['grid_width'] = $grid_width;
 
+    // Set content classes
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {
       $base_grid_prefix = $grid["prefix{$media_count}"];
       $push_prefix = $base_grid_prefix . "push";
