@@ -170,9 +170,6 @@ function aether_preprocess_page(&$variables, $hook) {
 
   // Set grid width
   $grid = aether_grid_info();
-  if (!isset($grid)) {
-    $grid = array();
-  }
   if (theme_get_setting('responsive_enable')) {
     $media_queries = theme_get_setting('media_queries');
   }
