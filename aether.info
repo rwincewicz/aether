@@ -71,6 +71,7 @@ settings[aether_html5_respond_meta][] 		= imgsizer
 
 ; Default theme settings
 settings[media_queries]                   = '5'
+settings[nav_grid_enable]               	= '1'
 settings[grid_prefix1] 										= g-d-
 settings[grid_prefix2] 										= g-tl-
 settings[grid_prefix3] 										= g-t-
@@ -101,6 +102,12 @@ settings[sidebar_first_width4] 						= '3'
 settings[sidebar_second_width4] 					= '3'
 settings[sidebar_first_width5] 						= '3'
 settings[sidebar_second_width5] 					= '3'
+settings[nav_link_width1]									= '2'
+settings[nav_link_width2]									= '2'
+settings[nav_link_width3]									= '2'
+settings[nav_link_width4]									= '2'
+settings[nav_link_width5]									= '2'
+
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers

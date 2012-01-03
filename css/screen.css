@@ -1146,16 +1146,20 @@ ul.secondary a.active, ul.secondary a:active {
   text-shadow: #333333 1px 1px 0;
 }
 
-#navigation ul {
+#navigation {
   margin-bottom: 1.385em;
-  margin-left: 0;
+}
+#navigation ul {
+  list-style-type: none;
+}
+#navigation ul, #navigation ul li {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
 }
 #navigation li {
+  display: inline;
   text-align: center;
-}
-#navigation li a {
-  display: block;
-  width: 100%;
 }
 
 #secondary {

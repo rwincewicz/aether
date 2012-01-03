@@ -20,7 +20,7 @@
     width: 70px;
   }
 
-  .g-tl-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
+  .g-tl-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
     width: 150px;
   }
 
@@ -229,7 +229,7 @@
     width: 52.0px;
   }
 
-  .g-t-2, #navigation li, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
+  .g-t-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
     width: 114px;
   }
 
@@ -451,7 +451,7 @@
     width: 95px;
   }
 
-  .g-hl-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
+  .g-hl-4, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
     width: 130px;
   }
 
@@ -660,7 +660,7 @@
     width: 65px;
   }
 
-  .g-h-4, #navigation li, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
+  .g-h-4, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
     width: 90px;
   }
 

@@ -3,7 +3,7 @@
 // Form override fo theme settings
 function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
-  global $base_url;
+  global $base_path;
 
   // Get theme name from url (admin/.../theme_name)
   $theme_name = arg(count(arg()) - 1);
@@ -12,8 +12,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   $theme_data = list_themes();   // get data for all themes
   $defaults = ($theme_name && isset($theme_data[$theme_name]->info['settings'])) ? $theme_data[$theme_name]->info['settings'] : array();
 
-
-  global $base_path;
   $subject_theme = arg(count(arg()) - 1);
   $aether_theme_path = drupal_get_path('theme', 'aether') . '/';
   $theme_path = drupal_get_path('theme', $subject_theme) . '/';
@@ -27,7 +25,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   // drupal_add_js('jQuery(function () {jQuery("#edit-layout").fieldset_tabs();});', 'inline');
   // drupal_add_js($aether_theme_path . "js/layout-theme-settings.js", 'file');
 
-  $base_theme_version = 'v0.5alpha.4';
+  $base_theme_version = 'v0.5alpha.6';
 
   $header  = '<div class="themesettings-header">';
   $header .= '  <h3>Aether Configuration</h3>';
@@ -51,6 +49,12 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#type'          => 'checkbox',
     '#title'         => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a fixed width desktop layout, uncheck this option. WARNING: if you disable media queries, you will need to also disable the responsive meta and polyfills.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
     '#default_value' => theme_get_setting('responsive_enable'),
+  );
+
+  $form['aether_settings']['layout']['layout']['nav_grid_enable'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t("Enable navigation to grid. This will align each link in the navigation bar to the current grid."),
+    '#default_value' => theme_get_setting('nav_grid_enable'),
   );
 
 if (theme_get_setting('responsive_enable')) {
@@ -116,6 +120,16 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
     $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
   }
+
+
+  // Navigation li width
+  $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
+    '#type'          => 'select',
+    '#title'         => t('Select the number of columns for each li in the navigation bar'),
+    '#default_value' => (theme_get_setting("nav_link_width{$media_count}")) ? theme_get_setting("nav_link_width{$media_count}") : theme_get_setting("nav_link_width{$media_count}"),
+    '#options'       => $width_options,
+  );
+  $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
   // Sidebar first width
   $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
     '#type'          => 'select',

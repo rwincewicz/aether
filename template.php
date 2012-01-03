@@ -118,6 +118,7 @@ function aether_grid_info() {
     }
     for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     $grid["prefix{$media_count}"] = substr(theme_get_setting("grid_prefix{$media_count}"), 0);
+    $grid["nav_link_width{$media_count}"] = substr(theme_get_setting("nav_link_width{$media_count}"), 0);
     $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
     $grid["type{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 7);
     $grid["fixed{$media_count}"] = (substr(theme_get_setting("theme_grid{$media_count}"), 7) != 'fluid') ? TRUE : FALSE;
@@ -177,14 +178,14 @@ function aether_preprocess_page(&$variables, $hook) {
   }
 
   // Looping for each var like this seems to work fine when writing an array to a custom variable, but it kinda sucks.
-  $grid_width = ' ';
+  $grid_width = '';
 
   $i = 1;
     while($i <= $media_queries) {
     $grid_width .= $grid['prefix' . $i] . $grid['width' . $i] . ' '; $i++;
   }
-
   $variables['grid_width'] = $grid_width;
+
 
   // Using this method seems to give trouble writing arrays to variables and i think it may have a performance impact. it works fine for the classes array and content attributes array though.
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
@@ -197,6 +198,14 @@ function aether_preprocess_page(&$variables, $hook) {
       $width = $width - $grid['regions'][$region]['width'];
     }
       $variables[$group . '_width'] = $grid["width{$media_count}"] . $width;
+  }
+
+  if (theme_get_setting("nav_grid_enable")) {
+    $base_grid_prefix = $grid["prefix{$media_count}"];
+    $nav_link_width = $grid["nav_link_width{$media_count}"];
+    foreach ($variables['main_menu'] as $key => $value) {
+      $variables['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
+    }
   }
 
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {

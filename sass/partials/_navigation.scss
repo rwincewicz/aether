@@ -1,16 +1,17 @@
 #navigation {
+  @include margin-trailer(1, $font-size-normal);
   ul {
-    @include margin-trailer(1, $font-size-normal);
-    margin-left: 0;
+    @include inline-list;
   }
   li {
+    display: inline;
     text-align: center;
     &.first {
     }
     &.last {
     }
     a {
-      display: block; width: 100%
+
     }
   }
 }
