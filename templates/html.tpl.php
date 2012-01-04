@@ -90,8 +90,7 @@
   <?php print $scripts; ?>
   <?php if ($add_ios_viewport_bugfix): ?>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/ios-viewport-scaling-bug-fix.js"></script>
-  <?php endif; ?>
-  <?php if ($add_respond_js): ?>
+  <?php elseif ($add_respond_js): ?>
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/html5-respond.js"></script>
     <![endif]-->
@@ -99,13 +98,11 @@
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/src/html5-innershiv.js"></script>
     <![endif]-->
-  <?php endif; ?>
-  <?php if ($add_selectivizr_js): ?>
+  <?php elseif ($add_selectivizr_js): ?>
     <!--[if (gte IE 6)&(lte IE 8)]>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/selectivizr-min.js"></script>
     <![endif]-->
-  <?php endif; ?>
-  <?php if ($add_imgsizer_js): ?>
+  <?php elseif ($add_imgsizer_js): ?>
     <!--[if lt IE 8]>
     <script src="<?php print $base_path . $path_to_aether; ?>/js/imgsizer.js"></script>
     <![endif]-->

@@ -43,8 +43,7 @@ features[] = secondary_menu
 
 stylesheets[all][] = system.menus.css
 stylesheets[all][] = css/layout.css
-; stylesheets[all][] = css/layout-mediaqueries.css
-stylesheets[all][] = css/media-visibility.css
+stylesheets[all][] = css/layout/media-visibility.css
 stylesheets[all][] = css/screen.css
 
 ; --------------------------------------------------------------------------------
@@ -61,7 +60,12 @@ settings[aether_tabs] = 1
 settings[aether_breadcrumb_separator] = »
 settings[wireframe_mode] = 0
 settings[clear_registry] = 0
-settings[responsive_enable]    = '1'
+;settings[responsive_enable] = '1'
+;settings[nav_grid_enable] = '1'
+
+settings[layout_options][] = '1'
+settings[layout_options][] = '2'
+
 settings[aether_html5_respond_meta][] = respond
 settings[aether_html5_respond_meta][] = html5
 settings[aether_html5_respond_meta][] = ioszoombugfix
@@ -71,7 +75,6 @@ settings[aether_html5_respond_meta][] = imgsizer
 
 ; Default theme settings
 settings[media_queries] = '5'
-settings[nav_grid_enable] = '1'
 settings[grid_prefix1] = g-d-
 settings[grid_prefix2] = g-tl-
 settings[grid_prefix3] = g-t-

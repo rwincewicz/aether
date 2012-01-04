@@ -36,9 +36,9 @@ function aether_preprocess_html(&$vars, $hook) {
     'dir' => $vars['language']->dir,
   );
 
-  if (theme_get_setting('responsive_enable')) {
+  if (in_array('1', theme_get_setting('layout_options'))) {
   // then load the media queries
-    drupal_add_css(drupal_get_path('theme', 'aether') . '/css/layout-mediaqueries.css', array('group' => CSS_THEME, 'preprocess' => TRUE, 'every_page' => TRUE, 'weight' => '0'));
+    drupal_add_css(drupal_get_path('theme', 'aether') . '/css/layout/layout-mediaqueries.css', array('group' => CSS_THEME, 'preprocess' => TRUE, 'every_page' => TRUE, 'weight' => '0'));
   }
 
 }
@@ -177,7 +177,7 @@ function aether_preprocess_page(&$vars, $hook) {
 
   // Set grid width
   $grid = aether_grid_info();
-  $media_queries = (theme_get_setting('responsive_enable')) ? theme_get_setting('media_queries') : 1;
+  $media_queries = in_array('1', theme_get_setting('layout_options')) ? theme_get_setting('media_queries') : 1;
 
   // Define var for later use
   $grid_width = '';
@@ -195,7 +195,7 @@ function aether_preprocess_page(&$vars, $hook) {
     }
 
     // Add nav to grid option if checked
-    if (theme_get_setting("nav_grid_enable")) {
+    if (in_array('2', theme_get_setting('layout_options'))) {
       $base_grid_prefix = $grid["prefix{$media_count}"];
       $nav_link_width = $grid["nav_link_width{$media_count}"];
       foreach ($vars['main_menu'] as $key => $value) {
@@ -266,7 +266,7 @@ function aether_preprocess_comment(&$vars, $hook) {
 
   // Add pubdate to submitted variable.
   $vars['pubdate'] = '<time pubdate datetime="' . format_date($vars['comment']->created, 'custom', 'c') . '">' . $vars['created'] . '</time>';
-  $vars['submitted'] = t('!username replied on !datetime', 
+  $vars['submitted'] = t('!username replied on !datetime',
     array('!username' => $vars['author'], '!datetime' => $vars['pubdate']));
 
   // Zebra striping.
@@ -428,7 +428,7 @@ function aether_preprocess_region(&$vars, $hook) {
     $vars['region_style'] = $grid['regions'][$vars['region']]['style'];
     $vars['classes_array'][] = ($vars['region_style'] == 'nested') ? $vars['region_style'] : '';
 
-  if (theme_get_setting('responsive_enable')) {
+  if (in_array('1', theme_get_setting('layout_options'))) {
     $media_queries = theme_get_setting('media_queries');
   }
   else {

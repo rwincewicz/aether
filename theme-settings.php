@@ -16,14 +16,13 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   $aether_theme_path = drupal_get_path('theme', 'aether') . '/';
   $theme_path = drupal_get_path('theme', $subject_theme) . '/';
 
-  // drupal_add_js($aether_theme_path . "js/jquery.autotabs.js", 'file');
-  // drupal_add_library('system', 'ui.slider');
-  // drupal_add_library('system', 'ui.tabs');
+  drupal_add_library('system', 'ui.tabs');
+  drupal_add_js($aether_theme_path . "js/jquery.autotabs.js", 'file');
+  drupal_add_js($aether_theme_path . "js/layout-theme-settings.js", 'file');
+  drupal_add_js('jQuery(function () {jQuery("#edit-layout").fieldset_tabs();});', 'inline');
   // drupal_add_js('$(function () {Drupal.behaviors.formUpdated = null;});', 'inline');
-  // drupal_add_css($aether_theme_path . 'css/layout-config.css', array('group' => CSS_THEME, 'weight' => 10));
+  drupal_add_css($aether_theme_path . 'css/layout/layout-config.css', array('group' => CSS_THEME, 'weight' => 10));
   drupal_add_css('themes/seven/vertical-tabs.css', array('group' => CSS_THEME, 'weight' => 9));
-  // drupal_add_js('jQuery(function () {jQuery("#edit-layout").fieldset_tabs();});', 'inline');
-  // drupal_add_js($aether_theme_path . "js/layout-theme-settings.js", 'file');
 
   $base_theme_version = 'v0.5alpha.6';
 
@@ -45,19 +44,18 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#type' => 'fieldset',
   );
 
-  $form['aether_settings']['layout']['theme_grid_config']['responsive_enable'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a fixed width desktop layout, uncheck this option. WARNING: if you disable media queries, you will need to also disable the responsive meta and polyfills.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
-    '#default_value' => theme_get_setting('responsive_enable'),
+  $form['aether_settings']['layout']['theme_grid_config']['layout_options'] = array(
+    '#type'          => 'checkboxes',
+    '#title'         => t('Layout options'),
+    '#default_value' => theme_get_setting('layout_options'),
+    '#options'       => array(
+      '1' => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a fixed width desktop layout, uncheck this option. WARNING: if you disable media queries, you will need to also disable the responsive meta and polyfills.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
+      '2' => t("Enable navigation to grid. This will align each link in the navigation bar to the current grid."),
+    ),
+    '#description'   => t('Enable or disable various grid and responsive layout options'),
   );
 
-  $form['aether_settings']['layout']['layout']['nav_grid_enable'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t("Enable navigation to grid. This will align each link in the navigation bar to the current grid."),
-    '#default_value' => theme_get_setting('nav_grid_enable'),
-  );
-
-  if (theme_get_setting('responsive_enable')) {
+  if (in_array('1', theme_get_setting('layout_options'))) {
     $media = array();
     $media_queries = theme_get_setting('media_queries');
     if ($media_queries && is_numeric($media_queries)) {
@@ -120,7 +118,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
       $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
     }
-
 
     // Navigation li width
     $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(

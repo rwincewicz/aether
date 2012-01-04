@@ -104,8 +104,6 @@ $default-transition-duration: 500ms;
     padding:8px 12px 8px 12px;
     cursor:pointer;
     background-color:#fff;
-    @include background-image(linear-gradient(#fff, #e4e4e4));
-    @include magic-border(0.75);
     background-repeat:no-repeat;
     border-color:#ccc;
     @include border-radius(4px);
@@ -141,7 +139,6 @@ $default-transition-duration: 500ms;
   font-size:13px;
   @include border-radius(5px);
   overflow:hidden;
-  //@include box-shadow(#aaa 2px 2px 0);
   font-family:Arial,verdana,sans;
   line-height:1.3em;
   h1,h2,h3,h4 {
@@ -166,7 +163,6 @@ $default-transition-duration: 500ms;
     overflow:hidden;
     background-color: #f1f1f1;
     position:relative;
-    //@include background-image(linear-gradient(#ddd, #fcfcfc));
     @include border-radius(5px 5px 0 0);
     @include magic-border(0.5);
     @include single-text-shadow;
@@ -230,7 +226,6 @@ fieldset fieldset fieldset {
 .page-admin-appearance-settings #edit-actions {
   padding:20px;
   background-color:#f1f1f1;
-  //@include background-image(linear-gradient(#fcfcfc, #ddd));
   @include border-radius(0 0 5px 5px);
   @include magic-border(0.5);
 }
@@ -385,7 +380,7 @@ fieldset .fieldset-wrapper {
 }
 
 .ui-tabs .ui-tabs-nav li a {
-  background:transparent url('../images/devices.png') no-repeat 50% 85%;
+  background:transparent image-url('devices.png') no-repeat 50% 85%;
   display:block;
   width:100%;
   text-align:center;
@@ -400,7 +395,7 @@ fieldset .fieldset-wrapper {
 }
 
 #page .ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
-  background:#fff url('../images/devices.png') no-repeat 50% 85%;
+  background:#fff image-url('devices.png') no-repeat 50% 85%;
   color:#0074BD;
   opacity:1;
 }
@@ -414,19 +409,19 @@ div.vertical-tabs .vertical-tabs-panes #edit-layout {
 }
 
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(2) a {
-  background-image:url('../images/devices2.png');
+  background-image: image-url('devices2.png');
   background-position:50% 62%;
 }
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(3) a {
-  background-image:url('../images/devices3.png');
+  background-image: image-url('devices3.png');
   background-position:50% 78%;
 }
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(4) a {
-  background-image:url('../images/devices4.png');
+  background-image: image-url('devices4.png');
   background-position:50% 60%;
 }
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(5) a {
-  background-image:url('../images/devices5.png');
+  background-image: image-url('devices5.png');
   background-position:50% 78%;
 }
 
@@ -434,7 +429,7 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-item {
   clear:both;
 }
 
-#edit-layout .form-item-responsive-enable {
+#edit-layout .form-item-layout-options {
   position:absolute;
   top:-90px;
   width:630px;
@@ -556,65 +551,6 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 }
 
 /**
- * BackgroundKit
- */
-
-#edit-backgroundkit.ui-tabs .ui-tabs-nav li {
-  width:328px;
-}
-
-#edit-backgroundkit fieldset {
-  margin-top:0;
-  padding-top:1.5em;
-  border-top-width:0;
-  font-size:13px;
-}
-
-#edit-backgroundkit #farb-bgkit {
-  position:absolute;
-  top:8em;
-  left:265px;
-  z-index:10;
-}
-
-#edit-gradient-opacity,
-#edit-image-opacity {
-  margin-top:30px;
-  opacity:0.5;
-}
-
-#edit-backgroundkit .ui-slider {
-  top:72px;
-  width:195px;
-  padding-top:0;
-}
-
-#edit-gradient-color-bottom,
-#edit-gradient-color-top {
-  cursor:pointer;
-  padding:3px;
-}
-
-#edit-gradient-color-bottom {
-  margin-bottom:6em;
-}
-
-.demo-background-wrapper {
-  width:50%;
-  float:left;
-  margin-bottom:20px;
-}
-
-.demo-background {
-  margin-right:20px;
-  height:100px;
-}
-
-.demo-background-wrapper p {
-  margin:0;
-}
-
-/**
  * Pick a sidebar configuration
  */
 
@@ -630,7 +566,7 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 }
 
 #edit-layout .form-radios label {
-  background:#fff url('../images/layouts.png') no-repeat 0 0;
+  background:#fff image-url('layouts.png') no-repeat 0 0;
   display:block;
   float:left;
   width:80px;
@@ -712,46 +648,4 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 
 #edit-font-choose .form-text {
   width:100%
-}
-
-
-/**
- * Skinr form
- */
-
-#skinr-ui-.main form {
-  width:960px;
-}
-
-#skinr-ui-.main form fieldset fieldset {
-  clear:none;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .fieldset-wrapper {
-  width:600px;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] label {
-  min-height:2em;
-  color:#333;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select {
-  width:175px;
-  height:115px;
-  float:left;
-  clear:none;
-  color:#999;
-  font-size:13px;
-  padding:5px 25px 5px 0;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select select {
-  width:100%;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select .description {
-  width:100%;
-  float:none;
-  margin:5px 0;
 }

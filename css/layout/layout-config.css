@@ -98,16 +98,6 @@
   padding: 8px 12px 8px 12px;
   cursor: pointer;
   background-color: #fff;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e4e4e4));
-  background-image: -webkit-linear-gradient(#ffffff, #e4e4e4);
-  background-image: -moz-linear-gradient(#ffffff, #e4e4e4);
-  background-image: -o-linear-gradient(#ffffff, #e4e4e4);
-  background-image: -ms-linear-gradient(#ffffff, #e4e4e4);
-  background-image: linear-gradient(#ffffff, #e4e4e4);
-  -moz-box-shadow: rgba(255, 255, 255, 0.75) 0 0 0 1px inset;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.75) 0 0 0 1px inset;
-  -o-box-shadow: rgba(255, 255, 255, 0.75) 0 0 0 1px inset;
-  box-shadow: rgba(255, 255, 255, 0.75) 0 0 0 1px inset;
   background-repeat: no-repeat;
   border-color: #ccc;
   -moz-border-radius: 4px;
@@ -428,7 +418,7 @@ fieldset .fieldset-wrapper {
 }
 
 .ui-tabs .ui-tabs-nav li a {
-  background: transparent url("../images/devices.png") no-repeat 50% 85%;
+  background: transparent url('../../images/devices.png?1323956388') no-repeat 50% 85%;
   display: block;
   width: 100%;
   text-align: center;
@@ -443,7 +433,7 @@ fieldset .fieldset-wrapper {
 }
 
 #page .ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
-  background: white url("../images/devices.png") no-repeat 50% 85%;
+  background: white url('../../images/devices.png?1323956388') no-repeat 50% 85%;
   color: #0074BD;
   opacity: 1;
 }
@@ -456,22 +446,22 @@ div.vertical-tabs .vertical-tabs-panes #edit-layout {
 }
 
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(2) a {
-  background-image: url("../images/devices2.png");
+  background-image: url('../../images/devices2.png?1323956388');
   background-position: 50% 62%;
 }
 
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(3) a {
-  background-image: url("../images/devices3.png");
+  background-image: url('../../images/devices3.png?1323956388');
   background-position: 50% 78%;
 }
 
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(4) a {
-  background-image: url("../images/devices4.png");
+  background-image: url('../../images/devices4.png?1323956388');
   background-position: 50% 60%;
 }
 
 #edit-layout.ui-tabs .ui-tabs-nav li:nth-child(5) a {
-  background-image: url("../images/devices5.png");
+  background-image: url('../../images/devices5.png?1323956388');
   background-position: 50% 78%;
 }
 
@@ -479,7 +469,7 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-item {
   clear: both;
 }
 
-#edit-layout .form-item-responsive-enable {
+#edit-layout .form-item-layout-options {
   position: absolute;
   top: -90px;
   width: 630px;
@@ -487,7 +477,7 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-item {
   padding: 16px!important;
   float: left;
 }
-#edit-layout .form-item-responsive-enable label {
+#edit-layout .form-item-layout-options label {
   font-weight: normal;
   display: inline;
   width: auto;
@@ -602,64 +592,6 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 }
 
 /**
- * BackgroundKit
- */
-#edit-backgroundkit.ui-tabs .ui-tabs-nav li {
-  width: 328px;
-}
-
-#edit-backgroundkit fieldset {
-  margin-top: 0;
-  padding-top: 1.5em;
-  border-top-width: 0;
-  font-size: 13px;
-}
-
-#edit-backgroundkit #farb-bgkit {
-  position: absolute;
-  top: 8em;
-  left: 265px;
-  z-index: 10;
-}
-
-#edit-gradient-opacity,
-#edit-image-opacity {
-  margin-top: 30px;
-  opacity: 0.5;
-}
-
-#edit-backgroundkit .ui-slider {
-  top: 72px;
-  width: 195px;
-  padding-top: 0;
-}
-
-#edit-gradient-color-bottom,
-#edit-gradient-color-top {
-  cursor: pointer;
-  padding: 3px;
-}
-
-#edit-gradient-color-bottom {
-  margin-bottom: 6em;
-}
-
-.demo-background-wrapper {
-  width: 50%;
-  float: left;
-  margin-bottom: 20px;
-}
-
-.demo-background {
-  margin-right: 20px;
-  height: 100px;
-}
-
-.demo-background-wrapper p {
-  margin: 0;
-}
-
-/**
  * Pick a sidebar configuration
  */
 #edit-layout .form-radios:after {
@@ -684,7 +616,7 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 }
 
 #edit-layout .form-radios label {
-  background: white url("../images/layouts.png") no-repeat 0 0;
+  background: white url('../../images/layouts.png?1323956388') no-repeat 0 0;
   display: block;
   float: left;
   width: 80px;
@@ -764,44 +696,4 @@ div.vertical-tabs .vertical-tabs-panes fieldset .form-text-full {
 
 #edit-font-choose .form-text {
   width: 100%;
-}
-
-/**
- * Skinr form
- */
-#skinr-ui-.main form {
-  width: 960px;
-}
-
-#skinr-ui-.main form fieldset fieldset {
-  clear: none;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .fieldset-wrapper {
-  width: 600px;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] label {
-  min-height: 2em;
-  color: #333;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select {
-  width: 175px;
-  height: 115px;
-  float: left;
-  clear: none;
-  color: #999;
-  font-size: 13px;
-  padding: 5px 25px 5px 0;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select select {
-  width: 100%;
-}
-
-#edit-skinr-settings-block-type fieldset[id$="groups-layout"] .form-type-select .description {
-  width: 100%;
-  float: none;
-  margin: 5px 0;
 }

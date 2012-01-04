@@ -8,7 +8,7 @@
 @import "base/variables";
 
 // Layout
-@import "base/grid-desktop";
+@import "layout/grid-desktop";
 
 // must be imported into both default layout and media queries stylesheets
-@import "base/grid-fractions";
+@import "layout/grid-fractions";
