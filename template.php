@@ -13,24 +13,27 @@ if (theme_get_setting('clear_registry')) {
   drupal_theme_rebuild();
 }
 
-function aether_preprocess_html(&$variables, $hook) {
+/**
+ * Implements hook_preprocess_html().
+ */
+function aether_preprocess_html(&$vars, $hook) {
   // Add paths needed for html5shim.
-  $variables['base_path'] = base_path();
-  $variables['path_to_aether'] = drupal_get_path('theme', 'aether');
+  $vars['base_path'] = base_path();
+  $vars['path_to_aether'] = drupal_get_path('theme', 'aether');
   $html5_respond_meta = theme_get_setting('aether_html5_respond_meta');
-  $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
-  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
-  $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
-  $variables['add_ios_viewport_bugfix'] = in_array('ioszoombugfix', $html5_respond_meta);
-  $variables['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
-  $variables['add_imgsizer_js']  = in_array('imgsizer', $html5_respond_meta);
-  $variables['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
-  $variables['skip_link_text'] = theme_get_setting('aether_skip_link_text');
+  $vars['add_html5_shim']      = in_array('html5', $html5_respond_meta);
+  $vars['add_respond_js']      = in_array('respond', $html5_respond_meta);
+  $vars['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
+  $vars['add_ios_viewport_bugfix'] = in_array('ioszoombugfix', $html5_respond_meta);
+  $vars['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
+  $vars['add_imgsizer_js']  = in_array('imgsizer', $html5_respond_meta);
+  $vars['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
+  $vars['skip_link_text'] = theme_get_setting('aether_skip_link_text');
 
   // Attributes for html element.
-  $variables['html_attributes_array'] = array(
-    'lang' => $variables['language']->language,
-    'dir' => $variables['language']->dir,
+  $vars['html_attributes_array'] = array(
+    'lang' => $vars['language']->language,
+    'dir' => $vars['language']->dir,
   );
 
   if (theme_get_setting('responsive_enable')) {
@@ -43,21 +46,21 @@ function aether_preprocess_html(&$variables, $hook) {
 /**
  * Override or insert variables into the html templates.
  *
- * @param $variables
+ * @param $vars
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-function aether_process_html(&$variables, $hook) {
+function aether_process_html(&$vars, $hook) {
   // Flatten out html_attributes.
-  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
+  $vars['html_attributes'] = drupal_attributes($vars['html_attributes_array']);
 }
 
 /**
  * Override or insert variables in the html_tag theme function.
  */
-function aether_process_html_tag(&$variables) {
-  $tag = &$variables['element'];
+function aether_process_html_tag(&$vars) {
+  $tag = &$vars['element'];
 
   if ($tag['#tag'] == 'style' || $tag['#tag'] == 'script') {
     // Remove redundant type attribute and CDATA comments.
@@ -71,15 +74,17 @@ function aether_process_html_tag(&$variables) {
 }
 
 /**
- * Implement hook_html_head_alter().
+ * Implements hook_html_head_alter().
  */
 function aether_html_head_alter(&$head) {
   // Simplify the meta tag for character encoding.
-  $head['system_meta_content_type']['#attributes'] = array('charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']));
+  $head['system_meta_content_type']['#attributes'] = array(
+    'charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']),
+  );
 }
 
 /**
- * Custom theme functions
+ * Implements hook_theme().
  */
 function aether_theme() {
   return array(
@@ -109,13 +114,13 @@ function aether_grid_info() {
   global $theme_key;
 
   if (!isset($grid)) {
-      $grid = array();
-      $media_queries = theme_get_setting('media_queries');
-    }
-    else {
-      $media_queries = 1;
-    }
-    for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+    $grid = array();
+    $media_queries = theme_get_setting('media_queries');
+  }
+  else {
+    $media_queries = 1;
+  }
+  for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     $grid["prefix{$media_count}"] = substr(theme_get_setting("grid_prefix{$media_count}"), 0);
     $grid["nav_link_width{$media_count}"] = substr(theme_get_setting("nav_link_width{$media_count}"), 0);
     $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
@@ -148,61 +153,58 @@ function aether_grid_info() {
 
   }
   return $grid;
-
 }
 
-function aether_preprocess_page(&$variables, $hook) {
-  if (isset($variables['node_title'])) {
-    $variables['title'] = $variables['node_title'];
+/**
+ * Implements hook_preprocess_page().
+ */
+function aether_preprocess_page(&$vars, $hook) {
+  if (isset($vars['node_title'])) {
+    $vars['title'] = $vars['node_title'];
   }
   // Adding a class to #page in wireframe mode
   if (theme_get_setting('wireframe_mode')) {
-    $variables['classes_array'][] = 'wireframe-mode';
+    $vars['classes_array'][] = 'wireframe-mode';
   }
   // Adding classes wether #navigation is here or not
-  if (!empty($variables['main_menu']) or !empty($variables['sub_menu'])) {
-    $variables['classes_array'][] = 'with-navigation';
+  if (!empty($vars['main_menu']) or !empty($vars['sub_menu'])) {
+    $vars['classes_array'][] = 'with-navigation';
   }
-  if (!empty($variables['secondary_menu'])) {
-    $variables['classes_array'][] = 'with-subnav';
+  if (!empty($vars['secondary_menu'])) {
+    $vars['classes_array'][] = 'with-subnav';
   }
-  $variables['content_attributes_array']['class'][] = 'content-inner';
+  $vars['content_attributes_array']['class'][] = 'content-inner';
 
   // Set grid width
   $grid = aether_grid_info();
-  if (theme_get_setting('responsive_enable')) {
-    $media_queries = theme_get_setting('media_queries');
-  }
-  else {
-    $media_queries = 1;
-  }
+  $media_queries = (theme_get_setting('responsive_enable')) ? theme_get_setting('media_queries') : 1;
 
   // Define var for later use
   $grid_width = '';
 
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
 
-  // Adjust width variables for nested grid groups
-  $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
-  foreach (array_keys($grid_adjusted_groups) as $group) {
-    $width = $grid["width{$media_count}"];
-    foreach ($grid_adjusted_groups[$group] as $region) {
-      $width = $width - $grid['regions'][$region]['width'];
+    // Adjust width variables for nested grid groups
+    $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
+    foreach (array_keys($grid_adjusted_groups) as $group) {
+      $width = $grid["width{$media_count}"];
+      foreach ($grid_adjusted_groups[$group] as $region) {
+        $width = $width - $grid['regions'][$region]['width'];
+      }
+      $vars[$group . '_width'] = $grid["width{$media_count}"] . $width;
     }
-      $variables[$group . '_width'] = $grid["width{$media_count}"] . $width;
-  }
 
-  // Add nav to grid option if checked
-  if (theme_get_setting("nav_grid_enable")) {
-    $base_grid_prefix = $grid["prefix{$media_count}"];
-    $nav_link_width = $grid["nav_link_width{$media_count}"];
-    foreach ($variables['main_menu'] as $key => $value) {
-      $variables['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
+    // Add nav to grid option if checked
+    if (theme_get_setting("nav_grid_enable")) {
+      $base_grid_prefix = $grid["prefix{$media_count}"];
+      $nav_link_width = $grid["nav_link_width{$media_count}"];
+      foreach ($vars['main_menu'] as $key => $value) {
+        $vars['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
+      }
     }
-  }
     // Create full grid width variable
     $grid_width .= $grid["prefix{$media_count}"] . $grid["width{$media_count}"] . ' ';
-    $variables['grid_width'] = $grid_width;
+    $vars['grid_width'] = $grid_width;
 
     // Set content classes
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {
@@ -217,98 +219,102 @@ function aether_preprocess_page(&$variables, $hook) {
       $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
       $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$sidebar_first_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$sidebar_first_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
       }
     }
   }
 }
 
-function aether_preprocess_node(&$variables) {
+/**
+ * Implements hook_preprocess_node().
+ */
+function aether_preprocess_node(&$vars) {
   // Add a striping class.
-  $variables['classes_array'][] = 'node-' . $variables['zebra'];
+  $vars['classes_array'][] = 'node-' . $vars['zebra'];
   // Add $unpublished variable.
-  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
+  $vars['unpublished'] = (!$vars['status']) ? TRUE : FALSE;
 
   // Add pubdate to submitted variable.
-  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . $variables['date'] . '</time>';
-  if ($variables['display_submitted']) {
-    $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['pubdate']));
+  $vars['pubdate'] = '<time pubdate datetime="' . format_date($vars['node']->created, 'custom', 'c') . '">' . $vars['date'] . '</time>';
+  if ($vars['display_submitted']) {
+    $vars['submitted'] = t('Submitted by !username on !datetime', array('!username' => $vars['name'], '!datetime' => $vars['pubdate']));
   }
 }
 
 /**
  * Override or insert variables into the comment templates.
  *
- * @param $variables
+ * @param $vars
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("comment" in this case.)
  */
-function aether_preprocess_comment(&$variables, $hook) {
+function aether_preprocess_comment(&$vars, $hook) {
   // If comment subjects are disabled, don't display them.
-  if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
-    $variables['title'] = '';
+  if (variable_get('comment_subject_field_' . $vars['node']->type, 1) == 0) {
+    $vars['title'] = '';
   }
 
   // Add pubdate to submitted variable.
-  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
-  $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
+  $vars['pubdate'] = '<time pubdate datetime="' . format_date($vars['comment']->created, 'custom', 'c') . '">' . $vars['created'] . '</time>';
+  $vars['submitted'] = t('!username replied on !datetime', 
+    array('!username' => $vars['author'], '!datetime' => $vars['pubdate']));
 
   // Zebra striping.
-  if ($variables['id'] == 1) {
-    $variables['classes_array'][] = 'first';
+  if ($vars['id'] == 1) {
+    $vars['classes_array'][] = 'first';
   }
-  if ($variables['id'] == $variables['node']->comment_count) {
-    $variables['classes_array'][] = 'last';
+  if ($vars['id'] == $vars['node']->comment_count) {
+    $vars['classes_array'][] = 'last';
   }
-  $variables['classes_array'][] = $variables['zebra'];
-
-  $variables['title_attributes_array']['class'][] = 'comment-title';
+  $vars['classes_array'][] = $vars['zebra'];
+  $vars['title_attributes_array']['class'][] = 'comment-title';
 }
 
-
-function aether_preprocess_block(&$variables, $hook) {
-
+/**
+ * Implements hook_preprocess_block().
+ */
+function aether_preprocess_block(&$vars, $hook) {
   // Use a template with no wrapper for the page's main content.
-  if ($variables['block_html_id'] == 'block-system-main') {
-    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  if ($vars['block_html_id'] == 'block-system-main') {
+    $vars['theme_hook_suggestions'][] = 'block__no_wrapper';
   }
 
   // Classes describing the position of the block within the region.
-  if ($variables['block_id'] == 1) {
-    $variables['classes_array'][] = 'first';
+  if ($vars['block_id'] == 1) {
+    $vars['classes_array'][] = 'first';
   }
   // The last_in_region property is set in aether_page_alter().
-  if (isset($variables['block']->last_in_region)) {
-    $variables['classes_array'][] = 'last';
+  if (isset($vars['block']->last_in_region)) {
+    $vars['classes_array'][] = 'last';
   }
-  $variables['title_attributes_array']['class'][] = 'block-title';
+  $vars['title_attributes_array']['class'][] = 'block-title';
 
   // Add a striping class.
-  $variables['classes_array'][] = 'block-' . $variables['zebra'];
+  $vars['classes_array'][] = 'block-' . $vars['zebra'];
   // Add Aria Roles via attributes.
-  switch ($variables['block']->module) {
+  switch ($vars['block']->module) {
     case 'system':
-      switch ($variables['block']->delta) {
+      switch ($vars['block']->delta) {
         case 'main':
           // Note: the "main" role goes in the page.tpl, not here.
           break;
         case 'help':
         case 'powered-by':
-          $variables['attributes_array']['role'] = 'complementary';
+          $vars['attributes_array']['role'] = 'complementary';
           break;
         default:
           // Any other "system" block is a menu block.
-          $variables['attributes_array']['role'] = 'navigation';
+          $vars['attributes_array']['role'] = 'navigation';
           break;
       }
       break;
@@ -320,36 +326,36 @@ function aether_preprocess_block(&$variables, $hook) {
     case 'forum':
     case 'shortcut':
     case 'statistics':
-      $variables['attributes_array']['role'] = 'navigation';
+      $vars['attributes_array']['role'] = 'navigation';
       break;
     case 'search':
-      $variables['attributes_array']['role'] = 'search';
+      $vars['attributes_array']['role'] = 'search';
       break;
     case 'help':
     case 'aggregator':
     case 'locale':
     case 'poll':
     case 'profile':
-      $variables['attributes_array']['role'] = 'complementary';
+      $vars['attributes_array']['role'] = 'complementary';
       break;
     case 'node':
-      switch ($variables['block']->delta) {
+      switch ($vars['block']->delta) {
         case 'syndicate':
-          $variables['attributes_array']['role'] = 'complementary';
+          $vars['attributes_array']['role'] = 'complementary';
           break;
         case 'recent':
-          $variables['attributes_array']['role'] = 'navigation';
+          $vars['attributes_array']['role'] = 'navigation';
           break;
       }
       break;
     case 'user':
-      switch ($variables['block']->delta) {
+      switch ($vars['block']->delta) {
         case 'login':
-          $variables['attributes_array']['role'] = 'form';
+          $vars['attributes_array']['role'] = 'form';
           break;
         case 'new':
         case 'online':
-          $variables['attributes_array']['role'] = 'complementary';
+          $vars['attributes_array']['role'] = 'complementary';
           break;
       }
       break;
@@ -384,12 +390,12 @@ function aether_page_alter(&$page) {
 /**
  * Preprocess variables for region.tpl.php
  *
- * @param $variables
+ * @param $vars
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("region" in this case.)
  */
-function aether_preprocess_region(&$variables, $hook) {
+function aether_preprocess_region(&$vars, $hook) {
   static $grid;
 
   // Initialize grid info once per page
@@ -398,29 +404,29 @@ function aether_preprocess_region(&$variables, $hook) {
   }
 
   // Sidebar regions get some extra classes and a common template suggestion.
-  if (strpos($variables['region'], 'sidebar_') === 0) {
-    $variables['classes_array'][] = 'column';
-    $variables['classes_array'][] = 'sidebar';
-    $variables['content_attributes_array']['class'][] = 'sidebar-inner';
+  if (strpos($vars['region'], 'sidebar_') === 0) {
+    $vars['classes_array'][] = 'column';
+    $vars['classes_array'][] = 'sidebar';
+    $vars['content_attributes_array']['class'][] = 'sidebar-inner';
     // Allow a region-specific template to override aether's region--sidebar.
-    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
+    array_unshift($vars['theme_hook_suggestions'], 'region__sidebar');
   }
 
   // Footer region gets a common template suggestion.
-  if (strpos($variables['region'], 'footer') === 0) {
-    $variables['content_attributes_array']['class'][] = 'footer-inner';
+  if (strpos($vars['region'], 'footer') === 0) {
+    $vars['content_attributes_array']['class'][] = 'footer-inner';
     // Allow a region-specific template to override aether's region--sidebar.
-    array_unshift($variables['theme_hook_suggestions'], 'region__footer');
+    array_unshift($vars['theme_hook_suggestions'], 'region__footer');
   }
 
   // Set region variables
-  $variables['region_style'] = $variables['fluid_width'] = '';
-  $variables['region_name'] = str_replace('_', '-', $variables['region']);
-  $variables['classes_array'][] = $variables['region_name'];
-  if (in_array($variables['region'], array_keys($grid['regions']))) {
+  $vars['region_style'] = $vars['fluid_width'] = '';
+  $vars['region_name'] = str_replace('_', '-', $vars['region']);
+  $vars['classes_array'][] = $vars['region_name'];
+  if (in_array($vars['region'], array_keys($grid['regions']))) {
     // Set region full-width or nested style
-    $variables['region_style'] = $grid['regions'][$variables['region']]['style'];
-    $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
+    $vars['region_style'] = $grid['regions'][$vars['region']]['style'];
+    $vars['classes_array'][] = ($vars['region_style'] == 'nested') ? $vars['region_style'] : '';
 
   if (theme_get_setting('responsive_enable')) {
     $media_queries = theme_get_setting('media_queries');
@@ -430,7 +436,6 @@ function aether_preprocess_region(&$variables, $hook) {
   }
 
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-
     // Do we really need to duplicate all of these vars.. or can they be set globally in $grid
     $base_grid_prefix = $grid["prefix{$media_count}"];
     $push_prefix = $base_grid_prefix . "push";
@@ -444,41 +449,41 @@ function aether_preprocess_region(&$variables, $hook) {
     $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
     $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
 
-    if (strpos($variables['region'], 'sidebar_first') === 0) {
+    if (strpos($vars['region'], 'sidebar_first') === 0) {
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $variables['classes_array'][] = $offset_prefix . "$content_width ";
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
+        $vars['classes_array'][] = $offset_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
     }
 
-    if (strpos($variables['region'], 'sidebar_second') === 0) {
-      $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
+    if (strpos($vars['region'], 'sidebar_second') === 0) {
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $variables['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
+        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $variables['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
-        $variables['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
+        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
+        $vars['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
     }
 
-    if (strpos($variables['region'], 'footer') === 0) {
-      $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+    if (strpos($vars['region'], 'footer') === 0) {
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
     }
   }
 }
@@ -494,8 +499,8 @@ function aether_preprocess_region(&$variables, $hook) {
  * @return
  *   A string containing the breadcrumb output.
  */
-function aether_breadcrumb($variables) {
-  $breadcrumb = $variables['breadcrumb'];
+function aether_breadcrumb($vars) {
+  $breadcrumb = $vars['breadcrumb'];
   $output = '';
 
   // Determine if we are to display the breadcrumb.
@@ -528,17 +533,17 @@ function aether_breadcrumb($variables) {
 
       // Provide a navigational heading to give context for breadcrumb links to
       // screen-reader users.
-      if (empty($variables['title'])) {
-        $variables['title'] = t('You are here');
+      if (empty($vars['title'])) {
+        $vars['title'] = t('You are here');
       }
       // Unless overridden by a preprocess function, make the heading invisible.
-      if (!isset($variables['title_attributes_array']['class'])) {
-        $variables['title_attributes_array']['class'][] = 'element-invisible';
+      if (!isset($vars['title_attributes_array']['class'])) {
+        $vars['title_attributes_array']['class'][] = 'element-invisible';
       }
 
       // Build the breadcrumb trail.
       $output = '<nav class="breadcrumb" role="navigation">';
-      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+      $output .= '<h2' . drupal_attributes($vars['title_attributes_array']) . '>' . $vars['title'] . '</h2>';
       $output .= '<ul><li>' . implode($breadcrumb_separator . '</li><li>', $breadcrumb) . $trailing_separator . '</li></ul>';
       $output .= '</nav>';
     }
@@ -562,8 +567,6 @@ function aether_breadcrumb($variables) {
  * 	@return
  * 	  The converted string
  */
-
-
 function aether_id_safe($string) {
   // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
   $string = strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
@@ -577,7 +580,7 @@ function aether_id_safe($string) {
 /**
  * Generate the HTML output for a menu link and submenu.
  *
- * @param $variables
+ * @param $vars
  *   An associative array containing:
  *   - element: Structured array data for a menu link.
  *
@@ -586,9 +589,8 @@ function aether_id_safe($string) {
  *
  * @ingroup themeable
  */
-
-function aether_menu_link(array $variables) {
-  $element = $variables['element'];
+function aether_menu_link(array $vars) {
+  $element = $vars['element'];
   $sub_menu = '';
 
   if ($element['#below']) {
@@ -605,8 +607,8 @@ function aether_menu_link(array $variables) {
 /**
  * Override or insert variables into theme_menu_local_task().
  */
-function aether_preprocess_menu_local_task(&$variables) {
-  $link =& $variables['element']['#link'];
+function aether_preprocess_menu_local_task(&$vars) {
+  $link =& $vars['element']['#link'];
 
   // If the link does not contain HTML already, check_plain() it now.
   // After we set 'html'=TRUE the link will not be sanitized by l().
@@ -620,21 +622,20 @@ function aether_preprocess_menu_local_task(&$variables) {
 /*
  *  Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
-
-function aether_menu_local_tasks(&$variables) {
+function aether_menu_local_tasks(&$vars) {
   $output = '';
 
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
+  if (!empty($vars['primary'])) {
+    $vars['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $vars['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
+    $vars['primary']['#suffix'] = '</ul>';
+    $output .= drupal_render($vars['primary']);
   }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
+  if (!empty($vars['secondary'])) {
+    $vars['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $vars['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
+    $vars['secondary']['#suffix'] = '</ul>';
+    $output .= drupal_render($vars['secondary']);
   }
 
   return $output;
@@ -663,19 +664,17 @@ function aether_form_node_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Make drupal core generated images responsive i.e. flexible in width
+ * Make Drupal core generated images responsive i.e. flexible in width.
  */
-function aether_image($variables) {
-  $attributes = $variables['attributes'];
-  $attributes['src'] = file_create_url($variables['path']);
+function aether_image($vars) {
+  $attributes = $vars['attributes'];
+  $attributes['src'] = file_create_url($vars['path']);
 
   // remove width and height attributes
   foreach (array('alt', 'title') as $key) {
-
-    if (isset($variables[$key])) {
-      $attributes[$key] = $variables[$key];
+    if (isset($vars[$key])) {
+      $attributes[$key] = $vars[$key];
     }
   }
-
   return '<img' . drupal_attributes($attributes) . ' />';
 }

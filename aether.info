@@ -2,124 +2,124 @@
 ; Theme information
 ; --------------------------------------------------------------------------------
 
-name 																			= aether
-description 															= aether starter theme for Drupal 7
-screenshot 																= images/screenshot.gif
-core 																			= "7.x"
-project 																	= "aether"
-engine 																		= phptemplate
+name = aether
+description = aether starter theme for Drupal 7
+screenshot = images/screenshot.gif
+core = "7.x"
+project = "aether"
+engine = phptemplate
 
 ; --------------------------------------------------------------------------------
 ; Regions
 ; --------------------------------------------------------------------------------
 
-regions[page_top] 												= Page top
-regions[header] 													= Header
-regions[highlight] 												= Highlight
-regions[help] 														= Help
-regions[content] 													= Content
-regions[sidebar_first] 										= First sidebar
-regions[sidebar_second] 									= Second sidebar
-regions[footer] 													= Footer
-regions[page_bottom] 											= Page bottom
+regions[page_top] = Page top
+regions[header] = Header
+regions[highlight] = Highlight
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer] = Footer
+regions[page_bottom] = Page bottom
 
 ; --------------------------------------------------------------------------------
 ; Features supported by this theme.
 ; --------------------------------------------------------------------------------
 
-features[] 																= logo
-features[] 																= name
-features[] 																= slogan
-features[] 																= node_user_picture
-features[] 																= comment_user_picture
-features[] 																= search
-features[] 																= favicon
-features[] 																= main_menu
-features[] 																= secondary_menu
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
 
 ; --------------------------------------------------------------------------------
 ; First we remove the system's menu styling since Zen has its own.
 ; --------------------------------------------------------------------------------
 
-stylesheets[all][] 												= system.menus.css
-stylesheets[all][] 												= css/layout.css
-; stylesheets[all][] 											= css/layout-mediaqueries.css
-stylesheets[all][] 												= css/media-visibility.css
-stylesheets[all][] 												= css/screen.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = css/layout.css
+; stylesheets[all][] = css/layout-mediaqueries.css
+stylesheets[all][] = css/media-visibility.css
+stylesheets[all][] = css/screen.css
 
 ; --------------------------------------------------------------------------------
 ; Optionally add some JavaScripts to your theme.
 ; --------------------------------------------------------------------------------
 
-; scripts[] 																= js/yourscript.js
+; scripts[] = js/yourscript.js
 
 ; --------------------------------------------------------------------------------
 ; Theme Settings Defaults.
 ; --------------------------------------------------------------------------------
 
-settings[aether_tabs] 										= 1
-settings[aether_breadcrumb_separator] 		= »
-settings[wireframe_mode] 									= 0
-settings[clear_registry] 									= 0
-settings[responsive_enable]               = '1'
-settings[aether_html5_respond_meta][] 		= respond
-settings[aether_html5_respond_meta][] 		= html5
-settings[aether_html5_respond_meta][] 		= ioszoombugfix
-settings[aether_html5_respond_meta][] 		= meta
-settings[aether_html5_respond_meta][] 		= selectivizr
-settings[aether_html5_respond_meta][] 		= imgsizer
+settings[aether_tabs] = 1
+settings[aether_breadcrumb_separator] = »
+settings[wireframe_mode] = 0
+settings[clear_registry] = 0
+settings[responsive_enable]    = '1'
+settings[aether_html5_respond_meta][] = respond
+settings[aether_html5_respond_meta][] = html5
+settings[aether_html5_respond_meta][] = ioszoombugfix
+settings[aether_html5_respond_meta][] = meta
+settings[aether_html5_respond_meta][] = selectivizr
+settings[aether_html5_respond_meta][] = imgsizer
 
 ; Default theme settings
-settings[media_queries]                   = '5'
-settings[nav_grid_enable]               	= '1'
-settings[grid_prefix1] 										= g-d-
-settings[grid_prefix2] 										= g-tl-
-settings[grid_prefix3] 										= g-t-
-settings[grid_prefix4] 										= g-hl-
-settings[grid_prefix5] 										= g-h-
-settings[theme_grid1]											= grid12-1150
-settings[theme_grid_options1][] 					= grid12-1150
-settings[theme_grid2]											= grid12-970
-settings[theme_grid_options2][] 					= grid12-970
-settings[theme_grid3]											= grid12-754
-settings[theme_grid_options3][] 					= grid12-754
-settings[theme_grid4]											= grid12-430
-settings[theme_grid_options4][] 					= grid12-430
-settings[theme_grid5]											= grid12-310
-settings[theme_grid_options5][] 					= grid12-310
-settings[sidebar_layout1] 								= '1'
-settings[sidebar_layout2] 								= '1'
-settings[sidebar_layout3] 								= '1'
-settings[sidebar_layout4] 								= '4'
-settings[sidebar_layout5] 								= '4'
-settings[sidebar_first_width1] 						= '3'
-settings[sidebar_second_width1] 					= '3'
-settings[sidebar_first_width2] 						= '3'
-settings[sidebar_second_width2] 					= '3'
-settings[sidebar_first_width3] 						= '2'
-settings[sidebar_second_width3] 					= '2'
-settings[sidebar_first_width4] 						= '3'
-settings[sidebar_second_width4] 					= '3'
-settings[sidebar_first_width5] 						= '3'
-settings[sidebar_second_width5] 					= '3'
-settings[nav_link_width1]									= '2'
-settings[nav_link_width2]									= '2'
-settings[nav_link_width3]									= '2'
-settings[nav_link_width4]									= '4'
-settings[nav_link_width5]									= '4'
+settings[media_queries] = '5'
+settings[nav_grid_enable] = '1'
+settings[grid_prefix1] = g-d-
+settings[grid_prefix2] = g-tl-
+settings[grid_prefix3] = g-t-
+settings[grid_prefix4] = g-hl-
+settings[grid_prefix5] = g-h-
+settings[theme_grid1] = grid12-1150
+settings[theme_grid_options1][] = grid12-1150
+settings[theme_grid2] = grid12-970
+settings[theme_grid_options2][] = grid12-970
+settings[theme_grid3] = grid12-754
+settings[theme_grid_options3][] = grid12-754
+settings[theme_grid4] = grid12-430
+settings[theme_grid_options4][] = grid12-430
+settings[theme_grid5] = grid12-310
+settings[theme_grid_options5][] = grid12-310
+settings[sidebar_layout1] = '1'
+settings[sidebar_layout2] = '1'
+settings[sidebar_layout3] = '1'
+settings[sidebar_layout4] = '4'
+settings[sidebar_layout5] = '4'
+settings[sidebar_first_width1] = '3'
+settings[sidebar_second_width1] = '3'
+settings[sidebar_first_width2] = '3'
+settings[sidebar_second_width2] = '3'
+settings[sidebar_first_width3] = '2'
+settings[sidebar_second_width3] = '2'
+settings[sidebar_first_width4] = '3'
+settings[sidebar_second_width4] = '3'
+settings[sidebar_first_width5] = '3'
+settings[sidebar_second_width5] = '3'
+settings[nav_link_width1] = '2'
+settings[nav_link_width2] = '2'
+settings[nav_link_width3] = '2'
+settings[nav_link_width4] = '4'
+settings[nav_link_width5] = '4'
 
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
-settings[grid_nested_regions][] 					= sidebar_first
-settings[grid_nested_regions][] 					= sidebar_second
-settings[grid_nested_regions][] 					= header
-settings[grid_nested_regions][] 					= content
-settings[grid_nested_regions][] 					= help
+settings[grid_nested_regions][] = sidebar_first
+settings[grid_nested_regions][] = sidebar_second
+settings[grid_nested_regions][] = header
+settings[grid_nested_regions][] = content
+settings[grid_nested_regions][] = help
 ; Nested region width adjustments: adjacent regions to subtract for correct region width
 settings[grid_adjusted_regions][preface_bottom][] = sidebar_first
-settings[grid_adjusted_regions][help][] 	= sidebar_first
-settings[grid_adjusted_regions][help][] 	= sidebar_second
+settings[grid_adjusted_regions][help][] = sidebar_first
+settings[grid_adjusted_regions][help][] = sidebar_second
 settings[grid_adjusted_regions][content][] = sidebar_first
 settings[grid_adjusted_regions][content][] = sidebar_second
 ; Nested group width adjustments: adjacent regions to subtract for correct group width
@@ -127,12 +127,3 @@ settings[grid_adjusted_groups][main_group][] = sidebar_first
 settings[grid_adjusted_groups][main_group][] = sidebar_second
 settings[grid_adjusted_groups][content_group][] = sidebar_first
 settings[grid_adjusted_groups][content_group][] = sidebar_second
-
-; --------------------------------------------------------------------------------
-; Information added by author
-; --------------------------------------------------------------------------------
-
-version 																	= "7.x-0.6-alpha"
-core 																			= "7.x"
-project 																	= "aether"
-datestamp 																= "1325424693"
