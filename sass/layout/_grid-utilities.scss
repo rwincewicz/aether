@@ -12,26 +12,26 @@ $max-handheld-width:           310px !default;
 
 // Utility variables for column and grid wrapper widths — you should never need to modify these
 // Handheld
-$handheld-col-width: 	(($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$handheld-col-width:  (($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $handheld-grid-width: ($handheld-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Handheld Landscape
-$handheld-landscape-col-width: 	(($max-handheld-landscape-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
+$handheld-landscape-col-width:  (($max-handheld-landscape-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
 $handheld-landscape-grid-width: ($handheld-landscape-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
 // Tablet
-$tablet-col-width: 	(($max-tablet-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$tablet-col-width:  (($max-tablet-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
 $tablet-grid-width: ($tablet-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Tablet Landscape
-$tablet-landscape-col-width: 	(($max-tablet-landscape-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
+$tablet-landscape-col-width:  (($max-tablet-landscape-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
 $tablet-landscape-grid-width: ($tablet-landscape-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
 // Desktop
-$desktop-col-width: 	(($max-desktop-width - $gutter-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
-$desktop-grid-width: 	($desktop-col-width*$desktop-columns) + ($gutter-width*$desktop-columns);
+$desktop-col-width:   (($max-desktop-width - $gutter-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
+$desktop-grid-width:  ($desktop-col-width*$desktop-columns) + ($gutter-width*$desktop-columns);
 
-$handheld-total-width:  					$handheld-grid-width;
-$handheld-landscape-total-width: 	$handheld-landscape-grid-width;
-$tablet-total-width:  						$tablet-grid-width;
-$tablet-landscape-total-width: 		$tablet-landscape-grid-width;
-$desktop-total-width:  						$desktop-grid-width;
+$handheld-total-width:            $handheld-grid-width;
+$handheld-landscape-total-width:  $handheld-landscape-grid-width;
+$tablet-total-width:              $tablet-grid-width;
+$tablet-landscape-total-width:    $tablet-landscape-grid-width;
+$desktop-total-width:             $desktop-grid-width;
 
 // Media
 $handheld: "h";
@@ -42,30 +42,30 @@ $desktop: "d";
 
 @mixin grid($media:$desktop, $columns:$desktop-columns, $total-width:$desktop-total-width, $column-width:$desktop-col-width, $grid-width:$desktop-grid-width) {
 
-	@if $media == $handheld {
-	$columns:$handheld-columns;
-	$total-width:$handheld-total-width;
-	$column-width:$handheld-col-width;
-	$grid-width:$handheld-grid-width;
-	}
-	@if $media == $handheld-landscape {
-	$columns:$handheld-columns;
-	$total-width:$handheld-landscape-total-width;
-	$column-width:$handheld-landscape-col-width;
-	$grid-width:$handheld-landscape-grid-width;
-	}
-	@else if $media == $tablet {
-	$columns:$tablet-columns;
-	$total-width:$tablet-total-width;
-	$column-width:$tablet-col-width;
-	$grid-width:$tablet-grid-width;
-	}
-	@else if $media == $tablet-landscape {
-	$columns:$tablet-columns;
-	$total-width:$tablet-landscape-total-width;
-	$column-width:$tablet-landscape-col-width;
-	$grid-width:$tablet-landscape-grid-width;
-	}
+  @if $media == $handheld {
+  $columns:$handheld-columns;
+  $total-width:$handheld-total-width;
+  $column-width:$handheld-col-width;
+  $grid-width:$handheld-grid-width;
+  }
+  @if $media == $handheld-landscape {
+  $columns:$handheld-columns;
+  $total-width:$handheld-landscape-total-width;
+  $column-width:$handheld-landscape-col-width;
+  $grid-width:$handheld-landscape-grid-width;
+  }
+  @else if $media == $tablet {
+  $columns:$tablet-columns;
+  $total-width:$tablet-total-width;
+  $column-width:$tablet-col-width;
+  $grid-width:$tablet-grid-width;
+  }
+  @else if $media == $tablet-landscape {
+  $columns:$tablet-columns;
+  $total-width:$tablet-landscape-total-width;
+  $column-width:$tablet-landscape-col-width;
+  $grid-width:$tablet-landscape-grid-width;
+  }
 
   // generate column classes
   @for $n from 1 through $columns {
@@ -98,66 +98,66 @@ $desktop: "d";
 }
 
 @mixin row($columns:$desktop-columns,$total-width:$desktop-total-width,$grid-width:$desktop-grid-width) {
-	width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
+  width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
 }
 
 @mixin column($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-	width: $total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width);
+  width: $total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width);
 }
 
 @mixin offset($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-	margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
+  margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
 }
 
 @mixin push($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-	margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
-	margin-right: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
+  margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
+  margin-right: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
 @mixin pull($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-	margin-left: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
+  margin-left: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
 // Create the Columns
 $_allColumns: "";
 @for $col from 1 to ($handheld-columns + 1) {
-	@if $_allColumns == "" {
-		$_allColumns: ".g-h-#{$col}, .g-hl-#{$col}";
-	} @else {
-		$_allColumns: $_allColumns + ", .g-h-#{$col}, .g-hl-#{$col}";
-	}
+  @if $_allColumns == "" {
+    $_allColumns: ".g-h-#{$col}, .g-hl-#{$col}";
+  } @else {
+    $_allColumns: $_allColumns + ", .g-h-#{$col}, .g-hl-#{$col}";
+  }
 }
 
 @for $col from 1 to ($tablet-columns + 1) {
-	@if $_allColumns == "" {
-		$_allColumns: ".g-t-#{$col}, .g-tl-#{$col}";
-	} @else {
-		$_allColumns: $_allColumns + ", .g-t-#{$col}, .g-tl-#{$col}";
-	}
+  @if $_allColumns == "" {
+    $_allColumns: ".g-t-#{$col}, .g-tl-#{$col}";
+  } @else {
+    $_allColumns: $_allColumns + ", .g-t-#{$col}, .g-tl-#{$col}";
+  }
 }
 
 @for $col from 1 to ($desktop-columns + 1) {
-	@if $_allColumns == "" {
-		$_allColumns: ".g-d-#{$col}";
-	} @else {
-		$_allColumns: $_allColumns + ", .g-d-#{$col}";
-	}
+  @if $_allColumns == "" {
+    $_allColumns: ".g-d-#{$col}";
+  } @else {
+    $_allColumns: $_allColumns + ", .g-d-#{$col}";
+  }
 }
 
 $_DesktopOffsetPull: "";
 @for $col from 1 to ($desktop-columns + 1) {
-	@if $_DesktopOffsetPull == "" {
-		$_DesktopOffsetPull: ".g-d-o#{$col}, .g-d-pull#{$col}";
-	} @else {
-		$_DesktopOffsetPull: $_DesktopOffsetPull + ", .g-d-o#{$col}, .g-d-pull#{$col}";
-	}
+  @if $_DesktopOffsetPull == "" {
+    $_DesktopOffsetPull: ".g-d-o#{$col}, .g-d-pull#{$col}";
+  } @else {
+    $_DesktopOffsetPull: $_DesktopOffsetPull + ", .g-d-o#{$col}, .g-d-pull#{$col}";
+  }
 }
 
 $_DesktopPush: "";
 @for $col from 1 to ($desktop-columns + 1) {
-	@if $_DesktopPush == "" {
-		$_DesktopPush: ".g-d-push#{$col}";
-	} @else {
-		$_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
-	}
+  @if $_DesktopPush == "" {
+    $_DesktopPush: ".g-d-push#{$col}";
+  } @else {
+    $_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
+  }
 }

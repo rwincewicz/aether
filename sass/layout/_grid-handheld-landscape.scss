@@ -3,33 +3,33 @@
 
 // Handheld Landscape
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-	body {}
-	.inside {
-	width: $max-handheld-landscape-width;
-	}
+  body {}
+  .inside {
+  width: $max-handheld-landscape-width;
+  }
 
-	// Disables iphone font size increase when viewing in landscape mode.
-	html {
-		-webkit-text-size-adjust: none;
-		-ms-text-size-adjust:none;
-	}
+  // Disables iphone font size increase when viewing in landscape mode.
+  html {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust:none;
+  }
 
-	.g-all-row {
-		@include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
-		@if $show-grid-background {
-			@include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, 4px);
-		}
-	}
+  .g-all-row {
+    @include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
+    @if $show-grid-background {
+      @include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, 4px);
+    }
+  }
 
-	#{$_DesktopOffsetPull} {
-		margin-left: 0;
-	}
+  #{$_DesktopOffsetPull} {
+    margin-left: 0;
+  }
 
-	#{$_DesktopPush} {
-		margin-left: 0;
-		margin-right: 0;
-	}
+  #{$_DesktopPush} {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-	@include grid($handheld-landscape);
+  @include grid($handheld-landscape);
 
 }

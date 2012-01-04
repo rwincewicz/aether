@@ -5,42 +5,42 @@ $ = jQuery.noConflict(); // Make sure jQuery owns $ here
 ;(function($) {
   $.fn.title_tabs = function(options) {
 
-	return this.each(function() {
-		var tabs = $(this);
+  return this.each(function() {
+    var tabs = $(this);
 
-		var ul = $('<ul></ul>');
-		tabs.prepend(ul);
-		tabs.find('.tab').each(function(index){
-			var legend = $(this).attr('title');
-			if (legend == ''){
-				legend = 'tab_' + index;
-			}
-			var id = $(this).attr('id');
-			if (id == ''){
-				id = 'tab_' + index;
-				$(this).attr("id",id);
-			}
-			var tab_code = '<li><a href="#' + id + '">'+legend+'</a></li>';
-			ul.append(tab_code);
-		});
-		return tabs.tabs(options);
-	});
-	};
+    var ul = $('<ul></ul>');
+    tabs.prepend(ul);
+    tabs.find('.tab').each(function(index){
+      var legend = $(this).attr('title');
+      if (legend == ''){
+        legend = 'tab_' + index;
+      }
+      var id = $(this).attr('id');
+      if (id == ''){
+        id = 'tab_' + index;
+        $(this).attr("id",id);
+      }
+      var tab_code = '<li><a href="#' + id + '">'+legend+'</a></li>';
+      ul.append(tab_code);
+    });
+    return tabs.tabs(options);
+  });
+  };
 
-	$.fn.fieldset_tabs = function(options) {
-		return this.each(function() {
-			var tabs = $(this);
-			var $ul = $('<ul></ul>');
-			tabs.prepend($ul);
-			tabs.find('fieldset').not(tabs.find('fieldset fieldset')).each(function(index){
-				var legend = $(this).find('legend').text();
-				$(this).find('legend').remove();
-				var id = 'tab_' + index;
-				$(this).attr("id",id);
-				var tab_code = '<li><a href="#' + id + '">'+legend+'</a></li>';
-				$ul.append(tab_code);
-			});
-			return tabs.tabs({
+  $.fn.fieldset_tabs = function(options) {
+    return this.each(function() {
+      var tabs = $(this);
+      var $ul = $('<ul></ul>');
+      tabs.prepend($ul);
+      tabs.find('fieldset').not(tabs.find('fieldset fieldset')).each(function(index){
+        var legend = $(this).find('legend').text();
+        $(this).find('legend').remove();
+        var id = 'tab_' + index;
+        $(this).attr("id",id);
+        var tab_code = '<li><a href="#' + id + '">'+legend+'</a></li>';
+        $ul.append(tab_code);
+      });
+      return tabs.tabs({
         /**
          * @code
          * tabs animation that prevents screen from jumping
@@ -56,7 +56,7 @@ $ = jQuery.noConflict(); // Make sure jQuery owns $ here
                 jQuery(this).css('overflow', 'visible');
         }
       });
-		});
-	}
+    });
+  }
 
 })( jQuery );

@@ -3,28 +3,28 @@
 
 // Handheld Portrait
 @media only screen and (max-width: 479px) {
-	body {}
-	.inside {
-	width: $max-handheld-width;
-	}
+  body {}
+  .inside {
+  width: $max-handheld-width;
+  }
 
-	.g-all-row {
-		@include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
-			@if $show-grid-background {
-				@include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
-			}
-		}
+  .g-all-row {
+    @include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
+      @if $show-grid-background {
+        @include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
+      }
+    }
 
-	#{$_DesktopOffsetPull} {
-		margin-left: 0;
-	}
+  #{$_DesktopOffsetPull} {
+    margin-left: 0;
+  }
 
-	#{$_DesktopPush} {
-		margin-left: 0;
-		margin-right: 0;
-	}
+  #{$_DesktopPush} {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-	// Generate column classes for handheld media
-	@include grid($handheld);
+  // Generate column classes for handheld media
+  @include grid($handheld);
 
 }
