@@ -4,8 +4,6 @@
 * Maintainer(s):
  * Kris Bulman
   * http://www.twitter.com/krisbulman
- * Zachary Howarth-Schueler
-  * http://www.github.com/zacho
 
 Introduction to Aether
 ------------------------
