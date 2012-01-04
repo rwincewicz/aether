@@ -57,96 +57,96 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('nav_grid_enable'),
   );
 
-if (theme_get_setting('responsive_enable')) {
-  $media = array();
-  $media_queries = theme_get_setting('media_queries');
-  if ($media_queries && is_numeric($media_queries)) {
-    for ($i = 1; $i <= $media_queries; $i++) {
-      $media[] = 'Media' . $i;
+  if (theme_get_setting('responsive_enable')) {
+    $media = array();
+    $media_queries = theme_get_setting('media_queries');
+    if ($media_queries && is_numeric($media_queries)) {
+      for ($i = 1; $i <= $media_queries; $i++) {
+        $media[] = 'Media' . $i;
+      }
     }
   }
-}
-else {
-  $media = array(t('Default'));
-  $media_queries = 1;
-}
+  else {
+    $media = array(t('Default'));
+    $media_queries = 1;
+  }
 
-for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-  $medium = $media[$media_count-1];
+  for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+    $medium = $media[$media_count-1];
 
-  $form['aether_settings']['layout']["media{$media_count}"] = array(
-    '#title' => t('@media', array('@media' => $medium)),
-    '#type' => 'fieldset',
-  );
+    $form['aether_settings']['layout']["media{$media_count}"] = array(
+      '#title' => t('@media', array('@media' => $medium)),
+      '#type' => 'fieldset',
+    );
 
-  // Sidebar layout
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"] = array(
-    '#type'          => 'radios',
-    '#title'         => t('----@media Sidebar layout----', array('@media' => $medium)),
-    '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
-    '#options'       => array(
-      1 => t('Split sidebars'),
-      2 => t('Both sidebars first'),
-      3 => t('Both sidebars last'),
-      4 => t('Full width'),
-    ),
-  );
+    // Sidebar layout
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"] = array(
+      '#type'          => 'radios',
+      '#title'         => t('----@media Sidebar layout----', array('@media' => $medium)),
+      '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
+      '#options'       => array(
+        1 => t('Split sidebars'),
+        2 => t('Both sidebars first'),
+        3 => t('Both sidebars last'),
+        4 => t('Full width'),
+      ),
+    );
 
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
 
-  // Grid type
-  // Generate grid type options
-  $grid_options = array();
-  if (isset($defaults["theme_grid_options{$media_count}"])) {
-    foreach ($defaults["theme_grid_options{$media_count}"] as $grid_option) {
-      $grid_type = t('grid') . ' [' . substr($grid_option, 7) . 'px]';
-      $grid_options[$grid_option] = (int)substr($grid_option, 4, 2) . t(' column ') . $grid_type;
+    // Grid type
+    // Generate grid type options
+    $grid_options = array();
+    if (isset($defaults["theme_grid_options{$media_count}"])) {
+      foreach ($defaults["theme_grid_options{$media_count}"] as $grid_option) {
+        $grid_type = t('grid') . ' [' . substr($grid_option, 7) . 'px]';
+        $grid_options[$grid_option] = (int)substr($grid_option, 4, 2) . t(' column ') . $grid_type;
+      }
     }
+    $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a grid layout for your theme'),
+      '#default_value' => (theme_get_setting("theme_grid{$media_count}")) ? theme_get_setting("theme_grid{$media_count}") : theme_get_setting("theme_grid{$media_count}"),
+      '#options'       => $grid_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
+
+
+    // Calculate sidebar width options
+    $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
+    $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
+    $width_options = array();
+    for ($i = 1; $i <= floor($grid_width / 2); $i++) {
+      $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
+      $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
+    }
+
+
+    // Navigation li width
+    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select the number of columns for each li in the navigation bar'),
+      '#default_value' => (theme_get_setting("nav_link_width{$media_count}")) ? theme_get_setting("nav_link_width{$media_count}") : theme_get_setting("nav_link_width{$media_count}"),
+      '#options'       => $width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
+    // Sidebar first width
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your first sidebar'),
+      '#default_value' => (theme_get_setting("sidebar_first_width{$media_count}")) ? theme_get_setting("sidebar_first_width{$media_count}") : theme_get_setting("sidebar_first_width{$media_count}"),
+      '#options'       => $width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"]['#options'][$defaults["sidebar_first_width{$media_count}"]] .= t(' - Theme Default');
+    // Sidebar last width
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your second sidebar'),
+      '#default_value' => (theme_get_setting("sidebar_second_width{$media_count}")) ? theme_get_setting("sidebar_second_width{$media_count}") : theme_get_setting("sidebar_second_width{$media_count}"),
+      '#options'       => $width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
   }
-  $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"] = array(
-    '#type'          => 'select',
-    '#title'         => t('Select a grid layout for your theme'),
-    '#default_value' => (theme_get_setting("theme_grid{$media_count}")) ? theme_get_setting("theme_grid{$media_count}") : theme_get_setting("theme_grid{$media_count}"),
-    '#options'       => $grid_options,
-  );
-  $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
-
-
-  // Calculate sidebar width options
-  $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
-  $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
-  $width_options = array();
-  for ($i = 1; $i <= floor($grid_width / 2); $i++) {
-    $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-    $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
-  }
-
-
-  // Navigation li width
-  $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
-    '#type'          => 'select',
-    '#title'         => t('Select the number of columns for each li in the navigation bar'),
-    '#default_value' => (theme_get_setting("nav_link_width{$media_count}")) ? theme_get_setting("nav_link_width{$media_count}") : theme_get_setting("nav_link_width{$media_count}"),
-    '#options'       => $width_options,
-  );
-  $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
-  // Sidebar first width
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
-    '#type'          => 'select',
-    '#title'         => t('Select a different width for your first sidebar'),
-    '#default_value' => (theme_get_setting("sidebar_first_width{$media_count}")) ? theme_get_setting("sidebar_first_width{$media_count}") : theme_get_setting("sidebar_first_width{$media_count}"),
-    '#options'       => $width_options,
-  );
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"]['#options'][$defaults["sidebar_first_width{$media_count}"]] .= t(' - Theme Default');
-  // Sidebar last width
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"] = array(
-    '#type'          => 'select',
-    '#title'         => t('Select a different width for your second sidebar'),
-    '#default_value' => (theme_get_setting("sidebar_second_width{$media_count}")) ? theme_get_setting("sidebar_second_width{$media_count}") : theme_get_setting("sidebar_second_width{$media_count}"),
-    '#options'       => $width_options,
-  );
-  $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
-}
 
   $form['aether_settings']['polyfills'] = array(
     '#title' => t('Polyfills'),
@@ -161,13 +161,13 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     '#title'         => t('Add HTML5 and responsive scripts and meta tags to every page.'),
     '#default_value' => theme_get_setting('aether_html5_respond_meta'),
     '#options'       => array(
-                          'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
-                          'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
-                          'ioszoombugfix' => t('Fix zoom bug on ios landscape rotation (only useful for responsive design)'),
-                          'meta' => t('Add meta tags to support responsive design on mobile devices.'),
-                          'selectivizr' => t('Add pseudo class support to IE6-8.'),
-                          'imgsizer' => t('Add imgsizer fluid image support to IE6-8.'),
-                        ),
+      'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
+      'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
+      'ioszoombugfix' => t('Fix zoom bug on ios landscape rotation (only useful for responsive design)'),
+      'meta' => t('Add meta tags to support responsive design on mobile devices.'),
+      'selectivizr' => t('Add pseudo class support to IE6-8.'),
+      'imgsizer' => t('Add imgsizer fluid image support to IE6-8.'),
+    ),
     '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable these options. Mobile devices require a few meta tags for responsive designs.', array('!link' => 'http://www.modernizr.com/')),
   );
 
@@ -249,5 +249,4 @@ for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     '#description'   =>t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
     '#default_value' => theme_get_setting('clear_registry'),
   );
-
 }

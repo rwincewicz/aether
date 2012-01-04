@@ -28,8 +28,8 @@
 ?>
 <?php if ($content): ?>
   <aside class="<?php print $classes; ?>">
-  	<div <?php print $content_attributes; ?>>
-    	<?php print $content; ?>
+    <div <?php print $content_attributes; ?>>
+      <?php print $content; ?>
     </div>
   </aside>
 <?php endif; ?>

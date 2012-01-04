@@ -30,8 +30,8 @@
   <footer id="footer" class="<?php print $classes; ?>">
     <div class="inside">
     <div class="g-all-row">
-  	<div <?php print $content_attributes; ?>>
-    	<?php print $content; ?>
+      <div <?php print $content_attributes; ?>>
+      <?php print $content; ?>
     </div>
     </div>
     </div>
