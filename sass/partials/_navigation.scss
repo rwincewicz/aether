@@ -17,12 +17,12 @@
 // Primary and Secondary menus
 
 #primary { // if nav grid alignment is turned off, you can enable this for inline links
-//  @include menu-links-inline(0, 1px, solid, transparentize(#FFFFFF, 0.6));
+//  @include menu-links-inline(1.5em, 2px, none, transparent);
 }
 
 #secondary {
   float: right;
-  @include menu-links-inline(1.5em, 2px, dashed, white);
+  @include menu-links-inline(1.5em, 2px, none, transparent);
 }
 
 
