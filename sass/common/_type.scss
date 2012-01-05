@@ -183,9 +183,10 @@ ul {
 ol {
   list-style: decimal;
 }
-li, .item-list li {
-  line-height: px-to-em($base-line-height);
-}
+// this causes a problem with overlay tab line height
+//li, .item-list li {
+//  line-height: px-to-em($base-line-height);
+//}
 ul.unstyled {
   list-style: none;
   margin-left: 0;

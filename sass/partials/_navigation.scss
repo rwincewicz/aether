@@ -1,5 +1,4 @@
 #navigation {
-  @include margin-trailer(1, $font-size-normal);
   ul {
     @include inline-list;
   }
@@ -11,7 +10,8 @@
     &.last {
     }
     a {
-
+    @include padding-leader(0.5, $font-size-normal);
+    @include padding-trailer(0.5, $font-size-normal);
     }
   }
 }

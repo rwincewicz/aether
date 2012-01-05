@@ -301,10 +301,6 @@ ol {
   list-style: decimal;
 }
 
-li, .item-list li {
-  line-height: 1.385em;
-}
-
 ul.unstyled {
   list-style: none;
   margin-left: 0;
@@ -1146,9 +1142,6 @@ ul.secondary a.active, ul.secondary a:active {
   text-shadow: #333333 1px 1px 0;
 }
 
-#navigation {
-  margin-bottom: 1.385em;
-}
 #navigation ul {
   list-style-type: none;
 }
@@ -1160,6 +1153,10 @@ ul.secondary a.active, ul.secondary a:active {
 #navigation li {
   display: inline;
   text-align: center;
+}
+#navigation li a {
+  padding-top: 0.692em;
+  padding-bottom: 0.692em;
 }
 
 #secondary {
