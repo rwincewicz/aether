@@ -215,7 +215,8 @@ function aether_preprocess_page(&$vars, $hook) {
       $sidebar_first_width = $grid["sidebar_first_width{$media_count}"];
       $sidebar_second_width = $grid["sidebar_second_width{$media_count}"];
       $content_width = ($grid["width{$media_count}"] - $sidebar_first_width) - $sidebar_second_width;
-      $two_sidebar_width = $sidebar_first_width + $sidebar_second_width;;
+      $content_width_sidebar_right = $grid["width{$media_count}"] - $sidebar_first_width;
+      $two_sidebar_width = $sidebar_first_width + $sidebar_second_width;
       $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
       $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
@@ -229,6 +230,9 @@ function aether_preprocess_page(&$vars, $hook) {
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
+      }
+      if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width_sidebar_right ";
       }
     }
   }
@@ -463,6 +467,9 @@ function aether_preprocess_region(&$vars, $hook) {
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
+      if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
+      }
     }
 
     if (strpos($vars['region'], 'sidebar_second') === 0) {
@@ -480,8 +487,10 @@ function aether_preprocess_region(&$vars, $hook) {
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
+      if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+      }
     }
-
     if (strpos($vars['region'], 'footer') === 0) {
       $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
     }

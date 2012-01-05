@@ -57,7 +57,7 @@ stylesheets[all][] = css/screen.css
 ; --------------------------------------------------------------------------------
 
 settings[aether_tabs] = 1
-settings[aether_breadcrumb_separator] = »
+settings[aether_breadcrumb_separator] = ' » '
 settings[wireframe_mode] = 0
 settings[clear_registry] = 0
 

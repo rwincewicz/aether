@@ -95,6 +95,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
         2 => t('Both sidebars last'),
         3 => t('Both sidebars first'),
         4 => t('Full width'),
+        5 => t('One Sidebar right, one bottom'),
       ),
     );
 
