@@ -4,6 +4,14 @@
 function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
   global $base_path;
+  /**
+   * @ code
+   * a bug in D7 causes the theme to load twice, if this file is loaded a
+   * second time we return immediately to prevent further complications.
+   */
+  global $aether_altered, $base_path;
+  if ($aether_altered) return;
+  $aether_altered = TRUE;
 
   // Get theme name from url (admin/.../theme_name)
   $theme_name = arg(count(arg()) - 1);
@@ -17,12 +25,12 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   $theme_path = drupal_get_path('theme', $subject_theme) . '/';
 
   drupal_add_library('system', 'ui.tabs');
+  drupal_add_js('jQuery(function () {jQuery("#edit-layout").fieldset_tabs();});', 'inline');
   drupal_add_js($aether_theme_path . "js/jquery.autotabs.js", 'file');
   drupal_add_js($aether_theme_path . "js/layout-theme-settings.js", 'file');
-  drupal_add_js('jQuery(function () {jQuery("#edit-layout").fieldset_tabs();});', 'inline');
-  // drupal_add_js('$(function () {Drupal.behaviors.formUpdated = null;});', 'inline');
   drupal_add_css($aether_theme_path . 'css/layout/layout-config.css', array('group' => CSS_THEME, 'weight' => 10));
   drupal_add_css('themes/seven/vertical-tabs.css', array('group' => CSS_THEME, 'weight' => 9));
+  drupal_add_css('themes/seven/jquery.ui.theme.css', array('group' => CSS_THEME, 'weight' => 9));
 
   $base_theme_version = 'v0.5alpha.6';
 
