@@ -1,15 +1,15 @@
 // Pages
 
 #name-and-slogan {
-  @include padding-leader(1, $font-size-normal);
-  @include padding-trailer(1, $font-size-normal);
+  @include padding-leader(1.5, $font-size-normal);
+  @include padding-trailer(1.5, $font-size-normal);
 }
 
 #logo {
   @include float(left);
   padding: 0 10px 0 0;
   img {
-    @include margin-leader(.2, $font-size-normal);
+    @include margin-leader(.7, $font-size-normal);
     @include margin-trailer(0, $font-size-normal);
   }
 }
@@ -26,6 +26,12 @@
 
 #site-slogan {
   @include adjust-font-size-to($font-size-xxl,1);
+}
+
+#content .content-inner,
+aside .sidebar-inner {
+  @include margin-leader(1);
+  @include margin-trailer(1);
 }
 
 // Admin
