@@ -92,8 +92,8 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#default_value' => (theme_get_setting("sidebar_layout{$media_count}")) ? theme_get_setting("sidebar_layout{$media_count}") : theme_get_setting("sidebar_layout{$media_count}"),
       '#options'       => array(
         1 => t('Split sidebars'),
-        2 => t('Both sidebars first'),
-        3 => t('Both sidebars last'),
+        2 => t('Both sidebars last'),
+        3 => t('Both sidebars first'),
         4 => t('Full width'),
       ),
     );

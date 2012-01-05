@@ -222,10 +222,10 @@ function aether_preprocess_page(&$vars, $hook) {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$sidebar_first_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
@@ -454,11 +454,11 @@ function aether_preprocess_region(&$vars, $hook) {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['classes_array'][] = $offset_prefix . "$content_width ";
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
+        $vars['classes_array'][] = $offset_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
@@ -471,11 +471,11 @@ function aether_preprocess_region(&$vars, $hook) {
         $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
-        $vars['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
+        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
+        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
+        $vars['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
