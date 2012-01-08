@@ -120,12 +120,13 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
 
     // Calculate Header and nav link width options
+    $gutter_width = (int)substr(theme_get_setting("gutter_width"), 0, 2);
     $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
     $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
     $header_width_options = array();
     for ($i = 1; $i <= floor($grid_width); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-      $nav_width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
+      $nav_width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
     }
 
     // Navigation link width
@@ -154,7 +155,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     $width_options = array();
     for ($i = 1; $i <= floor($grid_width / 2); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-      $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
+      $width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
     }
 
     // Header group first width

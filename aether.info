@@ -82,6 +82,7 @@ settings[grid_prefix2] = g-tl-
 settings[grid_prefix3] = g-t-
 settings[grid_prefix4] = g-hl-
 settings[grid_prefix5] = g-h-
+settings[gutter_width] = 10
 settings[theme_grid1] = grid12-1150
 settings[theme_grid_options1][] = grid12-1150
 settings[theme_grid2] = grid12-970
