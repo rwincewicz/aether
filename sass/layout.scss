@@ -7,6 +7,10 @@
 @import "base/utilities";
 @import "base/variables";
 
+// Grid helper
+@import "layout/grid-utilities";
+@import "layout/grid-fractions";
+
 // Layout
 @import "layout/grid-desktop";
 

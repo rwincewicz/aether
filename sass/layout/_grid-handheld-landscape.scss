@@ -1,6 +1,3 @@
-@import "grid-utilities";
-@import "grid-fractions";
-
 // Handheld Landscape
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   body {}
@@ -14,20 +11,24 @@
     -ms-text-size-adjust:none;
   }
 
-  .g-all-row {
-    @include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
-    @if $show-grid-background {
-      @include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, 4px);
-    }
+  #{$_DesktopOffset} {
+    margin-left: 0;
   }
 
-  #{$_DesktopOffsetPull} {
-    margin-left: 0;
+  #{$_DesktopPull} {
+    margin-left: $gutter-width*.5;
   }
 
   #{$_DesktopPush} {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: $gutter-width*.5;
+    margin-right: $gutter-width*.5;
+  }
+
+  .g-all-row {
+    @include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
+    @if $show-grid-background {
+      @include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
+    }
   }
 
   @include grid($handheld-landscape);

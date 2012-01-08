@@ -1,6 +1,3 @@
-@import "grid-utilities";
-@import "grid-fractions";
-
 // Tablet Landscape
 @media only screen and (min-width: 980px) and (max-width: 1159px) {
   body{}
@@ -8,20 +5,24 @@
   width: $max-tablet-landscape-width;
   }
 
-  .g-all-row {
-    @include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
-    @if $show-grid-background {
-      @include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, 4px);
-    }
+  #{$_DesktopOffset} {
+    margin-left: 0;
   }
 
-  #{$_DesktopOffsetPull} {
-    margin-left: 0;
+  #{$_DesktopPull} {
+    margin-left: $gutter-width*.5;
   }
 
   #{$_DesktopPush} {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: $gutter-width*.5;
+    margin-right: $gutter-width*.5;
+  }
+
+  .g-all-row {
+    @include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
+    @if $show-grid-background {
+      @include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
+    }
   }
 
   @include grid($tablet-landscape);

@@ -1,6 +1,3 @@
-@import "grid-utilities";
-@import "grid-fractions";
-
 // Handheld Portrait
 @media only screen and (max-width: 479px) {
   body {}
@@ -8,21 +5,25 @@
   width: $max-handheld-width;
   }
 
-  .g-all-row {
-    @include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
-      @if $show-grid-background {
-        @include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, 4px);
-      }
-    }
-
-  #{$_DesktopOffsetPull} {
+  #{$_DesktopOffset} {
     margin-left: 0;
+  }
+
+  #{$_DesktopPull} {
+    margin-left: $gutter-width*.5;
   }
 
   #{$_DesktopPush} {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: $gutter-width*.5;
+    margin-right: $gutter-width*.5;
   }
+
+  .g-all-row {
+    @include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
+      @if $show-grid-background {
+        @include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
+      }
+    }
 
   // Generate column classes for handheld media
   @include grid($handheld);

@@ -1232,7 +1232,6 @@ a:hover, a:active {
 
 #logo {
   display: inline;
-  float: left;
   padding: 0 10px 0 0;
 }
 #logo img {
@@ -1240,6 +1239,18 @@ a:hover, a:active {
   margin-bottom: 0em;
 }
 
+.responsive-enabled .logo {
+  text-align: center;
+}
+.responsive-enabled .logo #logo {
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 479px) {
+  #site-name, #site-slogan {
+    text-align: center;
+  }
+}
 #site-name {
   font-weight: bold;
   font-size: 2.308em;

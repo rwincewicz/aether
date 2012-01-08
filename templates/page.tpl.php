@@ -1,54 +1,93 @@
 <div id="page" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
-  <header id="header" role="banner">
+  <header id="header" role="banner" >
   <div class="inside">
   <div class="g-all-row">
-  <div class="header-inner <?php print $grid_width ?>">
-    <?php if ($secondary_menu): ?>
-      <nav class="menu">
-        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
-      </nav>
-    <?php endif; ?>
+  <div class="header-inner">
 
-    <?php if ($logo || $site_name || $site_slogan): ?>
-    <hgroup id="logo-name-and-slogan" class="clearfix">
+    <?php if ($page['hgroup_first'] || $page['hgroup_second'] || $page['hgroup_third'] || $logo || $site_name || $site_slogan || $secondary_menu): ?>
+    <hgroup class="clearfix">
 
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-      </a>
-    <?php endif; ?>
+      <?php if ($page['hgroup_first'] || $logo): ?>
+        <div id="hgroup-first">
+        <div class="hgroup-inner <?php print $hgroup_first_width ?>">
 
-    <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
+          <?php if ($logo): ?>
+            <div class="logo">
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+              </a>
             </div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
-            </h1>
           <?php endif; ?>
-        <?php endif; ?>
 
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"><?php print $site_slogan; ?></div>
-        <?php endif; ?>
+          <?php if ($page['hgroup_first']): ?>
+            <?php print render($page['hgroup_first']); ?>
+          <?php endif; ?>
 
-      </div>
+        </div> <!-- /.hgroup-first-inner -->
+        </div> <!-- /#hgroup-first -->
+      <?php endif; ?>
+
+    <?php if ($page['hgroup_second'] || $site_name || $site_slogan): ?>
+    <div id="hgroup-second">
+    <div class="hgroup-inner <?php print $hgroup_second_width ?>">
+
+      <?php if ($site_name || $site_slogan): ?>
+        <div id="name-and-slogan">
+          <?php if ($site_name): ?>
+            <?php if ($title): ?>
+              <div id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
+              </div>
+            <?php else: /* Use h1 when the content title is empty */ ?>
+              <h1 id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
+              </h1>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if ($site_slogan): ?>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if ($page['hgroup_second']): ?>
+        <?php print render($page['hgroup_second']); ?>
+      <?php endif; ?>
+
+    </div> <!-- /.hgroup-second-inner -->
+    </div> <!-- /#hgroup-second -->
     <?php endif; ?>
 
-      </hgroup>
+    <?php if ($page['hgroup_third'] || $secondary_menu): ?>
+    <div id="hgroup-third" class="<?php print $hgroup_third_classes ?>">
+    <div class="hgroup-inner <?php print $hgroup_third_width ?>">
+
+      <?php if ($secondary_menu): ?>
+        <nav class="menu">
+          <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
+        </nav>
+      <?php endif; ?>
+
+      <?php if ($page['hgroup_third']): ?>
+        <?php print render($page['hgroup_third']); ?>
+      <?php endif; ?>
+
+    </div> <!-- /.hgroup-third-inner -->
+    </div> <!-- /#hgroup-third -->
+    <?php endif; ?>
+
+    </hgroup>
     <?php endif; ?>
 
     <?php if ($page['header']): ?>
-      <div id="header-region">
+      <div class="header-region">
+      <div class="header-region-inner <?php print $grid_width ?>">
         <?php print render($page['header']); ?>
       </div>
+      </div>
     <?php endif; ?>
+
   </div>
   </div> <!-- /g-all-row -->
   </div> <!-- /inside -->

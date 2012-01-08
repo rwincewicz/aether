@@ -6,11 +6,26 @@
 }
 
 #logo {
-  @include float(left);
+  display: inline;
   padding: 0 10px 0 0;
   img {
     @include margin-leader(.7, $font-size-normal);
     @include margin-trailer(0, $font-size-normal);
+  }
+}
+
+.responsive-enabled {
+  .logo {
+    text-align: center;
+    #logo {
+      padding-right: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #site-name, #site-slogan {
+    text-align: center;
   }
 }
 

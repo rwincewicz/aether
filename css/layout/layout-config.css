@@ -1,0 +1,19 @@
+.block-system .contextual-links-wrapper {
+  display: none!important;
+}
+
+.page-admin-appearance-settings #content .content-inner {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.page-admin-appearance-settings .main form {
+  position: relative;
+  z-index: 5;
+}
+
+.region-sidebar-second,
+.region-sidebar-first,
+#block-system-help {
+  display: none;
+}

@@ -144,12 +144,12 @@ $_allColumns: "";
   }
 }
 
-$_DesktopOffsetPull: "";
+$_DesktopOffset: "";
 @for $col from 1 to ($desktop-columns + 1) {
-  @if $_DesktopOffsetPull == "" {
-    $_DesktopOffsetPull: ".g-d-o#{$col}, .g-d-pull#{$col}";
+  @if $_DesktopOffset == "" {
+    $_DesktopOffset: ".g-d-o#{$col}";
   } @else {
-    $_DesktopOffsetPull: $_DesktopOffsetPull + ", .g-d-o#{$col}, .g-d-pull#{$col}";
+    $_DesktopOffset: $_DesktopOffset + ", .g-d-o#{$col}";
   }
 }
 
@@ -159,5 +159,14 @@ $_DesktopPush: "";
     $_DesktopPush: ".g-d-push#{$col}";
   } @else {
     $_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
+  }
+}
+
+$_DesktopPull: "";
+@for $col from 1 to ($desktop-columns + 1) {
+  @if $_DesktopPull == "" {
+    $_DesktopPull: ".g-d-push#{$col}";
+  } @else {
+    $_DesktopPull: $_DesktopPull + ", .g-d-pull#{$col}";
   }
 }

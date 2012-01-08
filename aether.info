@@ -14,7 +14,10 @@ engine = phptemplate
 ; --------------------------------------------------------------------------------
 
 regions[page_top] = Page top
-regions[header] = Header
+regions[hgroup_first] = Header group first
+regions[hgroup_second] = Header group second
+regions[hgroup_third] = Header group third
+regions[header] = Header bottom
 regions[highlight] = Highlight
 regions[help] = Help
 regions[content] = Content
@@ -93,6 +96,11 @@ settings[sidebar_layout2] = '1'
 settings[sidebar_layout3] = '1'
 settings[sidebar_layout4] = '4'
 settings[sidebar_layout5] = '4'
+settings[hgroup_layout1] = '1'
+settings[hgroup_layout2] = '1'
+settings[hgroup_layout3] = '1'
+settings[hgroup_layout4] = '2'
+settings[hgroup_layout5] = '3'
 settings[sidebar_first_width1] = '3'
 settings[sidebar_second_width1] = '3'
 settings[sidebar_first_width2] = '3'
@@ -108,21 +116,30 @@ settings[nav_link_width2] = '2'
 settings[nav_link_width3] = '2'
 settings[nav_link_width4] = '4'
 settings[nav_link_width5] = '4'
-
+settings[hgroup_first_width1] = '2'
+settings[hgroup_first_width2] = '2'
+settings[hgroup_first_width3] = '2'
+settings[hgroup_first_width4] = '4'
+settings[hgroup_first_width5] = '4'
+settings[hgroup_third_width1] = '6'
+settings[hgroup_third_width2] = '6'
+settings[hgroup_third_width3] = '6'
+settings[hgroup_third_width4] = '6'
+settings[hgroup_third_width5] = '6'
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
 settings[grid_nested_regions][] = sidebar_first
 settings[grid_nested_regions][] = sidebar_second
-settings[grid_nested_regions][] = header
 settings[grid_nested_regions][] = content
-settings[grid_nested_regions][] = help
+settings[grid_nested_regions][] = hgroup_first
+settings[grid_nested_regions][] = hgroup_second
+settings[grid_nested_regions][] = hgroup_third
 ; Nested region width adjustments: adjacent regions to subtract for correct region width
-settings[grid_adjusted_regions][preface_bottom][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_second
 settings[grid_adjusted_regions][content][] = sidebar_first
 settings[grid_adjusted_regions][content][] = sidebar_second
+settings[grid_adjusted_regions][hgroup_second][] = hgroup_first
+settings[grid_adjusted_regions][hgroup_second][] = hgroup_third
 ; Nested group width adjustments: adjacent regions to subtract for correct group width
 settings[grid_adjusted_groups][main_group][] = sidebar_first
 settings[grid_adjusted_groups][main_group][] = sidebar_second
