@@ -1244,10 +1244,23 @@ a:hover, a:active {
   }
 }
 
-.responsive-enabled .logo {
+.grid-dis-header #hgroup-first {
+  display: inline;
+  float: left;
+}
+.grid-dis-header #hgroup-second {
+  display: inline;
+  float: left;
+}
+.grid-dis-header #hgroup-third {
+  display: inline;
+  float: right;
+}
+
+.grid-en-header .logo {
   text-align: center;
 }
-.responsive-enabled .logo #logo {
+.grid-en-header .logo #logo {
   padding-right: 0;
 }
 

@@ -58,7 +58,8 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('layout_options'),
     '#options'       => array(
       '1' => t("Enable additional device media queries that aid in making your design !responsive. If you wish to use a fixed width desktop layout, uncheck this option. WARNING: if you disable media queries, you will need to also disable the responsive meta and polyfills.", array('!responsive' => l(t('responsive'), 'http://www.alistapart.com/articles/responsive-web-design/'))),
-      '2' => t("Enable navigation to grid. This will align each link in the navigation bar to the current grid."),
+      '2' => t("Enable header to grid. If not applied simple floats will be applied to the header divs."),
+      '3' => t("Enable navigation to grid. This will align each link in the navigation bar to the current grid."),
     ),
     '#description'   => t('Enable or disable various grid and responsive layout options'),
   );

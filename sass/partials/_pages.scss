@@ -17,7 +17,19 @@
   }
 }
 
-.responsive-enabled { // If responsive design is enabled in theme settings
+.grid-dis-header {
+  #hgroup-first {
+    @include float(left);
+  }
+  #hgroup-second {
+    @include float(left);
+  }
+  #hgroup-third {
+    @include float(right);
+  }
+}
+
+.grid-en-header { // If header adheres to grid
   .logo {
     text-align: center;
     #logo {

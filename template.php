@@ -58,7 +58,19 @@ function aether_preprocess_html(&$vars, $hook) {
     $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   if (in_array('1', theme_get_setting('layout_options'))) {
-    $vars['classes_array'][] = 'responsive-enabled'; // Optionally add the wireframes style.
+    $vars['classes_array'][] = 'responsive-all'; // If media queries are enabled in theme-settings.
+  }
+  if (in_array('2', theme_get_setting('layout_options'))) {
+    $vars['classes_array'][] = 'grid-en-header'; // If header adheres to grid.
+  }
+  else {
+    $vars['classes_array'][] = 'grid-dis-header'; // If header adheres to grid.
+  }
+  if (in_array('3', theme_get_setting('layout_options'))) {
+    $vars['classes_array'][] = 'grid-en-nav'; //  If navigation bar links adheres to grid.
+  }
+  else {
+    $vars['classes_array'][] = 'grid-dis-nav'; // If header adheres to grid.
   }
   // Store the menu item since it has some useful information.
   if ($hook == 'html') {
@@ -240,7 +252,7 @@ function aether_preprocess_page(&$vars, $hook) {
     }
 
     // Add nav to grid option if checked
-    if (in_array('2', theme_get_setting('layout_options'))) {
+    if (in_array('3', theme_get_setting('layout_options'))) {
       $base_grid_prefix = $grid["prefix{$media_count}"];
       $nav_link_width = $grid["nav_link_width{$media_count}"];
       foreach ($vars['main_menu'] as $key => $value) {
@@ -251,86 +263,90 @@ function aether_preprocess_page(&$vars, $hook) {
     $vars['grid_width_array'][] = $grid["prefix{$media_count}"] . $grid["width{$media_count}"] . ' ';
     $vars['grid_width'] = implode(' ', $vars['grid_width_array']);
 
-    // Set hgroup vars and classes
-    if ($region == 'hgroup_first' || $region == 'hgroup_second' || $region == 'hgroup_third' || (isset($vars['logo'])) || (isset($vars['site_name'])) || (isset($vars['site_slogan'])) || (isset($vars['secondary_menu']))) {
-      $base_grid_prefix = $grid["prefix{$media_count}"];
-      $logo_width = $grid["hgroup_first_width{$media_count}"];
-      $seclinks_width = $grid["hgroup_third_width{$media_count}"];
-      $sitename_width = $grid["width{$media_count}"] - ($logo_width + $seclinks_width);
-      $sitename_width_logo_left = $grid["width{$media_count}"] - $seclinks_width;
-      $logo_seclinks_width = $logo_width + $seclinks_width;
-      $logo_sitename_width = $logo_width + $sitename_width;
-      $seclinks_sitename_width = $seclinks_width + $sitename_width;
-      $vars['hgroup_first_width_array'][] = '';
-      $vars['hgroup_second_width_array'][] = '';
-      $vars['hgroup_third_width_array'][] = '';
-      $vars['hgroup_third_classes_array'][] = '';
-      $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
-      $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
-      $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
-      $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
-      if (theme_get_setting("hgroup_layout{$media_count}") === '1') {
-        if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $sitename_width;
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+    // Define vars for class insertion if header is aligned to grid
+    $vars['hgroup_first_width_array'][] = '';
+    $vars['hgroup_second_width_array'][] = '';
+    $vars['hgroup_third_width_array'][] = '';
+    $vars['hgroup_third_classes_array'][] = '';
+    $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
+    $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
+    $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
+    $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
+
+    if (in_array('2', theme_get_setting('layout_options'))) {
+      // Set hgroup vars and classes
+      if ($region == 'hgroup_first' || $region == 'hgroup_second' || $region == 'hgroup_third' || (isset($vars['logo'])) || (isset($vars['site_name'])) || (isset($vars['site_slogan'])) || (isset($vars['secondary_menu']))) {
+        $base_grid_prefix = $grid["prefix{$media_count}"];
+        $logo_width = $grid["hgroup_first_width{$media_count}"];
+        $seclinks_width = $grid["hgroup_third_width{$media_count}"];
+        $sitename_width = $grid["width{$media_count}"] - ($logo_width + $seclinks_width);
+        $sitename_width_logo_left = $grid["width{$media_count}"] - $seclinks_width;
+        $logo_seclinks_width = $logo_width + $seclinks_width;
+        $logo_sitename_width = $logo_width + $sitename_width;
+        $seclinks_sitename_width = $seclinks_width + $sitename_width;
+        if (theme_get_setting("hgroup_layout{$media_count}") === '1') {
+          if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $sitename_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $logo_sitename_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          }
+          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
+          }
+          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          }
         }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+        elseif (theme_get_setting("hgroup_layout{$media_count}") === '2') {
+          if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $seclinks_sitename_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];;
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          }
+          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
+          }
+          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_third_classes_array'][] = '';
+            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          }
+          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          }
         }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $logo_sitename_width;
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
-        }
-        elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
-        }
-        elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
-          $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
-        }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+        else {
+          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        }
-      }
-      elseif (theme_get_setting("hgroup_layout{$media_count}") === '2') {
-        if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $seclinks_sitename_width;
           $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
         }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];;
-        }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        }
-        elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
-        }
-        elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
-          $vars['hgroup_third_classes_array'][] = '';
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        }
-        elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        }
+          $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
+          $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
+          $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
+          $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
       }
-      else {
-        $vars['hgroup_first_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-        $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-      }
-        $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
-        $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
-        $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
-        $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
     }
 
     // Set content classes
@@ -803,7 +819,7 @@ function aether_form_node_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Make Drupal core generated images responsive i.e. flexible in width.
  */
-function aether_preprocess_image($vars) {
+function aether_image($vars) {
   $attributes = $vars['attributes'];
   $attributes['src'] = file_create_url($vars['path']);
 

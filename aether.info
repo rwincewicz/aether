@@ -67,6 +67,7 @@ settings[clear_registry] = 0
 ; Responsive settings
 settings[layout_options][] = '1'
 settings[layout_options][] = '2'
+settings[layout_options][] = '3'
 settings[aether_html5_respond_meta][] = respond
 settings[aether_html5_respond_meta][] = html5
 settings[aether_html5_respond_meta][] = ioszoombugfix
