@@ -24,6 +24,15 @@ $(function() {
 
   $('#edit-layout-options-2').click( function() {
     if ($(this).attr('checked')) {
+      $('div[class^="form-item form-type-select form-item-hgroup"]').fadeIn();
+    } else {
+      $('div[class^="form-item form-type-select form-item-hgroup"]').fadeOut();
+    }
+  });
+
+
+  $('#edit-layout-options-3').click( function() {
+    if ($(this).attr('checked')) {
       $('div[class^="form-item form-type-select form-item-nav-link-width"]').fadeIn();
     } else {
       $('div[class^="form-item form-type-select form-item-nav-link-width"]').fadeOut();

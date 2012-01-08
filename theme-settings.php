@@ -119,6 +119,24 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     );
     $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
 
+    // Calculate Header and nav link width options
+    $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
+    $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
+    $header_width_options = array();
+    for ($i = 1; $i <= floor($grid_width); $i++) {
+      $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
+      $nav_width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
+    }
+
+    // Navigation link width
+    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select the number of columns for each link in the navigation bar'),
+      '#default_value' => (theme_get_setting("nav_link_width{$media_count}")) ? theme_get_setting("nav_link_width{$media_count}") : theme_get_setting("nav_link_width{$media_count}"),
+      '#options'       => $nav_width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
+
 
     // Header layout
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_layout{$media_count}"] = array(
@@ -132,13 +150,11 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       ),
     );
 
-    // Calculate Header and nav link width options
-    $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
-    $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
-    $header_width_options = array();
-    for ($i = 1; $i <= floor($grid_width - 2); $i++) {
+    // Calculate sidebar width options
+    $width_options = array();
+    for ($i = 1; $i <= floor($grid_width / 2); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-      $header_width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
+      $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
     }
 
     // Header group first width
@@ -146,7 +162,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#type'          => 'select',
       '#title'         => t('Select the number of columns for the 1st group in the header region (contains logo)'),
       '#default_value' => (theme_get_setting("hgroup_first{$media_count}")) ? theme_get_setting("hgroup_first_width{$media_count}") : theme_get_setting("hgroup_first_width{$media_count}"),
-      '#options'       => $header_width_options,
+      '#options'       => $width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_first_width{$media_count}"]['#options'][$defaults["hgroup_first_width{$media_count}"]] .= t(' - Theme Default');
     // Header group second width
@@ -154,24 +170,9 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#type'          => 'select',
       '#title'         => t('Select the number of columns for the 2nd group in the header region (contains secondary links)'),
       '#default_value' => (theme_get_setting("hgroup_third_width{$media_count}")) ? theme_get_setting("hgroup_third_width{$media_count}") : theme_get_setting("hgroup_third_width{$media_count}"),
-      '#options'       => $header_width_options,
+      '#options'       => $width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_third_width{$media_count}"]['#options'][$defaults["hgroup_third_width{$media_count}"]] .= t(' - Theme Default');
-    // Navigation link width
-    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
-      '#type'          => 'select',
-      '#title'         => t('Select the number of columns for each link in the navigation bar'),
-      '#default_value' => (theme_get_setting("nav_link_width{$media_count}")) ? theme_get_setting("nav_link_width{$media_count}") : theme_get_setting("nav_link_width{$media_count}"),
-      '#options'       => $header_width_options,
-    );
-    $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
-
-    // Calculate sidebar width options
-    $width_options = array();
-    for ($i = 1; $i <= floor($grid_width / 2); $i++) {
-      $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-      $width_options[$i] = $grid_units . (($i * ((int)$grid_type / $grid_width)) . 'px');
-    }
 
     // Sidebar first width
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
