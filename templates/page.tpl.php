@@ -149,8 +149,25 @@
   </div> <!-- /inside -->
   </div> <!-- /main -->
 
-  <?php if ($page['footer']): ?>
-    <?php print render($page['footer']); ?>
-  <?php endif; ?>
+  <footer id="footer">
+  <div class="inside">
+  <div class="g-all-row">
+
+    <?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third'] || $page['footer_fourth']): ?>
+    <div id="footer-columns" class="clearfix">
+        <?php print render($page['footer_first']); ?>
+        <?php print render($page['footer_second']); ?>
+        <?php print render($page['footer_third']); ?>
+        <?php print render($page['footer_fourth']); ?>
+      </div> <!-- /#footer-columns -->
+    <?php endif; ?>
+
+    <?php if ($page['footer']): ?>
+      <?php print render($page['footer']); ?>
+    <?php endif; ?>
+
+  </div> <!-- /g-all-row -->
+  </div> <!-- /.inside -->
+  </footer>
 
 </div> <!-- /page -->

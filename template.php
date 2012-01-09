@@ -180,6 +180,10 @@ function aether_grid_info() {
     $grid["nav_link_width{$media_count}"] = substr(theme_get_setting("nav_link_width{$media_count}"), 0);
     $grid["hgroup_first_width{$media_count}"] = substr(theme_get_setting("hgroup_first_width{$media_count}"), 0);
     $grid["hgroup_third_width{$media_count}"] = substr(theme_get_setting("hgroup_third_width{$media_count}"), 0);
+    $grid["footer_first_width{$media_count}"] = substr(theme_get_setting("footer_first_width{$media_count}"), 0);
+    $grid["footer_second_width{$media_count}"] = substr(theme_get_setting("footer_second_width{$media_count}"), 0);
+    $grid["footer_third_width{$media_count}"] = substr(theme_get_setting("footer_third_width{$media_count}"), 0);
+    $grid["footer_fourth_width{$media_count}"] = substr(theme_get_setting("footer_fourth_width{$media_count}"), 0);
     $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
     $grid["type{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 7);
     $grid["fixed{$media_count}"] = (substr(theme_get_setting("theme_grid{$media_count}"), 7) != 'fluid') ? TRUE : FALSE;
@@ -635,12 +639,27 @@ function aether_preprocess_region(&$vars, $hook) {
         $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
       }
     }
-    if (strpos($vars['region'], 'footer') === 0) {
+    if (strpos($vars['region'], 'footer_first') === 0) {
+      $vars['classes_array'][] = $offset_prefix . '';
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_first_width{$media_count}"];
+    }
+    if (strpos($vars['region'], 'footer_second') === 0) {
+      $vars['classes_array'][] = $offset_prefix . '';
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_second_width{$media_count}"];
+    }
+    if (strpos($vars['region'], 'footer_third') === 0) {
+      $vars['classes_array'][] = $offset_prefix . '';
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_third_width{$media_count}"];
+    }
+    if (strpos($vars['region'], 'footer_fourth') === 0) {
+      $vars['classes_array'][] = $offset_prefix . '';
+      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_fourth_width{$media_count}"];
+    }
+   if ($vars['region'] == 'footer') {
       $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
     }
   }
 }
-
 }
 
 
@@ -831,8 +850,4 @@ function aether_image($vars) {
   }
   return '<img' . drupal_attributes($attributes) . ' />';
 }
-
-// function aether_preprocess_image(&$vars) {
-//   unset ($vars['width'], $vars['height'], $vars['attributes']['width'],$vars['attributes']['height']);
-// }
 

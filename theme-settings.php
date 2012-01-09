@@ -191,6 +191,47 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
+
+    // Calculate sidebar width options
+    $footer_width_options = array();
+    for ($i = 1; $i <= floor($grid_width); $i++) {
+      $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
+      $footer_width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
+    }
+
+    // Footer first column width
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_first_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your first footer column'),
+      '#default_value' => (theme_get_setting("footer_first_width{$media_count}")) ? theme_get_setting("footer_first_width{$media_count}") : theme_get_setting("footer_first_width{$media_count}"),
+      '#options'       => $footer_width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_first_width{$media_count}"]['#options'][$defaults["footer_first_width{$media_count}"]] .= t(' - Theme Default');
+    // Footer second column width
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_second_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your second footer column'),
+      '#default_value' => (theme_get_setting("footer_second_width{$media_count}")) ? theme_get_setting("footer_second_width{$media_count}") : theme_get_setting("footer_second_width{$media_count}"),
+      '#options'       => $footer_width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_second_width{$media_count}"]['#options'][$defaults["footer_second_width{$media_count}"]] .= t(' - Theme Default');
+    // Footer third column width
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_third_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your third footer column'),
+      '#default_value' => (theme_get_setting("footer_third_width{$media_count}")) ? theme_get_setting("footer_third_width{$media_count}") : theme_get_setting("footer_third_width{$media_count}"),
+      '#options'       => $footer_width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_third_width{$media_count}"]['#options'][$defaults["footer_third_width{$media_count}"]] .= t(' - Theme Default');
+    // Footer fourth column width
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_fourth_width{$media_count}"] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select a different width for your fourth footer column'),
+      '#default_value' => (theme_get_setting("footer_fourth_width{$media_count}")) ? theme_get_setting("footer_fourth_width{$media_count}") : theme_get_setting("footer_fourth_width{$media_count}"),
+      '#options'       => $footer_width_options,
+    );
+    $form['aether_settings']['layout']["media{$media_count}"]["footer_fourth_width{$media_count}"]['#options'][$defaults["footer_fourth_width{$media_count}"]] .= t(' - Theme Default');
+
   }
 
   $form['aether_settings']['polyfills'] = array(

@@ -27,13 +27,9 @@
  */
 ?>
 <?php if ($content): ?>
-  <footer id="footer" class="<?php print $classes; ?>">
-    <div class="inside">
-    <div class="g-all-row">
-      <div <?php print $content_attributes; ?>>
+  <div class="<?php print $classes; ?>">
+    <div <?php print $content_attributes; ?>>
       <?php print $content; ?>
     </div>
-    </div>
-    </div>
-  </footer>
+  </div>
 <?php endif; ?>
