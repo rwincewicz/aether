@@ -4,7 +4,7 @@
 
 name = aether
 description = aether starter theme for Drupal 7
-screenshot = images/screenshot.gif
+screenshot = images/screenshot.png
 core = "7.x"
 project = "aether"
 engine = phptemplate
