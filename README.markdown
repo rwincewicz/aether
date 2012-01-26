@@ -4,6 +4,9 @@
 * Maintainer(s):
  * Kris Bulman
   * http://www.twitter.com/krisbulman
+* Designer(s):
+ * Josh Adams
+  * http://www.modcreative.ca/
 
 Introduction to Aether
 ------------------------
