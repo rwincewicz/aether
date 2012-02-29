@@ -144,45 +144,50 @@ $_allColumns: "";
   }
 }
 
-$_DesktopOffset: "";
-@for $col from 1 to ($desktop-columns + 1) {
-  @if $_DesktopOffset == "" {
-    $_DesktopOffset: ".g-d-o#{$col}";
-  } @else {
-    $_DesktopOffset: $_DesktopOffset + ", .g-d-o#{$col}";
-  }
-}
 
-$_DesktopPush: "";
-@for $col from 1 to ($desktop-columns + 1) {
-  @if $_DesktopPush == "" {
-    $_DesktopPush: ".g-d-push#{$col}";
-  } @else {
-    $_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
-  }
-}
-
-$_DesktopPull: "";
-@for $col from 1 to ($desktop-columns + 1) {
-  @if $_DesktopPull == "" {
-    $_DesktopPull: ".g-d-push#{$col}";
-  } @else {
-    $_DesktopPull: $_DesktopPull + ", .g-d-pull#{$col}";
-  }
-}
-
+// Zero out desktop push/pull/offset to avoid specificity problems 
+// in the media class stack when moving things like sidebars around.
+// This must come before column classes.
 @mixin zero-d-classes() {
-  // Zero out desktop classes to avoid specificity problems in lower widths
+
+  $_DesktopOffset: "";
+  @for $col from 1 to ($desktop-columns + 1) {
+    @if $_DesktopOffset == "" {
+      $_DesktopOffset: ".g-d-o#{$col}";
+    } @else {
+      $_DesktopOffset: $_DesktopOffset + ", .g-d-o#{$col}";
+    }
+  }
+
   #{$_DesktopOffset} {
     margin-left: 0;
   }
 
-  #{$_DesktopPull} {
-    margin-left: $gutter-width*.5;
+  $_DesktopPush: "";
+  @for $col from 1 to ($desktop-columns + 1) {
+    @if $_DesktopPush == "" {
+      $_DesktopPush: ".g-d-push#{$col}";
+    } @else {
+      $_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
+    }
   }
 
   #{$_DesktopPush} {
     margin-left: $gutter-width*.5;
     margin-right: $gutter-width*.5;
   }
+
+  $_DesktopPull: "";
+  @for $col from 1 to ($desktop-columns + 1) {
+    @if $_DesktopPull == "" {
+      $_DesktopPull: ".g-d-push#{$col}";
+    } @else {
+      $_DesktopPull: $_DesktopPull + ", .g-d-pull#{$col}";
+    }
+  }
+
+  #{$_DesktopPull} {
+    margin-left: $gutter-width*.5;
+  }
+  
 }
