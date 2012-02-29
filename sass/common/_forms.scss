@@ -1,5 +1,6 @@
+/* Forms */
+
 // UI Consistency
-//----------------------------------------------------------------------------------------------------
 
 ::-moz-focus-inner {
   border: 0;
@@ -238,7 +239,6 @@ textarea[disabled] {
   @include box-shadow(none);
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   user-select: none;
   color: $form-disabled;
   cursor: default;

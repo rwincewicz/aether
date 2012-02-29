@@ -45,11 +45,11 @@ features[] = main_menu
 features[] = secondary_menu
 
 ; --------------------------------------------------------------------------------
-; First we remove the system's menu styling since Zen has its own.
+; First we remove the system's menu styling since Aether has its own.
 ; --------------------------------------------------------------------------------
 
 stylesheets[all][] = system.menus.css
-stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/layout-desktop.css
 stylesheets[all][] = css/layout/media-visibility.css
 stylesheets[all][] = css/screen.css
 

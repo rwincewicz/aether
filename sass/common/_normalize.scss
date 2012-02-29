@@ -1,3 +1,5 @@
+/* Normalize */
+
 // HTML5 display definitions
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {
@@ -7,14 +9,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 // Corrects inline-block not defined in IE6/7/8 and FF3
 
 audio, canvas, video {
+  .ie6-8 & { display: inline; zoom: 1; }
   display: inline-block;
-}
-
-.ie6-8 {
-  audio, canvas, video {
-    display: inline;
-    zoom: 1;
-  }
 }
 
 audio:not([controls]) {
@@ -93,26 +89,22 @@ img, object, video {
 //   _width: 100%; // IE6 doesn't support max-width, so we just use width. If the image is larger than the container, just uncomment this. If it is smaller than the container, uncomment and change the 100% value to an absolute one
 }
 
-.ie6 .region-sidebar-first img,
-.ie6 .region-sidebar-second img {
-  width: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-  body {}
-  .ie6 #main img {
-    width: 100%;
+@if $legacy-support-for-ie6 {
+  @media only screen and (max-width: 768px) {
+    .ie6 #main img {
+      width: 100%;
+    }
   }
-}
-
-.ie6-8 {
-  -ms-interpolation-mode: bicubic;
 }
 
 img {
   border: 0;
-  -ms-interpolation-mode: bicubic;
   // Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images
+  .ie6-7 & { -ms-interpolation-mode: bicubic; }
+  // Workaround for responsive images in ie6, only resize in sidebars
+  @if $legacy-support-for-ie6 {
+    .ie6 .region-sidebar-first &, .ie6 .region-sidebar-second & { width: 100%; }
+  }
 }
 
 // Corrects overflow displayed oddly in IE9
