@@ -351,11 +351,10 @@ div.messages {
   border-style: solid;
   border-width: 0.077em;
   padding: 0.615em;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #339bb9));
   background-image: -webkit-linear-gradient(#5bc0de, #339bb9);
@@ -396,9 +395,8 @@ div.messages.error {
   padding: 20px;
   margin: 0 auto;
   background-color: #fff;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px, rgba(0, 0, 0, 0.1) 0 0 50px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px, rgba(0, 0, 0, 0.1) 0 0 50px inset;
-  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px, rgba(0, 0, 0, 0.1) 0 0 50px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px, rgba(0, 0, 0, 0.1) 0 0 50px inset;
   box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px, rgba(0, 0, 0, 0.1) 0 0 50px inset;
 }
 .rolledcorner:before, .rolledcorner:after {
@@ -409,24 +407,23 @@ div.messages.error {
   left: 12px;
   bottom: 12px;
   background: transparent;
-  -moz-transform: skew(-5deg) rotate(-5deg);
   -webkit-transform: skew(-5deg) rotate(-5deg);
-  -o-transform: skew(-5deg) rotate(-5deg);
+  -moz-transform: skew(-5deg) rotate(-5deg);
   -ms-transform: skew(-5deg) rotate(-5deg);
+  -o-transform: skew(-5deg) rotate(-5deg);
   transform: skew(-5deg) rotate(-5deg);
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 12px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 12px;
-  -o-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 12px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 6px 12px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 6px 12px;
   z-index: -1;
 }
 .rolledcorner:after {
   left: auto;
   right: 12px;
-  -moz-transform: skew(5deg) rotate(5deg);
   -webkit-transform: skew(5deg) rotate(5deg);
-  -o-transform: skew(5deg) rotate(5deg);
+  -moz-transform: skew(5deg) rotate(5deg);
   -ms-transform: skew(5deg) rotate(5deg);
+  -o-transform: skew(5deg) rotate(5deg);
   transform: skew(5deg) rotate(5deg);
 }
 
@@ -487,9 +484,8 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  -moz-box-shadow: #0066ff 0 0 7px 0;
   -webkit-box-shadow: #0066ff 0 0 7px 0;
-  -o-box-shadow: #0066ff 0 0 7px 0;
+  -moz-box-shadow: #0066ff 0 0 7px 0;
   box-shadow: #0066ff 0 0 7px 0;
   z-index: 1;
 }
@@ -499,9 +495,8 @@ input[type="radio"]:focus,
 input[type="radio"]:active,
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  -o-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -510,17 +505,13 @@ input[type="reset"],
 input[type="submit"],
 input[type="button"] {
   -webkit-appearance: none;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
-  -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  -o-background-clip: padding-box;
-  -ms-background-clip: padding-box;
-  -khtml-background-clip: padding-box;
+  -moz-background-clip: padding;
   background-clip: padding-box;
   background: #dddddd url('../images/button.png?1330465683') repeat-x;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dedede));
@@ -564,9 +555,8 @@ input[type="button"]:active {
   background-image: -o-linear-gradient(#ffffff, #dedede 33%, #ededed);
   background-image: -ms-linear-gradient(#ffffff, #dedede 33%, #ededed);
   background-image: linear-gradient(#ffffff, #dedede 33%, #ededed);
-  -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
-  -o-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   border-color: #989898 #b9b9b9 #dddddd;
 }
@@ -619,21 +609,16 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"] {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  -o-background-clip: padding-box;
-  -ms-background-clip: padding-box;
-  -khtml-background-clip: padding-box;
+  -moz-background-clip: padding;
   background-clip: padding-box;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -khtml-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   -webkit-appearance: none;
   background-color: white;
@@ -709,9 +694,8 @@ select[disabled],
 select[disabled] option,
 select[disabled] optgroup,
 textarea[disabled] {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  -o-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -739,9 +723,8 @@ textarea.placeholder_text {
 }
 
 :invalid {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  -o-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -902,11 +885,10 @@ table tr.even, table tr.odd {
   border: 1px solid #ddd;
   border-spacing: 0;
   border-collapse: separate;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
 }
 .bordered-table th + th,
@@ -916,36 +898,32 @@ table tr.even, table tr.odd {
 }
 .bordered-table thead tr:first-child th:first-child,
 .bordered-table tbody tr:first-child td:first-child {
-  -moz-border-radius: 4px 0 0 0;
   -webkit-border-radius: 4px 0 0 0;
-  -o-border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
   -ms-border-radius: 4px 0 0 0;
-  -khtml-border-radius: 4px 0 0 0;
+  -o-border-radius: 4px 0 0 0;
   border-radius: 4px 0 0 0;
 }
 .bordered-table thead tr:first-child th:last-child,
 .bordered-table tbody tr:first-child td:last-child {
-  -moz-border-radius: 0 4px 0 0;
   -webkit-border-radius: 0 4px 0 0;
-  -o-border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px 0 0;
   -ms-border-radius: 0 4px 0 0;
-  -khtml-border-radius: 0 4px 0 0;
+  -o-border-radius: 0 4px 0 0;
   border-radius: 0 4px 0 0;
 }
 .bordered-table tbody tr:last-child td:first-child {
-  -moz-border-radius: 0 0 0 4px;
   -webkit-border-radius: 0 0 0 4px;
-  -o-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
   -ms-border-radius: 0 0 0 4px;
-  -khtml-border-radius: 0 0 0 4px;
+  -o-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
 }
 .bordered-table tbody tr:last-child td:last-child {
-  -moz-border-radius: 0 0 4px 0;
   -webkit-border-radius: 0 0 4px 0;
-  -o-border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
   -ms-border-radius: 0 0 4px 0;
-  -khtml-border-radius: 0 0 4px 0;
+  -o-border-radius: 0 0 4px 0;
   border-radius: 0 0 4px 0;
 }
 .bordered-table th {
@@ -1021,15 +999,13 @@ ul.primary {
 ul.primary li {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
-  -o-border-top-left-radius: 4px;
   -ms-border-top-left-radius: 4px;
-  -khtml-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
-  -o-border-top-right-radius: 4px;
   -ms-border-top-right-radius: 4px;
-  -khtml-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   text-shadow: white 1px 1px 0;
   font-size: 0.923em;
@@ -1053,18 +1029,17 @@ ul.primary a {
 ul.primary a:link, ul.primary a:visited {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
-  -o-border-top-left-radius: 4px;
   -ms-border-top-left-radius: 4px;
-  -khtml-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
-  -o-border-top-right-radius: 4px;
   -ms-border-top-right-radius: 4px;
-  -khtml-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
-  -moz-transition: background-color 0.3s;
   -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
   -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
   color: #333;
@@ -1104,11 +1079,10 @@ ul.secondary li {
 ul.secondary a {
   text-decoration: none;
   font-size: 0.923em;
-  -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
-  -o-border-radius: 2em;
+  -moz-border-radius: 2em;
   -ms-border-radius: 2em;
-  -khtml-border-radius: 2em;
+  -o-border-radius: 2em;
   border-radius: 2em;
   border-style: solid;
   border-width: 0.083em;
@@ -1118,8 +1092,9 @@ ul.secondary a {
   padding: 0em 0.5em;
 }
 ul.secondary a:link, ul.secondary a:visited {
-  -moz-transition: background-color 0.2s;
   -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
   transition: background-color 0.2s;
   background-color: #f2f2f2;
@@ -1372,9 +1347,4 @@ div.admin-panel,
 div.admin-panel .body {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-test {
-  display: inline;
-  float: right;
 }
