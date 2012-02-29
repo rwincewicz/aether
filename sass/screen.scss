@@ -1,14 +1,8 @@
 @import "compass/css3";
 @import "compass/support"; // Add Compass' IE and vendor prefix support variables.
 @import "compass/layout/grid-background";
-@import "compass/typography/vertical_rhythm";
-@import "compass/typography/links/link-colors";
-@import "compass/typography/links/hover-link";
-@import "compass/utilities/general/float";
-@import "compass/css3/transform";
-@import "compass/utilities/general/clearfix";
-@import "compass/utilities/color/contrast";
-@import "compass/typography/lists/inline-list";
+@import "compass/typography";
+@import "compass/utilities";
 
 // Base mixins, variables, functions & page structure
 // Base files should produce no css

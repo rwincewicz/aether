@@ -9,7 +9,8 @@
 
 // Grid helper
 @import "layout/grid-utilities";
-@import "layout/grid-fractions";
+// enable if you want fractions for nested columns, beware of css bloat
+// @import "layout/grid-fractions"; 
 
 // Layout
 @import "layout/grid-desktop";
