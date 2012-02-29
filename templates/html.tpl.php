@@ -96,7 +96,7 @@
     <![endif]-->
   <?php elseif ($add_html5_shim): ?>
     <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_aether; ?>/js/src/html5-innershiv.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   <?php elseif ($add_selectivizr_js): ?>
     <!--[if (gte IE 6)&(lte IE 8)]>

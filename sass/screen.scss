@@ -24,3 +24,7 @@
 @import "partials/navigation";
 @import "partials/blocks";
 @import "partials/pages";
+
+test {
+@include float-right
+}

@@ -1373,3 +1373,8 @@ div.admin-panel .body {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+test {
+  display: inline;
+  float: right;
+}
