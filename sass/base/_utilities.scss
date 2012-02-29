@@ -79,19 +79,6 @@ $legacy-support-for-ie7: true !default;
   }
 }
 
-
-// Define a mixin class that controls menu styles
-@mixin menu-links-inline($padding, $width, $style, $color) {
-  li {
-    display: inline;
-    padding: 0 $padding;
-    border-right: $width $style $color;
-  }
-  .last {
-    border-right: none
-  }
- }
-
 // Center-align a block level element
 @mixin center-block {
   display: block;
