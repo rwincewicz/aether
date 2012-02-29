@@ -5,25 +5,17 @@
   width: $max-tablet-landscape-width;
   }
 
-  #{$_DesktopOffset} {
-    margin-left: 0;
-  }
-
-  #{$_DesktopPull} {
-    margin-left: $gutter-width*.5;
-  }
-
-  #{$_DesktopPush} {
-    margin-left: $gutter-width*.5;
-    margin-right: $gutter-width*.5;
-  }
-
   .g-all-row {
     @include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
     @if $show-grid-background {
       @include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
     }
   }
+
+  // Zero out desktop push/pull/offset to avoid specificity problems 
+  // in the media class stack when moving things like sidebars around.
+  // This must come before column classes.
+  @include zero-d-classes();
 
   @include grid($tablet-landscape);
 

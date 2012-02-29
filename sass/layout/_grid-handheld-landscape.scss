@@ -11,19 +11,6 @@
     -ms-text-size-adjust:none;
   }
 
-  #{$_DesktopOffset} {
-    margin-left: 0;
-  }
-
-  #{$_DesktopPull} {
-    margin-left: $gutter-width*.5;
-  }
-
-  #{$_DesktopPush} {
-    margin-left: $gutter-width*.5;
-    margin-right: $gutter-width*.5;
-  }
-
   .g-all-row {
     @include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
     @if $show-grid-background {
@@ -31,6 +18,12 @@
     }
   }
 
+  // Zero out desktop push/pull/offset to avoid specificity problems 
+  // in the media class stack when moving things like sidebars around.
+  // This must come before column classes.
+  @include zero-d-classes();
+
+  // Generate column classes for handheld landscape media
   @include grid($handheld-landscape);
 
 }

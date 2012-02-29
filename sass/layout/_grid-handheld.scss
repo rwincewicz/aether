@@ -5,25 +5,17 @@
   width: $max-handheld-width;
   }
 
-  #{$_DesktopOffset} {
-    margin-left: 0;
-  }
-
-  #{$_DesktopPull} {
-    margin-left: $gutter-width*.5;
-  }
-
-  #{$_DesktopPush} {
-    margin-left: $gutter-width*.5;
-    margin-right: $gutter-width*.5;
-  }
-
   .g-all-row {
     @include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
       @if $show-grid-background {
         @include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
       }
     }
+
+  // Zero out desktop push/pull/offset to avoid specificity problems 
+  // in the media class stack when moving things like sidebars around.
+  // This must come before column classes.
+  @include zero-d-classes();
 
   // Generate column classes for handheld media
   @include grid($handheld);

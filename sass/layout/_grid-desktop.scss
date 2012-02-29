@@ -8,7 +8,7 @@
   @include box-sizing(border-box);
   display: inline;
   float: left;
-  overflow: hidden;
+//  overflow: hidden; // If you wish to use nested columns, uncomment this
   margin-left: $gutter-width*.5;
   margin-right: $gutter-width*.5;
 }

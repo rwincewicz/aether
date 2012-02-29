@@ -170,3 +170,19 @@ $_DesktopPull: "";
     $_DesktopPull: $_DesktopPull + ", .g-d-pull#{$col}";
   }
 }
+
+@mixin zero-d-classes() {
+  // Zero out desktop classes to avoid specificity problems in lower widths
+  #{$_DesktopOffset} {
+    margin-left: 0;
+  }
+
+  #{$_DesktopPull} {
+    margin-left: $gutter-width*.5;
+  }
+
+  #{$_DesktopPush} {
+    margin-left: $gutter-width*.5;
+    margin-right: $gutter-width*.5;
+  }
+}
