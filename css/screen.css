@@ -1140,6 +1140,8 @@ ul.secondary a.active, ul.secondary a:active {
   text-shadow: #333333 1px 1px 0;
 }
 
+/* Page Backgrounds */
+/* Navigation */
 #navigation ul {
   list-style-type: none;
 }
@@ -1219,10 +1221,12 @@ a:hover, a:active {
   color: #484848;
 }
 
+/* Blocks */
 .block {
   margin-bottom: 1.385em;
 }
 
+/* Pages */
 #name-and-slogan {
   padding-top: 2.077em;
   padding-bottom: 2.077em;
