@@ -1,4 +1,4 @@
-* Github Location: http://github.com/krisbulman/aether
+* Drupal Location: http://drupal.org/sandbox/KrisBulman/1460814
 * Documentation:   http://github.com/krisbulman/aether/wiki
 * Style Guide:     http://aetherdev.bulman.ca/
 * Maintainer(s):
