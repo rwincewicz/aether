@@ -1151,20 +1151,43 @@ ul.secondary a.active, ul.secondary a:active {
   display: inline;
 }
 #navigation li {
-  display: inline;
   text-align: center;
 }
 
 #secondary {
   float: right;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#secondary:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ie6 #secondary {
+  height: 1%;
+}
+.ie7 #secondary {
+  min-height: 1%;
 }
 #secondary li {
-  display: inline;
-  padding: 0 1.5em;
-  border-right: 2px none transparent;
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  white-space: nowrap;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
-#secondary .last {
-  border-right: none;
+#secondary li {
+  *display: inline;
 }
 
 a {
@@ -1191,6 +1214,41 @@ a:focus {
 }
 a:hover, a:active {
   outline: none;
+}
+
+ul.links.inline {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ul.links.inline:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ie6 ul.links.inline {
+  height: 1%;
+}
+.ie7 ul.links.inline {
+  min-height: 1%;
+}
+ul.links.inline li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  white-space: nowrap;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+ul.links.inline li {
+  *display: inline;
 }
 
 .breadcrumb {

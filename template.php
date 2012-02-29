@@ -410,26 +410,26 @@ function aether_preprocess_node(&$vars) {
  * @param $hook
  *   The name of the template being rendered ("comment" in this case.)
  */
-function aether_preprocess_comment(&$vars, $hook) {
+function zen_preprocess_comment(&$variables, $hook) {
   // If comment subjects are disabled, don't display them.
-  if (variable_get('comment_subject_field_' . $vars['node']->type, 1) == 0) {
-    $vars['title'] = '';
+  if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
+    $variables['title'] = '';
   }
 
   // Add pubdate to submitted variable.
-  $vars['pubdate'] = '<time pubdate datetime="' . format_date($vars['comment']->created, 'custom', 'c') . '">' . $vars['created'] . '</time>';
-  $vars['submitted'] = t('!username replied on !datetime',
-    array('!username' => $vars['author'], '!datetime' => $vars['pubdate']));
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
+  $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
 
   // Zebra striping.
-  if ($vars['id'] == 1) {
-    $vars['classes_array'][] = 'first';
+  if ($variables['id'] == 1) {
+    $variables['classes_array'][] = 'first';
   }
-  if ($vars['id'] == $vars['node']->comment_count) {
-    $vars['classes_array'][] = 'last';
+  if ($variables['id'] == $variables['node']->comment_count) {
+    $variables['classes_array'][] = 'last';
   }
-  $vars['classes_array'][] = $vars['zebra'];
-  $vars['title_attributes_array']['class'][] = 'comment-title';
+  $variables['classes_array'][] = $variables['zebra'];
+
+  $variables['title_attributes_array']['class'][] = 'comment-title';
 }
 
 /**
