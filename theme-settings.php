@@ -13,8 +13,8 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
   if ($aether_altered) return;
   $aether_altered = TRUE;
 
-  // Get theme name from url (admin/.../theme_name)
-  $theme_name = arg(count(arg()) - 1);
+  // Get theme name 
+  $theme_name = $GLOBALS['theme_key'];
 
   // Get default theme settings from .info file
   $theme_data = list_themes();   // get data for all themes
