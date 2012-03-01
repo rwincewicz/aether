@@ -8,19 +8,6 @@
   display: none;
 }
 
-@media only screen and (max-width: 767px) {
-  .desktop-visible, .tablet-visible, .tablet-landscape-visible {
-    display: none !important;
-  }
-
-  .handheld-all-visible {
-    display: block !important;
-  }
-
-  a.handheld-all-visible, abbr.handheld-all-visible, acronym.handheld-all-visible, audio.handheld-all-visible, b.handheld-all-visible, basefont.handheld-all-visible, bdo.handheld-all-visible, big.handheld-all-visible, br.handheld-all-visible, canvas.handheld-all-visible, cite.handheld-all-visible, code.handheld-all-visible, command.handheld-all-visible, datalist.handheld-all-visible, dfn.handheld-all-visible, em.handheld-all-visible, embed.handheld-all-visible, font.handheld-all-visible, i.handheld-all-visible, img.handheld-all-visible, input.handheld-all-visible, keygen.handheld-all-visible, kbd.handheld-all-visible, label.handheld-all-visible, mark.handheld-all-visible, meter.handheld-all-visible, output.handheld-all-visible, progress.handheld-all-visible, q.handheld-all-visible, rp.handheld-all-visible, rt.handheld-all-visible, ruby.handheld-all-visible, s.handheld-all-visible, samp.handheld-all-visible, select.handheld-all-visible, small.handheld-all-visible, span.handheld-all-visible, strike.handheld-all-visible, strong.handheld-all-visible, sub.handheld-all-visible, sup.handheld-all-visible, textarea.handheld-all-visible, time.handheld-all-visible, tt.handheld-all-visible, u.handheld-all-visible, var.handheld-all-visible, video.handheld-all-visible, wbr.handheld-all-visible {
-    display: inline !important;
-  }
-}
 @media only screen and (max-width: 479px) {
   .desktop-visible, .tablet-visible, .tablet-landscape-visible, .handheld-landscape-visible {
     display: none !important;
@@ -47,20 +34,20 @@
     display: inline !important;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1159px) {
-  .desktop-visible, .handheld-landscape-visible, .handheld-visible {
+@media only screen and (max-width: 767px) {
+  .desktop-visible, .tablet-visible, .tablet-landscape-visible {
     display: none !important;
   }
 
-  .tablet-all-visible {
+  .handheld-all-visible {
     display: block !important;
   }
 
-  a.tablet-all-visible, abbr.tablet-all-visible, acronym.tablet-all-visible, audio.tablet-all-visible, b.tablet-all-visible, basefont.tablet-all-visible, bdo.tablet-all-visible, big.tablet-all-visible, br.tablet-all-visible, canvas.tablet-all-visible, cite.tablet-all-visible, code.tablet-all-visible, command.tablet-all-visible, datalist.tablet-all-visible, dfn.tablet-all-visible, em.tablet-all-visible, embed.tablet-all-visible, font.tablet-all-visible, i.tablet-all-visible, img.tablet-all-visible, input.tablet-all-visible, keygen.tablet-all-visible, kbd.tablet-all-visible, label.tablet-all-visible, mark.tablet-all-visible, meter.tablet-all-visible, output.tablet-all-visible, progress.tablet-all-visible, q.tablet-all-visible, rp.tablet-all-visible, rt.tablet-all-visible, ruby.tablet-all-visible, s.tablet-all-visible, samp.tablet-all-visible, select.tablet-all-visible, small.tablet-all-visible, span.tablet-all-visible, strike.tablet-all-visible, strong.tablet-all-visible, sub.tablet-all-visible, sup.tablet-all-visible, textarea.tablet-all-visible, time.tablet-all-visible, tt.tablet-all-visible, u.tablet-all-visible, var.tablet-all-visible, video.tablet-all-visible, wbr.tablet-all-visible {
+  a.handheld-all-visible, abbr.handheld-all-visible, acronym.handheld-all-visible, audio.handheld-all-visible, b.handheld-all-visible, basefont.handheld-all-visible, bdo.handheld-all-visible, big.handheld-all-visible, br.handheld-all-visible, canvas.handheld-all-visible, cite.handheld-all-visible, code.handheld-all-visible, command.handheld-all-visible, datalist.handheld-all-visible, dfn.handheld-all-visible, em.handheld-all-visible, embed.handheld-all-visible, font.handheld-all-visible, i.handheld-all-visible, img.handheld-all-visible, input.handheld-all-visible, keygen.handheld-all-visible, kbd.handheld-all-visible, label.handheld-all-visible, mark.handheld-all-visible, meter.handheld-all-visible, output.handheld-all-visible, progress.handheld-all-visible, q.handheld-all-visible, rp.handheld-all-visible, rt.handheld-all-visible, ruby.handheld-all-visible, s.handheld-all-visible, samp.handheld-all-visible, select.handheld-all-visible, small.handheld-all-visible, span.handheld-all-visible, strike.handheld-all-visible, strong.handheld-all-visible, sub.handheld-all-visible, sup.handheld-all-visible, textarea.handheld-all-visible, time.handheld-all-visible, tt.handheld-all-visible, u.handheld-all-visible, var.handheld-all-visible, video.handheld-all-visible, wbr.handheld-all-visible {
     display: inline !important;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (min-width: 768px) and (max-width: 979px) {
   .desktop-visible, .tablet-landscape-visible, .handheld-landscape-visible, .handheld-visible {
     display: none !important;
   }
@@ -73,7 +60,7 @@
     display: inline !important;
   }
 }
-@media only screen and (min-width: 960px) and (max-width: 1159px) {
+@media only screen and (min-width: 980px) and (max-width: 1159px) {
   .desktop-visible, .tablet-visible, .handheld-landscape-visible, .handheld-visible {
     display: none !important;
   }
@@ -83,6 +70,19 @@
   }
 
   a.tablet-landscape-visible, abbr.tablet-landscape-visible, acronym.tablet-landscape-visible, audio.tablet-landscape-visible, b.tablet-landscape-visible, basefont.tablet-landscape-visible, bdo.tablet-landscape-visible, big.tablet-landscape-visible, br.tablet-landscape-visible, canvas.tablet-landscape-visible, cite.tablet-landscape-visible, code.tablet-landscape-visible, command.tablet-landscape-visible, datalist.tablet-landscape-visible, dfn.tablet-landscape-visible, em.tablet-landscape-visible, embed.tablet-landscape-visible, font.tablet-landscape-visible, i.tablet-landscape-visible, img.tablet-landscape-visible, input.tablet-landscape-visible, keygen.tablet-landscape-visible, kbd.tablet-landscape-visible, label.tablet-landscape-visible, mark.tablet-landscape-visible, meter.tablet-landscape-visible, output.tablet-landscape-visible, progress.tablet-landscape-visible, q.tablet-landscape-visible, rp.tablet-landscape-visible, rt.tablet-landscape-visible, ruby.tablet-landscape-visible, s.tablet-landscape-visible, samp.tablet-landscape-visible, select.tablet-landscape-visible, small.tablet-landscape-visible, span.tablet-landscape-visible, strike.tablet-landscape-visible, strong.tablet-landscape-visible, sub.tablet-landscape-visible, sup.tablet-landscape-visible, textarea.tablet-landscape-visible, time.tablet-landscape-visible, tt.tablet-landscape-visible, u.tablet-landscape-visible, var.tablet-landscape-visible, video.tablet-landscape-visible, wbr.tablet-landscape-visible {
+    display: inline !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1159px) {
+  .desktop-visible, .handheld-landscape-visible, .handheld-visible {
+    display: none !important;
+  }
+
+  .tablet-all-visible {
+    display: block !important;
+  }
+
+  a.tablet-all-visible, abbr.tablet-all-visible, acronym.tablet-all-visible, audio.tablet-all-visible, b.tablet-all-visible, basefont.tablet-all-visible, bdo.tablet-all-visible, big.tablet-all-visible, br.tablet-all-visible, canvas.tablet-all-visible, cite.tablet-all-visible, code.tablet-all-visible, command.tablet-all-visible, datalist.tablet-all-visible, dfn.tablet-all-visible, em.tablet-all-visible, embed.tablet-all-visible, font.tablet-all-visible, i.tablet-all-visible, img.tablet-all-visible, input.tablet-all-visible, keygen.tablet-all-visible, kbd.tablet-all-visible, label.tablet-all-visible, mark.tablet-all-visible, meter.tablet-all-visible, output.tablet-all-visible, progress.tablet-all-visible, q.tablet-all-visible, rp.tablet-all-visible, rt.tablet-all-visible, ruby.tablet-all-visible, s.tablet-all-visible, samp.tablet-all-visible, select.tablet-all-visible, small.tablet-all-visible, span.tablet-all-visible, strike.tablet-all-visible, strong.tablet-all-visible, sub.tablet-all-visible, sup.tablet-all-visible, textarea.tablet-all-visible, time.tablet-all-visible, tt.tablet-all-visible, u.tablet-all-visible, var.tablet-all-visible, video.tablet-all-visible, wbr.tablet-all-visible {
     display: inline !important;
   }
 }
