@@ -93,15 +93,23 @@
   </div> <!-- /inside -->
   </header> <!-- /header -->
 
-<?php if ($main_menu): ?>
-  <nav id="navigation" class="menu<?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
-  <div class="inside">
-  <div class="g-all-row">
-    <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
-  </div> <!-- /g-all-row -->
-  </div> <!-- /inside -->
-  </nav>
-<?php endif; ?>
+  <?php if ($page['navigation'] || $main_menu): ?>
+    <nav id="navigation" class="menu<?php if ($breadcrumb) { print ' with-breadcrumb'; } ?>">
+      <div class="inside">
+      <div class="g-all-row">
+      <div class="navigation-inner <?php print $grid_width ?>">
+      <?php if ($main_menu): ?>
+        <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
+      <?php endif; ?>
+      <?php if ($page['navigation']): ?>
+        <?php print render($page['navigation']); ?>
+      <?php endif; ?>
+      </div> <!-- /navigation-inner -->
+      </div> <!-- /g-all-row -->
+      </div> <!-- /inside -->
+    </nav>
+  <?php endif; ?>
+
 
   <div id="main" class="clearfix">
   <div class="inside">
