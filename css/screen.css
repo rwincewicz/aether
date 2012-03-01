@@ -1207,44 +1207,45 @@ a:hover, a:active {
   outline: none;
 }
 
-ul.links.inline {
-  list-style-image: none;
+ul.links {
   margin: 0;
   padding: 0;
   border: 0;
 }
-ul.links.inline:after {
+ul.links:after {
   content: ".";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.ie6 ul.links.inline {
+.ie6 ul.links {
   height: 1%;
 }
-.ie7 ul.links.inline {
+.ie7 ul.links {
   min-height: 1%;
 }
 ul.links.inline li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
   white-space: nowrap;
+  display: inline;
+  float: left;
   padding-left: 1em;
   padding-right: 1em;
 }
-ul.links.inline li {
-  *display: inline;
+ul.links.inline li:first-child, ul.links.inline li.first {
+  padding-left: 0;
+}
+ul.links.inline li:last-child {
+  padding-right: 0;
+}
+ul.links.inline li.last {
+  padding-right: 0;
 }
 
 ul.action-links {
-  list-style-image: none;
   margin: 0;
   padding: 0;
   border: 0;
@@ -1266,17 +1267,20 @@ ul.action-links li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
   white-space: nowrap;
+  display: inline;
+  float: left;
   padding-left: 1em;
   padding-right: 1em;
 }
-ul.action-links li {
-  *display: inline;
+ul.action-links li:first-child, ul.action-links li.first {
+  padding-left: 0;
+}
+ul.action-links li:last-child {
+  padding-right: 0;
+}
+ul.action-links li.last {
+  padding-right: 0;
 }
 
 .breadcrumb {
