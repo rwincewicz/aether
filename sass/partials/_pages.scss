@@ -43,6 +43,7 @@
     text-align: center;
   }
   font-weight: bold;
+  font-family: $header-font-family;
   @include adjust-font-size-to($font-size-xxxl,1);
   @include margin-trailer(1, $font-size-xxxl);
   a {
