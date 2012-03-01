@@ -3,6 +3,7 @@
 #navigation {     
   ul {
     @include inline-list;
+    margin: 0;
   }
   li {
     text-align: center;
