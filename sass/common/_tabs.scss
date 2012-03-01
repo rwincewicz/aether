@@ -7,8 +7,8 @@ $tabs-border: #bbb;
 //
 // Basic positioning styles shared by primary and secondary tabs.
 //
-ul.primary,
-ul.secondary {
+.primary,
+.secondary {
   @include clearfix;
   @include trailing-border(1px, 0.45, $font-size-sm, solid);
   margin-left: 0;
@@ -28,7 +28,7 @@ ul.secondary {
 //
 // Primary tabs
 //
-ul.primary {
+.primary {
   margin-top: -1px; // Adjust upper margin to compensate for 1px tab border
   padding: 0 2px;
   li {
@@ -76,12 +76,15 @@ ul.primary {
 //
 // Secondary tabs
 //
-ul.secondary {
+.secondary {
   font-size: px-to-em($font-size-sm);
   @include margin-leader(-.65, $font-size-sm); // Collapse bottom margin of ul.primary.
   li {
     @include margin-leader(0.061, $font-size-sm);
     @include margin-trailer(0.061, $font-size-sm);
+    & li {
+      float: none;
+    }
   }
   a {
     @include pill($font-size-sm, 2em, 1px, #f2f2f2);
