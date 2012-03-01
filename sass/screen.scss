@@ -4,6 +4,9 @@
 @import "compass/typography";
 @import "compass/utilities";
 
+// Re-usable Layout utilities 
+@import "layout/grid-mediaqueries";
+
 // Base mixins, variables, functions & page structure
 // Base files should produce no css
 @import "base/utilities";

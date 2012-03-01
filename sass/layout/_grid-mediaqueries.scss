@@ -1,0 +1,22 @@
+@mixin respond-to($device) {
+  @if $device == handheld {
+    @media only screen and (max-width: 479px) {
+      @content;
+    }
+  }
+  @if $device == handheld-landscape {
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+      @content;
+    }
+  }
+  @if $device == tablet {
+    @media only screen and (min-width: 768px) and (max-width: 979px) {
+      @content;
+    }
+  }
+  @if $device == tablet-landscape {
+    @media only screen and (min-width: 980px) and (max-width: 1159px) {
+      @content;
+    }
+  }
+}

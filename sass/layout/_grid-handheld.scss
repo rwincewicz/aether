@@ -1,5 +1,5 @@
 // Handheld Portrait
-@media only screen and (max-width: 479px) {
+@include respond-to(handheld) {
   body {}
   .inside {
   width: $max-handheld-width;

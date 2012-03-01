@@ -9,8 +9,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 // Corrects inline-block not defined in IE6/7/8 and FF3
 
 audio, canvas, video {
-  .ie6-8 & { display: inline; zoom: 1; }
   display: inline-block;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    .lt-ie8 & {
+      display: inline;
+      zoom: 1;
+    }
+  }
 }
 
 audio:not([controls]) {
@@ -22,7 +27,7 @@ audio:not([controls]) {
 [hidden] {
   display: none;
   visibility: hidden;
-  }
+}
 
 // Base structure
 
@@ -34,11 +39,14 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
+// Addresses font-family inconsistency between 'textarea' and other form elements.
+
+html, button, input, select, textarea {
+  font-family: sans-serif;
+}
 
 body {
-  margin: 0 auto;
-  font-family: $text-font-family;
-  color: $text-color;
+  margin: 0;
 }
 
 // Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/
@@ -48,37 +56,20 @@ button, input, select, textarea {
   color: $text-color;
 }
 
-// Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930
+// Links
 
-sub {
-  @include adjust-font-size-to($font-size-xxs,0);
-  position: relative;
-  vertical-align: baseline;
+// Addresses outline displayed oddly in Chrome
+
+a:focus {
+  outline: thin dotted;
 }
 
-sup {
-  @include adjust-font-size-to($font-size-xxs,0);
-  position: relative;
-  vertical-align: baseline;
-  top: -0.5em; }
+// Improves readability when focused and also mouse hovered in all browsers
+// people.opera.com/patrickl/experiments/keyboard/test
 
-sub {
-  bottom: -0.25em;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-bottom: 1px solid $text-border;
-}
-
-// Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test
-
-// Figures
-
-figure {
-  margin: 0;
+a:hover,
+a:active {
+  outline: 0;
 }
 
 // Embedded content
@@ -111,13 +102,6 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-// Abbreviations
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help;
 }
 
 // Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7

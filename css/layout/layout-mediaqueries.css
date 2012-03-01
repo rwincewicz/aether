@@ -20,19 +20,19 @@
     margin-left: 5px;
   }
 
-  .g-tl-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3 {
+  .g-tl-1 {
     width: 70px;
   }
 
-  .g-tl-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
+  .g-tl-2 {
     width: 150px;
   }
 
-  .g-tl-3, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3 {
+  .g-tl-3 {
     width: 230px;
   }
 
-  .g-tl-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3 {
+  .g-tl-4 {
     width: 310px;
   }
 
@@ -40,7 +40,7 @@
     width: 390px;
   }
 
-  .g-tl-6, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3 {
+  .g-tl-6 {
     width: 470px;
   }
 
@@ -48,11 +48,11 @@
     width: 550px;
   }
 
-  .g-tl-8, .no-sidebars #content .g-all-2of3 {
+  .g-tl-8 {
     width: 630px;
   }
 
-  .g-tl-9, .one-sidebar #content .g-all-full {
+  .g-tl-9 {
     width: 710px;
   }
 
@@ -64,7 +64,7 @@
     width: 870px;
   }
 
-  .g-tl-12, .no-sidebars #content .g-all-full {
+  .g-tl-12 {
     width: 950px;
   }
 
@@ -233,19 +233,19 @@
     margin-left: 5px;
   }
 
-  .g-t-1, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3 {
+  .g-t-1 {
     width: 52.0px;
   }
 
-  .g-t-2, .two-sidebars #content .g-all-1of3, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3 {
+  .g-t-2 {
     width: 114px;
   }
 
-  .g-t-3, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .two-sidebars #content .g-all-half, .one-sidebar #content .g-all-1of3 {
+  .g-t-3 {
     width: 176px;
   }
 
-  .g-t-4, .no-sidebars #content .g-all-1of3, .two-sidebars #content .g-all-2of3 {
+  .g-t-4 {
     width: 238px;
   }
 
@@ -253,7 +253,7 @@
     width: 300px;
   }
 
-  .g-t-6, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-half, .one-sidebar #content .g-all-2of3 {
+  .g-t-6 {
     width: 362px;
   }
 
@@ -261,11 +261,11 @@
     width: 424.0px;
   }
 
-  .g-t-8, .no-sidebars #content .g-all-2of3 {
+  .g-t-8 {
     width: 486px;
   }
 
-  .g-t-9, .one-sidebar #content .g-all-full {
+  .g-t-9 {
     width: 548px;
   }
 
@@ -277,7 +277,7 @@
     width: 672px;
   }
 
-  .g-t-12, .no-sidebars #content .g-all-full {
+  .g-t-12 {
     width: 734px;
   }
 
@@ -463,7 +463,7 @@
     width: 95px;
   }
 
-  .g-hl-4, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
+  .g-hl-4 {
     width: 130px;
   }
 
@@ -471,7 +471,7 @@
     width: 165px;
   }
 
-  .g-hl-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half {
+  .g-hl-6 {
     width: 200px;
   }
 
@@ -479,7 +479,7 @@
     width: 235px;
   }
 
-  .g-hl-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3 {
+  .g-hl-8 {
     width: 270px;
   }
 
@@ -495,7 +495,7 @@
     width: 375px;
   }
 
-  .g-hl-12, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
+  .g-hl-12 {
     width: 410px;
   }
 
@@ -676,7 +676,7 @@
     width: 65px;
   }
 
-  .g-h-4, .one-sidebar .region-sidebar-first .g-all-1of3, .one-sidebar .region-sidebar-second .g-all-1of3, .two-sidebars .region-sidebar-first .g-all-1of3, .two-sidebars .region-sidebar-second .g-all-1of3, .one-sidebar #content .g-all-1of3, .two-sidebars #content .g-all-1of3, .no-sidebars #content .g-all-1of3 {
+  .g-h-4 {
     width: 90px;
   }
 
@@ -684,7 +684,7 @@
     width: 115.0px;
   }
 
-  .g-h-6, .one-sidebar .region-sidebar-first .g-all-half, .one-sidebar .region-sidebar-second .g-all-half, .two-sidebars .region-sidebar-first .g-all-half, .two-sidebars .region-sidebar-second .g-all-half, .one-sidebar #content .g-all-half, .two-sidebars #content .g-all-half, .no-sidebars #content .g-all-half {
+  .g-h-6 {
     width: 140px;
   }
 
@@ -692,7 +692,7 @@
     width: 165px;
   }
 
-  .g-h-8, .one-sidebar .region-sidebar-first .g-all-2of3, .one-sidebar .region-sidebar-second .g-all-2of3, .two-sidebars .region-sidebar-first .g-all-2of3, .two-sidebars .region-sidebar-second .g-all-2of3, .one-sidebar #content .g-all-2of3, .two-sidebars #content .g-all-2of3, .no-sidebars #content .g-all-2of3 {
+  .g-h-8 {
     width: 190px;
   }
 
@@ -708,7 +708,7 @@
     width: 265px;
   }
 
-  .g-h-12, .one-sidebar .region-sidebar-first .g-all-full, .one-sidebar .region-sidebar-second .g-all-full, .two-sidebars .region-sidebar-first .g-all-full, .two-sidebars .region-sidebar-second .g-all-full, .one-sidebar #content .g-all-full, .two-sidebars #content .g-all-full, .no-sidebars #content .g-all-full {
+  .g-h-12 {
     width: 290px;
   }
 

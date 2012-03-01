@@ -103,6 +103,44 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+// Abbreviations
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+// Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930
+
+sub {
+  @include adjust-font-size-to($font-size-xxs,0);
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  @include adjust-font-size-to($font-size-xxs,0);
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid $text-border;
+}
+
+// Figures
+
+figure {
+  margin: 0;
+}
+
 // Preformatted text and code
 
 // Allows line wrapping of 'pre'
@@ -124,20 +162,6 @@ code, kbd, samp {
 
 blockquote, q {
   quotes: none;
-}
-
-blockquote {
-  &:before, &:after {
-    content: '';
-    content: none;
-  }
-}
-
-q {
-  &:before, &:after {
-    content: '';
-    content: none;
-  }
 }
 
 blockquote, q, cite {
@@ -168,27 +192,45 @@ ul, ol, .item-list ul {
   padding: 0;
 }
 
+// Addresses margins set differently in IE6/7
+
+dl,
+menu,
+ol,
+ul,
+.item-list ul {
+  @include margin-leader(1, $base-font-size);
+  @include margin-trailer(1, $base-font-size);
+}
+
+// Addresses paddings set differently in IE6/7
+
+menu,
+ol,
+ul,
+.item-list ul {
+  padding: 0 0 0 $typographic-indent; // LTR
+}
+
 .item-list ul li {
     margin: 0;
     padding: 0;
 }
 
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
+// Corrects list images handled incorrectly in IE7
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
 }
-ul {
-  list-style: disc;
+
+// Removes list-style in IE
+
+ul.links li {
+list-style: none outside none;
 }
-ol {
-  list-style: decimal;
-}
-// this causes a problem with overlay tab line height
-//li, .item-list li {
-//  line-height: px-to-em($base-line-height);
-//}
+
 ul.unstyled {
   list-style: none;
   margin-left: 0;

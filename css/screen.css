@@ -6,7 +6,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 audio, canvas, video {
   display: inline-block;
 }
-.ie6-8 audio, .ie6-8 canvas, .ie6-8 video {
+.lt-ie8 audio, .lt-ie8 canvas, .lt-ie8 video {
   display: inline;
   zoom: 1;
 }
@@ -27,10 +27,12 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
+html, button, input, select, textarea {
+  font-family: sans-serif;
+}
+
 body {
-  margin: 0 auto;
-  font-family: "Helvetica Neue", "Helvetica", Arial, "Liberation Sans", FreeSans, sans-serif;
-  color: #222222;
+  margin: 0;
 }
 
 button, input, select, textarea {
@@ -38,34 +40,13 @@ button, input, select, textarea {
   color: #222222;
 }
 
-sub {
-  font-size: 0.769em;
-  line-height: 0em;
-  position: relative;
-  vertical-align: baseline;
+a:focus {
+  outline: thin dotted;
 }
 
-sup {
-  font-size: 0.769em;
-  line-height: 0em;
-  position: relative;
-  vertical-align: baseline;
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-bottom: 1px solid #dddddd;
-}
-
-figure {
-  margin: 0;
+a:hover,
+a:active {
+  outline: 0;
 }
 
 img, object, video {
@@ -89,11 +70,6 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help;
 }
 
 .ie6-7 table button, .ie6-7 table input {
@@ -222,6 +198,41 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: #acacac;
 }
 
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+sub {
+  font-size: 0.769em;
+  line-height: 0em;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  font-size: 0.769em;
+  line-height: 0em;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+figure {
+  margin: 0;
+}
+
 pre {
   white-space: pre;
   white-space: pre-wrap;
@@ -239,16 +250,6 @@ code, kbd, samp {
 
 blockquote, q {
   quotes: none;
-}
-
-blockquote:before, blockquote:after {
-  content: '';
-  content: none;
-}
-
-q:before, q:after {
-  content: '';
-  content: none;
 }
 
 blockquote, q, cite {
@@ -278,24 +279,35 @@ ul, ol, .item-list ul {
   padding: 0;
 }
 
+dl,
+menu,
+ol,
+ul,
+.item-list ul {
+  margin-top: 1.385em;
+  margin-bottom: 1.385em;
+}
+
+menu,
+ol,
+ul,
+.item-list ul {
+  padding: 0 0 0 1.625em;
+}
+
 .item-list ul li {
   margin: 0;
   padding: 0;
 }
 
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
 }
 
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
+ul.links li {
+  list-style: none outside none;
 }
 
 ul.unstyled {
@@ -1117,18 +1129,6 @@ ul.secondary a.active, ul.secondary a:active {
 
 /* Page Backgrounds */
 /* Navigation */
-#navigation ul {
-  list-style-type: none;
-}
-#navigation ul, #navigation ul li {
-  margin: 0px;
-  padding: 0px;
-  display: inline;
-}
-#navigation li {
-  text-align: center;
-}
-
 #secondary {
   float: right;
   margin: 0;
@@ -1192,6 +1192,7 @@ a:hover, a:active {
 }
 
 ul.links.inline {
+  list-style-image: none;
   margin: 0;
   padding: 0;
   border: 0;

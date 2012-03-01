@@ -1,5 +1,5 @@
 // Handheld Landscape
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@include respond-to(handheld-landscape) {
   body {}
   .inside {
   width: $max-handheld-landscape-width;
