@@ -1,4 +1,5 @@
 @mixin respond-to($device) {
+  // Used by visitibility classes only
   @if $device == handheld {
     @media only screen and (max-width: 479px) {
       @content;
@@ -9,6 +10,11 @@
       @content;
     }
   }
+  @if $device == handheld-all {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
   @if $device == tablet {
     @media only screen and (min-width: 768px) and (max-width: 979px) {
       @content;
@@ -16,6 +22,18 @@
   }
   @if $device == tablet-landscape {
     @media only screen and (min-width: 980px) and (max-width: 1159px) {
+      @content;
+    }
+  }
+  // Used by visitibility classes only
+  @if $device == tablet-all {
+    @media only screen and (min-width: 768px) and (max-width: 1159px) {
+      @content;
+    }
+  }
+  // Used by visitibility classes only
+  @if $device == desktop {
+    @media only screen and (min-width: 1160px) {
       @content;
     }
   }
