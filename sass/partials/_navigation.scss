@@ -1,26 +1,13 @@
 /* Navigation */
 
-//#navigation {
-//  ul {
-//    @include inline-list;
-//    list-style: none;
-//    list-style-image: none;
-//    & li {
-//      list-style-image: none;
-//    }
-//  }
-//  li {
-//    list-style-type: none;
-//    list-style-image: none;
-//    text-align: center;
-//    &.first {
-//    }
-//    &.last {
-//    }
-//    a {
-//    }
-//  }
-//}
+#navigation {     
+  ul {
+    @include inline-list;
+  }
+  li {
+    text-align: center;
+  }
+}
 
 // Primary and Secondary menus
 

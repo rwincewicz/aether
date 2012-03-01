@@ -1129,6 +1129,18 @@ ul.secondary a.active, ul.secondary a:active {
 
 /* Page Backgrounds */
 /* Navigation */
+#navigation ul {
+  list-style-type: none;
+}
+#navigation ul, #navigation ul li {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+#navigation li {
+  text-align: center;
+}
+
 #secondary {
   float: right;
   margin: 0;
