@@ -2,8 +2,8 @@
 ; Theme information
 ; --------------------------------------------------------------------------------
 
-name = aether
-description = aether starter theme for Drupal 7
+name = Aether
+description = Aether is a starter theme geared towards advanced themers. It utilizes Sass/Compass and a custom responsive grid framework. 
 screenshot = images/screenshot.png
 core = "7.x"
 project = "aether"
