@@ -1406,3 +1406,9 @@ div.admin-panel .body {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+/* Overlay */
+.overlay #header,
+.overlay #navigation {
+  display: none;
+}
