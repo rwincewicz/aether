@@ -1243,6 +1243,42 @@ ul.links.inline li {
   *display: inline;
 }
 
+ul.action-links {
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ul.action-links:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ie6 ul.action-links {
+  height: 1%;
+}
+.ie7 ul.action-links {
+  min-height: 1%;
+}
+ul.action-links li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  white-space: nowrap;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+ul.action-links li {
+  *display: inline;
+}
+
 .breadcrumb {
   color: #6f6f6f;
 }
