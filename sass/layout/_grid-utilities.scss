@@ -76,21 +76,21 @@ $desktop: "d";
 
   // generate offset classes
   @for $n from 1 through ($columns - 1) {
-    .g-#{$media}-o#{$n} {
+    .g-#{$media}-o-#{$n} {
       @include offset($n,$columns,$total-width,$column-width,$grid-width);
     }
   }
 
   // generate push classes
   @for $n from 1 through ($columns - 1) {
-    .g-#{$media}-push#{$n} {
+    .g-#{$media}-push-#{$n} {
       @include push($n,$columns,$total-width,$column-width,$grid-width);
     }
   }
 
   // generate pull classes
   @for $n from 1 through ($columns - 1) {
-    .g-#{$media}-pull#{$n} {
+    .g-#{$media}-pull-#{$n} {
       @include pull($n,$columns,$total-width,$column-width,$grid-width);
     }
   }
@@ -119,75 +119,26 @@ $desktop: "d";
 }
 
 // Create the Columns
-$_allColumns: "";
-@for $col from 1 to ($handheld-columns + 1) {
-  @if $_allColumns == "" {
-    $_allColumns: ".g-h-#{$col}, .g-hl-#{$col}";
-  } @else {
-    $_allColumns: $_allColumns + ", .g-h-#{$col}, .g-hl-#{$col}";
-  }
-}
-
-@for $col from 1 to ($tablet-columns + 1) {
-  @if $_allColumns == "" {
-    $_allColumns: ".g-t-#{$col}, .g-tl-#{$col}";
-  } @else {
-    $_allColumns: $_allColumns + ", .g-t-#{$col}, .g-tl-#{$col}";
-  }
-}
-
-@for $col from 1 to ($desktop-columns + 1) {
-  @if $_allColumns == "" {
-    $_allColumns: ".g-d-#{$col}";
-  } @else {
-    $_allColumns: $_allColumns + ", .g-d-#{$col}";
-  }
-}
-
+$_allColumns: "#{enumerate(".g-h", 1, $handheld-columns)},
+#{enumerate(".g-hl", 1, $handheld-columns)},
+#{enumerate(".g-t", 1, $tablet-columns)},
+#{enumerate(".g-tl", 1, $tablet-columns)},
+#{enumerate(".g-d", 1, $desktop-columns)}";
 
 // Zero out desktop push/pull/offset to avoid specificity problems 
 // in the media class stack when moving things like sidebars around.
 // This must come before column classes.
 @mixin zero-d-classes() {
-
-  $_DesktopOffset: "";
-  @for $col from 1 to ($desktop-columns + 1) {
-    @if $_DesktopOffset == "" {
-      $_DesktopOffset: ".g-d-o#{$col}";
-    } @else {
-      $_DesktopOffset: $_DesktopOffset + ", .g-d-o#{$col}";
-    }
-  }
-
-  #{$_DesktopOffset} {
+  #{enumerate(".g-d-o", 1, $desktop-columns)} {
     margin-left: 0;
   }
 
-  $_DesktopPush: "";
-  @for $col from 1 to ($desktop-columns + 1) {
-    @if $_DesktopPush == "" {
-      $_DesktopPush: ".g-d-push#{$col}";
-    } @else {
-      $_DesktopPush: $_DesktopPush + ", .g-d-push#{$col}";
-    }
-  }
-
-  #{$_DesktopPush} {
+  #{enumerate(".g-d-push", 1, $desktop-columns)} {
     margin-left: $gutter-width*.5;
     margin-right: $gutter-width*.5;
   }
 
-  $_DesktopPull: "";
-  @for $col from 1 to ($desktop-columns + 1) {
-    @if $_DesktopPull == "" {
-      $_DesktopPull: ".g-d-push#{$col}";
-    } @else {
-      $_DesktopPull: $_DesktopPull + ", .g-d-pull#{$col}";
-    }
-  }
-
-  #{$_DesktopPull} {
+  #{enumerate(".g-d-pull", 1, $desktop-columns)} {
     margin-left: $gutter-width*.5;
   }
-  
 }

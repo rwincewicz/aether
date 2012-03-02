@@ -356,9 +356,9 @@ function aether_preprocess_page(&$vars, $hook) {
     // Set content classes
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {
       $base_grid_prefix = $grid["prefix{$media_count}"];
-      $push_prefix = $base_grid_prefix . "push";
-      $pull_prefix = $base_grid_prefix . "pull";
-      $offset_prefix = $base_grid_prefix . "o";
+      $push_prefix = $base_grid_prefix . "push-";
+      $pull_prefix = $base_grid_prefix . "pull-";
+      $offset_prefix = $base_grid_prefix . "o-";
       $sidebar_first_width = $grid["sidebar_first_width{$media_count}"];
       $sidebar_second_width = $grid["sidebar_second_width{$media_count}"];
       $content_width = ($grid["width{$media_count}"] - $sidebar_first_width) - $sidebar_second_width;
@@ -590,9 +590,9 @@ function aether_preprocess_region(&$vars, $hook) {
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
     // Do we really need to duplicate all of these vars.. or can they be set globally in $grid
     $base_grid_prefix = $grid["prefix{$media_count}"];
-    $push_prefix = $base_grid_prefix . "push";
-    $pull_prefix = $base_grid_prefix . "pull";
-    $offset_prefix = $base_grid_prefix . "o";
+    $push_prefix = $base_grid_prefix . "push-";
+    $pull_prefix = $base_grid_prefix . "pull-";
+    $offset_prefix = $base_grid_prefix . "o-";
     $sidebar_first_width = $grid["sidebar_first_width{$media_count}"];
     $sidebar_second_width = $grid["sidebar_second_width{$media_count}"];
     $content_width = ($grid["width{$media_count}"] - $sidebar_first_width) - $sidebar_second_width;
