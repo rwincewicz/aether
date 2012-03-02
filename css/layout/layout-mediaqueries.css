@@ -1,10 +1,11 @@
+/* Tablet Landscape */
 @media only screen and (min-width: 980px) and (max-width: 1159px) {
   .inside {
     width: 970px;
   }
 
   .g-all-row {
-    width: 960.0px;
+    width: 960px;
   }
 
   .g-d-o-1, .g-d-o-2, .g-d-o-3, .g-d-o-4, .g-d-o-5, .g-d-o-6, .g-d-o-7, .g-d-o-8, .g-d-o-9, .g-d-o-10, .g-d-o-11, .g-d-o-12 {
@@ -211,6 +212,7 @@
     margin-left: -875px;
   }
 }
+/*  Tablet Portrait */
 @media only screen and (min-width: 768px) and (max-width: 979px) {
   .inside {
     width: 754px;
@@ -424,6 +426,7 @@
     margin-left: -677px;
   }
 }
+/* Handheld Landscape */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .inside {
     width: 430px;
@@ -435,7 +438,7 @@
   }
 
   .g-all-row {
-    width: 420.0px;
+    width: 420px;
   }
 
   .g-d-o-1, .g-d-o-2, .g-d-o-3, .g-d-o-4, .g-d-o-5, .g-d-o-6, .g-d-o-7, .g-d-o-8, .g-d-o-9, .g-d-o-10, .g-d-o-11, .g-d-o-12 {
@@ -642,13 +645,14 @@
     margin-left: -380px;
   }
 }
+/*  Handheld Portrait */
 @media only screen and (max-width: 479px) {
   .inside {
     width: 310px;
   }
 
   .g-all-row {
-    width: 300.0px;
+    width: 300px;
   }
 
   .g-d-o-1, .g-d-o-2, .g-d-o-3, .g-d-o-4, .g-d-o-5, .g-d-o-6, .g-d-o-7, .g-d-o-8, .g-d-o-9, .g-d-o-10, .g-d-o-11, .g-d-o-12 {

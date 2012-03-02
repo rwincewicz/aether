@@ -1,4 +1,4 @@
-// Tablet Portrait
+/*  Tablet Portrait */
 @include respond-to(tablet)  {
   body{}
   .inside {
@@ -6,7 +6,7 @@
   }
 
   .g-all-row {
-    @include row($tablet-columns,$tablet-total-width,$tablet-grid-width);
+    width: grid-width($tablet);
     @if $show-grid-background {
       @include grid-background($tablet-columns, $tablet-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
     }

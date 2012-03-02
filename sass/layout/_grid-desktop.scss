@@ -16,7 +16,7 @@
 
 .g-all-row {
   @include clearfix();
-  @include row($desktop-columns,$desktop-total-width,$desktop-grid-width);
+  width: grid-width($desktop);
   margin-right: (($gutter-width*.5)*1);
   margin-left: (($gutter-width*.5)*1);
   @if $show-grid-background {

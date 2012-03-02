@@ -10,29 +10,6 @@ $max-tablet-width:             754px !default;
 $max-handheld-landscape-width: 430px !default;
 $max-handheld-width:           310px !default;
 
-// Utility variables for column and grid wrapper widths — you should never need to modify these
-// Handheld
-$handheld-col-width:  (($max-handheld-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
-$handheld-grid-width: ($handheld-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
-// Handheld Landscape
-$handheld-landscape-col-width:  (($max-handheld-landscape-width - $gutter-width) - ($gutter-width * $handheld-columns)) / $handheld-columns;
-$handheld-landscape-grid-width: ($handheld-landscape-col-width*$handheld-columns) + ($gutter-width*$handheld-columns);
-// Tablet
-$tablet-col-width:  (($max-tablet-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
-$tablet-grid-width: ($tablet-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
-// Tablet Landscape
-$tablet-landscape-col-width:  (($max-tablet-landscape-width - $gutter-width) - ($gutter-width * $tablet-columns)) / $tablet-columns;
-$tablet-landscape-grid-width: ($tablet-landscape-col-width*$tablet-columns) + ($gutter-width*$tablet-columns);
-// Desktop
-$desktop-col-width:   (($max-desktop-width - $gutter-width) - ($gutter-width * $desktop-columns)) / $desktop-columns;
-$desktop-grid-width:  ($desktop-col-width*$desktop-columns) + ($gutter-width*$desktop-columns);
-
-$handheld-total-width:            $handheld-grid-width;
-$handheld-landscape-total-width:  $handheld-landscape-grid-width;
-$tablet-total-width:              $tablet-grid-width;
-$tablet-landscape-total-width:    $tablet-landscape-grid-width;
-$desktop-total-width:             $desktop-grid-width;
-
 // Media
 $handheld: "h";
 $handheld-landscape: "hl";
@@ -40,85 +17,130 @@ $tablet: "t";
 $tablet-landscape: "tl";
 $desktop: "d";
 
-@mixin grid($media:$desktop, $columns:$desktop-columns, $total-width:$desktop-total-width, $column-width:$desktop-col-width, $grid-width:$desktop-grid-width) {
+@function col-width($media:$desktop, $max-width:$max-desktop-width, $columns:$desktop-columns) {
+  @if $media == $handheld {
+    $columns:$handheld-columns;
+    $max-width:$max-handheld-width;
+  }
+  @else if $media == $handheld-landscape {
+    $columns:$handheld-columns;
+    $max-width:$max-handheld-landscape-width;
+  }
+  @else if $media == $tablet {
+    $columns:$tablet-columns;
+    $max-width:$max-tablet-width;
+  }
+  @else if $media == $tablet-landscape {
+    $columns:$tablet-columns;
+    $max-width:$max-tablet-landscape-width;
+  }
+  @else if $media == $desktop {
+    $columns:$desktop-columns;
+    $max-width:$max-desktop-width;
+  }
+  @return (($max-width - $gutter-width) - ($gutter-width * $columns)) / $columns;
+}
+
+@function grid-width($media:$desktop, $col-width:col-width($desktop), $columns:$desktop-columns) {
+  @if $media == $handheld {
+    $columns:$handheld-columns;
+    $col-width:col-width($handheld);
+  }
+  @else if $media == $handheld-landscape {
+    $columns:$handheld-columns;
+    $col-width:col-width($handheld-landscape);
+  }
+  @else if $media == $tablet {
+    $columns:$tablet-columns;
+    $col-width:col-width($tablet);
+  }
+  @else if $media == $tablet-landscape {
+    $columns:$tablet-columns;
+    $col-width:col-width($tablet-landscape);
+  }
+  @else if $media == $desktop {
+    $columns:$desktop-columns;
+    $col-width:col-width($desktop);
+  }
+  @return ($col-width * $columns) + ($gutter-width * $columns);
+}
+
+@mixin grid($media:$desktop, $columns:$desktop-columns, $grid-width:grid-width($desktop), $column-width:col-width($desktop)) {
 
   @if $media == $handheld {
   $columns:$handheld-columns;
-  $total-width:$handheld-total-width;
-  $column-width:$handheld-col-width;
-  $grid-width:$handheld-grid-width;
+  $grid-width:grid-width($handheld);
+  $column-width:col-width($handheld);
   }
   @if $media == $handheld-landscape {
   $columns:$handheld-columns;
-  $total-width:$handheld-landscape-total-width;
-  $column-width:$handheld-landscape-col-width;
-  $grid-width:$handheld-landscape-grid-width;
+  $grid-width:grid-width($handheld-landscape);
+  $column-width:col-width($handheld-landscape);
   }
   @else if $media == $tablet {
   $columns:$tablet-columns;
-  $total-width:$tablet-total-width;
-  $column-width:$tablet-col-width;
-  $grid-width:$tablet-grid-width;
+  $grid-width:grid-width($tablet);
+  $column-width:col-width($tablet);
   }
   @else if $media == $tablet-landscape {
   $columns:$tablet-columns;
-  $total-width:$tablet-landscape-total-width;
-  $column-width:$tablet-landscape-col-width;
-  $grid-width:$tablet-landscape-grid-width;
+  $grid-width:grid-width($tablet-landscape);
+  $column-width:col-width($tablet-landscape);
+  }
+  @else if $media == $desktop {
+  $columns:$desktop-columns;
+  $grid-width:grid-width($desktop);
+  $column-width:col-width($desktop);
   }
 
   // generate column classes
   @for $n from 1 through $columns {
     .g-#{$media}-#{$n} {
-      @include column($n,$columns,$total-width,$column-width,$grid-width);
+      @include column($n,$columns,$grid-width,$column-width);
     }
   }
 
   // generate offset classes
   @for $n from 1 through ($columns - 1) {
     .g-#{$media}-o-#{$n} {
-      @include offset($n,$columns,$total-width,$column-width,$grid-width);
+      @include offset($n,$columns,$grid-width,$column-width);
     }
   }
 
   // generate push classes
   @for $n from 1 through ($columns - 1) {
     .g-#{$media}-push-#{$n} {
-      @include push($n,$columns,$total-width,$column-width,$grid-width);
+      @include push($n,$columns,$grid-width,$column-width);
     }
   }
 
   // generate pull classes
   @for $n from 1 through ($columns - 1) {
     .g-#{$media}-pull-#{$n} {
-      @include pull($n,$columns,$total-width,$column-width,$grid-width);
+      @include pull($n,$columns,$grid-width,$column-width);
     }
   }
 
 }
 
-@mixin row($columns:$desktop-columns,$total-width:$desktop-total-width,$grid-width:$desktop-grid-width) {
-  width: $total-width*(($gutter-width + $grid-width)/$grid-width) - $gutter-width;
+@mixin column($n,$columns:$desktop-columns,$grid-width:grid-width($desktop),$column-width:col-width($desktop)) {
+  width: $grid-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width);
 }
 
-@mixin column($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-  width: $total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width);
+@mixin offset($n,$columns:$desktop-columns,$grid-width:grid-width($desktop),$column-width:col-width($desktop)) {
+  margin-left: ($grid-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($grid-width*(($gutter-width)/$grid-width));
 }
 
-@mixin offset($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-  margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width));
+@mixin push($n,$columns:$desktop-columns,$grid-width:grid-width($desktop),$column-width:col-width($desktop)) {
+  margin-left: ($grid-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($grid-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
+  margin-right: (-$grid-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$grid-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
-@mixin push($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-  margin-left: ($total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + ($total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
-  margin-right: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
+@mixin pull($n,$columns:$desktop-columns,$grid-width:grid-width($desktop),$column-width:col-width($desktop)) {
+  margin-left: (-$grid-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$grid-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
 }
 
-@mixin pull($n,$columns:$desktop-columns,$total-width:$desktop-total-width,$column-width:$desktop-col-width,$grid-width:$desktop-grid-width) {
-  margin-left: (-$total-width*(((($gutter-width+$column-width)*$n)-$gutter-width) / $grid-width)) + (-$total-width*(($gutter-width)/$grid-width)) + $gutter-width/2;
-}
-
-// Create the Columns
+// Create a variable that stores all column classes
 $_allColumns: "#{enumerate(".g-h", 1, $handheld-columns)},
 #{enumerate(".g-hl", 1, $handheld-columns)},
 #{enumerate(".g-t", 1, $tablet-columns)},

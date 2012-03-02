@@ -1,4 +1,4 @@
-// Handheld Portrait
+/*  Handheld Portrait */
 @include respond-to(handheld) {
   body {}
   .inside {
@@ -6,7 +6,7 @@
   }
 
   .g-all-row {
-    @include row($handheld-columns,$handheld-total-width,$handheld-grid-width);
+      width: grid-width($handheld);
       @if $show-grid-background {
         @include grid-background($handheld-columns, $handheld-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
       }

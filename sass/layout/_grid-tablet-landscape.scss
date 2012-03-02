@@ -1,4 +1,4 @@
-// Tablet Landscape
+/* Tablet Landscape */
 @include respond-to(tablet-landscape) {
   body{}
   .inside {
@@ -6,7 +6,7 @@
   }
 
   .g-all-row {
-    @include row($tablet-columns,$tablet-landscape-total-width,$tablet-landscape-grid-width);
+    width: grid-width($tablet-landscape);
     @if $show-grid-background {
       @include grid-background($tablet-columns, $tablet-landscape-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
     }

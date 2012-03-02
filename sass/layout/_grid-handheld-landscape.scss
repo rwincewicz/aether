@@ -1,4 +1,4 @@
-// Handheld Landscape
+/* Handheld Landscape */
 @include respond-to(handheld-landscape) {
   body {}
   .inside {
@@ -12,7 +12,7 @@
   }
 
   .g-all-row {
-    @include row($handheld-columns,$handheld-landscape-total-width,$handheld-landscape-grid-width);
+    width: grid-width($handheld-landscape);
     @if $show-grid-background {
       @include grid-background($handheld-columns, $handheld-landscape-col-width, $gutter-width, $base-line-height, $gutter-width*.5);
     }
