@@ -1,23 +1,32 @@
 <?php
+/**
+ * @file
+ * Contains theme override functions for Theme Settings.
+ */
 
-// Form override fo theme settings
+/**
+ * Implements hook_form_system_theme_settings_alter() function.
+ *
+ * @param $form
+ *   Nested array of form elements that comprise the form.
+ * @param $form_state
+ *   A keyed array containing the current state of the form.
+ */
 function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
   global $base_path;
-  /**
-   * @ code
-   * a bug in D7 causes the theme to load twice, if this file is loaded a
-   * second time we return immediately to prevent further complications.
-   */
-  global $aether_altered, $base_path;
-  if ($aether_altered) return;
-  $aether_altered = TRUE;
+  // A bug in D7 causes the theme to load twice, if this file is loaded a
+  // Second time we return immediately to prevent further complications.
+  global $_aether_altered, $base_path;
+  if ($_aether_altered) return;
+  $_aether_altered = TRUE;
 
-  // Get theme name 
+  // Get theme name.
   $theme_name = $GLOBALS['theme_key'];
 
-  // Get default theme settings from .info file
-  $theme_data = list_themes();   // get data for all themes
+  // Get default theme settings from .info file.
+  // get data for all themes.
+  $theme_data = list_themes();
   $defaults = ($theme_name && isset($theme_data[$theme_name]->info['settings'])) ? $theme_data[$theme_name]->info['settings'] : array();
 
   $subject_theme = arg(count(arg()) - 1);
@@ -86,7 +95,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#type' => 'fieldset',
     );
 
-    // Sidebar layout
+    // Sidebar layout.
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"] = array(
       '#type'          => 'radios',
       '#title'         => t('@media Sidebar layout', array('@media' => $medium)),
@@ -102,13 +111,13 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
 
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_layout{$media_count}"]['#options'][$defaults["sidebar_layout{$media_count}"]] .= t(' - Theme Default');
 
-    // Grid type
-    // Generate grid type options
+    // Grid type.
+    // Generate grid type options.
     $grid_options = array();
     if (isset($defaults["theme_grid_options{$media_count}"])) {
       foreach ($defaults["theme_grid_options{$media_count}"] as $grid_option) {
         $grid_type = t('grid') . ' [' . substr($grid_option, 7) . 'px]';
-        $grid_options[$grid_option] = (int)substr($grid_option, 4, 2) . t(' column ') . $grid_type;
+        $grid_options[$grid_option] = (int) substr($grid_option, 4, 2) . t(' column ') . $grid_type;
       }
     }
     $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"] = array(
@@ -119,17 +128,17 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     );
     $form['aether_settings']['layout']["media{$media_count}"]["theme_grid{$media_count}"]['#options'][$defaults["theme_grid{$media_count}"]] .= t(' - Theme Default');
 
-    // Calculate Header and nav link width options
-    $gutter_width = (int)substr(theme_get_setting("gutter_width"), 0, 2);
-    $grid_width = (int)substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
+    // Calculate Header and nav link width options.
+    $gutter_width = (int) substr(theme_get_setting("gutter_width"), 0, 2);
+    $grid_width = (int) substr(theme_get_setting("theme_grid{$media_count}"), 4, 2);
     $grid_type = substr(theme_get_setting("theme_grid{$media_count}"), 7);
     $header_width_options = array();
     for ($i = 1; $i <= floor($grid_width); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
-      $nav_width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
+      $nav_width_options[$i] = $grid_units . ((($i * (((int) $grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
     }
 
-    // Navigation link width
+    // Navigation link width.
     $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select the number of columns for each link in the navigation bar'),
@@ -138,8 +147,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     );
     $form['aether_settings']['layout']["media{$media_count}"]["nav_link_width{$media_count}"]['#options'][$defaults["nav_link_width{$media_count}"]] .= t(' - Theme Default');
 
-
-    // Header layout
+    // Header layout.
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_layout{$media_count}"] = array(
       '#type'          => 'radios',
       '#title'         => t('@media Header layout options', array('@media' => $medium)),
@@ -151,14 +159,14 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       ),
     );
 
-    // Calculate sidebar width options
+    // Calculate sidebar width options.
     $width_options = array();
     for ($i = 1; $i <= floor($grid_width / 2); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
       $width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
     }
 
-    // Header group first width
+    // Header group first width.
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_first_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select the number of columns for the 1st group in the header region (contains logo)'),
@@ -166,7 +174,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_first_width{$media_count}"]['#options'][$defaults["hgroup_first_width{$media_count}"]] .= t(' - Theme Default');
-    // Header group second width
+    // Header group second width.
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_third_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select the number of columns for the 2nd group in the header region (contains secondary links)'),
@@ -175,7 +183,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     );
     $form['aether_settings']['layout']["media{$media_count}"]["hgroup_third_width{$media_count}"]['#options'][$defaults["hgroup_third_width{$media_count}"]] .= t(' - Theme Default');
 
-    // Sidebar first width
+    // Sidebar first width.
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your first sidebar'),
@@ -183,7 +191,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_first_width{$media_count}"]['#options'][$defaults["sidebar_first_width{$media_count}"]] .= t(' - Theme Default');
-    // Sidebar last width
+    // Sidebar last width.
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your second sidebar'),
@@ -192,14 +200,14 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     );
     $form['aether_settings']['layout']["media{$media_count}"]["sidebar_second_width{$media_count}"]['#options'][$defaults["sidebar_second_width{$media_count}"]] .= t(' - Theme Default');
 
-    // Calculate sidebar width options
+    // Calculate sidebar width options.
     $footer_width_options = array();
     for ($i = 1; $i <= floor($grid_width); $i++) {
       $grid_units = $i . (($i == 1) ? t(' grid unit: ') : t(' grid units: '));
       $footer_width_options[$i] = $grid_units . ((($i * (((int)$grid_type - $gutter_width) / $grid_width)) - $gutter_width) . 'px');
     }
 
-    // Footer first column width
+    // Footer first column width.
     $form['aether_settings']['layout']["media{$media_count}"]["footer_first_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your first footer column'),
@@ -207,7 +215,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $footer_width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["footer_first_width{$media_count}"]['#options'][$defaults["footer_first_width{$media_count}"]] .= t(' - Theme Default');
-    // Footer second column width
+    // Footer second column width.
     $form['aether_settings']['layout']["media{$media_count}"]["footer_second_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your second footer column'),
@@ -215,7 +223,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $footer_width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["footer_second_width{$media_count}"]['#options'][$defaults["footer_second_width{$media_count}"]] .= t(' - Theme Default');
-    // Footer third column width
+    // Footer third column width.
     $form['aether_settings']['layout']["media{$media_count}"]["footer_third_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your third footer column'),
@@ -223,7 +231,7 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
       '#options'       => $footer_width_options,
     );
     $form['aether_settings']['layout']["media{$media_count}"]["footer_third_width{$media_count}"]['#options'][$defaults["footer_third_width{$media_count}"]] .= t(' - Theme Default');
-    // Footer fourth column width
+    // Footer fourth column width.
     $form['aether_settings']['layout']["media{$media_count}"]["footer_fourth_width{$media_count}"] = array(
       '#type'          => 'select',
       '#title'         => t('Select a different width for your fourth footer column'),
@@ -241,7 +249,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#collapsed' => TRUE,
     '#weight' => 10,
   );
-
   $form['aether_settings']['polyfills']['aether_html5_respond_meta'] = array(
     '#type'          => 'checkboxes',
     '#title'         => t('Add HTML5 and responsive scripts and meta tags to every page.'),
@@ -256,7 +263,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     ),
     '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable these options. Mobile devices require a few meta tags for responsive designs.', array('!link' => 'http://www.modernizr.com/')),
   );
-
   $form['aether_settings']['drupal'] = array(
     '#title' => t('Drupal core options'),
     '#type' => 'fieldset',
@@ -264,7 +270,6 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#collapsed' => TRUE,
     '#weight' => 11,
   );
-
   $form['aether_settings']['drupal']['aether_breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),
@@ -275,10 +280,10 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#title'         => t('Display breadcrumb'),
     '#default_value' => theme_get_setting('aether_breadcrumb'),
     '#options'       => array(
-                          'yes'   => t('Yes'),
-                          'admin' => t('Only in admin section'),
-                          'no'    => t('No'),
-                        ),
+      'yes'   => t('Yes'),
+      'admin' => t('Only in admin section'),
+      'no'    => t('No'),
+    ),
   );
   $form['aether_settings']['drupal']['aether_breadcrumb']['aether_breadcrumb_separator'] = array(
     '#type'          => 'textfield',
@@ -287,7 +292,8 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('aether_breadcrumb_separator'),
     '#size'          => 5,
     '#maxlength'     => 10,
-    '#prefix'        => '<div id="div-aether-breadcrumb-collapse">', // jquery hook to show/hide optional widgets
+    '#prefix'        => '<div id="div-aether-breadcrumb-collapse">',
+    // Jquery hook to show/hide optional widgets.
   );
   $form['aether_settings']['drupal']['aether_breadcrumb']['aether_breadcrumb_home'] = array(
     '#type'          => 'checkbox',
@@ -305,17 +311,15 @@ function aether_form_system_theme_settings_alter(&$form, $form_state) {
     '#title'         => t('Append the content title to the end of the breadcrumb'),
     '#default_value' => theme_get_setting('aether_breadcrumb_title'),
     '#description'   => t('Useful when the breadcrumb is not placed just before the title.'),
-    '#suffix'        => '</div>', // #div-aether-breadcrumb
+    '#suffix'        => '</div>',
   );
-
- $form['aether_settings']['themedev'] = array(
+  $form['aether_settings']['themedev'] = array(
     '#title' => t('Debugging'),
     '#type' => 'fieldset',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#weight' => 12,
   );
-
   $form['aether_settings']['themedev']['aether_skip_link_anchor'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Anchor ID for the “skip link”'),
