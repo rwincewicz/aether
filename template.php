@@ -1,8 +1,8 @@
 <?php
 
-/*
- * Here we override the default HTML output of drupal.
- * refer to http://drupal.org/node/550722
+/**
+ * @file
+ * Contains theme override functions and preprocess functions for Aether.
  */
 
 // Auto-rebuild the theme registry during theme development.
@@ -16,33 +16,33 @@ if (theme_get_setting('clear_registry')) {
 /**
  * Implements hook_preprocess_html().
  */
-function aether_preprocess_html(&$vars, $hook) {
+function aether_preprocess_html(&$variables, $hook) {
   // Add paths needed for html5shim.
-  $vars['base_path'] = base_path();
-  $vars['path_to_aether'] = drupal_get_path('theme', 'aether');
+  $variables['base_path'] = base_path();
+  $variables['path_to_aether'] = drupal_get_path('theme', 'aether');
   $html5_respond_meta = theme_get_setting('aether_html5_respond_meta');
-  $vars['add_html5_shim']      = in_array('html5', $html5_respond_meta);
-  $vars['add_respond_js']      = in_array('respond', $html5_respond_meta);
-  $vars['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
-  $vars['add_ios_viewport_bugfix'] = in_array('ioszoombugfix', $html5_respond_meta);
-  $vars['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
-  $vars['add_imgsizer_js']  = in_array('imgsizer', $html5_respond_meta);
-  $vars['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
-  $vars['skip_link_text'] = theme_get_setting('aether_skip_link_text');
+  $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
+  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
+  $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
+  $variables['add_ios_viewport_bugfix'] = in_array('ioszoombugfix', $html5_respond_meta);
+  $variables['add_selectivizr_js']  = in_array('selectivizr', $html5_respond_meta);
+  $variables['add_imgsizer_js']  = in_array('imgsizer', $html5_respond_meta);
+  $variables['skip_link_anchor'] = theme_get_setting('aether_skip_link_anchor');
+  $variables['skip_link_text'] = theme_get_setting('aether_skip_link_text');
 
   // Attributes for html element.
-  $vars['html_attributes_array'] = array(
-    'lang' => $vars['language']->language,
-    'dir' => $vars['language']->dir,
+  $variables['html_attributes_array'] = array(
+    'lang' => $variables['language']->language,
+    'dir' => $variables['language']->dir,
   );
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  if (!$vars['is_front'] && $hook == 'html') {
+  if (!$variables['is_front'] && $hook == 'html') {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
-    list($section, ) = explode('/', $path, 2);
+    list($section,) = explode('/', $path, 2);
     $arg = explode('/', $_GET['q']);
     if ($arg[0] == 'node') {
       if ($arg[1] == 'add') {
@@ -52,70 +52,84 @@ function aether_preprocess_html(&$vars, $hook) {
         $section = 'node-' . $arg[2];
       }
     }
-    $vars['classes_array'][] = drupal_html_class('section-' . $section);
+    $variables['classes_array'][] = drupal_html_class('section-' . $section);
   }
+  // Optionally add wireframes.
   if (theme_get_setting('zen_wireframes')) {
-    $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
+    $variables['classes_array'][] = 'with-wireframes';
   }
+  // If media queries are enabled in theme-settings.
   if (in_array('1', theme_get_setting('layout_options'))) {
-    $vars['classes_array'][] = 'responsive-all'; // If media queries are enabled in theme-settings.
+    $variables['classes_array'][] = 'responsive-all';
   }
+  // If header adheres to grid.
   if (in_array('2', theme_get_setting('layout_options'))) {
-    $vars['classes_array'][] = 'grid-en-header'; // If header adheres to grid.
+    $variables['classes_array'][] = 'grid-en-header';
   }
+  // If header adheres to grid.
   else {
-    $vars['classes_array'][] = 'grid-dis-header'; // If header adheres to grid.
+    $variables['classes_array'][] = 'grid-dis-header';
   }
+  // If navigation bar links adheres to grid.
   if (in_array('3', theme_get_setting('layout_options'))) {
-    $vars['classes_array'][] = 'grid-en-nav'; //  If navigation bar links adheres to grid.
+    $variables['classes_array'][] = 'grid-en-nav';
   }
+  // If header adheres to grid.
   else {
-    $vars['classes_array'][] = 'grid-dis-nav'; // If header adheres to grid.
+    $variables['classes_array'][] = 'grid-dis-nav';
   }
   // Store the menu item since it has some useful information.
   if ($hook == 'html') {
-    $vars['menu_item'] = menu_get_item();
-    if ($vars['menu_item']) {
-      switch ($vars['menu_item']['page_callback']) {
+    $variables['menu_item'] = menu_get_item();
+    if ($variables['menu_item']) {
+      switch ($variables['menu_item']['page_callback']) {
         case 'views_page':
           // Is this a Views page?
-          $vars['classes_array'][] = 'page-views';
+          $variables['classes_array'][] = 'page-views';
           break;
+
         case 'page_manager_page_execute':
         case 'page_manager_node_view':
         case 'page_manager_contact_site':
           // Is this a Panels page?
-          $vars['classes_array'][] = 'page-panels';
+          $variables['classes_array'][] = 'page-panels';
           break;
       }
     }
   }
 
   if (in_array('1', theme_get_setting('layout_options'))) {
-  // then load the media queries
-    drupal_add_css(drupal_get_path('theme', 'aether') . '/css/layout/layout-mediaqueries.css', array('group' => CSS_THEME, 'preprocess' => TRUE, 'every_page' => TRUE, 'weight' => '0'));
+    // Then load the media queries.
+    drupal_add_css(drupal_get_path('theme', 'aether') . '/css/layout/layout-mediaqueries.css',
+      array(
+        'group' => CSS_THEME,
+        'preprocess' => TRUE,
+        'every_page' => TRUE,
+        'weight' => '0',
+      )
+    );
   }
 
 }
 
 /**
- * Override or insert vars into the html templates.
+ * Override or insert variables into the html templates.
  *
- * @param $vars
- *   An array of vars to pass to the theme template.
+ * @param $variables
+ *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-function aether_process_html(&$vars, $hook) {
+function aether_process_html(&$variables, $hook) {
   // Flatten out html_attributes.
-  $vars['html_attributes'] = drupal_attributes($vars['html_attributes_array']);
+  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
 }
 
 /**
- * Override or insert vars in the html_tag theme function.
+ * Override or insert variables in the html_tag theme function.
  */
-function aether_process_html_tag(&$vars) {
-  $tag = &$vars['element'];
+function aether_process_html_tag(&$variables) {
+  $tag = &$variables['element'];
 
   if ($tag['#tag'] == 'style' || $tag['#tag'] == 'script') {
     // Remove redundant type attribute and CDATA comments.
@@ -144,14 +158,15 @@ function aether_html_head_alter(&$head) {
 function aether_theme() {
   return array(
     'grid_block' => array(
-      'vars' => array('content' => NULL, 'id' => NULL),
+      'variables' => array('content' => NULL, 'id' => NULL),
     ),
   );
 }
 
 /**
  * Returns a list of blocks.
- * Uses Drupal block interface and appends any blocks assigned by the Context module.
+ * Uses Drupal block interface,
+ * Appends any blocks assigned by the Context module.
  */
 function aether_block_list($region) {
   $drupal_list = array();
@@ -165,6 +180,9 @@ function aether_block_list($region) {
   return $drupal_list;
 }
 
+/**
+ * Generate initial grid info
+ */
 function aether_grid_info() {
   global $theme_key;
 
@@ -187,7 +205,7 @@ function aether_grid_info() {
     $grid["name{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 0, 7);
     $grid["type{$media_count}"] = substr(theme_get_setting("theme_grid{$media_count}"), 7);
     $grid["fixed{$media_count}"] = (substr(theme_get_setting("theme_grid{$media_count}"), 7) != 'fluid') ? TRUE : FALSE;
-    $grid["width{$media_count}"] = (int)substr($grid["name{$media_count}"], 4, 2);
+    $grid["width{$media_count}"] = (int) substr($grid["name{$media_count}"], 4, 2);
     $grid["sidebar_first_width{$media_count}"] = (aether_block_list('sidebar_first')) ? theme_get_setting("sidebar_first_width{$media_count}") : 0;
     $grid["sidebar_second_width{$media_count}"] = (aether_block_list('sidebar_second')) ? theme_get_setting("sidebar_second_width{$media_count}") : 0;
 
@@ -209,7 +227,12 @@ function aether_grid_info() {
           }
         }
       }
-      $grid['regions'][$region] = array('width' => $region_width, 'style' => $region_style, 'total' => count(aether_block_list($region)), 'count' => 0);
+      $grid['regions'][$region] = array(
+        'width' => $region_width,
+        'style' => $region_style,
+        'total' => count(aether_block_list($region)),
+        'count' => 0,
+      );
     }
 
   }
@@ -220,66 +243,64 @@ function aether_grid_info() {
 /**
  * Implements hook_preprocess_page().
  */
-function aether_preprocess_page(&$vars, $hook) {
-  if (isset($vars['node_title'])) {
-    $vars['title'] = $vars['node_title'];
+function aether_preprocess_page(&$variables, $hook) {
+  if (isset($variables['node_title'])) {
+    $variables['title'] = $variables['node_title'];
   }
-  // Adding a class to #page in wireframe mode
+  // Adding a class to #page in wireframe mode.
   if (theme_get_setting('wireframe_mode')) {
-    $vars['classes_array'][] = 'wireframe-mode';
+    $variables['classes_array'][] = 'wireframe-mode';
   }
-  // Adding classes wether #navigation is here or not
-  if (!empty($vars['main_menu']) or !empty($vars['sub_menu'])) {
-    $vars['classes_array'][] = 'with-navigation';
+  // Adding classes wether #navigation is here or not.
+  if (!empty($variables['main_menu']) or !empty($variables['sub_menu'])) {
+    $variables['classes_array'][] = 'with-navigation';
   }
-  if (!empty($vars['secondary_menu'])) {
-    $vars['classes_array'][] = 'with-subnav';
+  if (!empty($variables['secondary_menu'])) {
+    $variables['classes_array'][] = 'with-subnav';
   }
-  $vars['content_attributes_array']['class'][] = 'content-inner';
+  $variables['content_attributes_array']['class'][] = 'content-inner';
 
-
-
-  // Set grid width
+  // Set grid width.
   $grid = aether_grid_info();
   $media_queries = in_array('1', theme_get_setting('layout_options')) ? theme_get_setting('media_queries') : 1;
 
   for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
 
-    // Adjust width vars for nested grid groups
+    // Adjust width variables for nested grid groups.
     $grid_adjusted_groups = (theme_get_setting('grid_adjusted_groups')) ? theme_get_setting('grid_adjusted_groups') : array();
     foreach (array_keys($grid_adjusted_groups) as $group) {
       $width = $grid["width{$media_count}"];
       foreach ($grid_adjusted_groups[$group] as $region) {
         $width = $width - $grid['regions'][$region]['width'];
       }
-      $vars[$group . '_width'] = $grid["width{$media_count}"] . $width;
+      $variables[$group . '_width'] = $grid["width{$media_count}"] . $width;
     }
 
-    // Add nav to grid option if checked
+    // Add nav to grid option if checked.
     if (in_array('3', theme_get_setting('layout_options'))) {
       $base_grid_prefix = $grid["prefix{$media_count}"];
       $nav_link_width = $grid["nav_link_width{$media_count}"];
-      foreach ($vars['main_menu'] as $key => $value) {
-        $vars['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
+      foreach ($variables['main_menu'] as $key => $value) {
+        $variables['main_menu'][$key]['attributes']['class'][] = $base_grid_prefix . "$nav_link_width ";
       }
     }
-    // Create full grid width var and classes
-    $vars['grid_width_array'][] = $grid["prefix{$media_count}"] . $grid["width{$media_count}"] . ' ';
-    $vars['grid_width'] = implode(' ', $vars['grid_width_array']);
+    // Create full grid width var and classes.
+    $variables['grid_width_array'][] = $grid["prefix{$media_count}"] . $grid["width{$media_count}"] . ' ';
+    $variables['grid_width'] = implode(' ', $variables['grid_width_array']);
 
-    // Define vars for class insertion if header is aligned to grid
-    $vars['hgroup_first_width_array'][] = '';
-    $vars['hgroup_second_width_array'][] = '';
-    $vars['hgroup_third_width_array'][] = '';
-    $vars['hgroup_third_classes_array'][] = '';
-    $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
-    $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
-    $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
-    $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
+    // Define variables for class insertion if header is aligned to grid.
+    $variables['hgroup_first_width_array'][] = '';
+    $variables['hgroup_second_width_array'][] = '';
+    $variables['hgroup_third_width_array'][] = '';
+    $variables['hgroup_third_classes_array'][] = '';
+    $variables['hgroup_first_width'] = implode(' ', $variables['hgroup_first_width_array']);
+    $variables['hgroup_second_width'] = implode(' ', $variables['hgroup_second_width_array']);
+    $variables['hgroup_third_width'] = implode(' ', $variables['hgroup_third_width_array']);
+    $variables['hgroup_third_classes'] = implode(' ', $variables['hgroup_third_classes_array']);
 
     if (in_array('2', theme_get_setting('layout_options'))) {
-      // Set hgroup vars and classes
-      if ($region == 'hgroup_first' || $region == 'hgroup_second' || $region == 'hgroup_third' || (isset($vars['logo'])) || (isset($vars['site_name'])) || (isset($vars['site_slogan'])) || (isset($vars['secondary_menu']))) {
+      // Set hgroup variables and classes.
+      if ($region == 'hgroup_first' || $region == 'hgroup_second' || $region == 'hgroup_third' || (isset($variables['logo'])) || (isset($variables['site_name'])) || (isset($variables['site_slogan'])) || (isset($variables['secondary_menu']))) {
         $base_grid_prefix = $grid["prefix{$media_count}"];
         $logo_width = $grid["hgroup_first_width{$media_count}"];
         $seclinks_width = $grid["hgroup_third_width{$media_count}"];
@@ -289,71 +310,71 @@ function aether_preprocess_page(&$vars, $hook) {
         $logo_sitename_width = $logo_width + $sitename_width;
         $seclinks_sitename_width = $seclinks_width + $sitename_width;
         if (theme_get_setting("hgroup_layout{$media_count}") === '1') {
-          if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $sitename_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          if ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $sitename_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($variables['site_name'])) && (empty($variables['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $logo_sitename_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $logo_sitename_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
           }
-          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
+          elseif ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($variables['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
           }
-          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
+          elseif ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($variables['site_name'])) && (empty($variables['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_third_classes_array'][] = $base_grid_prefix . 'o' . $logo_sitename_width;
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $seclinks_width;
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($variables['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           }
         }
         elseif (theme_get_setting("hgroup_layout{$media_count}") === '2') {
-          if ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $seclinks_sitename_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          if ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $seclinks_sitename_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];;
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((empty($variables['site_name'])) && (empty($variables['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];;
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 1)) {
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           }
-          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
+          elseif ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($variables['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . ($grid["width{$media_count}"] - $logo_width);
           }
-          elseif ((!empty($vars['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($vars['site_name'])) && (empty($vars['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($vars['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_third_classes_array'][] = '';
-            $vars['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
-            $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          elseif ((!empty($variables['logo']) || $grid['regions']['hgroup_first']['total'] === 1) && (((empty($variables['site_name'])) && (empty($variables['site_slogan'])) && $grid['regions']['hgroup_second']['total'] === 0)) && ((!empty($variables['secondary_menu'])) || $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_third_classes_array'][] = '';
+            $variables['hgroup_first_width_array'][] = $base_grid_prefix . $logo_width;
+            $variables['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           }
-          elseif ((empty($vars['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($vars['site_name'])) || (!empty($vars['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($vars['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
-            $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          elseif ((empty($variables['logo']) && $grid['regions']['hgroup_first']['total'] === 0) && (((!empty($variables['site_name'])) || (!empty($variables['site_slogan'])) || $grid['regions']['hgroup_second']['total'] === 1)) && ((empty($variables['secondary_menu'])) && $grid['regions']['hgroup_third']['total'] === 0)) {
+            $variables['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
           }
         }
         else {
-          $vars['hgroup_first_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-          $vars['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
-          $vars['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          $variables['hgroup_first_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          $variables['hgroup_second_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
+          $variables['hgroup_third_width_array'][] = $base_grid_prefix . $grid["width{$media_count}"];
         }
-          $vars['hgroup_first_width'] = implode(' ', $vars['hgroup_first_width_array']);
-          $vars['hgroup_second_width'] = implode(' ', $vars['hgroup_second_width_array']);
-          $vars['hgroup_third_width'] = implode(' ', $vars['hgroup_third_width_array']);
-          $vars['hgroup_third_classes'] = implode(' ', $vars['hgroup_third_classes_array']);
+          $variables['hgroup_first_width'] = implode(' ', $variables['hgroup_first_width_array']);
+          $variables['hgroup_second_width'] = implode(' ', $variables['hgroup_second_width_array']);
+          $variables['hgroup_third_width'] = implode(' ', $variables['hgroup_third_width_array']);
+          $variables['hgroup_third_classes'] = implode(' ', $variables['hgroup_third_classes_array']);
       }
     }
 
-    // Set content classes
+    // Set content classes.
     if ($region == 'sidebar_first' || $region == 'sidebar_second') {
       $base_grid_prefix = $grid["prefix{$media_count}"];
       $push_prefix = $base_grid_prefix . "push-";
@@ -367,19 +388,19 @@ function aether_preprocess_page(&$vars, $hook) {
       $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
       $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
       if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$sidebar_first_width ";
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$sidebar_first_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width " . $push_prefix . "$two_sidebar_width ";
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["width{$media_count}"];
       }
       if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width_sidebar_right ";
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$content_width_sidebar_right ";
       }
     }
   }
@@ -389,24 +410,24 @@ function aether_preprocess_page(&$vars, $hook) {
 /**
  * Implements hook_preprocess_node().
  */
-function aether_preprocess_node(&$vars) {
+function aether_preprocess_node(&$variables) {
   // Add a striping class.
-  $vars['classes_array'][] = 'node-' . $vars['zebra'];
+  $variables['classes_array'][] = 'node-' . $variables['zebra'];
   // Add $unpublished variable.
-  $vars['unpublished'] = (!$vars['status']) ? TRUE : FALSE;
+  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
 
   // Add pubdate to submitted variable.
-  $vars['pubdate'] = '<time pubdate datetime="' . format_date($vars['node']->created, 'custom', 'c') . '">' . $vars['date'] . '</time>';
-  if ($vars['display_submitted']) {
-    $vars['submitted'] = t('Submitted by !username on !datetime', array('!username' => $vars['name'], '!datetime' => $vars['pubdate']));
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . $variables['date'] . '</time>';
+  if ($variables['display_submitted']) {
+    $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['pubdate']));
   }
 }
 
 /**
- * Override or insert vars into the comment templates.
+ * Override or insert variables into the comment templates.
  *
- * @param $vars
- *   An array of vars to pass to the theme template.
+ * @param $variables
+ *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("comment" in this case.)
  */
@@ -435,41 +456,45 @@ function zen_preprocess_comment(&$variables, $hook) {
 /**
  * Implements hook_preprocess_block().
  */
-function aether_preprocess_block(&$vars, $hook) {
+function aether_preprocess_block(&$variables, $hook) {
   // Use a template with no wrapper for the page's main content.
-  if ($vars['block_html_id'] == 'block-system-main') {
-    $vars['theme_hook_suggestions'][] = 'block__no_wrapper';
+  if ($variables['block_html_id'] == 'block-system-main') {
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
   }
 
   // Classes describing the position of the block within the region.
-  if ($vars['block_id'] == 1) {
-    $vars['classes_array'][] = 'first';
+  if ($variables['block_id'] == 1) {
+    $variables['classes_array'][] = 'first';
   }
   // The last_in_region property is set in aether_page_alter().
-  if (isset($vars['block']->last_in_region)) {
-    $vars['classes_array'][] = 'last';
+  if (isset($variables['block']->last_in_region)) {
+    $variables['classes_array'][] = 'last';
   }
-  $vars['title_attributes_array']['class'][] = 'block-title';
+  $variables['title_attributes_array']['class'][] = 'block-title';
 
   // Add a striping class.
-  $vars['classes_array'][] = 'block-' . $vars['zebra'];
+  $variables['classes_array'][] = 'block-' . $variables['zebra'];
   // Add Aria Roles via attributes.
-  switch ($vars['block']->module) {
+  switch ($variables['block']->module) {
     case 'system':
-      switch ($vars['block']->delta) {
+      switch ($variables['block']->delta) {
         case 'main':
           // Note: the "main" role goes in the page.tpl, not here.
           break;
+
         case 'help':
         case 'powered-by':
-          $vars['attributes_array']['role'] = 'complementary';
+          $variables['attributes_array']['role'] = 'complementary';
           break;
+
         default:
           // Any other "system" block is a menu block.
-          $vars['attributes_array']['role'] = 'navigation';
+          $variables['attributes_array']['role'] = 'navigation';
           break;
+
       }
       break;
+
     case 'menu':
     case 'menu_block':
     case 'blog':
@@ -478,39 +503,48 @@ function aether_preprocess_block(&$vars, $hook) {
     case 'forum':
     case 'shortcut':
     case 'statistics':
-      $vars['attributes_array']['role'] = 'navigation';
+      $variables['attributes_array']['role'] = 'navigation';
       break;
+
     case 'search':
-      $vars['attributes_array']['role'] = 'search';
+      $variables['attributes_array']['role'] = 'search';
       break;
+
     case 'help':
     case 'aggregator':
     case 'locale':
     case 'poll':
     case 'profile':
-      $vars['attributes_array']['role'] = 'complementary';
+      $variables['attributes_array']['role'] = 'complementary';
       break;
+
     case 'node':
-      switch ($vars['block']->delta) {
+      switch ($variables['block']->delta) {
         case 'syndicate':
-          $vars['attributes_array']['role'] = 'complementary';
+          $variables['attributes_array']['role'] = 'complementary';
           break;
+
         case 'recent':
-          $vars['attributes_array']['role'] = 'navigation';
+          $variables['attributes_array']['role'] = 'navigation';
           break;
+
       }
       break;
+
     case 'user':
-      switch ($vars['block']->delta) {
+      switch ($variables['block']->delta) {
         case 'login':
-          $vars['attributes_array']['role'] = 'form';
+          $variables['attributes_array']['role'] = 'form';
           break;
+
         case 'new':
         case 'online':
-          $vars['attributes_array']['role'] = 'complementary';
+          $variables['attributes_array']['role'] = 'complementary';
           break;
+
       }
       break;
+
   }
 }
 
@@ -540,126 +574,127 @@ function aether_page_alter(&$page) {
 }
 
 /**
- * Preprocess vars for region.tpl.php
+ * Preprocess variables for region.tpl.php
  *
- * @param $vars
- *   An array of vars to pass to the theme template.
+ * @param $variables
+ *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("region" in this case.)
  */
-function aether_preprocess_region(&$vars, $hook) {
+function aether_preprocess_region(&$variables, $hook) {
   static $grid;
 
-  // Initialize grid info once per page
+  // Initialize grid info once per page.
   if (!isset($grid)) {
     $grid = aether_grid_info();
   }
 
   // Sidebar regions get some extra classes and a common template suggestion.
-  if (strpos($vars['region'], 'sidebar_') === 0) {
-    $vars['classes_array'][] = 'column';
-    $vars['classes_array'][] = 'sidebar';
-    $vars['content_attributes_array']['class'][] = 'sidebar-inner';
+  if (strpos($variables['region'], 'sidebar_') === 0) {
+    $variables['classes_array'][] = 'column';
+    $variables['classes_array'][] = 'sidebar';
+    $variables['content_attributes_array']['class'][] = 'sidebar-inner';
     // Allow a region-specific template to override aether's region--sidebar.
-    array_unshift($vars['theme_hook_suggestions'], 'region__sidebar');
+    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
   }
 
   // Footer region gets a common template suggestion.
-  if (strpos($vars['region'], 'footer') === 0) {
-    $vars['content_attributes_array']['class'][] = 'footer-inner';
+  if (strpos($variables['region'], 'footer') === 0) {
+    $variables['content_attributes_array']['class'][] = 'footer-inner';
     // Allow a region-specific template to override aether's region--sidebar.
-    array_unshift($vars['theme_hook_suggestions'], 'region__footer');
+    array_unshift($variables['theme_hook_suggestions'], 'region__footer');
   }
 
-  // Set region vars
-  $vars['region_style'] = $vars['fluid_width'] = '';
-  $vars['region_name'] = str_replace('_', '-', $vars['region']);
-  $vars['classes_array'][] = $vars['region_name'];
-  if (in_array($vars['region'], array_keys($grid['regions']))) {
-    // Set region full-width or nested style
-    $vars['region_style'] = $grid['regions'][$vars['region']]['style'];
-    $vars['classes_array'][] = ($vars['region_style'] == 'nested') ? $vars['region_style'] : '';
+  // Set region variables.
+  $variables['region_style'] = $variables['fluid_width'] = '';
+  $variables['region_name'] = str_replace('_', '-', $variables['region']);
+  $variables['classes_array'][] = $variables['region_name'];
+  if (in_array($variables['region'], array_keys($grid['regions']))) {
+    // Set region full-width or nested style.
+    $variables['region_style'] = $grid['regions'][$variables['region']]['style'];
+    $variables['classes_array'][] = ($variables['region_style'] == 'nested') ? $variables['region_style'] : '';
 
-  if (in_array('1', theme_get_setting('layout_options'))) {
-    $media_queries = theme_get_setting('media_queries');
+    if (in_array('1', theme_get_setting('layout_options'))) {
+      $media_queries = theme_get_setting('media_queries');
+    }
+    else {
+      $media_queries = 1;
+    }
+
+    for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
+      // Do we really need to duplicate all of these variables..
+      // or can they be set globally in $grid?
+      $base_grid_prefix = $grid["prefix{$media_count}"];
+      $push_prefix = $base_grid_prefix . "push-";
+      $pull_prefix = $base_grid_prefix . "pull-";
+      $offset_prefix = $base_grid_prefix . "o-";
+      $sidebar_first_width = $grid["sidebar_first_width{$media_count}"];
+      $sidebar_second_width = $grid["sidebar_second_width{$media_count}"];
+      $content_width = ($grid["width{$media_count}"] - $sidebar_first_width) - $sidebar_second_width;
+      $full_width = $grid["width{$media_count}"];
+      $two_sidebar_width = $sidebar_first_width + $sidebar_second_width;;
+      $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
+      $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
+
+      if (strpos($variables['region'], 'sidebar_first') === 0) {
+        if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
+          $variables['classes_array'][] = $offset_prefix . "$content_width ";
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
+        }
+      }
+
+      if (strpos($variables['region'], 'sidebar_second') === 0) {
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
+        if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
+          $variables['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
+          $variables['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
+          $variables['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+        }
+        if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
+          $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+        }
+      }
+      if (strpos($variables['region'], 'footer_first') === 0) {
+        $variables['classes_array'][] = $offset_prefix . '';
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_first_width{$media_count}"];
+      }
+      if (strpos($variables['region'], 'footer_second') === 0) {
+        $variables['classes_array'][] = $offset_prefix . '';
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_second_width{$media_count}"];
+      }
+      if (strpos($variables['region'], 'footer_third') === 0) {
+        $variables['classes_array'][] = $offset_prefix . '';
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_third_width{$media_count}"];
+      }
+      if (strpos($variables['region'], 'footer_fourth') === 0) {
+        $variables['classes_array'][] = $offset_prefix . '';
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_fourth_width{$media_count}"];
+      }
+      if ($variables['region'] == 'footer') {
+        $variables['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
+      }
+    }
   }
-  else {
-    $media_queries = 1;
-  }
-
-  for ($media_count = 1; $media_count <= $media_queries; $media_count++) {
-    // Do we really need to duplicate all of these vars.. or can they be set globally in $grid
-    $base_grid_prefix = $grid["prefix{$media_count}"];
-    $push_prefix = $base_grid_prefix . "push-";
-    $pull_prefix = $base_grid_prefix . "pull-";
-    $offset_prefix = $base_grid_prefix . "o-";
-    $sidebar_first_width = $grid["sidebar_first_width{$media_count}"];
-    $sidebar_second_width = $grid["sidebar_second_width{$media_count}"];
-    $content_width = ($grid["width{$media_count}"] - $sidebar_first_width) - $sidebar_second_width;
-    $full_width = $grid["width{$media_count}"];
-    $two_sidebar_width = $sidebar_first_width + $sidebar_second_width;;
-    $sidebar1_content_width = $grid["sidebar_first_width{$media_count}"] + $content_width;
-    $sidebar2_content_width = $grid["sidebar_second_width{$media_count}"] + $content_width;
-
-    if (strpos($vars['region'], 'sidebar_first') === 0) {
-      if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['classes_array'][] = $offset_prefix . "$content_width ";
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width " . $pull_prefix . "$content_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_first_width ";
-      }
-    }
-
-    if (strpos($vars['region'], 'sidebar_second') === 0) {
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
-      if (theme_get_setting("sidebar_layout{$media_count}") === '1') {
-        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '2') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$sidebar_second_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '3') {
-        $vars['classes_array'][] = $offset_prefix . "$sidebar1_content_width ";
-        $vars['content_attributes_array']['class'][] = $pull_prefix . "$content_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '4') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
-      }
-      if (theme_get_setting("sidebar_layout{$media_count}") === '5') {
-        $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
-      }
-    }
-    if (strpos($vars['region'], 'footer_first') === 0) {
-      $vars['classes_array'][] = $offset_prefix . '';
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_first_width{$media_count}"];
-    }
-    if (strpos($vars['region'], 'footer_second') === 0) {
-      $vars['classes_array'][] = $offset_prefix . '';
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_second_width{$media_count}"];
-    }
-    if (strpos($vars['region'], 'footer_third') === 0) {
-      $vars['classes_array'][] = $offset_prefix . '';
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_third_width{$media_count}"];
-    }
-    if (strpos($vars['region'], 'footer_fourth') === 0) {
-      $vars['classes_array'][] = $offset_prefix . '';
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . $grid["footer_fourth_width{$media_count}"];
-    }
-   if ($vars['region'] == 'footer') {
-      $vars['content_attributes_array']['class'][] = $base_grid_prefix . "$full_width ";
-    }
-  }
-}
 }
 
 
@@ -668,11 +703,12 @@ function aether_preprocess_region(&$vars, $hook) {
  *
  * @param $breadcrumb
  *   An array containing the breadcrumb links.
+ *
  * @return
  *   A string containing the breadcrumb output.
  */
-function aether_breadcrumb($vars) {
-  $breadcrumb = $vars['breadcrumb'];
+function aether_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
   $output = '';
 
   // Determine if we are to display the breadcrumb.
@@ -705,17 +741,17 @@ function aether_breadcrumb($vars) {
 
       // Provide a navigational heading to give context for breadcrumb links to
       // screen-reader users.
-      if (empty($vars['title'])) {
-        $vars['title'] = t('You are here');
+      if (empty($variables['title'])) {
+        $variables['title'] = t('You are here');
       }
       // Unless overridden by a preprocess function, make the heading invisible.
-      if (!isset($vars['title_attributes_array']['class'])) {
-        $vars['title_attributes_array']['class'][] = 'element-invisible';
+      if (!isset($variables['title_attributes_array']['class'])) {
+        $variables['title_attributes_array']['class'][] = 'element-invisible';
       }
 
       // Build the breadcrumb trail.
       $output = '<nav class="breadcrumb" role="navigation">';
-      $output .= '<h2' . drupal_attributes($vars['title_attributes_array']) . '>' . $vars['title'] . '</h2>';
+      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
       $output .= '<ul><li>' . implode($breadcrumb_separator . '</li><li>', $breadcrumb) . $trailing_separator . '</li></ul>';
       $output .= '</nav>';
     }
@@ -724,90 +760,23 @@ function aether_breadcrumb($vars) {
   return $output;
 }
 
-/*
- * 	Converts a string to a suitable html ID attribute.
- *
- * 	 http://www.w3.org/TR/html4/struct/global.html#h-7.5.2 specifies what makes a
- * 	 valid ID attribute in HTML. This function:
- *
- * 	- Ensure an ID starts with an alpha character by optionally adding an 'n'.
- * 	- Replaces any character except A-Z, numbers, and underscores with dashes.
- * 	- Converts entire string to lowercase.
- *
- * 	@param $string
- * 	  The string
- * 	@return
- * 	  The converted string
- */
-function aether_id_safe($string) {
-  // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
-  $string = strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
-  // If the first character is not a-z, add 'n' in front.
-  if (!ctype_lower($string{0})) { // Don't use ctype_alpha since its locale aware.
-    $string = 'id'. $string;
-  }
-  return $string;
-}
-
 /**
- * Generate the HTML output for a menu link and submenu.
- *
- * @param $vars
- *   An associative array containing:
- *   - element: Structured array data for a menu link.
- *
- * @return
- *   A themed HTML string.
- *
- * @ingroup themeable
- */
-function aether_menu_link(array $vars) {
-  $element = $vars['element'];
-  $sub_menu = '';
-
-  if ($element['#below']) {
-    $sub_menu = drupal_render($element['#below']);
-  }
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  // Adding a class depending on the TITLE of the link (not constant)
-  $element['#attributes']['class'][] = aether_id_safe($element['#title']);
-  // Adding a class depending on the ID of the link (constant)
-  $element['#attributes']['class'][] = 'mid-' . $element['#original_link']['mlid'];
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
-
-/**
- * Override or insert vars into theme_menu_local_task().
- */
-function aether_preprocess_menu_local_task(&$vars) {
-  $link =& $vars['element']['#link'];
-
-  // If the link does not contain HTML already, check_plain() it now.
-  // After we set 'html'=TRUE the link will not be sanitized by l().
-  if (empty($link['localized_options']['html'])) {
-    $link['title'] = check_plain($link['title']);
-  }
-  $link['localized_options']['html'] = TRUE;
-  $link['title'] = '<span class="tab">' . $link['title'] . '</span>';
-}
-
-/*
  *  Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
-function aether_menu_local_tasks(&$vars) {
+function aether_menu_local_tasks(&$variables) {
   $output = '';
 
-  if (!empty($vars['primary'])) {
-    $vars['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $vars['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
-    $vars['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($vars['primary']);
+  if (!empty($variables['primary'])) {
+    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
+    $variables['primary']['#suffix'] = '</ul>';
+    $output .= drupal_render($variables['primary']);
   }
-  if (!empty($vars['secondary'])) {
-    $vars['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $vars['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
-    $vars['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($vars['secondary']);
+  if (!empty($variables['secondary'])) {
+    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
+    $variables['secondary']['#suffix'] = '</ul>';
+    $output .= drupal_render($variables['secondary']);
   }
 
   return $output;
@@ -838,16 +807,15 @@ function aether_form_node_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Make Drupal core generated images responsive i.e. flexible in width.
  */
-function aether_image($vars) {
-  $attributes = $vars['attributes'];
-  $attributes['src'] = file_create_url($vars['path']);
+function aether_image($variables) {
+  $attributes = $variables['attributes'];
+  $attributes['src'] = file_create_url($variables['path']);
 
-  // remove width and height attributes
+  // Remove width and height attributes.
   foreach (array('alt', 'title') as $key) {
-    if (isset($vars[$key])) {
-      $attributes[$key] = $vars[$key];
+    if (isset($variables[$key])) {
+      $attributes[$key] = $variables[$key];
     }
   }
   return '<img' . drupal_attributes($attributes) . ' />';
 }
-
