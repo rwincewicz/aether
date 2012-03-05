@@ -1,8 +1,11 @@
+#page {
+  overflow: hidden;
+}
+
 .inside {
   width: $max-desktop-width;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 }
 
 #{$_allColumns} {
