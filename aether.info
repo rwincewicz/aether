@@ -64,17 +64,13 @@ stylesheets[all][] = css/screen.css
 ; Theme Settings Defaults.
 ; --------------------------------------------------------------------------------
 
+; Standard defaults.
 settings[aether_tabs] = 1
 settings[aether_breadcrumb_separator] = ' » '
 settings[wireframe_mode] = 0
 settings[clear_registry] = 0
 
-; Responsive settings
-settings[layout_options][] = '1'
-settings[layout_options][] = '2'
-settings[layout_options][] = '3'
-settings[layout_options][] = '2'
-settings[layout_options][] = '3'
+; Responsive javascript.
 settings[aether_html5_respond_meta][] = respond
 settings[aether_html5_respond_meta][] = html5
 settings[aether_html5_respond_meta][] = ioszoombugfix
@@ -82,85 +78,120 @@ settings[aether_html5_respond_meta][] = meta
 settings[aether_html5_respond_meta][] = selectivizr
 settings[aether_html5_respond_meta][] = imgsizer
 
-; Layout settings
+; Amount of media queries to use.
 settings[media_queries] = '5'
+
+; Base css prefixes for each of the 5 media queries.
 settings[grid_prefix1] = g-d-
 settings[grid_prefix2] = g-tl-
 settings[grid_prefix3] = g-t-
 settings[grid_prefix4] = g-hl-
 settings[grid_prefix5] = g-h-
+
+; Default layout breakdown for each of the 5 media queries.
+settings[layout_options][] = '1'
+settings[layout_options][] = '2'
+settings[layout_options][] = '3'
+settings[layout_options][] = '2'
+settings[layout_options][] = '3'
+
+; Gutter width choices.
 settings[gutter_width] = 10
+
+; Supported grids for each of the 5 media queries.
 settings[theme_grid1] = grid12-1150
 settings[theme_grid_options1][] = grid12-1150
-;settings[theme_grid_options1][] = grid16-1130
-;settings[theme_grid_options1][] = grid12-970
-;settings[theme_grid_options1][] = grid16-970
 settings[theme_grid2] = grid12-970
 settings[theme_grid_options2][] = grid12-970
-;settings[theme_grid_options2][] = grid16-970
 settings[theme_grid3] = grid12-754
 settings[theme_grid_options3][] = grid12-754
-;settings[theme_grid_options3][] = grid16-730
 settings[theme_grid4] = grid12-430
 settings[theme_grid_options4][] = grid12-430
-;settings[theme_grid_options4][] = grid16-410
 settings[theme_grid5] = grid12-310
 settings[theme_grid_options5][] = grid12-310
+
+; Sidebar layout defaults for each of the 5 media queries.
 settings[sidebar_layout1] = '1'
 settings[sidebar_layout2] = '1'
 settings[sidebar_layout3] = '1'
 settings[sidebar_layout4] = '4'
 settings[sidebar_layout5] = '4'
+
+; Header layout defaults for each of the 5 media queries.
 settings[hgroup_layout1] = '1'
 settings[hgroup_layout2] = '1'
 settings[hgroup_layout3] = '1'
 settings[hgroup_layout4] = '2'
 settings[hgroup_layout5] = '3'
+
+; Sidebar widths for each of the 5 media queries.
 settings[sidebar_first_width1] = '3'
 settings[sidebar_second_width1] = '3'
+
 settings[sidebar_first_width2] = '3'
 settings[sidebar_second_width2] = '3'
+
 settings[sidebar_first_width3] = '3'
 settings[sidebar_second_width3] = '3'
+
 settings[sidebar_first_width4] = '3'
 settings[sidebar_second_width4] = '3'
+
 settings[sidebar_first_width5] = '3'
 settings[sidebar_second_width5] = '3'
+
+
+; Individual width defaults for each main menu li on each of the 5 media queries.
 settings[nav_link_width1] = '2'
 settings[nav_link_width2] = '2'
 settings[nav_link_width3] = '2'
 settings[nav_link_width4] = '4'
 settings[nav_link_width5] = '4'
+
+
+; Header width defaults for each of the 5 media queries
 settings[hgroup_first_width1] = '1'
-settings[hgroup_first_width2] = '1'
-settings[hgroup_first_width3] = '2'
-settings[hgroup_first_width4] = '3'
-settings[hgroup_first_width5] = '4'
 settings[hgroup_third_width1] = '3'
+
+settings[hgroup_first_width2] = '1'
 settings[hgroup_third_width2] = '3'
+
+settings[hgroup_first_width3] = '2'
 settings[hgroup_third_width3] = '3'
+
+settings[hgroup_first_width4] = '3'
 settings[hgroup_third_width4] = '3'
+
+settings[hgroup_first_width5] = '4'
 settings[hgroup_third_width5] = '3'
+
+
+; Footer region width defaults for each of the 5 media queries
 settings[footer_first_width1] = '3'
-settings[footer_first_width2] = '3'
-settings[footer_first_width3] = '6'
-settings[footer_first_width4] = '12'
-settings[footer_first_width5] = '12'
 settings[footer_second_width1] = '3'
-settings[footer_second_width2] = '3'
-settings[footer_second_width3] = '6'
-settings[footer_second_width4] = '12'
-settings[footer_second_width5] = '12'
 settings[footer_third_width1] = '3'
-settings[footer_third_width2] = '3'
-settings[footer_third_width3] = '6'
-settings[footer_third_width4] = '12'
-settings[footer_third_width5] = '12'
 settings[footer_fourth_width1] = '3'
+
+settings[footer_first_width2] = '3'
+settings[footer_second_width2] = '3'
+settings[footer_third_width2] = '3'
 settings[footer_fourth_width2] = '3'
+
+settings[footer_first_width3] = '6'
+settings[footer_second_width3] = '6'
+settings[footer_third_width3] = '6'
 settings[footer_fourth_width3] = '6'
+
+settings[footer_first_width4] = '12'
+settings[footer_second_width4] = '12'
+settings[footer_third_width4] = '12'
 settings[footer_fourth_width4] = '12'
+
+settings[footer_first_width5] = '12'
+settings[footer_second_width5] = '12'
+settings[footer_third_width5] = '12'
 settings[footer_fourth_width5] = '12'
+
 
 ; Grid layout settings (Advanced)
 ; Nested grid regions without full-width wrappers
